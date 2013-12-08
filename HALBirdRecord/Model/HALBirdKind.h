@@ -10,6 +10,8 @@
 
 @interface HALBirdKind : NSObject
 
++ (instancetype)sharedBirdKind;
+
 @property(nonatomic, readonly) NSArray *birdKindList;
 @property(nonatomic, readonly) int numberOfGroups;
 

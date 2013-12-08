@@ -13,7 +13,7 @@
 @interface HALBirdKindListViewController ()
 @property (weak, nonatomic) IBOutlet UIView *BirdListView;
 
-@property(nonatomic) UIViewController *birdListViewController;
+@property(nonatomic) UIViewController<HALBirdRecordViewDelegate> *birdListViewController;
 
 @end
 
@@ -24,6 +24,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.title = @"野鳥リスト";
     }
     return self;
 }
@@ -34,12 +35,23 @@
     // Do any additional setup after loading the view from its nib.
     self.birdListViewController = [HALFlatBirdKindListTableViewController viewControllerFromNib];
     [self.BirdListView addSubview:self.birdListViewController.view];
+
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存"
+                                                                              style:UIBarButtonItemStyleBordered
+                                                                             target:self
+                                                                             action:@selector(onTapSaveButton:)];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)onTapSaveButton:(id)sender
+{
+    HALBirdRecord *record = [self.birdListViewController sendBirdRecord];
+    NSLog(@"%@", record.birdRecordList);
 }
 
 @end

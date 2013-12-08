@@ -15,6 +15,16 @@
 
 @implementation HALBirdKind
 
++ (instancetype)sharedBirdKind
+{
+    static dispatch_once_t onceToken;
+    static HALBirdKind *sharedObject;
+    dispatch_once(&onceToken, ^{
+        sharedObject = [[HALBirdKind alloc] init];
+    });
+    return sharedObject;
+}
+
 - (id)init
 {
     self = [super init];

@@ -9,10 +9,13 @@
 #import "HALFlatBirdKindListTableViewController.h"
 #import "HALBirdKind.h"
 #import "HALBirdKindEntity.h"
+#import "HALBirdRecord.h"
+#import "HALBirdRecordEntity.h"
 
 @interface HALFlatBirdKindListTableViewController ()
 
 @property(nonatomic) HALBirdKind *birdKind;
+@property(nonatomic) HALBirdRecord *birdRecord;
 
 @end
 
@@ -22,7 +25,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.birdKind = [[HALBirdKind alloc] init];
+        [self setup];
     }
     return self;
 }
@@ -32,9 +35,15 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
-        self.birdKind = [[HALBirdKind alloc] init];
+        [self setup];
     }
     return self;
+}
+
+- (void)setup
+{
+    self.birdKind = [HALBirdKind sharedBirdKind];
+    self.birdRecord = [[HALBirdRecord alloc] init];
 }
 
 - (void)viewDidLoad
@@ -137,8 +146,17 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    HALBirdRecordEntity *recordEntity = self.birdRecord.birdRecordList[indexPath.section][indexPath.row];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    cell.accessoryType = cell.accessoryType == UITableViewCellAccessoryNone ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    recordEntity.saw = !recordEntity.saw;
+    cell.accessoryType = recordEntity.saw ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+}
+
+#pragma mark - HALBirdRecordViewDelegate
+
+- (HALBirdRecord *)sendBirdRecord
+{
+    return self.birdRecord;
 }
 
 @end

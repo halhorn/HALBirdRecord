@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HALBirdKindListViewController.h"
 
-@interface HALFlatBirdKindListTableViewController : UITableViewController
+@interface HALFlatBirdKindListTableViewController : UITableViewController<HALBirdRecordViewDelegate>
 
 @end

@@ -7,6 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HALBirdRecord.h"
+
+@protocol HALBirdRecordViewDelegate <NSObject>
+
+- (HALBirdRecord *)sendBirdRecord;
+
+@end
 
 @interface HALBirdKindListViewController : UIViewController
 

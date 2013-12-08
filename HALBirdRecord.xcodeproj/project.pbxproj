@@ -27,6 +27,9 @@
 		295E90B0185410C5000BA5FE /* HALFlatBirdKindListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 295E90AE185410C5000BA5FE /* HALFlatBirdKindListTableViewController.xib */; };
 		295E90B41854111D000BA5FE /* HALBirdKind.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E90B31854111D000BA5FE /* HALBirdKind.m */; };
 		295E90B818541369000BA5FE /* HALBirdKindEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E90B718541369000BA5FE /* HALBirdKindEntity.m */; };
+		295E90C118546328000BA5FE /* HALBirdRecordEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E90C018546328000BA5FE /* HALBirdRecordEntity.m */; };
+		295E90C3185466F4000BA5FE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 295E90C2185466F4000BA5FE /* CoreLocation.framework */; };
+		295E90C61854A861000BA5FE /* HALBirdRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E90C51854A861000BA5FE /* HALBirdRecord.m */; };
 		8CB74CD249324A338FFEA57C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A83F48CF6BC54B5CA5918A6C /* libPods.a */; };
 		A816F01858504F41A6567D35 /* libPods-HALBirdRecordTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C62F65DBDAAF458D961E9430 /* libPods-HALBirdRecordTests.a */; };
 /* End PBXBuildFile section */
@@ -71,6 +74,11 @@
 		295E90B31854111D000BA5FE /* HALBirdKind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALBirdKind.m; sourceTree = "<group>"; };
 		295E90B618541369000BA5FE /* HALBirdKindEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALBirdKindEntity.h; sourceTree = "<group>"; };
 		295E90B718541369000BA5FE /* HALBirdKindEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALBirdKindEntity.m; sourceTree = "<group>"; };
+		295E90BF18546328000BA5FE /* HALBirdRecordEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALBirdRecordEntity.h; sourceTree = "<group>"; };
+		295E90C018546328000BA5FE /* HALBirdRecordEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALBirdRecordEntity.m; sourceTree = "<group>"; };
+		295E90C2185466F4000BA5FE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		295E90C41854A861000BA5FE /* HALBirdRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALBirdRecord.h; sourceTree = "<group>"; };
+		295E90C51854A861000BA5FE /* HALBirdRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALBirdRecord.m; sourceTree = "<group>"; };
 		2E26AEA3F8A241B2901F84F9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		453973F184E84C35930BA507 /* Pods-HALBirdRecordTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HALBirdRecordTests.xcconfig"; path = "Pods/Pods-HALBirdRecordTests.xcconfig"; sourceTree = "<group>"; };
 		A83F48CF6BC54B5CA5918A6C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				295E90C3185466F4000BA5FE /* CoreLocation.framework in Frameworks */,
 				295E905F1853FE3D000BA5FE /* CoreGraphics.framework in Frameworks */,
 				295E90611853FE3E000BA5FE /* UIKit.framework in Frameworks */,
 				295E905D1853FE3D000BA5FE /* Foundation.framework in Frameworks */,
@@ -127,6 +136,7 @@
 		295E905B1853FE3D000BA5FE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				295E90C2185466F4000BA5FE /* CoreLocation.framework */,
 				295E905C1853FE3D000BA5FE /* Foundation.framework */,
 				295E905E1853FE3D000BA5FE /* CoreGraphics.framework */,
 				295E90601853FE3E000BA5FE /* UIKit.framework */,
@@ -225,6 +235,8 @@
 			children = (
 				295E90B21854111D000BA5FE /* HALBirdKind.h */,
 				295E90B31854111D000BA5FE /* HALBirdKind.m */,
+				295E90C41854A861000BA5FE /* HALBirdRecord.h */,
+				295E90C51854A861000BA5FE /* HALBirdRecord.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -234,6 +246,8 @@
 			children = (
 				295E90B618541369000BA5FE /* HALBirdKindEntity.h */,
 				295E90B718541369000BA5FE /* HALBirdKindEntity.m */,
+				295E90BF18546328000BA5FE /* HALBirdRecordEntity.h */,
+				295E90C018546328000BA5FE /* HALBirdRecordEntity.m */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -410,6 +424,8 @@
 				295E90691853FE3E000BA5FE /* main.m in Sources */,
 				295E909B18540994000BA5FE /* UIViewController+HALViewControllerFromNib.m in Sources */,
 				295E90B818541369000BA5FE /* HALBirdKindEntity.m in Sources */,
+				295E90C61854A861000BA5FE /* HALBirdRecord.m in Sources */,
+				295E90C118546328000BA5FE /* HALBirdRecordEntity.m in Sources */,
 				295E90B41854111D000BA5FE /* HALBirdKind.m in Sources */,
 				295E90AF185410C5000BA5FE /* HALFlatBirdKindListTableViewController.m in Sources */,
 			);
