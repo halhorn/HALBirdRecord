@@ -7,17 +7,18 @@
 //
 
 #import "HALAppDelegate.h"
-#import "HALBirdListViewController.h"
+#import "HALBirdKindListViewController.h"
 #import "UIViewController+HALViewControllerFromNib.h"
 
 @implementation HALAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    HALBirdListViewController *viewController = [HALBirdListViewController viewControllerFromNib];
+    HALBirdKindListViewController *viewController = [HALBirdKindListViewController viewControllerFromNib];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
-
+    navigationController.navigationBar.translucent = NO;
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
     return YES;

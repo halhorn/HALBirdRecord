@@ -1,18 +1,23 @@
 //
-//  HALBirdListViewController.m
+//  HALBirdKindListViewController.m
 //  HALBirdRecord
 //
 //  Created by 信田 春満 on 2013/12/08.
 //  Copyright (c) 2013年 halhorn. All rights reserved.
 //
 
-#import "HALBirdListViewController.h"
+#import "HALBirdKindListViewController.h"
+#import "HALFlatBirdKindListTableViewController.h"
+#import "UIViewController+HALViewControllerFromNib.h"
 
-@interface HALBirdListViewController ()
+@interface HALBirdKindListViewController ()
+@property (weak, nonatomic) IBOutlet UIView *BirdListView;
+
+@property(nonatomic) UIViewController *birdListViewController;
 
 @end
 
-@implementation HALBirdListViewController
+@implementation HALBirdKindListViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,6 +32,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.birdListViewController = [HALFlatBirdKindListTableViewController viewControllerFromNib];
+    [self.BirdListView addSubview:self.birdListViewController.view];
 }
 
 - (void)didReceiveMemoryWarning

@@ -19,10 +19,14 @@
 		295E907E1853FE3E000BA5FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 295E90601853FE3E000BA5FE /* UIKit.framework */; };
 		295E90861853FE3E000BA5FE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 295E90841853FE3E000BA5FE /* InfoPlist.strings */; };
 		295E90881853FE3E000BA5FE /* HALBirdRecordTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E90871853FE3E000BA5FE /* HALBirdRecordTests.m */; };
-		295E909618540897000BA5FE /* HALBirdListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E909418540897000BA5FE /* HALBirdListViewController.m */; };
-		295E909718540897000BA5FE /* HALBirdListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 295E909518540897000BA5FE /* HALBirdListViewController.xib */; };
 		295E909B18540994000BA5FE /* UIViewController+HALViewControllerFromNib.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E909A18540994000BA5FE /* UIViewController+HALViewControllerFromNib.m */; };
 		295E909E18540C44000BA5FE /* BirdKind.plist in Resources */ = {isa = PBXBuildFile; fileRef = 295E909D18540C44000BA5FE /* BirdKind.plist */; };
+		295E90AA18541087000BA5FE /* HALBirdKindListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E90A818541087000BA5FE /* HALBirdKindListViewController.m */; };
+		295E90AB18541087000BA5FE /* HALBirdKindListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 295E90A918541087000BA5FE /* HALBirdKindListViewController.xib */; };
+		295E90AF185410C5000BA5FE /* HALFlatBirdKindListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E90AD185410C5000BA5FE /* HALFlatBirdKindListTableViewController.m */; };
+		295E90B0185410C5000BA5FE /* HALFlatBirdKindListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 295E90AE185410C5000BA5FE /* HALFlatBirdKindListTableViewController.xib */; };
+		295E90B41854111D000BA5FE /* HALBirdKind.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E90B31854111D000BA5FE /* HALBirdKind.m */; };
+		295E90B818541369000BA5FE /* HALBirdKindEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E90B718541369000BA5FE /* HALBirdKindEntity.m */; };
 		8CB74CD249324A338FFEA57C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A83F48CF6BC54B5CA5918A6C /* libPods.a */; };
 		A816F01858504F41A6567D35 /* libPods-HALBirdRecordTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C62F65DBDAAF458D961E9430 /* libPods-HALBirdRecordTests.a */; };
 /* End PBXBuildFile section */
@@ -54,12 +58,19 @@
 		295E90831853FE3E000BA5FE /* HALBirdRecordTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HALBirdRecordTests-Info.plist"; sourceTree = "<group>"; };
 		295E90851853FE3E000BA5FE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		295E90871853FE3E000BA5FE /* HALBirdRecordTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HALBirdRecordTests.m; sourceTree = "<group>"; };
-		295E909318540897000BA5FE /* HALBirdListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALBirdListViewController.h; sourceTree = "<group>"; };
-		295E909418540897000BA5FE /* HALBirdListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALBirdListViewController.m; sourceTree = "<group>"; };
-		295E909518540897000BA5FE /* HALBirdListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALBirdListViewController.xib; sourceTree = "<group>"; };
 		295E909918540994000BA5FE /* UIViewController+HALViewControllerFromNib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HALViewControllerFromNib.h"; sourceTree = "<group>"; };
 		295E909A18540994000BA5FE /* UIViewController+HALViewControllerFromNib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HALViewControllerFromNib.m"; sourceTree = "<group>"; };
 		295E909D18540C44000BA5FE /* BirdKind.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BirdKind.plist; sourceTree = "<group>"; };
+		295E90A718541087000BA5FE /* HALBirdKindListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALBirdKindListViewController.h; sourceTree = "<group>"; };
+		295E90A818541087000BA5FE /* HALBirdKindListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALBirdKindListViewController.m; sourceTree = "<group>"; };
+		295E90A918541087000BA5FE /* HALBirdKindListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALBirdKindListViewController.xib; sourceTree = "<group>"; };
+		295E90AC185410C5000BA5FE /* HALFlatBirdKindListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALFlatBirdKindListTableViewController.h; sourceTree = "<group>"; };
+		295E90AD185410C5000BA5FE /* HALFlatBirdKindListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALFlatBirdKindListTableViewController.m; sourceTree = "<group>"; };
+		295E90AE185410C5000BA5FE /* HALFlatBirdKindListTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALFlatBirdKindListTableViewController.xib; sourceTree = "<group>"; };
+		295E90B21854111D000BA5FE /* HALBirdKind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALBirdKind.h; sourceTree = "<group>"; };
+		295E90B31854111D000BA5FE /* HALBirdKind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALBirdKind.m; sourceTree = "<group>"; };
+		295E90B618541369000BA5FE /* HALBirdKindEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALBirdKindEntity.h; sourceTree = "<group>"; };
+		295E90B718541369000BA5FE /* HALBirdKindEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALBirdKindEntity.m; sourceTree = "<group>"; };
 		2E26AEA3F8A241B2901F84F9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		453973F184E84C35930BA507 /* Pods-HALBirdRecordTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HALBirdRecordTests.xcconfig"; path = "Pods/Pods-HALBirdRecordTests.xcconfig"; sourceTree = "<group>"; };
 		A83F48CF6BC54B5CA5918A6C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +145,8 @@
 				295E90741853FE3E000BA5FE /* Images.xcassets */,
 				295E909818540910000BA5FE /* Category */,
 				295E909C18540BDB000BA5FE /* Data */,
+				295E90B518541332000BA5FE /* Entity */,
+				295E90B1185410D4000BA5FE /* Model */,
 				295E90631853FE3E000BA5FE /* Supporting Files */,
 				295E909118540804000BA5FE /* ViewController */,
 			);
@@ -172,19 +185,22 @@
 		295E909118540804000BA5FE /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				295E909218540836000BA5FE /* BirdList */,
+				295E909218540836000BA5FE /* BirdKind */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		295E909218540836000BA5FE /* BirdList */ = {
+		295E909218540836000BA5FE /* BirdKind */ = {
 			isa = PBXGroup;
 			children = (
-				295E909318540897000BA5FE /* HALBirdListViewController.h */,
-				295E909418540897000BA5FE /* HALBirdListViewController.m */,
-				295E909518540897000BA5FE /* HALBirdListViewController.xib */,
+				295E90A718541087000BA5FE /* HALBirdKindListViewController.h */,
+				295E90A818541087000BA5FE /* HALBirdKindListViewController.m */,
+				295E90A918541087000BA5FE /* HALBirdKindListViewController.xib */,
+				295E90AC185410C5000BA5FE /* HALFlatBirdKindListTableViewController.h */,
+				295E90AD185410C5000BA5FE /* HALFlatBirdKindListTableViewController.m */,
+				295E90AE185410C5000BA5FE /* HALFlatBirdKindListTableViewController.xib */,
 			);
-			path = BirdList;
+			path = BirdKind;
 			sourceTree = "<group>";
 		};
 		295E909818540910000BA5FE /* Category */ = {
@@ -202,6 +218,24 @@
 				295E909D18540C44000BA5FE /* BirdKind.plist */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		295E90B1185410D4000BA5FE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				295E90B21854111D000BA5FE /* HALBirdKind.h */,
+				295E90B31854111D000BA5FE /* HALBirdKind.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		295E90B518541332000BA5FE /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				295E90B618541369000BA5FE /* HALBirdKindEntity.h */,
+				295E90B718541369000BA5FE /* HALBirdKindEntity.m */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,10 +319,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				295E909718540897000BA5FE /* HALBirdListViewController.xib in Resources */,
 				295E909E18540C44000BA5FE /* BirdKind.plist in Resources */,
 				295E90751853FE3E000BA5FE /* Images.xcassets in Resources */,
 				295E90671853FE3E000BA5FE /* InfoPlist.strings in Resources */,
+				295E90AB18541087000BA5FE /* HALBirdKindListViewController.xib in Resources */,
+				295E90B0185410C5000BA5FE /* HALFlatBirdKindListTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,9 +406,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				295E906D1853FE3E000BA5FE /* HALAppDelegate.m in Sources */,
-				295E909618540897000BA5FE /* HALBirdListViewController.m in Sources */,
+				295E90AA18541087000BA5FE /* HALBirdKindListViewController.m in Sources */,
 				295E90691853FE3E000BA5FE /* main.m in Sources */,
 				295E909B18540994000BA5FE /* UIViewController+HALViewControllerFromNib.m in Sources */,
+				295E90B818541369000BA5FE /* HALBirdKindEntity.m in Sources */,
+				295E90B41854111D000BA5FE /* HALBirdKind.m in Sources */,
+				295E90AF185410C5000BA5FE /* HALFlatBirdKindListTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
