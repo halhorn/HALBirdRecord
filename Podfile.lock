@@ -1,0 +1,42 @@
+PODS:
+  - BlocksKit (1.8.3):
+    - libffi
+  - Facebook-iOS-SDK (3.10.0)
+  - FMDB (2.1):
+    - FMDB/standard
+  - FMDB/common (2.1)
+  - FMDB/standard (2.1):
+    - FMDB/common
+  - GoogleAnalytics-iOS-SDK (3.0.2)
+  - Kiwi (2.2.3):
+    - Kiwi/SenTestingKit
+  - Kiwi/ARC (2.2.3)
+  - Kiwi/NonARC (2.2.3)
+  - Kiwi/SenTestingKit (2.2.3):
+    - Kiwi/ARC
+    - Kiwi/NonARC
+  - libffi (3.0.13)
+  - Parse (1.2.16):
+    - Facebook-iOS-SDK (~> 3.9)
+  - SVProgressHUD (1.0)
+
+DEPENDENCIES:
+  - BlocksKit (= 1.8.3)
+  - Facebook-iOS-SDK
+  - FMDB
+  - GoogleAnalytics-iOS-SDK (~> 3.0)
+  - Kiwi (>= 2.2.1)
+  - Parse
+  - SVProgressHUD
+
+SPEC CHECKSUMS:
+  BlocksKit: 27257f9cbbec0ea98c80ba83cc2ea7111ae62eb2
+  Facebook-iOS-SDK: ef402579aeb30cf0c4a6370fb0a927e3dc3059e5
+  FMDB: 3fd5aaf632ca4ed39e3f101e0398504e6d5b0918
+  GoogleAnalytics-iOS-SDK: 86393b99f7328ae8d8e975fcaa8632a39dafafe8
+  Kiwi: 04c51e880831d291748ec702d42c4101f7eb95c9
+  libffi: 64ef39353e747bb2b25e1026afd96a157bf9231c
+  Parse: 18f62939dd2d13a66270f4cb9a98401d88e3ad54
+  SVProgressHUD: 5e10939a296debf5fe5a5895eda9539b8b2114f1
+
+COCOAPODS: 0.28.0

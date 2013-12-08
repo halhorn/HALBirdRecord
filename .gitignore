@@ -1,3 +1,24 @@
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+.*.sw[a-z]
+*.un~
+.netrwhist
+
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+.elc
+auto-save-list
+tramp
+.\#*
+
+
 # Xcode
 .DS_Store
 */build/*
@@ -17,5 +38,15 @@ DerivedData
 *.hmap
 *.xccheckout
 
+# Xcode4
+project.xcworkspace
+!default.xcworkspace 
+
 #CocoaPods
 Pods
+
+### bundle config
+bin/
+
+
+
