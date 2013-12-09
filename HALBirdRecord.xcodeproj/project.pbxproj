@@ -1,1186 +1,649 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>1A44A5E89E5E4BD6B64FE8E6</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>295E90501853FE3D000BA5FE</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>295E90621853FE3E000BA5FE</string>
-				<string>295E90811853FE3E000BA5FE</string>
-				<string>295E905B1853FE3D000BA5FE</string>
-				<string>295E905A1853FE3D000BA5FE</string>
-				<string>2E26AEA3F8A241B2901F84F9</string>
-				<string>453973F184E84C35930BA507</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>295E90511853FE3D000BA5FE</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>CLASSPREFIX</key>
-				<string>HAL</string>
-				<key>LastUpgradeCheck</key>
-				<string>0500</string>
-				<key>ORGANIZATIONNAME</key>
-				<string>halhorn</string>
-				<key>TargetAttributes</key>
-				<dict>
-					<key>295E90791853FE3E000BA5FE</key>
-					<dict>
-						<key>TestTargetID</key>
-						<string>295E90581853FE3D000BA5FE</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>295E90541853FE3D000BA5FE</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-				<string>Base</string>
-			</array>
-			<key>mainGroup</key>
-			<string>295E90501853FE3D000BA5FE</string>
-			<key>productRefGroup</key>
-			<string>295E905A1853FE3D000BA5FE</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>295E90581853FE3D000BA5FE</string>
-				<string>295E90791853FE3E000BA5FE</string>
-			</array>
-		</dict>
-		<key>295E90541853FE3D000BA5FE</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>295E90891853FE3E000BA5FE</string>
-				<string>295E908A1853FE3E000BA5FE</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>295E90551853FE3D000BA5FE</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>295E906D1853FE3E000BA5FE</string>
-				<string>295E90731853FE3E000BA5FE</string>
-				<string>295E90691853FE3E000BA5FE</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>295E90561853FE3D000BA5FE</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>295E905F1853FE3D000BA5FE</string>
-				<string>295E90611853FE3E000BA5FE</string>
-				<string>295E905D1853FE3D000BA5FE</string>
-				<string>8CB74CD249324A338FFEA57C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>295E90571853FE3D000BA5FE</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>295E90751853FE3E000BA5FE</string>
-				<string>295E90671853FE3E000BA5FE</string>
-				<string>295E90701853FE3E000BA5FE</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>295E90581853FE3D000BA5FE</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>295E908B1853FE3E000BA5FE</string>
-			<key>buildPhases</key>
-			<array>
-				<string>B3F38DC59B9B48EF9EF358A5</string>
-				<string>295E90551853FE3D000BA5FE</string>
-				<string>295E90561853FE3D000BA5FE</string>
-				<string>295E90571853FE3D000BA5FE</string>
-				<string>A7D2BDBBC8954FC5A24E97DF</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>HALBirdRecord</string>
-			<key>productName</key>
-			<string>HALBirdRecord</string>
-			<key>productReference</key>
-			<string>295E90591853FE3D000BA5FE</string>
-			<key>productType</key>
-			<string>com.apple.product-type.application</string>
-		</dict>
-		<key>295E90591853FE3D000BA5FE</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.application</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>HALBirdRecord.app</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>295E905A1853FE3D000BA5FE</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>295E90591853FE3D000BA5FE</string>
-				<string>295E907A1853FE3E000BA5FE</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>295E905B1853FE3D000BA5FE</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>295E905C1853FE3D000BA5FE</string>
-				<string>295E905E1853FE3D000BA5FE</string>
-				<string>295E90601853FE3E000BA5FE</string>
-				<string>295E907B1853FE3E000BA5FE</string>
-				<string>A83F48CF6BC54B5CA5918A6C</string>
-				<string>C62F65DBDAAF458D961E9430</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>295E905C1853FE3D000BA5FE</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Foundation.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/Foundation.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>295E905D1853FE3D000BA5FE</key>
-		<dict>
-			<key>fileRef</key>
-			<string>295E905C1853FE3D000BA5FE</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>295E905E1853FE3D000BA5FE</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>CoreGraphics.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/CoreGraphics.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>295E905F1853FE3D000BA5FE</key>
-		<dict>
-			<key>fileRef</key>
-			<string>295E905E1853FE3D000BA5FE</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>295E90601853FE3E000BA5FE</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>UIKit.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/UIKit.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>295E90611853FE3E000BA5FE</key>
-		<dict>
-			<key>fileRef</key>
-			<string>295E90601853FE3E000BA5FE</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>295E90621853FE3E000BA5FE</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>295E906B1853FE3E000BA5FE</string>
-				<string>295E906C1853FE3E000BA5FE</string>
-				<string>295E906E1853FE3E000BA5FE</string>
-				<string>295E90711853FE3E000BA5FE</string>
-				<string>295E90721853FE3E000BA5FE</string>
-				<string>295E90741853FE3E000BA5FE</string>
-				<string>295E90631853FE3E000BA5FE</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>HALBirdRecord</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>295E90631853FE3E000BA5FE</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>295E90641853FE3E000BA5FE</string>
-				<string>295E90651853FE3E000BA5FE</string>
-				<string>295E90681853FE3E000BA5FE</string>
-				<string>295E906A1853FE3E000BA5FE</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>295E90641853FE3E000BA5FE</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>HALBirdRecord-Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>295E90651853FE3E000BA5FE</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>295E90661853FE3E000BA5FE</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>295E90661853FE3E000BA5FE</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.strings</string>
-			<key>name</key>
-			<string>en</string>
-			<key>path</key>
-			<string>en.lproj/InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>295E90671853FE3E000BA5FE</key>
-		<dict>
-			<key>fileRef</key>
-			<string>295E90651853FE3E000BA5FE</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>295E90681853FE3E000BA5FE</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>main.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>295E90691853FE3E000BA5FE</key>
-		<dict>
-			<key>fileRef</key>
-			<string>295E90681853FE3E000BA5FE</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>295E906A1853FE3E000BA5FE</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>HALBirdRecord-Prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>295E906B1853FE3E000BA5FE</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>HALAppDelegate.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>295E906C1853FE3E000BA5FE</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>HALAppDelegate.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>295E906D1853FE3E000BA5FE</key>
-		<dict>
-			<key>fileRef</key>
-			<string>295E906C1853FE3E000BA5FE</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>295E906E1853FE3E000BA5FE</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>295E906F1853FE3E000BA5FE</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>Main.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>295E906F1853FE3E000BA5FE</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.storyboard</string>
-			<key>name</key>
-			<string>Base</string>
-			<key>path</key>
-			<string>Base.lproj/Main.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>295E90701853FE3E000BA5FE</key>
-		<dict>
-			<key>fileRef</key>
-			<string>295E906E1853FE3E000BA5FE</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>295E90711853FE3E000BA5FE</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>HALViewController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>295E90721853FE3E000BA5FE</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>HALViewController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>295E90731853FE3E000BA5FE</key>
-		<dict>
-			<key>fileRef</key>
-			<string>295E90721853FE3E000BA5FE</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>295E90741853FE3E000BA5FE</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>folder.assetcatalog</string>
-			<key>path</key>
-			<string>Images.xcassets</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>295E90751853FE3E000BA5FE</key>
-		<dict>
-			<key>fileRef</key>
-			<string>295E90741853FE3E000BA5FE</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>295E90761853FE3E000BA5FE</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>295E90881853FE3E000BA5FE</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>295E90771853FE3E000BA5FE</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>295E907C1853FE3E000BA5FE</string>
-				<string>295E907E1853FE3E000BA5FE</string>
-				<string>295E907D1853FE3E000BA5FE</string>
-				<string>A816F01858504F41A6567D35</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>295E90781853FE3E000BA5FE</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>295E90861853FE3E000BA5FE</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>295E90791853FE3E000BA5FE</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>295E908E1853FE3E000BA5FE</string>
-			<key>buildPhases</key>
-			<array>
-				<string>1A44A5E89E5E4BD6B64FE8E6</string>
-				<string>295E90761853FE3E000BA5FE</string>
-				<string>295E90771853FE3E000BA5FE</string>
-				<string>295E90781853FE3E000BA5FE</string>
-				<string>91AF4ED923154C24A28C86AD</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>295E90801853FE3E000BA5FE</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>HALBirdRecordTests</string>
-			<key>productName</key>
-			<string>HALBirdRecordTests</string>
-			<key>productReference</key>
-			<string>295E907A1853FE3E000BA5FE</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle.unit-test</string>
-		</dict>
-		<key>295E907A1853FE3E000BA5FE</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>HALBirdRecordTests.xctest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>295E907B1853FE3E000BA5FE</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>XCTest.framework</string>
-			<key>path</key>
-			<string>Library/Frameworks/XCTest.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>295E907C1853FE3E000BA5FE</key>
-		<dict>
-			<key>fileRef</key>
-			<string>295E907B1853FE3E000BA5FE</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>295E907D1853FE3E000BA5FE</key>
-		<dict>
-			<key>fileRef</key>
-			<string>295E905C1853FE3D000BA5FE</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>295E907E1853FE3E000BA5FE</key>
-		<dict>
-			<key>fileRef</key>
-			<string>295E90601853FE3E000BA5FE</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>295E907F1853FE3E000BA5FE</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>295E90511853FE3D000BA5FE</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>295E90581853FE3D000BA5FE</string>
-			<key>remoteInfo</key>
-			<string>HALBirdRecord</string>
-		</dict>
-		<key>295E90801853FE3E000BA5FE</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>295E90581853FE3D000BA5FE</string>
-			<key>targetProxy</key>
-			<string>295E907F1853FE3E000BA5FE</string>
-		</dict>
-		<key>295E90811853FE3E000BA5FE</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>295E90871853FE3E000BA5FE</string>
-				<string>295E90821853FE3E000BA5FE</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>HALBirdRecordTests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>295E90821853FE3E000BA5FE</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>295E90831853FE3E000BA5FE</string>
-				<string>295E90841853FE3E000BA5FE</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>295E90831853FE3E000BA5FE</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>HALBirdRecordTests-Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>295E90841853FE3E000BA5FE</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>295E90851853FE3E000BA5FE</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>295E90851853FE3E000BA5FE</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.strings</string>
-			<key>name</key>
-			<string>en</string>
-			<key>path</key>
-			<string>en.lproj/InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>295E90861853FE3E000BA5FE</key>
-		<dict>
-			<key>fileRef</key>
-			<string>295E90841853FE3E000BA5FE</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>295E90871853FE3E000BA5FE</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>HALBirdRecordTests.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>295E90881853FE3E000BA5FE</key>
-		<dict>
-			<key>fileRef</key>
-			<string>295E90871853FE3E000BA5FE</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>295E90891853FE3E000BA5FE</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>ARCHS</key>
-				<string>$(ARCHS_STANDARD_INCLUDING_64_BIT)</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.0</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>295E908A1853FE3E000BA5FE</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>ARCHS</key>
-				<string>$(ARCHS_STANDARD_INCLUDING_64_BIT)</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.0</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>295E908B1853FE3E000BA5FE</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>295E908C1853FE3E000BA5FE</string>
-				<string>295E908D1853FE3E000BA5FE</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>295E908C1853FE3E000BA5FE</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>2E26AEA3F8A241B2901F84F9</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
-				<string>LaunchImage</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>HALBirdRecord/HALBirdRecord-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>HALBirdRecord/HALBirdRecord-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>app</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>295E908D1853FE3E000BA5FE</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>2E26AEA3F8A241B2901F84F9</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
-				<string>LaunchImage</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>HALBirdRecord/HALBirdRecord-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>HALBirdRecord/HALBirdRecord-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>app</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>295E908E1853FE3E000BA5FE</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>295E908F1853FE3E000BA5FE</string>
-				<string>295E90901853FE3E000BA5FE</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>295E908F1853FE3E000BA5FE</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>453973F184E84C35930BA507</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ARCHS</key>
-				<string>$(ARCHS_STANDARD_INCLUDING_64_BIT)</string>
-				<key>BUNDLE_LOADER</key>
-				<string>$(BUILT_PRODUCTS_DIR)/HALBirdRecord.app/HALBirdRecord</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
-					<string>$(inherited)</string>
-					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>HALBirdRecord/HALBirdRecord-Prefix.pch</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>INFOPLIST_FILE</key>
-				<string>HALBirdRecordTests/HALBirdRecordTests-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUNDLE_LOADER)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>xctest</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>295E90901853FE3E000BA5FE</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>453973F184E84C35930BA507</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ARCHS</key>
-				<string>$(ARCHS_STANDARD_INCLUDING_64_BIT)</string>
-				<key>BUNDLE_LOADER</key>
-				<string>$(BUILT_PRODUCTS_DIR)/HALBirdRecord.app/HALBirdRecord</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
-					<string>$(inherited)</string>
-					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>HALBirdRecord/HALBirdRecord-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>HALBirdRecordTests/HALBirdRecordTests-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUNDLE_LOADER)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>xctest</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>2E26AEA3F8A241B2901F84F9</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Pods.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>453973F184E84C35930BA507</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods-HALBirdRecordTests.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Pods-HALBirdRecordTests.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>8CB74CD249324A338FFEA57C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>A83F48CF6BC54B5CA5918A6C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>91AF4ED923154C24A28C86AD</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Pods-HALBirdRecordTests-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>A7D2BDBBC8954FC5A24E97DF</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Pods-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>A816F01858504F41A6567D35</key>
-		<dict>
-			<key>fileRef</key>
-			<string>C62F65DBDAAF458D961E9430</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>A83F48CF6BC54B5CA5918A6C</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>B3F38DC59B9B48EF9EF358A5</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>C62F65DBDAAF458D961E9430</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods-HALBirdRecordTests.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>295E90511853FE3D000BA5FE</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		295E905D1853FE3D000BA5FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 295E905C1853FE3D000BA5FE /* Foundation.framework */; };
+		295E905F1853FE3D000BA5FE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 295E905E1853FE3D000BA5FE /* CoreGraphics.framework */; };
+		295E90611853FE3E000BA5FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 295E90601853FE3E000BA5FE /* UIKit.framework */; };
+		295E90671853FE3E000BA5FE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 295E90651853FE3E000BA5FE /* InfoPlist.strings */; };
+		295E90691853FE3E000BA5FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E90681853FE3E000BA5FE /* main.m */; };
+		295E906D1853FE3E000BA5FE /* HALAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E906C1853FE3E000BA5FE /* HALAppDelegate.m */; };
+		295E90751853FE3E000BA5FE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 295E90741853FE3E000BA5FE /* Images.xcassets */; };
+		295E907C1853FE3E000BA5FE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 295E907B1853FE3E000BA5FE /* XCTest.framework */; };
+		295E907D1853FE3E000BA5FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 295E905C1853FE3D000BA5FE /* Foundation.framework */; };
+		295E907E1853FE3E000BA5FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 295E90601853FE3E000BA5FE /* UIKit.framework */; };
+		295E90861853FE3E000BA5FE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 295E90841853FE3E000BA5FE /* InfoPlist.strings */; };
+		295E90881853FE3E000BA5FE /* HALBirdRecordTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E90871853FE3E000BA5FE /* HALBirdRecordTests.m */; };
+		295E909B18540994000BA5FE /* UIViewController+HALViewControllerFromNib.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E909A18540994000BA5FE /* UIViewController+HALViewControllerFromNib.m */; };
+		295E909E18540C44000BA5FE /* BirdKind.plist in Resources */ = {isa = PBXBuildFile; fileRef = 295E909D18540C44000BA5FE /* BirdKind.plist */; };
+		295E90AA18541087000BA5FE /* HALBirdKindListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E90A818541087000BA5FE /* HALBirdKindListViewController.m */; };
+		295E90AB18541087000BA5FE /* HALBirdKindListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 295E90A918541087000BA5FE /* HALBirdKindListViewController.xib */; };
+		295E90AF185410C5000BA5FE /* HALFlatBirdKindListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E90AD185410C5000BA5FE /* HALFlatBirdKindListTableViewController.m */; };
+		295E90B0185410C5000BA5FE /* HALFlatBirdKindListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 295E90AE185410C5000BA5FE /* HALFlatBirdKindListTableViewController.xib */; };
+		295E90B41854111D000BA5FE /* HALBirdKind.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E90B31854111D000BA5FE /* HALBirdKind.m */; };
+		295E90B818541369000BA5FE /* HALBirdKindEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E90B718541369000BA5FE /* HALBirdKindEntity.m */; };
+		295E90C118546328000BA5FE /* HALBirdRecordEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E90C018546328000BA5FE /* HALBirdRecordEntity.m */; };
+		295E90C3185466F4000BA5FE /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 295E90C2185466F4000BA5FE /* CoreLocation.framework */; };
+		295E90C61854A861000BA5FE /* HALBirdRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E90C51854A861000BA5FE /* HALBirdRecord.m */; };
+		8CB74CD249324A338FFEA57C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A83F48CF6BC54B5CA5918A6C /* libPods.a */; };
+		A816F01858504F41A6567D35 /* libPods-HALBirdRecordTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C62F65DBDAAF458D961E9430 /* libPods-HALBirdRecordTests.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		295E907F1853FE3E000BA5FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 295E90511853FE3D000BA5FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 295E90581853FE3D000BA5FE;
+			remoteInfo = HALBirdRecord;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		295E90591853FE3D000BA5FE /* HALBirdRecord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HALBirdRecord.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		295E905C1853FE3D000BA5FE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		295E905E1853FE3D000BA5FE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		295E90601853FE3E000BA5FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		295E90641853FE3E000BA5FE /* HALBirdRecord-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HALBirdRecord-Info.plist"; sourceTree = "<group>"; };
+		295E90661853FE3E000BA5FE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		295E90681853FE3E000BA5FE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		295E906A1853FE3E000BA5FE /* HALBirdRecord-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HALBirdRecord-Prefix.pch"; sourceTree = "<group>"; };
+		295E906B1853FE3E000BA5FE /* HALAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HALAppDelegate.h; sourceTree = "<group>"; };
+		295E906C1853FE3E000BA5FE /* HALAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HALAppDelegate.m; sourceTree = "<group>"; };
+		295E90741853FE3E000BA5FE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		295E907A1853FE3E000BA5FE /* HALBirdRecordTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HALBirdRecordTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		295E907B1853FE3E000BA5FE /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		295E90831853FE3E000BA5FE /* HALBirdRecordTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HALBirdRecordTests-Info.plist"; sourceTree = "<group>"; };
+		295E90851853FE3E000BA5FE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		295E90871853FE3E000BA5FE /* HALBirdRecordTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HALBirdRecordTests.m; sourceTree = "<group>"; };
+		295E909918540994000BA5FE /* UIViewController+HALViewControllerFromNib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HALViewControllerFromNib.h"; sourceTree = "<group>"; };
+		295E909A18540994000BA5FE /* UIViewController+HALViewControllerFromNib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HALViewControllerFromNib.m"; sourceTree = "<group>"; };
+		295E909D18540C44000BA5FE /* BirdKind.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BirdKind.plist; sourceTree = "<group>"; };
+		295E90A718541087000BA5FE /* HALBirdKindListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALBirdKindListViewController.h; sourceTree = "<group>"; };
+		295E90A818541087000BA5FE /* HALBirdKindListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALBirdKindListViewController.m; sourceTree = "<group>"; };
+		295E90A918541087000BA5FE /* HALBirdKindListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALBirdKindListViewController.xib; sourceTree = "<group>"; };
+		295E90AC185410C5000BA5FE /* HALFlatBirdKindListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALFlatBirdKindListTableViewController.h; sourceTree = "<group>"; };
+		295E90AD185410C5000BA5FE /* HALFlatBirdKindListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALFlatBirdKindListTableViewController.m; sourceTree = "<group>"; };
+		295E90AE185410C5000BA5FE /* HALFlatBirdKindListTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALFlatBirdKindListTableViewController.xib; sourceTree = "<group>"; };
+		295E90B21854111D000BA5FE /* HALBirdKind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALBirdKind.h; sourceTree = "<group>"; };
+		295E90B31854111D000BA5FE /* HALBirdKind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALBirdKind.m; sourceTree = "<group>"; };
+		295E90B618541369000BA5FE /* HALBirdKindEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALBirdKindEntity.h; sourceTree = "<group>"; };
+		295E90B718541369000BA5FE /* HALBirdKindEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALBirdKindEntity.m; sourceTree = "<group>"; };
+		295E90BF18546328000BA5FE /* HALBirdRecordEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALBirdRecordEntity.h; sourceTree = "<group>"; };
+		295E90C018546328000BA5FE /* HALBirdRecordEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALBirdRecordEntity.m; sourceTree = "<group>"; };
+		295E90C2185466F4000BA5FE /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		295E90C41854A861000BA5FE /* HALBirdRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALBirdRecord.h; sourceTree = "<group>"; };
+		295E90C51854A861000BA5FE /* HALBirdRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALBirdRecord.m; sourceTree = "<group>"; };
+		2E26AEA3F8A241B2901F84F9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		453973F184E84C35930BA507 /* Pods-HALBirdRecordTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HALBirdRecordTests.xcconfig"; path = "Pods/Pods-HALBirdRecordTests.xcconfig"; sourceTree = "<group>"; };
+		A83F48CF6BC54B5CA5918A6C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C62F65DBDAAF458D961E9430 /* libPods-HALBirdRecordTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HALBirdRecordTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		295E90561853FE3D000BA5FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				295E90C3185466F4000BA5FE /* CoreLocation.framework in Frameworks */,
+				295E905F1853FE3D000BA5FE /* CoreGraphics.framework in Frameworks */,
+				295E90611853FE3E000BA5FE /* UIKit.framework in Frameworks */,
+				295E905D1853FE3D000BA5FE /* Foundation.framework in Frameworks */,
+				8CB74CD249324A338FFEA57C /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		295E90771853FE3E000BA5FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				295E907C1853FE3E000BA5FE /* XCTest.framework in Frameworks */,
+				295E907E1853FE3E000BA5FE /* UIKit.framework in Frameworks */,
+				295E907D1853FE3E000BA5FE /* Foundation.framework in Frameworks */,
+				A816F01858504F41A6567D35 /* libPods-HALBirdRecordTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		295E90501853FE3D000BA5FE = {
+			isa = PBXGroup;
+			children = (
+				295E90621853FE3E000BA5FE /* HALBirdRecord */,
+				295E90811853FE3E000BA5FE /* HALBirdRecordTests */,
+				295E905B1853FE3D000BA5FE /* Frameworks */,
+				295E905A1853FE3D000BA5FE /* Products */,
+				2E26AEA3F8A241B2901F84F9 /* Pods.xcconfig */,
+				453973F184E84C35930BA507 /* Pods-HALBirdRecordTests.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		295E905A1853FE3D000BA5FE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				295E90591853FE3D000BA5FE /* HALBirdRecord.app */,
+				295E907A1853FE3E000BA5FE /* HALBirdRecordTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		295E905B1853FE3D000BA5FE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				295E90C2185466F4000BA5FE /* CoreLocation.framework */,
+				295E905C1853FE3D000BA5FE /* Foundation.framework */,
+				295E905E1853FE3D000BA5FE /* CoreGraphics.framework */,
+				295E90601853FE3E000BA5FE /* UIKit.framework */,
+				295E907B1853FE3E000BA5FE /* XCTest.framework */,
+				A83F48CF6BC54B5CA5918A6C /* libPods.a */,
+				C62F65DBDAAF458D961E9430 /* libPods-HALBirdRecordTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		295E90621853FE3E000BA5FE /* HALBirdRecord */ = {
+			isa = PBXGroup;
+			children = (
+				295E906B1853FE3E000BA5FE /* HALAppDelegate.h */,
+				295E906C1853FE3E000BA5FE /* HALAppDelegate.m */,
+				295E90741853FE3E000BA5FE /* Images.xcassets */,
+				295E909818540910000BA5FE /* Category */,
+				295E909C18540BDB000BA5FE /* Data */,
+				295E90B518541332000BA5FE /* Entity */,
+				295E90B1185410D4000BA5FE /* Model */,
+				295E90631853FE3E000BA5FE /* Supporting Files */,
+				295E909118540804000BA5FE /* ViewController */,
+			);
+			path = HALBirdRecord;
+			sourceTree = "<group>";
+		};
+		295E90631853FE3E000BA5FE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				295E90641853FE3E000BA5FE /* HALBirdRecord-Info.plist */,
+				295E90651853FE3E000BA5FE /* InfoPlist.strings */,
+				295E90681853FE3E000BA5FE /* main.m */,
+				295E906A1853FE3E000BA5FE /* HALBirdRecord-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		295E90811853FE3E000BA5FE /* HALBirdRecordTests */ = {
+			isa = PBXGroup;
+			children = (
+				295E90871853FE3E000BA5FE /* HALBirdRecordTests.m */,
+				295E90821853FE3E000BA5FE /* Supporting Files */,
+			);
+			path = HALBirdRecordTests;
+			sourceTree = "<group>";
+		};
+		295E90821853FE3E000BA5FE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				295E90831853FE3E000BA5FE /* HALBirdRecordTests-Info.plist */,
+				295E90841853FE3E000BA5FE /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		295E909118540804000BA5FE /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				295E909218540836000BA5FE /* BirdKind */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		295E909218540836000BA5FE /* BirdKind */ = {
+			isa = PBXGroup;
+			children = (
+				295E90A718541087000BA5FE /* HALBirdKindListViewController.h */,
+				295E90A818541087000BA5FE /* HALBirdKindListViewController.m */,
+				295E90A918541087000BA5FE /* HALBirdKindListViewController.xib */,
+				295E90AC185410C5000BA5FE /* HALFlatBirdKindListTableViewController.h */,
+				295E90AD185410C5000BA5FE /* HALFlatBirdKindListTableViewController.m */,
+				295E90AE185410C5000BA5FE /* HALFlatBirdKindListTableViewController.xib */,
+			);
+			path = BirdKind;
+			sourceTree = "<group>";
+		};
+		295E909818540910000BA5FE /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				295E909918540994000BA5FE /* UIViewController+HALViewControllerFromNib.h */,
+				295E909A18540994000BA5FE /* UIViewController+HALViewControllerFromNib.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		295E909C18540BDB000BA5FE /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				295E909D18540C44000BA5FE /* BirdKind.plist */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		295E90B1185410D4000BA5FE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				295E90B21854111D000BA5FE /* HALBirdKind.h */,
+				295E90B31854111D000BA5FE /* HALBirdKind.m */,
+				295E90C41854A861000BA5FE /* HALBirdRecord.h */,
+				295E90C51854A861000BA5FE /* HALBirdRecord.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		295E90B518541332000BA5FE /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				295E90B618541369000BA5FE /* HALBirdKindEntity.h */,
+				295E90B718541369000BA5FE /* HALBirdKindEntity.m */,
+				295E90BF18546328000BA5FE /* HALBirdRecordEntity.h */,
+				295E90C018546328000BA5FE /* HALBirdRecordEntity.m */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		295E90581853FE3D000BA5FE /* HALBirdRecord */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 295E908B1853FE3E000BA5FE /* Build configuration list for PBXNativeTarget "HALBirdRecord" */;
+			buildPhases = (
+				B3F38DC59B9B48EF9EF358A5 /* Check Pods Manifest.lock */,
+				295E90551853FE3D000BA5FE /* Sources */,
+				295E90561853FE3D000BA5FE /* Frameworks */,
+				295E90571853FE3D000BA5FE /* Resources */,
+				A7D2BDBBC8954FC5A24E97DF /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HALBirdRecord;
+			productName = HALBirdRecord;
+			productReference = 295E90591853FE3D000BA5FE /* HALBirdRecord.app */;
+			productType = "com.apple.product-type.application";
+		};
+		295E90791853FE3E000BA5FE /* HALBirdRecordTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 295E908E1853FE3E000BA5FE /* Build configuration list for PBXNativeTarget "HALBirdRecordTests" */;
+			buildPhases = (
+				1A44A5E89E5E4BD6B64FE8E6 /* Check Pods Manifest.lock */,
+				295E90761853FE3E000BA5FE /* Sources */,
+				295E90771853FE3E000BA5FE /* Frameworks */,
+				295E90781853FE3E000BA5FE /* Resources */,
+				91AF4ED923154C24A28C86AD /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				295E90801853FE3E000BA5FE /* PBXTargetDependency */,
+			);
+			name = HALBirdRecordTests;
+			productName = HALBirdRecordTests;
+			productReference = 295E907A1853FE3E000BA5FE /* HALBirdRecordTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		295E90511853FE3D000BA5FE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = HAL;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = halhorn;
+				TargetAttributes = {
+					295E90791853FE3E000BA5FE = {
+						TestTargetID = 295E90581853FE3D000BA5FE;
+					};
+				};
+			};
+			buildConfigurationList = 295E90541853FE3D000BA5FE /* Build configuration list for PBXProject "HALBirdRecord" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 295E90501853FE3D000BA5FE;
+			productRefGroup = 295E905A1853FE3D000BA5FE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				295E90581853FE3D000BA5FE /* HALBirdRecord */,
+				295E90791853FE3E000BA5FE /* HALBirdRecordTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		295E90571853FE3D000BA5FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				295E909E18540C44000BA5FE /* BirdKind.plist in Resources */,
+				295E90751853FE3E000BA5FE /* Images.xcassets in Resources */,
+				295E90671853FE3E000BA5FE /* InfoPlist.strings in Resources */,
+				295E90AB18541087000BA5FE /* HALBirdKindListViewController.xib in Resources */,
+				295E90B0185410C5000BA5FE /* HALFlatBirdKindListTableViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		295E90781853FE3E000BA5FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				295E90861853FE3E000BA5FE /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1A44A5E89E5E4BD6B64FE8E6 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		91AF4ED923154C24A28C86AD /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-HALBirdRecordTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A7D2BDBBC8954FC5A24E97DF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B3F38DC59B9B48EF9EF358A5 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		295E90551853FE3D000BA5FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				295E906D1853FE3E000BA5FE /* HALAppDelegate.m in Sources */,
+				295E90AA18541087000BA5FE /* HALBirdKindListViewController.m in Sources */,
+				295E90691853FE3E000BA5FE /* main.m in Sources */,
+				295E909B18540994000BA5FE /* UIViewController+HALViewControllerFromNib.m in Sources */,
+				295E90B818541369000BA5FE /* HALBirdKindEntity.m in Sources */,
+				295E90C61854A861000BA5FE /* HALBirdRecord.m in Sources */,
+				295E90C118546328000BA5FE /* HALBirdRecordEntity.m in Sources */,
+				295E90B41854111D000BA5FE /* HALBirdKind.m in Sources */,
+				295E90AF185410C5000BA5FE /* HALFlatBirdKindListTableViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		295E90761853FE3E000BA5FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				295E90881853FE3E000BA5FE /* HALBirdRecordTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		295E90801853FE3E000BA5FE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 295E90581853FE3D000BA5FE /* HALBirdRecord */;
+			targetProxy = 295E907F1853FE3E000BA5FE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		295E90651853FE3E000BA5FE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				295E90661853FE3E000BA5FE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		295E90841853FE3E000BA5FE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				295E90851853FE3E000BA5FE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		295E90891853FE3E000BA5FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		295E908A1853FE3E000BA5FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		295E908C1853FE3E000BA5FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E26AEA3F8A241B2901F84F9 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HALBirdRecord/HALBirdRecord-Prefix.pch";
+				INFOPLIST_FILE = "HALBirdRecord/HALBirdRecord-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		295E908D1853FE3E000BA5FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E26AEA3F8A241B2901F84F9 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HALBirdRecord/HALBirdRecord-Prefix.pch";
+				INFOPLIST_FILE = "HALBirdRecord/HALBirdRecord-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		295E908F1853FE3E000BA5FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 453973F184E84C35930BA507 /* Pods-HALBirdRecordTests.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HALBirdRecord.app/HALBirdRecord";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HALBirdRecord/HALBirdRecord-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "HALBirdRecordTests/HALBirdRecordTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		295E90901853FE3E000BA5FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 453973F184E84C35930BA507 /* Pods-HALBirdRecordTests.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HALBirdRecord.app/HALBirdRecord";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "HALBirdRecord/HALBirdRecord-Prefix.pch";
+				INFOPLIST_FILE = "HALBirdRecordTests/HALBirdRecordTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		295E90541853FE3D000BA5FE /* Build configuration list for PBXProject "HALBirdRecord" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				295E90891853FE3E000BA5FE /* Debug */,
+				295E908A1853FE3E000BA5FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		295E908B1853FE3E000BA5FE /* Build configuration list for PBXNativeTarget "HALBirdRecord" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				295E908C1853FE3E000BA5FE /* Debug */,
+				295E908D1853FE3E000BA5FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		295E908E1853FE3E000BA5FE /* Build configuration list for PBXNativeTarget "HALBirdRecordTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				295E908F1853FE3E000BA5FE /* Debug */,
+				295E90901853FE3E000BA5FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 295E90511853FE3D000BA5FE /* Project object */;
+}

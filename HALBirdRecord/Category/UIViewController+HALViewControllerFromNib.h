@@ -1,5 +1,5 @@
 //
-//  HALViewController.h
+//  UIViewController+HALViewControllerFromNib.h
 //  HALBirdRecord
 //
 //  Created by 信田 春満 on 2013/12/08.
@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HALViewController : UIViewController
+@interface UIViewController (HALViewControllerFromNib)
+
+- (id)initWithNib;
++ (id)viewControllerFromNib;
 
 @end

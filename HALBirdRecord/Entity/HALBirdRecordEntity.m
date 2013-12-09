@@ -1,0 +1,56 @@
+//
+//  HALRecordEntity.m
+//  HALBirdRecord
+//
+//  Created by 信田 春満 on 2013/12/08.
+//  Copyright (c) 2013年 halhorn. All rights reserved.
+//
+
+#import "HALBirdRecordEntity.h"
+
+@implementation HALBirdRecordEntity
+
+#pragma mark getter/setter
+
+-(BOOL)saw
+{
+    return _count > 0;
+}
+
+-(void)setSaw:(BOOL)saw
+{
+    if (saw == NO) {
+        _count = 0;
+    }else if (_count == 0){
+        _count = 1;
+    }
+}
+
+#pragma mark initializer
+
++ (id)birdRecordWithBirdID:(int)birdID
+{
+    return [[self alloc] initWithBirdID:birdID];
+}
+
+- (id)initWithBirdID:(int)birdID
+{
+    self = [super init];
+    if (self) {
+        _birdID = birdID;
+    }
+    return self;
+}
+
+#pragma mark methods
+
+- (void)incrementCount
+{
+    _count++;
+}
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"HALBirdRecordEntity birdID:%d count:%d coordinate:(%f,%f)", self.birdID, self.count, self.coordinate.latitude, self.coordinate.longitude];
+}
+@end
