@@ -26,6 +26,12 @@
     }
 }
 
+-(void)setDbID:(int)dbID
+{
+    NSAssert(_dbID == 0, @"dbIDは一度設定すると変更不可能です。");
+    _dbID = dbID;
+}
+
 #pragma mark initializer
 
 + (id)birdRecordWithBirdID:(int)birdID

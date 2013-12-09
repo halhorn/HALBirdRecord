@@ -11,6 +11,7 @@
 
 @interface HALBirdRecordEntity : NSObject
 
+@property(nonatomic) int dbID;
 @property(nonatomic, readonly) int birdID;
 @property(nonatomic) int count;
 @property(nonatomic) BOOL saw;
