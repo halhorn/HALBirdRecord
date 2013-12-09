@@ -32,6 +32,7 @@
 		295E90C61854A861000BA5FE /* HALBirdRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E90C51854A861000BA5FE /* HALBirdRecord.m */; };
 		295E90CA18554739000BA5FE /* HALDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E90C918554739000BA5FE /* HALDB.m */; };
 		295E90CD1855488C000BA5FE /* NSURL+HALLocalFileURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E90CC1855488C000BA5FE /* NSURL+HALLocalFileURL.m */; };
+		295E90D018560789000BA5FE /* HALActivityRecordEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E90CF18560789000BA5FE /* HALActivityRecordEntity.m */; };
 		8CB74CD249324A338FFEA57C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A83F48CF6BC54B5CA5918A6C /* libPods.a */; };
 		A816F01858504F41A6567D35 /* libPods-HALBirdRecordTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C62F65DBDAAF458D961E9430 /* libPods-HALBirdRecordTests.a */; };
 /* End PBXBuildFile section */
@@ -85,6 +86,8 @@
 		295E90C918554739000BA5FE /* HALDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALDB.m; sourceTree = "<group>"; };
 		295E90CB1855488C000BA5FE /* NSURL+HALLocalFileURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+HALLocalFileURL.h"; sourceTree = "<group>"; };
 		295E90CC1855488C000BA5FE /* NSURL+HALLocalFileURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+HALLocalFileURL.m"; sourceTree = "<group>"; };
+		295E90CE18560789000BA5FE /* HALActivityRecordEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALActivityRecordEntity.h; sourceTree = "<group>"; };
+		295E90CF18560789000BA5FE /* HALActivityRecordEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALActivityRecordEntity.m; sourceTree = "<group>"; };
 		2E26AEA3F8A241B2901F84F9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		453973F184E84C35930BA507 /* Pods-HALBirdRecordTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HALBirdRecordTests.xcconfig"; path = "Pods/Pods-HALBirdRecordTests.xcconfig"; sourceTree = "<group>"; };
 		A83F48CF6BC54B5CA5918A6C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -258,6 +261,8 @@
 				295E90B718541369000BA5FE /* HALBirdKindEntity.m */,
 				295E90BF18546328000BA5FE /* HALBirdRecordEntity.h */,
 				295E90C018546328000BA5FE /* HALBirdRecordEntity.m */,
+				295E90CE18560789000BA5FE /* HALActivityRecordEntity.h */,
+				295E90CF18560789000BA5FE /* HALActivityRecordEntity.m */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -435,6 +440,7 @@
 				295E909B18540994000BA5FE /* UIViewController+HALViewControllerFromNib.m in Sources */,
 				295E90B818541369000BA5FE /* HALBirdKindEntity.m in Sources */,
 				295E90C61854A861000BA5FE /* HALBirdRecord.m in Sources */,
+				295E90D018560789000BA5FE /* HALActivityRecordEntity.m in Sources */,
 				295E90C118546328000BA5FE /* HALBirdRecordEntity.m in Sources */,
 				295E90CA18554739000BA5FE /* HALDB.m in Sources */,
 				295E90B41854111D000BA5FE /* HALBirdKind.m in Sources */,
