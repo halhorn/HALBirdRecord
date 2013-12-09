@@ -148,7 +148,11 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     HALBirdRecordEntity *recordEntity = self.birdRecord.birdRecordList[indexPath.section][indexPath.row];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    recordEntity.saw = !recordEntity.saw;
+    if (!recordEntity.saw) {
+        [recordEntity seeBird];
+    } else {
+        recordEntity.saw = NO;
+    }
     cell.accessoryType = recordEntity.saw ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
 }
 

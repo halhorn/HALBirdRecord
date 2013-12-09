@@ -49,8 +49,14 @@
     _count++;
 }
 
+- (void)seeBird
+{
+    self.saw = YES;
+    self.datetime = [NSDate date];
+}
+
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"HALBirdRecordEntity birdID:%d count:%d coordinate:(%f,%f)", self.birdID, self.count, self.coordinate.latitude, self.coordinate.longitude];
+    return [NSString stringWithFormat:@"HALBirdRecordEntity birdID:%d count:%d datetime:%@ coordinate:(%f,%f)", self.birdID, self.count, self.datetime, self.coordinate.latitude, self.coordinate.longitude];
 }
 @end
