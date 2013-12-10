@@ -8,6 +8,8 @@
 
 #import "HALBirdKindEntity.h"
 
+@class HALBirdKind;
+
 @implementation HALBirdKindEntity
 - (id)initWithBirdID:(int)birdID
                 name:(NSString *)name

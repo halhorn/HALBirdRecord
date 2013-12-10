@@ -7,9 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HALBirdRecordEntity.h"
+#import "HALActivityRecordEntity.h"
 
 @interface HALBirdRecord : NSObject
 
-@property(nonatomic) NSArray *birdRecordList;
+@property(nonatomic) NSMutableArray *birdRecordList;
+@property(nonatomic) HALActivityRecordEntity *activityRecord;
+
+- (BOOL)birdExists:(int)birdID;
+- (HALBirdRecordEntity *)birdRecordWithID:(int)birdID;
+- (void)addBird:(int)birdID;
+- (void)removeBird:(int)birdID;
+- (void)save;
 
 @end

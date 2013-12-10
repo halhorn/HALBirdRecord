@@ -7,23 +7,16 @@
 //
 
 #import "HALBirdRecordEntity.h"
+#import "HALBirdKind.h"
 
 @implementation HALBirdRecordEntity
 
 #pragma mark getter/setter
 
--(BOOL)saw
+-(void)setDbID:(int)dbID
 {
-    return _count > 0;
-}
-
--(void)setSaw:(BOOL)saw
-{
-    if (saw == NO) {
-        _count = 0;
-    }else if (_count == 0){
-        _count = 1;
-    }
+    NSAssert(_dbID == -1, @"dbIDは一度設定すると変更不可能です。");
+    _dbID = dbID;
 }
 
 #pragma mark initializer
@@ -37,20 +30,19 @@
 {
     self = [super init];
     if (self) {
+        _dbID = -1;
         _birdID = birdID;
+        _datetime = [NSDate date];
+        _count = 1;
+        _kind = [[HALBirdKind sharedBirdKind] birdKindEntityFromBirdID:birdID];
     }
     return self;
 }
 
 #pragma mark methods
 
-- (void)incrementCount
-{
-    _count++;
-}
-
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"HALBirdRecordEntity birdID:%d count:%d coordinate:(%f,%f)", self.birdID, self.count, self.coordinate.latitude, self.coordinate.longitude];
+    return [NSString stringWithFormat:@"HALBirdRecordEntity birdID:%d count:%d datetime:%@ coordinate:(%f,%f)", self.birdID, self.count, self.datetime, self.coordinate.latitude, self.coordinate.longitude];
 }
 @end

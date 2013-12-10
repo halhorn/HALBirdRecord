@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HALBirdKindEntity.h"
 
 @interface HALBirdKind : NSObject
 
@@ -14,5 +15,7 @@
 
 @property(nonatomic, readonly) NSArray *birdKindList;
 @property(nonatomic, readonly) int numberOfGroups;
+
+- (HALBirdKindEntity *)birdKindEntityFromBirdID:(int)birdID;
 
 @end

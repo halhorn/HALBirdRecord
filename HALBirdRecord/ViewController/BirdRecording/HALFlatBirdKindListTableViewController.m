@@ -90,7 +90,8 @@
     NSArray *birdGroup = self.birdKind.birdKindList[indexPath.section];
     HALBirdKindEntity *birdKindEntity =birdGroup[indexPath.row];
     cell.textLabel.text = birdKindEntity.name;
-    
+    cell.accessoryType = [self.birdRecord birdExists:birdKindEntity.birdID] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+
     return cell;
 }
 
@@ -146,10 +147,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    HALBirdRecordEntity *recordEntity = self.birdRecord.birdRecordList[indexPath.section][indexPath.row];
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    recordEntity.saw = !recordEntity.saw;
-    cell.accessoryType = recordEntity.saw ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    HALBirdKindEntity *birdKind = self.birdKind.birdKindList[indexPath.section][indexPath.row];
+    if (![self.birdRecord birdExists:birdKind.birdID]) {
+        [self.birdRecord addBird:birdKind.birdID];
+    } else {
+        [self.birdRecord removeBird:birdKind.birdID];
+    }
+    [tableView reloadData];
 }
 
 #pragma mark - HALBirdRecordViewDelegate
