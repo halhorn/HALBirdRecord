@@ -8,6 +8,7 @@
 
 #import "HALBirdKindListViewController.h"
 #import "HALFlatBirdKindListTableViewController.h"
+#import "HALSaveActivityViewController.h"
 #import "UIViewController+HALViewControllerFromNib.h"
 #import "HALDB.h"
 
@@ -52,7 +53,16 @@
 - (void)onTapSaveButton:(id)sender
 {
     HALBirdRecord *record = [self.birdListViewController sendBirdRecord];
-    NSLog(@"%@", record.birdRecordList);
+    
+    HALSaveActivityViewController *viewController = [[HALSaveActivityViewController alloc] initWithBirdRecord:record completion:^(HALActivityRecordEntity *activityRecordEntity){
+        record.activityRecord = activityRecordEntity;
+        [record save];
+        [[[HALDB alloc] init] showRecordInTable:@"ActivityRecord"];
+        [[[HALDB alloc] init] showRecordInTable:@"BirdRecord"];
+    }];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    navController.navigationBar.translucent = NO;
+    [self presentViewController:navController animated:YES completion:nil];
 }
 
 @end

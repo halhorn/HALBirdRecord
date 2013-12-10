@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import "HALBirdKindEntity.h"
 
 @interface HALBirdRecordEntity : NSObject
 
@@ -16,6 +17,7 @@
 @property(nonatomic) int count;
 @property(nonatomic) NSDate *datetime;
 @property(nonatomic) CLLocationCoordinate2D coordinate;
+@property(nonatomic, readonly) HALBirdKindEntity *kind;
 
 + (id)birdRecordWithBirdID:(int)birdID;
 - (id)initWithBirdID:(int)birdID;

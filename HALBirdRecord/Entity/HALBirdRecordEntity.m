@@ -7,6 +7,7 @@
 //
 
 #import "HALBirdRecordEntity.h"
+#import "HALBirdKind.h"
 
 @implementation HALBirdRecordEntity
 
@@ -33,6 +34,7 @@
         _birdID = birdID;
         _datetime = [NSDate date];
         _count = 1;
+        _kind = [[HALBirdKind sharedBirdKind] birdKindEntityFromBirdID:birdID];
     }
     return self;
 }

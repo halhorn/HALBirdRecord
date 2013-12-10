@@ -7,7 +7,6 @@
 //
 
 #import "HALBirdKind.h"
-#import "HALBirdKindEntity.h"
 
 @interface HALBirdKind()
 
@@ -67,5 +66,17 @@
         _numberOfGroups++;
     }
     _birdKindList = [NSArray arrayWithArray:array];
+}
+
+- (HALBirdKindEntity *)birdKindEntityFromBirdID:(int)birdID
+{
+    for (NSArray *group in self.birdKindList) {
+        for (HALBirdKindEntity *entity in group) {
+            if (entity.birdID == birdID) {
+                return entity;
+            }
+        }
+    }
+    return nil;
 }
 @end
