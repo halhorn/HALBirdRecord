@@ -61,7 +61,7 @@
 
 - (void)showRecordInTable:(NSString *)tableName
 {
-    NSString *sqlFormat = [NSString stringWithFormat:@"select * from %@", kHALActivityRecordTable];
+    NSString *sqlFormat = [NSString stringWithFormat:@"select * from %@", tableName];
     
     [self.fmDB open];
     FMResultSet *resultSet = [self.fmDB executeQuery:sqlFormat];
@@ -104,10 +104,12 @@
     NSString *sqlFormat = [NSString stringWithFormat:@"insert into %@("
                            "birdID,"
                            "activityID,"
-                           "comment,"
-                           "datetime"
+                           "count,"
+                           "datetime,"
+                           "latitude,"
+                           "longitude"
                            ") "
-                           "values%@;", kHALActivityRecordTable, questions];
+                           "values%@;", kHALBirdRecordTable, questions];
     NSMutableArray *args = [[NSMutableArray alloc] init];
     for (HALBirdRecordEntity *entity in entityList) {
         [args addObject:@(entity.birdID)];
