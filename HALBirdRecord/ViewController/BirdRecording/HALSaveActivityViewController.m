@@ -27,7 +27,7 @@
     if (self) {
         self.birdRecord = birdRecord;
         self.completion = completion;
-        self.title = @"アクティビティの保存";
+        self.title = @"アクティビティ";
     }
     return self;
 }
@@ -42,6 +42,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self setCancelButton];
     [self setBirdRecordText];
     [self setGestureForCloseSoftKeyboard];
 }
@@ -50,6 +51,14 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)setCancelButton
+{
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"キャンセル" style:UIBarButtonItemStyleBordered handler:^(id sender){
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+    self.navigationItem.leftBarButtonItem = cancelButton;
 }
 
 - (void)setBirdRecordText
