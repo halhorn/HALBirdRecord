@@ -10,4 +10,17 @@
 
 @implementation HALActivityRecordEntity
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        self.dbID = -1;
+        self.datetime = [NSDate date];
+        self.title = @"";
+        self.location = @"";
+        self.comment = @"";
+    }
+    return self;
+}
+
 @end

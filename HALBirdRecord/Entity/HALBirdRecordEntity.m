@@ -28,7 +28,7 @@
 
 -(void)setDbID:(int)dbID
 {
-    NSAssert(_dbID == 0, @"dbIDは一度設定すると変更不可能です。");
+    NSAssert(_dbID == -1, @"dbIDは一度設定すると変更不可能です。");
     _dbID = dbID;
 }
 
@@ -43,7 +43,9 @@
 {
     self = [super init];
     if (self) {
+        _dbID = -1;
         _birdID = birdID;
+        _datetime = [NSDate date];
     }
     return self;
 }
