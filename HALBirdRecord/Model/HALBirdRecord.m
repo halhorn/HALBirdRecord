@@ -7,9 +7,6 @@
 //
 
 #import "HALBirdRecord.h"
-#import "HALBirdRecordEntity.h"
-#import "HALBirdKind.h"
-#import "HALBirdKindEntity.h"
 
 @implementation HALBirdRecord
 
@@ -17,24 +14,48 @@
 {
     self = [super init];
     if (self) {
-        [self setup];
+        _birdRecordList = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
-- (void)setup
+- (BOOL)birdExists:(int)birdID
 {
-    HALBirdKind *kind = [HALBirdKind sharedBirdKind];
-    NSMutableArray *record = [[NSMutableArray alloc] init];
-    for (NSArray *birdGroup in kind.birdKindList) {
-        NSMutableArray *recordGroup = [[NSMutableArray alloc] init];
-        for (HALBirdKindEntity *kindEntity in birdGroup) {
-            HALBirdRecordEntity *recordEntity = [HALBirdRecordEntity birdRecordWithBirdID:kindEntity.birdID];
-            [recordGroup addObject:recordEntity];
+    return [self birdRecordWithID:birdID] != nil;
+}
+
+- (HALBirdRecordEntity *)birdRecordWithID:(int)birdID
+{
+    for (HALBirdRecordEntity *birdRecord in self.birdRecordList) {
+        if (birdRecord.birdID == birdID) {
+            return birdRecord;
         }
-        [record addObject:[NSArray arrayWithArray:recordGroup]];
     }
-    
-    self.birdRecordList = [NSArray arrayWithArray:record];
+    return nil;
+}
+
+- (void)addBird:(int)birdID
+{
+    HALBirdRecordEntity *birdRecord = [self birdRecordWithID:birdID];
+    if (birdRecord) {
+        birdRecord.count++;
+    } else {
+        HALBirdRecordEntity *record = [HALBirdRecordEntity birdRecordWithBirdID:birdID];
+        [self.birdRecordList addObject:record];
+    }
+}
+
+- (void)removeBird:(int)birdID
+{
+    HALBirdRecordEntity *remove;
+    for (HALBirdRecordEntity *birdRecord in self.birdRecordList) {
+        if (birdRecord.birdID == birdID) {
+            remove = birdRecord;
+            break;
+        }
+    }
+    if (remove) {
+        [self.birdRecordList removeObject:remove];
+    }
 }
 @end

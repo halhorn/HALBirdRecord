@@ -14,13 +14,10 @@
 @property(nonatomic) int dbID;
 @property(nonatomic, readonly) int birdID;
 @property(nonatomic) int count;
-@property(nonatomic) BOOL saw;
 @property(nonatomic) NSDate *datetime;
 @property(nonatomic) CLLocationCoordinate2D coordinate;
 
 + (id)birdRecordWithBirdID:(int)birdID;
 - (id)initWithBirdID:(int)birdID;
-- (void)incrementCount;
-- (void)seeBird;
 
 @end
