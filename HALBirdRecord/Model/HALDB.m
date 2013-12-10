@@ -77,6 +77,15 @@
     [self.fmDB close];
 }
 
+- (int)selectLastIdOfActivityTable
+{
+    NSString *sqlFormat = [NSString stringWithFormat:@"select max(id) as last_id from %@", kHALActivityRecordTable];
+    [self.fmDB open];
+    FMResultSet *resultSet = [self.fmDB executeQuery:sqlFormat];
+    NSNumber *last_id = [resultSet resultDictionary][@"last_id"];
+    return [last_id intValue];
+}
+
 - (int)insertActivityRecord:(HALActivityRecordEntity *)entity
 {
     if (!entity) {return -1;}
