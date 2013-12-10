@@ -136,4 +136,12 @@
     return changes;
 }
 
+- (void)dropTables
+{
+    [self.fmDB open];
+    [self.fmDB executeUpdate:[NSString stringWithFormat:@"drop table %@;", kHALActivityRecordTable]];
+    [self.fmDB executeUpdate:[NSString stringWithFormat:@"drop table %@;", kHALBirdRecordTable]];
+    [self.fmDB close];
+}
+
 @end
