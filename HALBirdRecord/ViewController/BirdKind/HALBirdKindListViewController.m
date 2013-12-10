@@ -41,21 +41,6 @@
                                                                               style:UIBarButtonItemStyleBordered
                                                                              target:self
                                                                              action:@selector(onTapSaveButton:)];
-    
-    HALActivityRecordEntity *activity = [[HALActivityRecordEntity alloc] init];
-    activity.title = @"title";
-    activity.location = @"location";
-    activity.comment = @"comment";
-    HALBirdRecordEntity *bird = [HALBirdRecordEntity birdRecordWithBirdID:1];
-    [bird seeBird];
-    HALBirdRecordEntity *bird2 = [HALBirdRecordEntity birdRecordWithBirdID:1];
-    NSArray *birds = @[bird, bird2];
-    
-    HALDB *db = [[HALDB alloc] init];
-    [db insertActivityRecord:activity];
-    [db insertBirdRecordList:birds activityID:1];
-    [db showRecordInTable:@"BirdRecord"];
-    [db showRecordInTable:@"ActivityRecord"];
 }
 
 - (void)didReceiveMemoryWarning
