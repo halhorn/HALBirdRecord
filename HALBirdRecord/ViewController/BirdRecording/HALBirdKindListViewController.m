@@ -38,6 +38,7 @@
     self.birdListViewController = [HALFlatBirdKindListTableViewController viewControllerFromNib];
     [self.BirdListView addSubview:self.birdListViewController.view];
 
+    [self setCancelButton];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存"
                                                                               style:UIBarButtonItemStyleBordered
                                                                              target:self

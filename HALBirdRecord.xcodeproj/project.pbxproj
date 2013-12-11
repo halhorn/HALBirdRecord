@@ -36,6 +36,7 @@
 		295E90D418575F52000BA5FE /* HALSaveActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E90D218575F52000BA5FE /* HALSaveActivityViewController.m */; };
 		295E90D518575F52000BA5FE /* HALSaveActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 295E90D318575F52000BA5FE /* HALSaveActivityViewController.xib */; };
 		295E90D818576E84000BA5FE /* NSDate+HALDateString.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E90D718576E84000BA5FE /* NSDate+HALDateString.m */; };
+		295E90DB1857ECC6000BA5FE /* UIViewController+HALSetCancelButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E90DA1857ECC5000BA5FE /* UIViewController+HALSetCancelButton.m */; };
 		8CB74CD249324A338FFEA57C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A83F48CF6BC54B5CA5918A6C /* libPods.a */; };
 		A816F01858504F41A6567D35 /* libPods-HALBirdRecordTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C62F65DBDAAF458D961E9430 /* libPods-HALBirdRecordTests.a */; };
 /* End PBXBuildFile section */
@@ -96,6 +97,8 @@
 		295E90D318575F52000BA5FE /* HALSaveActivityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALSaveActivityViewController.xib; sourceTree = "<group>"; };
 		295E90D618576E84000BA5FE /* NSDate+HALDateString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+HALDateString.h"; sourceTree = "<group>"; };
 		295E90D718576E84000BA5FE /* NSDate+HALDateString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+HALDateString.m"; sourceTree = "<group>"; };
+		295E90D91857ECC5000BA5FE /* UIViewController+HALSetCancelButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HALSetCancelButton.h"; sourceTree = "<group>"; };
+		295E90DA1857ECC5000BA5FE /* UIViewController+HALSetCancelButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HALSetCancelButton.m"; sourceTree = "<group>"; };
 		2E26AEA3F8A241B2901F84F9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		453973F184E84C35930BA507 /* Pods-HALBirdRecordTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HALBirdRecordTests.xcconfig"; path = "Pods/Pods-HALBirdRecordTests.xcconfig"; sourceTree = "<group>"; };
 		A83F48CF6BC54B5CA5918A6C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -242,6 +245,8 @@
 				295E90CC1855488C000BA5FE /* NSURL+HALLocalFileURL.m */,
 				295E90D618576E84000BA5FE /* NSDate+HALDateString.h */,
 				295E90D718576E84000BA5FE /* NSDate+HALDateString.m */,
+				295E90D91857ECC5000BA5FE /* UIViewController+HALSetCancelButton.h */,
+				295E90DA1857ECC5000BA5FE /* UIViewController+HALSetCancelButton.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -449,6 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				295E906D1853FE3E000BA5FE /* HALAppDelegate.m in Sources */,
+				295E90DB1857ECC6000BA5FE /* UIViewController+HALSetCancelButton.m in Sources */,
 				295E90AA18541087000BA5FE /* HALBirdKindListViewController.m in Sources */,
 				295E90691853FE3E000BA5FE /* main.m in Sources */,
 				295E909B18540994000BA5FE /* UIViewController+HALViewControllerFromNib.m in Sources */,

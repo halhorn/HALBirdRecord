@@ -53,14 +53,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)setCancelButton
-{
-    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"キャンセル" style:UIBarButtonItemStyleBordered handler:^(id sender){
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }];
-    self.navigationItem.leftBarButtonItem = cancelButton;
-}
-
 - (void)setBirdRecordText
 {
     NSString *text;
