@@ -77,6 +77,31 @@
     [self.fmDB close];
 }
 
+- (NSArray *)selectActivityRows
+{
+    NSString *sqlFormat = [NSString stringWithFormat:@"select * from %@ order by id desc", kHALActivityRecordTable];
+    return [self selectWithSQL:sqlFormat args:nil];
+}
+
+- (NSArray *)selectBirdRecordListWithActivityDBID:(int)dbID
+{
+    NSString *sqlFormat = [NSString stringWithFormat:@"select * from %@ order by id desc where activityID = ?", kHALBirdRecordTable];
+    return [self selectWithSQL:sqlFormat args:@[@(dbID)]];
+}
+
+- (NSArray *)selectWithSQL:(NSString *)sql args:(NSArray *)args
+{
+    [self.fmDB open];
+    FMResultSet *resultSet = args && args.count ?
+    [self.fmDB executeQuery:sql withArgumentsInArray:args] :
+    [self.fmDB executeQuery:sql];
+    NSMutableArray *ret = [[NSMutableArray alloc] init];
+    while ([resultSet next]) {
+        [ret addObject:[resultSet resultDictionary]];
+    }
+    return [NSArray arrayWithArray:ret];
+}
+
 - (int)selectLastIdOfActivityTable
 {
     NSString *sqlFormat = [NSString stringWithFormat:@"select max(id) as last_id from %@", kHALActivityRecordTable];

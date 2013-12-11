@@ -13,6 +13,8 @@
 @interface HALDB : NSObject
 
 - (void)showRecordInTable:(NSString *)tableName;
+- (NSArray *)selectActivityRows;
+- (NSArray *)selectBirdRecordListWithActivityDBID:(int)dbID;
 - (int)selectLastIdOfActivityTable;
 - (int)insertActivityRecord:(HALActivity *)activity;
 - (int)insertBirdRecordList:(NSArray *)birdRecordList activityID:(int)activityID;
