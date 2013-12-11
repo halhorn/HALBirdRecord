@@ -1,25 +1,25 @@
 //
-//  HALBirdKind.m
+//  HALBirdKindList.m
 //  HALBirdRecord
 //
 //  Created by 信田 春満 on 2013/12/08.
 //  Copyright (c) 2013年 halhorn. All rights reserved.
 //
 
-#import "HALBirdKind.h"
+#import "HALBirdKindList.h"
 
-@interface HALBirdKind()
+@interface HALBirdKindList()
 
 @end
 
-@implementation HALBirdKind
+@implementation HALBirdKindList
 
 + (instancetype)sharedBirdKind
 {
     static dispatch_once_t onceToken;
-    static HALBirdKind *sharedObject;
+    static HALBirdKindList *sharedObject;
     dispatch_once(&onceToken, ^{
-        sharedObject = [[HALBirdKind alloc] init];
+        sharedObject = [[HALBirdKindList alloc] init];
     });
     return sharedObject;
 }
@@ -53,13 +53,13 @@
             NSAssert([kindDict[@"Image"] isKindOfClass:[NSString class]], @"ImageはString");
             
             UIImage *image = [kindDict[@"Image"] isEqualToString:@""] ? nil : [UIImage imageNamed:kindDict[@"Image"]];
-            HALBirdKindEntity *entity = [HALBirdKindEntity entityWithID:[(NSNumber *)kindDict[@"BirdID"] intValue]
-                                                                   name:kindDict[@"Name"]
-                                                                comment:kindDict[@"Comment"]
-                                                                  image:image
-                                                          dataCopyRight:kindDict[@"DataCopyRight"]
-                                                                groupID:[(NSNumber *)groupDict[@"GroupID"] intValue]
-                                                              groupName:groupDict[@"GroupName"]];
+            HALBirdKind *entity = [HALBirdKind birdKindWithID:[(NSNumber *)kindDict[@"BirdID"] intValue]
+                                                         name:kindDict[@"Name"]
+                                                      comment:kindDict[@"Comment"]
+                                                        image:image
+                                                dataCopyRight:kindDict[@"DataCopyRight"]
+                                                      groupID:[(NSNumber *)groupDict[@"GroupID"] intValue]
+                                                    groupName:groupDict[@"GroupName"]];
             [birdArray addObject:entity];
         }
         [array addObject:[NSArray arrayWithArray:birdArray]];
@@ -68,10 +68,10 @@
     _birdKindList = [NSArray arrayWithArray:array];
 }
 
-- (HALBirdKindEntity *)birdKindEntityFromBirdID:(int)birdID
+- (HALBirdKind *)birdKindEntityFromBirdID:(int)birdID
 {
     for (NSArray *group in self.birdKindList) {
-        for (HALBirdKindEntity *entity in group) {
+        for (HALBirdKind *entity in group) {
             if (entity.birdID == birdID) {
                 return entity;
             }

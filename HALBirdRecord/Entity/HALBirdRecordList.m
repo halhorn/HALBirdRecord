@@ -1,15 +1,15 @@
 //
-//  HALBirdRecord.m
+//  HALBirdRecordList.m
 //  HALBirdRecord
 //
 //  Created by 信田 春満 on 2013/12/08.
 //  Copyright (c) 2013年 halhorn. All rights reserved.
 //
 
-#import "HALBirdRecord.h"
+#import "HALBirdRecordList.h"
 #import "HALDB.h"
 
-@implementation HALBirdRecord
+@implementation HALBirdRecordList
 
 - (id)init
 {
@@ -25,9 +25,9 @@
     return [self birdRecordWithID:birdID] != nil;
 }
 
-- (HALBirdRecordEntity *)birdRecordWithID:(int)birdID
+- (HALBirdRecord *)birdRecordWithID:(int)birdID
 {
-    for (HALBirdRecordEntity *birdRecord in self.birdRecordList) {
+    for (HALBirdRecord *birdRecord in self.birdRecordList) {
         if (birdRecord.birdID == birdID) {
             return birdRecord;
         }
@@ -37,19 +37,19 @@
 
 - (void)addBird:(int)birdID
 {
-    HALBirdRecordEntity *birdRecord = [self birdRecordWithID:birdID];
+    HALBirdRecord *birdRecord = [self birdRecordWithID:birdID];
     if (birdRecord) {
         birdRecord.count++;
     } else {
-        HALBirdRecordEntity *record = [HALBirdRecordEntity birdRecordWithBirdID:birdID];
+        HALBirdRecord *record = [HALBirdRecord birdRecordWithBirdID:birdID];
         [self.birdRecordList addObject:record];
     }
 }
 
 - (void)removeBird:(int)birdID
 {
-    HALBirdRecordEntity *remove;
-    for (HALBirdRecordEntity *birdRecord in self.birdRecordList) {
+    HALBirdRecord *remove;
+    for (HALBirdRecord *birdRecord in self.birdRecordList) {
         if (birdRecord.birdID == birdID) {
             remove = birdRecord;
             break;

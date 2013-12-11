@@ -51,9 +51,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)saveBirdRecord:(HALBirdRecord *)birdRecord
+- (void)saveBirdRecord:(HALBirdRecordList *)birdRecord
 {
-    HALSaveActivityViewController *viewController = [[HALSaveActivityViewController alloc] initWithBirdRecord:birdRecord completion:^(HALActivityRecordEntity *activityRecordEntity){
+    HALSaveActivityViewController *viewController = [[HALSaveActivityViewController alloc] initWithBirdRecord:birdRecord completion:^(HALActivity *activityRecordEntity){
         birdRecord.activityRecord = activityRecordEntity;
         [birdRecord save];
         [[[HALDB alloc] init] showRecordInTable:@"ActivityRecord"];
@@ -68,7 +68,7 @@
 
 - (void)onTapSaveButton:(id)sender
 {
-    HALBirdRecord *record = [self.birdListViewController sendBirdRecord];
+    HALBirdRecordList *record = [self.birdListViewController sendBirdRecord];
     if (record.birdRecordList.count) {
         [self saveBirdRecord:record];
     } else {

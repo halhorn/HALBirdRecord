@@ -7,14 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "HALBirdRecordEntity.h"
-#import "HALActivityRecordEntity.h"
+#import "HALBirdRecord.h"
+#import "HALActivity.h"
 
 @interface HALDB : NSObject
 
 - (void)showRecordInTable:(NSString *)tableName;
 - (int)selectLastIdOfActivityTable;
-- (int)insertActivityRecord:(HALActivityRecordEntity *)entity;
+- (int)insertActivityRecord:(HALActivity *)entity;
 - (int)insertBirdRecordList:(NSArray *)entityList activityID:(int)activityID;
 - (void)dropTables;
 

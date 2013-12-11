@@ -1,5 +1,5 @@
 //
-//  HALActivityRecordEntity.h
+//  HALActivityRecord.h
 //  HALBirdRecord
 //
 //  Created by 信田 春満 on 2013/12/09.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface HALActivityRecordEntity : NSObject
+@interface HALActivity : NSObject
 
 @property(nonatomic) int dbID;
 @property(nonatomic) NSString *title;

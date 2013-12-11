@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HALBirdRecord.h"
-#import "HALActivityRecordEntity.h"
+#import "HALBirdRecordList.h"
+#import "HALActivity.h"
 
 @interface HALSaveActivityViewController : UIViewController
 
--(id) initWithBirdRecord:(HALBirdRecord *)birdRecord completion:(void(^)(HALActivityRecordEntity *))completion;
+-(id) initWithBirdRecord:(HALBirdRecordList *)birdRecord completion:(void(^)(HALActivity *))completion;
 
 @end

@@ -86,7 +86,7 @@
     return [last_id intValue];
 }
 
-- (int)insertActivityRecord:(HALActivityRecordEntity *)entity
+- (int)insertActivityRecord:(HALActivity *)entity
 {
     if (!entity) {return -1;}
     NSString *sqlFormat = [NSString stringWithFormat:@"insert into %@("
@@ -120,7 +120,7 @@
                            ") "
                            "values%@;", kHALBirdRecordTable, questions];
     NSMutableArray *args = [[NSMutableArray alloc] init];
-    for (HALBirdRecordEntity *entity in entityList) {
+    for (HALBirdRecord *entity in entityList) {
         [args addObject:@(entity.birdID)];
         [args addObject:@(activityID)];
         [args addObject:@(entity.count)];

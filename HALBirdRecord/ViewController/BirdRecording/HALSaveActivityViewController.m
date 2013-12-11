@@ -15,13 +15,13 @@
 @property (weak, nonatomic) IBOutlet UITextView *commentTextView;
 @property (weak, nonatomic) IBOutlet UITextView *BirdRecordTextView;
 
-@property(nonatomic) HALBirdRecord *birdRecord;
-@property(nonatomic, copy) void (^completion)(HALActivityRecordEntity *);
+@property(nonatomic) HALBirdRecordList *birdRecord;
+@property(nonatomic, copy) void (^completion)(HALActivity *);
 @end
 
 @implementation HALSaveActivityViewController
 
--(id) initWithBirdRecord:(HALBirdRecord *)birdRecord completion:(void(^)(HALActivityRecordEntity *))completion
+-(id) initWithBirdRecord:(HALBirdRecordList *)birdRecord completion:(void(^)(HALActivity *))completion
 {
     self = [super initWithNibName:NSStringFromClass([self class]) bundle:nil];
     if (self) {
@@ -56,7 +56,7 @@
 - (void)setBirdRecordText
 {
     NSString *text;
-    for (HALBirdRecordEntity *birdRecordEntity in self.birdRecord.birdRecordList) {
+    for (HALBirdRecord *birdRecordEntity in self.birdRecord.birdRecordList) {
         text = text ? [NSString stringWithFormat:@"%@ / %@", text, birdRecordEntity.kind.name] : birdRecordEntity.kind.name;
     }
     self.BirdRecordTextView.text = text;
@@ -78,7 +78,7 @@
     if ([title isEqualToString:@""]) {
         title = [[NSDate date] dateString];
     }
-    HALActivityRecordEntity *entity = [[HALActivityRecordEntity alloc] init];
+    HALActivity *entity = [[HALActivity alloc] init];
     entity.title = title;
     entity.location = self.locationTextField.text;
     entity.comment = self.commentTextView.text;

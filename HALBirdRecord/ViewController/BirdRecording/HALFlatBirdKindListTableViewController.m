@@ -7,15 +7,15 @@
 //
 
 #import "HALFlatBirdKindListTableViewController.h"
+#import "HALBirdKindList.h"
 #import "HALBirdKind.h"
-#import "HALBirdKindEntity.h"
+#import "HALBirdRecordList.h"
 #import "HALBirdRecord.h"
-#import "HALBirdRecordEntity.h"
 
 @interface HALFlatBirdKindListTableViewController ()
 
-@property(nonatomic) HALBirdKind *birdKind;
-@property(nonatomic) HALBirdRecord *birdRecord;
+@property(nonatomic) HALBirdKindList *birdKind;
+@property(nonatomic) HALBirdRecordList *birdRecord;
 
 @end
 
@@ -42,8 +42,8 @@
 
 - (void)setup
 {
-    self.birdKind = [HALBirdKind sharedBirdKind];
-    self.birdRecord = [[HALBirdRecord alloc] init];
+    self.birdKind = [HALBirdKindList sharedBirdKind];
+    self.birdRecord = [[HALBirdRecordList alloc] init];
 }
 
 - (void)viewDidLoad
@@ -88,7 +88,7 @@
     
     // Configure the cell...
     NSArray *birdGroup = self.birdKind.birdKindList[indexPath.section];
-    HALBirdKindEntity *birdKindEntity =birdGroup[indexPath.row];
+    HALBirdKind *birdKindEntity =birdGroup[indexPath.row];
     cell.textLabel.text = birdKindEntity.name;
     cell.accessoryType = [self.birdRecord birdExists:birdKindEntity.birdID] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
 
@@ -98,7 +98,7 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     NSArray *birdGroup = self.birdKind.birdKindList[section];
-    HALBirdKindEntity * entity = birdGroup[0];
+    HALBirdKind * entity = birdGroup[0];
     return entity.groupName;
 }
 
@@ -147,7 +147,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    HALBirdKindEntity *birdKind = self.birdKind.birdKindList[indexPath.section][indexPath.row];
+    HALBirdKind *birdKind = self.birdKind.birdKindList[indexPath.section][indexPath.row];
     if (![self.birdRecord birdExists:birdKind.birdID]) {
         [self.birdRecord addBird:birdKind.birdID];
     } else {
@@ -158,7 +158,7 @@
 
 #pragma mark - HALBirdRecordViewDelegate
 
-- (HALBirdRecord *)sendBirdRecord
+- (HALBirdRecordList *)sendBirdRecord
 {
     return self.birdRecord;
 }
