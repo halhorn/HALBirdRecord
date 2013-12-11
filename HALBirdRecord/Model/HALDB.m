@@ -86,9 +86,9 @@
     return [last_id intValue];
 }
 
-- (int)insertActivityRecord:(HALActivity *)entity
+- (int)insertActivityRecord:(HALActivity *)activity
 {
-    if (!entity) {return -1;}
+    if (!activity) {return -1;}
     NSString *sqlFormat = [NSString stringWithFormat:@"insert into %@("
                            "title,"
                            "location,"
@@ -97,17 +97,17 @@
                            ") "
                            "values(?,?,?,?);", kHALActivityRecordTable];
     [self.fmDB open];
-    [self.fmDB executeUpdate:sqlFormat, entity.title, entity.location, entity.comment, entity.datetime];
+    [self.fmDB executeUpdate:sqlFormat, activity.title, activity.location, activity.comment, activity.datetime];
     int changes = [self.fmDB changes];
     [self.fmDB close];
     return changes;
 }
 
-- (int)insertBirdRecordList:(NSArray *)entityList activityID:(int)activityID
+- (int)insertBirdRecordList:(NSArray *)birdRecordList activityID:(int)activityID
 {
-    if (!entityList || !entityList.count) {return -1;}
+    if (!birdRecordList || !birdRecordList.count) {return -1;}
     NSString *questions = @"(?,?,?,?,?,?)";
-    for (int i = 1; i < entityList.count; i++) {
+    for (int i = 1; i < birdRecordList.count; i++) {
         questions = [NSString stringWithFormat:@"%@,(?,?,?,?,?,?)", questions];
     }
     NSString *sqlFormat = [NSString stringWithFormat:@"insert into %@("
@@ -120,13 +120,13 @@
                            ") "
                            "values%@;", kHALBirdRecordTable, questions];
     NSMutableArray *args = [[NSMutableArray alloc] init];
-    for (HALBirdRecord *entity in entityList) {
-        [args addObject:@(entity.birdID)];
+    for (HALBirdRecord *birdRecord in birdRecordList) {
+        [args addObject:@(birdRecord.birdID)];
         [args addObject:@(activityID)];
-        [args addObject:@(entity.count)];
-        [args addObject:entity.datetime];
-        [args addObject:@(entity.coordinate.latitude)];
-        [args addObject:@(entity.coordinate.longitude)];
+        [args addObject:@(birdRecord.count)];
+        [args addObject:birdRecord.datetime];
+        [args addObject:@(birdRecord.coordinate.latitude)];
+        [args addObject:@(birdRecord.coordinate.longitude)];
     }
     
     [self.fmDB open];

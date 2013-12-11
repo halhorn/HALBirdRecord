@@ -51,11 +51,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)saveBirdRecord:(HALBirdRecordList *)birdRecord
+- (void)saveActivity:(HALActivity *)activity
 {
-    HALSaveActivityViewController *viewController = [[HALSaveActivityViewController alloc] initWithBirdRecord:birdRecord completion:^(HALActivity *activityRecordEntity){
-        birdRecord.activityRecord = activityRecordEntity;
-        [birdRecord save];
+    HALSaveActivityViewController *viewController = [[HALSaveActivityViewController alloc] initWithActivity:activity completion:^(HALActivity *resultActivity){
+        [resultActivity save];
         [[[HALDB alloc] init] showRecordInTable:@"ActivityRecord"];
         [[[HALDB alloc] init] showRecordInTable:@"BirdRecord"];
     }];
@@ -68,16 +67,16 @@
 
 - (void)onTapSaveButton:(id)sender
 {
-    HALBirdRecordList *record = [self.birdListViewController sendBirdRecord];
-    if (record.birdRecordList.count) {
-        [self saveBirdRecord:record];
+    HALActivity *activity = [self.birdListViewController sendActivity];
+    if (activity.birdRecordList.count) {
+        [self saveActivity:activity];
     } else {
         WeakSelf weakSelf = self;
         [UIAlertView showAlertViewWithTitle:@"鳥さんはどこ？" message:@"鳥が一羽もいないアクティビティを保存しますか？" cancelButtonTitle:@"戻る" otherButtonTitles:@[@"保存"] handler:^(UIAlertView *alertView, NSInteger buttonIndex){
             if (buttonIndex == alertView.cancelButtonIndex) {
                 return;
             }
-            [weakSelf saveBirdRecord:record];
+            [weakSelf saveActivity:activity];
         }];
     }
 }

@@ -14,7 +14,7 @@
 
 @implementation HALBirdKindList
 
-+ (instancetype)sharedBirdKind
++ (instancetype)sharedBirdKindList
 {
     static dispatch_once_t onceToken;
     static HALBirdKindList *sharedObject;
@@ -28,12 +28,12 @@
 {
     self = [super init];
     if (self) {
-        [self loadBirdKind];
+        [self loadBirdKindList];
     }
     return self;
 }
 
-- (void)loadBirdKind
+- (void)loadBirdKindList
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:@"BirdKind" ofType:@"plist"];
     NSArray *birdKindGroup = [NSArray arrayWithContentsOfFile:path];
@@ -53,14 +53,14 @@
             NSAssert([kindDict[@"Image"] isKindOfClass:[NSString class]], @"ImageはString");
             
             UIImage *image = [kindDict[@"Image"] isEqualToString:@""] ? nil : [UIImage imageNamed:kindDict[@"Image"]];
-            HALBirdKind *entity = [HALBirdKind birdKindWithID:[(NSNumber *)kindDict[@"BirdID"] intValue]
+            HALBirdKind *kind = [HALBirdKind birdKindWithID:[(NSNumber *)kindDict[@"BirdID"] intValue]
                                                          name:kindDict[@"Name"]
                                                       comment:kindDict[@"Comment"]
                                                         image:image
                                                 dataCopyRight:kindDict[@"DataCopyRight"]
                                                       groupID:[(NSNumber *)groupDict[@"GroupID"] intValue]
                                                     groupName:groupDict[@"GroupName"]];
-            [birdArray addObject:entity];
+            [birdArray addObject:kind];
         }
         [array addObject:[NSArray arrayWithArray:birdArray]];
         _numberOfGroups++;
@@ -68,12 +68,12 @@
     _birdKindList = [NSArray arrayWithArray:array];
 }
 
-- (HALBirdKind *)birdKindEntityFromBirdID:(int)birdID
+- (HALBirdKind *)birdKindFromBirdID:(int)birdID
 {
     for (NSArray *group in self.birdKindList) {
-        for (HALBirdKind *entity in group) {
-            if (entity.birdID == birdID) {
-                return entity;
+        for (HALBirdKind *kind in group) {
+            if (kind.birdID == birdID) {
+                return kind;
             }
         }
     }

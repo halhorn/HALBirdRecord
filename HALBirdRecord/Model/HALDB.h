@@ -14,8 +14,8 @@
 
 - (void)showRecordInTable:(NSString *)tableName;
 - (int)selectLastIdOfActivityTable;
-- (int)insertActivityRecord:(HALActivity *)entity;
-- (int)insertBirdRecordList:(NSArray *)entityList activityID:(int)activityID;
+- (int)insertActivityRecord:(HALActivity *)activity;
+- (int)insertBirdRecordList:(NSArray *)birdRecordList activityID:(int)activityID;
 - (void)dropTables;
 
 @end

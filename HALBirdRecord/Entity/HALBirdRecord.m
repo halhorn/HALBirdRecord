@@ -34,7 +34,7 @@
         _birdID = birdID;
         _datetime = [NSDate date];
         _count = 1;
-        _kind = [[HALBirdKindList sharedBirdKind] birdKindEntityFromBirdID:birdID];
+        _kind = [[HALBirdKindList sharedBirdKindList] birdKindFromBirdID:birdID];
     }
     return self;
 }
@@ -43,6 +43,6 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"HALBirdRecordEntity birdID:%d count:%d datetime:%@ coordinate:(%f,%f)", self.birdID, self.count, self.datetime, self.coordinate.latitude, self.coordinate.longitude];
+    return [NSString stringWithFormat:@"HALBirdRecord birdID:%d count:%d datetime:%@ coordinate:(%f,%f)", self.birdID, self.count, self.datetime, self.coordinate.latitude, self.coordinate.longitude];
 }
 @end

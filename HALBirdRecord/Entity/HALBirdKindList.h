@@ -11,11 +11,11 @@
 
 @interface HALBirdKindList : NSObject
 
-+ (instancetype)sharedBirdKind;
++ (instancetype)sharedBirdKindList;
 
 @property(nonatomic, readonly) NSArray *birdKindList;
 @property(nonatomic, readonly) int numberOfGroups;
 
-- (HALBirdKind *)birdKindEntityFromBirdID:(int)birdID;
+- (HALBirdKind *)birdKindFromBirdID:(int)birdID;
 
 @end

@@ -15,17 +15,17 @@
 @property (weak, nonatomic) IBOutlet UITextView *commentTextView;
 @property (weak, nonatomic) IBOutlet UITextView *BirdRecordTextView;
 
-@property(nonatomic) HALBirdRecordList *birdRecord;
+@property(nonatomic) HALActivity *activity;
 @property(nonatomic, copy) void (^completion)(HALActivity *);
 @end
 
 @implementation HALSaveActivityViewController
 
--(id) initWithBirdRecord:(HALBirdRecordList *)birdRecord completion:(void(^)(HALActivity *))completion
+-(id) initWithActivity:(HALActivity *)activity completion:(void(^)(HALActivity *))completion
 {
     self = [super initWithNibName:NSStringFromClass([self class]) bundle:nil];
     if (self) {
-        self.birdRecord = birdRecord;
+        self.activity = activity;
         self.completion = completion;
         self.title = @"アクティビティ";
     }
@@ -56,8 +56,8 @@
 - (void)setBirdRecordText
 {
     NSString *text;
-    for (HALBirdRecord *birdRecordEntity in self.birdRecord.birdRecordList) {
-        text = text ? [NSString stringWithFormat:@"%@ / %@", text, birdRecordEntity.kind.name] : birdRecordEntity.kind.name;
+    for (HALBirdRecord *birdRecord in self.activity.birdRecordList) {
+        text = text ? [NSString stringWithFormat:@"%@ / %@", text, birdRecord.kind.name] : birdRecord.kind.name;
     }
     self.BirdRecordTextView.text = text;
 }
@@ -78,15 +78,15 @@
     if ([title isEqualToString:@""]) {
         title = [[NSDate date] dateString];
     }
-    HALActivity *entity = [[HALActivity alloc] init];
-    entity.title = title;
-    entity.location = self.locationTextField.text;
-    entity.comment = self.commentTextView.text;
-    entity.datetime = [NSDate date];
+    HALActivity *activity = [[HALActivity alloc] init];
+    activity.title = title;
+    activity.location = self.locationTextField.text;
+    activity.comment = self.commentTextView.text;
+    activity.datetime = [NSDate date];
     
     WeakSelf weakSelf = self;
     [self dismissViewControllerAnimated:YES completion:^{
-        weakSelf.completion(entity);
+        weakSelf.completion(activity);
     }];
 }
 @end

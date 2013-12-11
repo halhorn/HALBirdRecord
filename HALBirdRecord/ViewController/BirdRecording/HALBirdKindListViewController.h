@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HALBirdRecordList.h"
+#import "HALActivity.h"
 
 @protocol HALBirdRecordViewDelegate <NSObject>
 
-- (HALBirdRecordList *)sendBirdRecord;
+- (HALActivity *)sendActivity;
 
 @end
 

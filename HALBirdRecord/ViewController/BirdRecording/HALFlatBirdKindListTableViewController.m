@@ -9,13 +9,13 @@
 #import "HALFlatBirdKindListTableViewController.h"
 #import "HALBirdKindList.h"
 #import "HALBirdKind.h"
-#import "HALBirdRecordList.h"
 #import "HALBirdRecord.h"
+#import "HALActivity.h"
 
 @interface HALFlatBirdKindListTableViewController ()
 
-@property(nonatomic) HALBirdKindList *birdKind;
-@property(nonatomic) HALBirdRecordList *birdRecord;
+@property(nonatomic) HALBirdKindList *birdKindList;
+@property(nonatomic) HALActivity *activity;
 
 @end
 
@@ -42,8 +42,8 @@
 
 - (void)setup
 {
-    self.birdKind = [HALBirdKindList sharedBirdKind];
-    self.birdRecord = [[HALBirdRecordList alloc] init];
+    self.birdKindList = [HALBirdKindList sharedBirdKindList];
+    self.activity = [[HALActivity alloc] init];
 }
 
 - (void)viewDidLoad
@@ -68,13 +68,13 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return self.birdKind.birdKindList.count;
+    return self.birdKindList.birdKindList.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    NSArray *birdGroup = self.birdKind.birdKindList[section];
+    NSArray *birdGroup = self.birdKindList.birdKindList[section];
     return birdGroup.count;
 }
 
@@ -87,19 +87,19 @@
     }
     
     // Configure the cell...
-    NSArray *birdGroup = self.birdKind.birdKindList[indexPath.section];
-    HALBirdKind *birdKindEntity =birdGroup[indexPath.row];
-    cell.textLabel.text = birdKindEntity.name;
-    cell.accessoryType = [self.birdRecord birdExists:birdKindEntity.birdID] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    NSArray *birdGroup = self.birdKindList.birdKindList[indexPath.section];
+    HALBirdKind *birdKind =birdGroup[indexPath.row];
+    cell.textLabel.text = birdKind.name;
+    cell.accessoryType = [self.activity birdExists:birdKind.birdID] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
 
     return cell;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    NSArray *birdGroup = self.birdKind.birdKindList[section];
-    HALBirdKind * entity = birdGroup[0];
-    return entity.groupName;
+    NSArray *birdGroup = self.birdKindList.birdKindList[section];
+    HALBirdKind *kind = birdGroup[0];
+    return kind.groupName;
 }
 
 /*
@@ -147,20 +147,20 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    HALBirdKind *birdKind = self.birdKind.birdKindList[indexPath.section][indexPath.row];
-    if (![self.birdRecord birdExists:birdKind.birdID]) {
-        [self.birdRecord addBird:birdKind.birdID];
+    HALBirdKind *birdKind = self.birdKindList.birdKindList[indexPath.section][indexPath.row];
+    if (![self.activity birdExists:birdKind.birdID]) {
+        [self.activity addBird:birdKind.birdID];
     } else {
-        [self.birdRecord removeBird:birdKind.birdID];
+        [self.activity removeBird:birdKind.birdID];
     }
     [tableView reloadData];
 }
 
 #pragma mark - HALBirdRecordViewDelegate
 
-- (HALBirdRecordList *)sendBirdRecord
+- (HALActivity *)sendActivity
 {
-    return self.birdRecord;
+    return self.activity;
 }
 
 @end

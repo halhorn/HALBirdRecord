@@ -51,14 +51,14 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"HALBirdKindEntity: "
-            "birdID:%d  "
-            "name:%@  "
-            "comment:%@  "
-            "image:%@  "
-            "dataCopyRight:%@  "
-            "groupID:%d  "
-            "groupName:%@  "
+    return [NSString stringWithFormat:@"HALBirdKind: "
+            "birdID:%d "
+            "name:%@ "
+            "comment:%@ "
+            "image:%@ "
+            "dataCopyRight:%@ "
+            "groupID:%d "
+            "groupName:%@ "
             , self.birdID, self.name, self.comment, self.image, self.dataCopyRight, self.groupID, self.groupName];
 }
 @end

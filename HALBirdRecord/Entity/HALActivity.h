@@ -1,5 +1,5 @@
 //
-//  HALActivityRecord.h
+//  HALActivity.h
 //  HALBirdRecord
 //
 //  Created by 信田 春満 on 2013/12/09.
@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HALBirdRecord.h"
 
 @interface HALActivity : NSObject
 
@@ -15,5 +16,12 @@
 @property(nonatomic) NSString *location;
 @property(nonatomic) NSString *comment;
 @property(nonatomic) NSDate *datetime;
+@property(nonatomic) NSMutableArray *birdRecordList;
+
+- (BOOL)birdExists:(int)birdID;
+- (HALBirdRecord *)birdRecordWithID:(int)birdID;
+- (void)addBird:(int)birdID;
+- (void)removeBird:(int)birdID;
+- (void)save;
 
 @end
