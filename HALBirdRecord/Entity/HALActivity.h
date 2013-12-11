@@ -22,6 +22,5 @@
 - (HALBirdRecord *)birdRecordWithID:(int)birdID;
 - (void)addBird:(int)birdID;
 - (void)removeBird:(int)birdID;
-- (void)save;
 
 @end

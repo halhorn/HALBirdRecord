@@ -7,7 +7,6 @@
 //
 
 #import "HALActivity.h"
-#import "HALDB.h"
 
 @implementation HALActivity
 
@@ -63,15 +62,6 @@
     if (remove) {
         [self.birdRecordList removeObject:remove];
     }
-}
-
-- (void)save
-{
-    int activityID = 0;
-    HALDB *db = [[HALDB alloc] init];
-    [db insertActivityRecord:self];
-    activityID = [db selectLastIdOfActivityTable];
-    [db insertBirdRecordList:self.birdRecordList activityID:activityID];
 }
 
 @end

@@ -11,6 +11,7 @@
 #import "HALSaveActivityViewController.h"
 #import "UIViewController+HALViewControllerFromNib.h"
 #import "HALDB.h"
+#import "HALActivityManager.h"
 
 @interface HALBirdKindListViewController ()
 @property (weak, nonatomic) IBOutlet UIView *BirdListView;
@@ -54,7 +55,7 @@
 - (void)saveActivity:(HALActivity *)activity
 {
     HALSaveActivityViewController *viewController = [[HALSaveActivityViewController alloc] initWithActivity:activity completion:^(HALActivity *resultActivity){
-        [resultActivity save];
+        [[HALActivityManager sharedManager] registActivity:resultActivity];
         [[[HALDB alloc] init] showRecordInTable:@"ActivityRecord"];
         [[[HALDB alloc] init] showRecordInTable:@"BirdRecord"];
     }];

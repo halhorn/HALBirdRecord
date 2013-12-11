@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		29501ED01858C8B6004AF7F9 /* HALActivityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 29501ECF1858C8B6004AF7F9 /* HALActivityManager.m */; };
 		295E905D1853FE3D000BA5FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 295E905C1853FE3D000BA5FE /* Foundation.framework */; };
 		295E905F1853FE3D000BA5FE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 295E905E1853FE3D000BA5FE /* CoreGraphics.framework */; };
 		295E90611853FE3E000BA5FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 295E90601853FE3E000BA5FE /* UIKit.framework */; };
@@ -55,6 +56,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		29501ECE1858C8B6004AF7F9 /* HALActivityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALActivityManager.h; sourceTree = "<group>"; };
+		29501ECF1858C8B6004AF7F9 /* HALActivityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALActivityManager.m; sourceTree = "<group>"; };
 		295E90591853FE3D000BA5FE /* HALBirdRecord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HALBirdRecord.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		295E905C1853FE3D000BA5FE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		295E905E1853FE3D000BA5FE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -270,6 +273,8 @@
 		295E90B1185410D4000BA5FE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				29501ECE1858C8B6004AF7F9 /* HALActivityManager.h */,
+				29501ECF1858C8B6004AF7F9 /* HALActivityManager.m */,
 				295E90C818554739000BA5FE /* HALDB.h */,
 				295E90C918554739000BA5FE /* HALDB.m */,
 			);
@@ -488,6 +493,7 @@
 				295E90C118546328000BA5FE /* HALBirdRecord.m in Sources */,
 				295E90CA18554739000BA5FE /* HALDB.m in Sources */,
 				295E90B41854111D000BA5FE /* HALBirdKindList.m in Sources */,
+				29501ED01858C8B6004AF7F9 /* HALActivityManager.m in Sources */,
 				295E90AF185410C5000BA5FE /* HALFlatBirdKindListTableViewController.m in Sources */,
 				295E90CD1855488C000BA5FE /* NSURL+HALLocalFileURL.m in Sources */,
 			);
