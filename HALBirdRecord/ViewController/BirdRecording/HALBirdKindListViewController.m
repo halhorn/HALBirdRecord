@@ -51,19 +51,35 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)onTapSaveButton:(id)sender
+- (void)saveBirdRecord:(HALBirdRecord *)birdRecord
 {
-    HALBirdRecord *record = [self.birdListViewController sendBirdRecord];
-    
-    HALSaveActivityViewController *viewController = [[HALSaveActivityViewController alloc] initWithBirdRecord:record completion:^(HALActivityRecordEntity *activityRecordEntity){
-        record.activityRecord = activityRecordEntity;
-        [record save];
+    HALSaveActivityViewController *viewController = [[HALSaveActivityViewController alloc] initWithBirdRecord:birdRecord completion:^(HALActivityRecordEntity *activityRecordEntity){
+        birdRecord.activityRecord = activityRecordEntity;
+        [birdRecord save];
         [[[HALDB alloc] init] showRecordInTable:@"ActivityRecord"];
         [[[HALDB alloc] init] showRecordInTable:@"BirdRecord"];
     }];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
     navController.navigationBar.translucent = NO;
     [self presentViewController:navController animated:YES completion:nil];
+}
+
+#pragma mark - UIEventHandler
+
+- (void)onTapSaveButton:(id)sender
+{
+    HALBirdRecord *record = [self.birdListViewController sendBirdRecord];
+    if (record.birdRecordList.count) {
+        [self saveBirdRecord:record];
+    } else {
+        WeakSelf weakSelf = self;
+        [UIAlertView showAlertViewWithTitle:@"鳥さんはどこ？" message:@"鳥が一羽もいないアクティビティを保存しますか？" cancelButtonTitle:@"戻る" otherButtonTitles:@[@"保存"] handler:^(UIAlertView *alertView, NSInteger buttonIndex){
+            if (buttonIndex == alertView.cancelButtonIndex) {
+                return;
+            }
+            [weakSelf saveBirdRecord:record];
+        }];
+    }
 }
 
 @end
