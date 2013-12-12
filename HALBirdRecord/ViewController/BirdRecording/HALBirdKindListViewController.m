@@ -54,10 +54,10 @@
 
 - (void)saveActivity:(HALActivity *)activity
 {
+    WeakSelf weakSelf = self;
     HALSaveActivityViewController *viewController = [[HALSaveActivityViewController alloc] initWithActivity:activity completion:^(HALActivity *resultActivity){
         [[HALActivityManager sharedManager] registActivity:resultActivity];
-        [[[HALDB alloc] init] showRecordInTable:@"ActivityRecord"];
-        [[[HALDB alloc] init] showRecordInTable:@"BirdRecord"];
+        [weakSelf dismissViewControllerAnimated:YES completion:nil];
     }];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
     navController.navigationBar.translucent = NO;
