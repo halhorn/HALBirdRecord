@@ -149,7 +149,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     HALBirdKind *birdKind = self.birdKindList.birdKindList[indexPath.section][indexPath.row];
     if (![self.activity birdExists:birdKind.birdID]) {
-        [self.activity addBird:birdKind.birdID];
+        [self.activity addBirdWithID:birdKind.birdID];
     } else {
         [self.activity removeBird:birdKind.birdID];
     }

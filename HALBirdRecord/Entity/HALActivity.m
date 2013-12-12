@@ -39,7 +39,15 @@
     return nil;
 }
 
-- (void)addBird:(int)birdID
+- (void)addBird:(HALBirdRecord *)birdRecord
+{
+    if ([self birdExists:birdRecord.birdID]) {
+        NSAssert(NO, @"Activityには一種類につき一つしかBirdRecordを入れられません。");
+    }
+    [self.birdRecordList addObject:birdRecord];
+}
+
+- (void)addBirdWithID:(int)birdID
 {
     HALBirdRecord *birdRecord = [self birdRecordWithID:birdID];
     if (birdRecord) {
