@@ -72,4 +72,9 @@
     }
 }
 
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"title:%@ datetime:%@ location:%@ comment:%@ birds:%@", self.title, self.datetime, self.location, self.comment, self.birdRecordList];
+}
+
 @end

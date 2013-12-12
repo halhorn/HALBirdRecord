@@ -85,7 +85,7 @@
 
 - (NSArray *)selectBirdRecordListWithActivityDBID:(int)dbID
 {
-    NSString *sqlFormat = [NSString stringWithFormat:@"select * from %@ order by id desc where activityID = ?", kHALBirdRecordTable];
+    NSString *sqlFormat = [NSString stringWithFormat:@"select * from %@ where activityID = ? order by id desc", kHALBirdRecordTable];
     return [self selectWithSQL:sqlFormat args:@[@(dbID)]];
 }
 

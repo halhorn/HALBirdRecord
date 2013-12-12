@@ -83,4 +83,9 @@
     [self loadActivityList];
 }
 
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"%@", self.activityList];
+}
+
 @end
