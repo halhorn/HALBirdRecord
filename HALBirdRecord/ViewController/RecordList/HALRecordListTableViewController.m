@@ -7,8 +7,11 @@
 //
 
 #import "HALRecordListTableViewController.h"
+#import "HALActivityManager.h"
 
 @interface HALRecordListTableViewController ()
+
+@property(nonatomic) HALActivityManager *activityManager;
 
 @end
 
@@ -18,7 +21,7 @@
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+        [self setup];
     }
     return self;
 }
@@ -40,20 +43,24 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark private methods
+
+- (void)setup
+{
+    self.activityManager = [HALActivityManager sharedManager];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return self.activityManager.activityList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -65,6 +72,8 @@
     }
     
     // Configure the cell...
+    HALActivity *activity = self.activityManager.activityList[indexPath.row];
+    cell.textLabel.text = activity.title;
     
     return cell;
 }
