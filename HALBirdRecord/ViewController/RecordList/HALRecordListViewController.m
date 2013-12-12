@@ -7,9 +7,13 @@
 //
 
 #import "HALRecordListViewController.h"
+#import "HALRecordListTableViewController.h"
+#import "UIViewController+HALViewControllerFromNib.h"
 
 @interface HALRecordListViewController ()
+@property (weak, nonatomic) IBOutlet UIView *activityRecordView;
 
+@property(nonatomic) HALRecordListTableViewController *activityRecordTableViewController;
 @end
 
 @implementation HALRecordListViewController
@@ -27,6 +31,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.activityRecordTableViewController = [HALRecordListTableViewController viewControllerFromNib];
+    [self.activityRecordView addSubview:self.activityRecordTableViewController.view];
 }
 
 - (void)didReceiveMemoryWarning
