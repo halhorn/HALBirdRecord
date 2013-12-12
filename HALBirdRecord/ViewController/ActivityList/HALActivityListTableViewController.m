@@ -6,16 +6,16 @@
 //  Copyright (c) 2013年 halhorn. All rights reserved.
 //
 
-#import "HALRecordListTableViewController.h"
+#import "HALActivityListTableViewController.h"
 #import "HALActivityManager.h"
 
-@interface HALRecordListTableViewController ()
+@interface HALActivityListTableViewController ()
 
 @property(nonatomic) HALActivityManager *activityManager;
 
 @end
 
-@implementation HALRecordListTableViewController
+@implementation HALActivityListTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {

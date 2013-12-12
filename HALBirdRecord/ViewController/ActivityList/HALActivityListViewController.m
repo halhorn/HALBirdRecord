@@ -6,18 +6,18 @@
 //  Copyright (c) 2013年 halhorn. All rights reserved.
 //
 
-#import "HALRecordListViewController.h"
-#import "HALRecordListTableViewController.h"
+#import "HALActivityListViewController.h"
+#import "HALActivityListTableViewController.h"
 #import "HALBirdKindListViewController.h"
 #import "UIViewController+HALViewControllerFromNib.h"
 
-@interface HALRecordListViewController ()
+@interface HALActivityListViewController ()
 @property (weak, nonatomic) IBOutlet UIView *activityRecordView;
 
-@property(nonatomic) HALRecordListTableViewController *activityRecordTableViewController;
+@property(nonatomic) HALActivityListTableViewController *activityRecordTableViewController;
 @end
 
-@implementation HALRecordListViewController
+@implementation HALActivityListViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,7 +32,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.activityRecordTableViewController = [HALRecordListTableViewController viewControllerFromNib];
+    self.activityRecordTableViewController = [HALActivityListTableViewController viewControllerFromNib];
     [self.activityRecordView addSubview:self.activityRecordTableViewController.view];
     [self setupNavBar];
 }

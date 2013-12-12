@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HALRecordListViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HALActivityListViewController">
             <connections>
                 <outlet property="activityRecordView" destination="ijw-k5-WkY" id="gnc-Pj-NeB"/>
                 <outlet property="view" destination="1" id="3"/>

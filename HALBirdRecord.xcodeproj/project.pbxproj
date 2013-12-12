@@ -37,10 +37,10 @@
 		295E90D518575F52000BA5FE /* HALSaveActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 295E90D318575F52000BA5FE /* HALSaveActivityViewController.xib */; };
 		295E90D818576E84000BA5FE /* NSDate+HALDateString.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E90D718576E84000BA5FE /* NSDate+HALDateString.m */; };
 		295E90DB1857ECC6000BA5FE /* UIViewController+HALSetCancelButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E90DA1857ECC5000BA5FE /* UIViewController+HALSetCancelButton.m */; };
-		295E90E018587EEC000BA5FE /* HALRecordListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E90DE18587EEC000BA5FE /* HALRecordListViewController.m */; };
-		295E90E118587EEC000BA5FE /* HALRecordListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 295E90DF18587EEC000BA5FE /* HALRecordListViewController.xib */; };
-		295E90E518587F14000BA5FE /* HALRecordListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E90E318587F14000BA5FE /* HALRecordListTableViewController.m */; };
-		295E90E618587F14000BA5FE /* HALRecordListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 295E90E418587F14000BA5FE /* HALRecordListTableViewController.xib */; };
+		295E90E018587EEC000BA5FE /* HALActivityListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E90DE18587EEC000BA5FE /* HALActivityListViewController.m */; };
+		295E90E118587EEC000BA5FE /* HALActivityListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 295E90DF18587EEC000BA5FE /* HALActivityListViewController.xib */; };
+		295E90E518587F14000BA5FE /* HALActivityListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E90E318587F14000BA5FE /* HALActivityListTableViewController.m */; };
+		295E90E618587F14000BA5FE /* HALActivityListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 295E90E418587F14000BA5FE /* HALActivityListTableViewController.xib */; };
 		8CB74CD249324A338FFEA57C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A83F48CF6BC54B5CA5918A6C /* libPods.a */; };
 		A816F01858504F41A6567D35 /* libPods-HALBirdRecordTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C62F65DBDAAF458D961E9430 /* libPods-HALBirdRecordTests.a */; };
 /* End PBXBuildFile section */
@@ -103,12 +103,12 @@
 		295E90D718576E84000BA5FE /* NSDate+HALDateString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+HALDateString.m"; sourceTree = "<group>"; };
 		295E90D91857ECC5000BA5FE /* UIViewController+HALSetCancelButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HALSetCancelButton.h"; sourceTree = "<group>"; };
 		295E90DA1857ECC5000BA5FE /* UIViewController+HALSetCancelButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HALSetCancelButton.m"; sourceTree = "<group>"; };
-		295E90DD18587EEC000BA5FE /* HALRecordListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALRecordListViewController.h; sourceTree = "<group>"; };
-		295E90DE18587EEC000BA5FE /* HALRecordListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALRecordListViewController.m; sourceTree = "<group>"; };
-		295E90DF18587EEC000BA5FE /* HALRecordListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALRecordListViewController.xib; sourceTree = "<group>"; };
-		295E90E218587F14000BA5FE /* HALRecordListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALRecordListTableViewController.h; sourceTree = "<group>"; };
-		295E90E318587F14000BA5FE /* HALRecordListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALRecordListTableViewController.m; sourceTree = "<group>"; };
-		295E90E418587F14000BA5FE /* HALRecordListTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALRecordListTableViewController.xib; sourceTree = "<group>"; };
+		295E90DD18587EEC000BA5FE /* HALActivityListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALActivityListViewController.h; sourceTree = "<group>"; };
+		295E90DE18587EEC000BA5FE /* HALActivityListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALActivityListViewController.m; sourceTree = "<group>"; };
+		295E90DF18587EEC000BA5FE /* HALActivityListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALActivityListViewController.xib; sourceTree = "<group>"; };
+		295E90E218587F14000BA5FE /* HALActivityListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALActivityListTableViewController.h; sourceTree = "<group>"; };
+		295E90E318587F14000BA5FE /* HALActivityListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALActivityListTableViewController.m; sourceTree = "<group>"; };
+		295E90E418587F14000BA5FE /* HALActivityListTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALActivityListTableViewController.xib; sourceTree = "<group>"; };
 		2E26AEA3F8A241B2901F84F9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		453973F184E84C35930BA507 /* Pods-HALBirdRecordTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HALBirdRecordTests.xcconfig"; path = "Pods/Pods-HALBirdRecordTests.xcconfig"; sourceTree = "<group>"; };
 		A83F48CF6BC54B5CA5918A6C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -225,7 +225,7 @@
 		295E909118540804000BA5FE /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				295E90DC18587E77000BA5FE /* RecordList */,
+				295E90DC18587E77000BA5FE /* ActivityList */,
 				295E909218540836000BA5FE /* BirdRecording */,
 			);
 			path = ViewController;
@@ -296,17 +296,17 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
-		295E90DC18587E77000BA5FE /* RecordList */ = {
+		295E90DC18587E77000BA5FE /* ActivityList */ = {
 			isa = PBXGroup;
 			children = (
-				295E90DD18587EEC000BA5FE /* HALRecordListViewController.h */,
-				295E90DE18587EEC000BA5FE /* HALRecordListViewController.m */,
-				295E90DF18587EEC000BA5FE /* HALRecordListViewController.xib */,
-				295E90E218587F14000BA5FE /* HALRecordListTableViewController.h */,
-				295E90E318587F14000BA5FE /* HALRecordListTableViewController.m */,
-				295E90E418587F14000BA5FE /* HALRecordListTableViewController.xib */,
+				295E90DD18587EEC000BA5FE /* HALActivityListViewController.h */,
+				295E90DE18587EEC000BA5FE /* HALActivityListViewController.m */,
+				295E90DF18587EEC000BA5FE /* HALActivityListViewController.xib */,
+				295E90E218587F14000BA5FE /* HALActivityListTableViewController.h */,
+				295E90E318587F14000BA5FE /* HALActivityListTableViewController.m */,
+				295E90E418587F14000BA5FE /* HALActivityListTableViewController.xib */,
 			);
-			path = RecordList;
+			path = ActivityList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -394,9 +394,9 @@
 				295E90751853FE3E000BA5FE /* Images.xcassets in Resources */,
 				295E90D518575F52000BA5FE /* HALSaveActivityViewController.xib in Resources */,
 				295E90671853FE3E000BA5FE /* InfoPlist.strings in Resources */,
-				295E90E618587F14000BA5FE /* HALRecordListTableViewController.xib in Resources */,
+				295E90E618587F14000BA5FE /* HALActivityListTableViewController.xib in Resources */,
 				295E90AB18541087000BA5FE /* HALBirdKindListViewController.xib in Resources */,
-				295E90E118587EEC000BA5FE /* HALRecordListViewController.xib in Resources */,
+				295E90E118587EEC000BA5FE /* HALActivityListViewController.xib in Resources */,
 				295E90B0185410C5000BA5FE /* HALFlatBirdKindListTableViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -480,14 +480,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				295E906D1853FE3E000BA5FE /* HALAppDelegate.m in Sources */,
-				295E90E518587F14000BA5FE /* HALRecordListTableViewController.m in Sources */,
+				295E90E518587F14000BA5FE /* HALActivityListTableViewController.m in Sources */,
 				295E90DB1857ECC6000BA5FE /* UIViewController+HALSetCancelButton.m in Sources */,
 				295E90AA18541087000BA5FE /* HALBirdKindListViewController.m in Sources */,
 				295E90691853FE3E000BA5FE /* main.m in Sources */,
 				295E909B18540994000BA5FE /* UIViewController+HALViewControllerFromNib.m in Sources */,
 				295E90D418575F52000BA5FE /* HALSaveActivityViewController.m in Sources */,
 				295E90B818541369000BA5FE /* HALBirdKind.m in Sources */,
-				295E90E018587EEC000BA5FE /* HALRecordListViewController.m in Sources */,
+				295E90E018587EEC000BA5FE /* HALActivityListViewController.m in Sources */,
 				295E90D818576E84000BA5FE /* NSDate+HALDateString.m in Sources */,
 				295E90D018560789000BA5FE /* HALActivity.m in Sources */,
 				295E90C118546328000BA5FE /* HALBirdRecord.m in Sources */,

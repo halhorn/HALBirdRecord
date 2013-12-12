@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HALRecordListViewController : UIViewController
+@interface HALActivityListViewController : UIViewController
 
 @end
