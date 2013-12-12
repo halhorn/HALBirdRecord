@@ -78,15 +78,14 @@
     if ([title isEqualToString:@""]) {
         title = [[NSDate date] dateString];
     }
-    HALActivity *activity = [[HALActivity alloc] init];
-    activity.title = title;
-    activity.location = self.locationTextField.text;
-    activity.comment = self.commentTextView.text;
-    activity.datetime = [NSDate date];
+    self.activity.title = title;
+    self.activity.location = self.locationTextField.text;
+    self.activity.comment = self.commentTextView.text;
+    self.activity.datetime = [NSDate date];
     
     WeakSelf weakSelf = self;
     [self dismissViewControllerAnimated:YES completion:^{
-        weakSelf.completion(activity);
+        weakSelf.completion(weakSelf.activity);
     }];
 }
 @end

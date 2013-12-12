@@ -107,8 +107,12 @@
     NSString *sqlFormat = [NSString stringWithFormat:@"select max(id) as last_id from %@", kHALActivityRecordTable];
     [self.fmDB open];
     FMResultSet *resultSet = [self.fmDB executeQuery:sqlFormat];
-    NSNumber *last_id = [resultSet resultDictionary][@"last_id"];
-    return [last_id intValue];
+    if ([resultSet next]) {
+        NSNumber *last_id = [resultSet resultDictionary][@"last_id"];
+        return [last_id intValue];
+    }
+    NSLog(@"NoData in table");
+    return -1;
 }
 
 - (int)insertActivityRecord:(HALActivity *)activity
@@ -153,7 +157,7 @@
         [args addObject:@(birdRecord.coordinate.latitude)];
         [args addObject:@(birdRecord.coordinate.longitude)];
     }
-    
+
     [self.fmDB open];
     [self.fmDB executeUpdate:sqlFormat withArgumentsInArray:args];
     int changes = [self.fmDB changes];
