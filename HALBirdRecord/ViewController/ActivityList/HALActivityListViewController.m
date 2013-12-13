@@ -9,11 +9,14 @@
 #import "HALActivityListViewController.h"
 #import "HALActivityListTableViewController.h"
 #import "HALBirdKindListViewController.h"
+#import "HALActivityViewController.h"
+#import "HALActivityManager.h"
 #import "UIViewController+HALViewControllerFromNib.h"
 
-@interface HALActivityListViewController ()
+@interface HALActivityListViewController ()<UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *activityRecordView;
 
+@property(nonatomic) HALActivityManager *activityManager;
 @property(nonatomic) HALActivityListTableViewController *activityRecordTableViewController;
 @end
 
@@ -24,6 +27,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.activityManager = [HALActivityManager sharedManager];
     }
     return self;
 }
@@ -33,6 +37,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.activityRecordTableViewController = [HALActivityListTableViewController viewControllerFromNib];
+    self.activityRecordTableViewController.tableView.delegate = self;
     [self.activityRecordView addSubview:self.activityRecordTableViewController.view];
     [self setupNavBar];
 }
@@ -53,5 +58,15 @@
         [weakSelf presentViewController:navBarController animated:YES completion:nil];
     }];
 }
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    HALActivity *activity = self.activityManager.activityList[indexPath.row];
+    HALActivityViewController *viewController = [[HALActivityViewController alloc] initWithActivity:activity];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
 
 @end
