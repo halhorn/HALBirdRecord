@@ -1,15 +1,15 @@
 //
-//  HALRecordEntity.m
+//  HALRecord.m
 //  HALBirdRecord
 //
 //  Created by 信田 春満 on 2013/12/08.
 //  Copyright (c) 2013年 halhorn. All rights reserved.
 //
 
-#import "HALBirdRecordEntity.h"
-#import "HALBirdKind.h"
+#import "HALBirdRecord.h"
+#import "HALBirdKindList.h"
 
-@implementation HALBirdRecordEntity
+@implementation HALBirdRecord
 
 #pragma mark getter/setter
 
@@ -34,7 +34,7 @@
         _birdID = birdID;
         _datetime = [NSDate date];
         _count = 1;
-        _kind = [[HALBirdKind sharedBirdKind] birdKindEntityFromBirdID:birdID];
+        _kind = [[HALBirdKindList sharedBirdKindList] birdKindFromBirdID:birdID];
     }
     return self;
 }
@@ -43,6 +43,6 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"HALBirdRecordEntity birdID:%d count:%d datetime:%@ coordinate:(%f,%f)", self.birdID, self.count, self.datetime, self.coordinate.latitude, self.coordinate.longitude];
+    return [NSString stringWithFormat:@"HALBirdRecord birdID:%d count:%d datetime:%@ coordinate:(%f,%f)", self.birdID, self.count, self.datetime, self.coordinate.latitude, self.coordinate.longitude];
 }
 @end

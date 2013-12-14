@@ -11,6 +11,7 @@
 #import "HALSaveActivityViewController.h"
 #import "UIViewController+HALViewControllerFromNib.h"
 #import "HALDB.h"
+#import "HALActivityManager.h"
 
 @interface HALBirdKindListViewController ()
 @property (weak, nonatomic) IBOutlet UIView *BirdListView;
@@ -38,6 +39,7 @@
     self.birdListViewController = [HALFlatBirdKindListTableViewController viewControllerFromNib];
     [self.BirdListView addSubview:self.birdListViewController.view];
 
+    [self setCancelButton];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存"
                                                                               style:UIBarButtonItemStyleBordered
                                                                              target:self
@@ -50,19 +52,34 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)onTapSaveButton:(id)sender
+- (void)saveActivity:(HALActivity *)activity
 {
-    HALBirdRecord *record = [self.birdListViewController sendBirdRecord];
-    
-    HALSaveActivityViewController *viewController = [[HALSaveActivityViewController alloc] initWithBirdRecord:record completion:^(HALActivityRecordEntity *activityRecordEntity){
-        record.activityRecord = activityRecordEntity;
-        [record save];
-        [[[HALDB alloc] init] showRecordInTable:@"ActivityRecord"];
-        [[[HALDB alloc] init] showRecordInTable:@"BirdRecord"];
+    WeakSelf weakSelf = self;
+    HALSaveActivityViewController *viewController = [[HALSaveActivityViewController alloc] initWithActivity:activity completion:^(HALActivity *resultActivity){
+        [[HALActivityManager sharedManager] registActivity:resultActivity];
+        [weakSelf dismissViewControllerAnimated:YES completion:nil];
     }];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
     navController.navigationBar.translucent = NO;
     [self presentViewController:navController animated:YES completion:nil];
+}
+
+#pragma mark - UIEventHandler
+
+- (void)onTapSaveButton:(id)sender
+{
+    HALActivity *activity = [self.birdListViewController sendActivity];
+    if (activity.birdRecordList.count) {
+        [self saveActivity:activity];
+    } else {
+        WeakSelf weakSelf = self;
+        [UIAlertView showAlertViewWithTitle:@"鳥さんはどこ？" message:@"鳥が一羽もいないアクティビティを保存しますか？" cancelButtonTitle:@"戻る" otherButtonTitles:@[@"保存"] handler:^(UIAlertView *alertView, NSInteger buttonIndex){
+            if (buttonIndex == alertView.cancelButtonIndex) {
+                return;
+            }
+            [weakSelf saveActivity:activity];
+        }];
+    }
 }
 
 @end

@@ -77,18 +77,47 @@
     [self.fmDB close];
 }
 
+- (NSArray *)selectActivityRows
+{
+    NSString *sqlFormat = [NSString stringWithFormat:@"select * from %@ order by id desc", kHALActivityRecordTable];
+    return [self selectWithSQL:sqlFormat args:nil];
+}
+
+- (NSArray *)selectBirdRecordListWithActivityDBID:(int)dbID
+{
+    NSString *sqlFormat = [NSString stringWithFormat:@"select * from %@ where activityID = ? order by id desc", kHALBirdRecordTable];
+    return [self selectWithSQL:sqlFormat args:@[@(dbID)]];
+}
+
+- (NSArray *)selectWithSQL:(NSString *)sql args:(NSArray *)args
+{
+    [self.fmDB open];
+    FMResultSet *resultSet = args && args.count ?
+    [self.fmDB executeQuery:sql withArgumentsInArray:args] :
+    [self.fmDB executeQuery:sql];
+    NSMutableArray *ret = [[NSMutableArray alloc] init];
+    while ([resultSet next]) {
+        [ret addObject:[resultSet resultDictionary]];
+    }
+    return [NSArray arrayWithArray:ret];
+}
+
 - (int)selectLastIdOfActivityTable
 {
     NSString *sqlFormat = [NSString stringWithFormat:@"select max(id) as last_id from %@", kHALActivityRecordTable];
     [self.fmDB open];
     FMResultSet *resultSet = [self.fmDB executeQuery:sqlFormat];
-    NSNumber *last_id = [resultSet resultDictionary][@"last_id"];
-    return [last_id intValue];
+    if ([resultSet next]) {
+        NSNumber *last_id = [resultSet resultDictionary][@"last_id"];
+        return [last_id intValue];
+    }
+    NSLog(@"NoData in table");
+    return -1;
 }
 
-- (int)insertActivityRecord:(HALActivityRecordEntity *)entity
+- (int)insertActivityRecord:(HALActivity *)activity
 {
-    if (!entity) {return -1;}
+    if (!activity) {return -1;}
     NSString *sqlFormat = [NSString stringWithFormat:@"insert into %@("
                            "title,"
                            "location,"
@@ -97,17 +126,17 @@
                            ") "
                            "values(?,?,?,?);", kHALActivityRecordTable];
     [self.fmDB open];
-    [self.fmDB executeUpdate:sqlFormat, entity.title, entity.location, entity.comment, entity.datetime];
+    [self.fmDB executeUpdate:sqlFormat, activity.title, activity.location, activity.comment, activity.datetime];
     int changes = [self.fmDB changes];
     [self.fmDB close];
     return changes;
 }
 
-- (int)insertBirdRecordList:(NSArray *)entityList activityID:(int)activityID
+- (int)insertBirdRecordList:(NSArray *)birdRecordList activityID:(int)activityID
 {
-    if (!entityList || !entityList.count) {return -1;}
+    if (!birdRecordList || !birdRecordList.count) {return -1;}
     NSString *questions = @"(?,?,?,?,?,?)";
-    for (int i = 1; i < entityList.count; i++) {
+    for (int i = 1; i < birdRecordList.count; i++) {
         questions = [NSString stringWithFormat:@"%@,(?,?,?,?,?,?)", questions];
     }
     NSString *sqlFormat = [NSString stringWithFormat:@"insert into %@("
@@ -120,15 +149,15 @@
                            ") "
                            "values%@;", kHALBirdRecordTable, questions];
     NSMutableArray *args = [[NSMutableArray alloc] init];
-    for (HALBirdRecordEntity *entity in entityList) {
-        [args addObject:@(entity.birdID)];
+    for (HALBirdRecord *birdRecord in birdRecordList) {
+        [args addObject:@(birdRecord.birdID)];
         [args addObject:@(activityID)];
-        [args addObject:@(entity.count)];
-        [args addObject:entity.datetime];
-        [args addObject:@(entity.coordinate.latitude)];
-        [args addObject:@(entity.coordinate.longitude)];
+        [args addObject:@(birdRecord.count)];
+        [args addObject:birdRecord.datetime];
+        [args addObject:@(birdRecord.coordinate.latitude)];
+        [args addObject:@(birdRecord.coordinate.longitude)];
     }
-    
+
     [self.fmDB open];
     [self.fmDB executeUpdate:sqlFormat withArgumentsInArray:args];
     int changes = [self.fmDB changes];

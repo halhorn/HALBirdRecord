@@ -1,5 +1,5 @@
 //
-//  HALBirdKind.h
+//  HALBirdKindList.h
 //  HALBirdRecord
 //
 //  Created by 信田 春満 on 2013/12/08.
@@ -7,15 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "HALBirdKindEntity.h"
+#import "HALBirdKind.h"
 
-@interface HALBirdKind : NSObject
+@interface HALBirdKindList : NSObject
 
-+ (instancetype)sharedBirdKind;
++ (instancetype)sharedBirdKindList;
 
 @property(nonatomic, readonly) NSArray *birdKindList;
 @property(nonatomic, readonly) int numberOfGroups;
 
-- (HALBirdKindEntity *)birdKindEntityFromBirdID:(int)birdID;
+- (HALBirdKind *)birdKindFromBirdID:(int)birdID;
 
 @end

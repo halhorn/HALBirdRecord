@@ -1,31 +1,26 @@
 //
-//  HALFlatBirdKindListTableViewController.m
+//  HALActivityTableViewController.m
 //  HALBirdRecord
 //
-//  Created by 信田 春満 on 2013/12/08.
+//  Created by 信田 春満 on 2013/12/13.
 //  Copyright (c) 2013年 halhorn. All rights reserved.
 //
 
-#import "HALFlatBirdKindListTableViewController.h"
-#import "HALBirdKindList.h"
-#import "HALBirdKind.h"
-#import "HALBirdRecord.h"
-#import "HALActivity.h"
+#import "HALActivityTableViewController.h"
 
-@interface HALFlatBirdKindListTableViewController ()
+@interface HALActivityTableViewController ()
 
-@property(nonatomic) HALBirdKindList *birdKindList;
 @property(nonatomic) HALActivity *activity;
 
 @end
 
-@implementation HALFlatBirdKindListTableViewController
+@implementation HALActivityTableViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithActivity:(HALActivity *)activity
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [self initWithNibName:NSStringFromClass([self class]) bundle:nil];
     if (self) {
-        [self setup];
+        self.activity = activity;
     }
     return self;
 }
@@ -35,15 +30,8 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
-        [self setup];
     }
     return self;
-}
-
-- (void)setup
-{
-    self.birdKindList = [HALBirdKindList sharedBirdKindList];
-    self.activity = [[HALActivity alloc] init];
 }
 
 - (void)viewDidLoad
@@ -67,15 +55,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
-    return self.birdKindList.birdKindList.count;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    NSArray *birdGroup = self.birdKindList.birdKindList[section];
-    return birdGroup.count;
+    return self.activity.birdRecordList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -86,20 +71,9 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    // Configure the cell...
-    NSArray *birdGroup = self.birdKindList.birdKindList[indexPath.section];
-    HALBirdKind *birdKind =birdGroup[indexPath.row];
-    cell.textLabel.text = birdKind.name;
-    cell.accessoryType = [self.activity birdExists:birdKind.birdID] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
-
+    HALBirdRecord *birdRecord = self.activity.birdRecordList[indexPath.row];
+    cell.textLabel.text = birdRecord.kind.name;
     return cell;
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    NSArray *birdGroup = self.birdKindList.birdKindList[section];
-    HALBirdKind *kind = birdGroup[0];
-    return kind.groupName;
 }
 
 /*
@@ -141,26 +115,22 @@
 }
 */
 
+/*
 #pragma mark - Table view delegate
 
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    HALBirdKind *birdKind = self.birdKindList.birdKindList[indexPath.section][indexPath.row];
-    if (![self.activity birdExists:birdKind.birdID]) {
-        [self.activity addBirdWithID:birdKind.birdID];
-    } else {
-        [self.activity removeBird:birdKind.birdID];
-    }
-    [tableView reloadData];
-}
+    // Navigation logic may go here, for example:
+    // Create the next view controller.
+    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
 
-#pragma mark - HALBirdRecordViewDelegate
-
-- (HALActivity *)sendActivity
-{
-    return self.activity;
+    // Pass the selected object to the new view controller.
+    
+    // Push the view controller.
+    [self.navigationController pushViewController:detailViewController animated:YES];
 }
+ 
+ */
 
 @end

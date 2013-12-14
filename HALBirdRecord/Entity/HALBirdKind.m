@@ -1,16 +1,16 @@
 //
-//  HALBirdKindEntity.m
+//  HALBirdKind.m
 //  HALBirdRecord
 //
 //  Created by 信田 春満 on 2013/12/08.
 //  Copyright (c) 2013年 halhorn. All rights reserved.
 //
 
-#import "HALBirdKindEntity.h"
+#import "HALBirdKind.h"
 
-@class HALBirdKind;
+@class HALBirdKindList;
 
-@implementation HALBirdKindEntity
+@implementation HALBirdKind
 - (id)initWithBirdID:(int)birdID
                 name:(NSString *)name
              comment:(NSString *)comment
@@ -32,13 +32,13 @@
     return self;
 }
 
-+ (id)entityWithID:(int)birdID
-              name:(NSString *)name
-           comment:(NSString *)comment
-             image:(UIImage *)image
-     dataCopyRight:(NSString *)dataCopyRight
-           groupID:(int)groupID
-         groupName:(NSString *)groupName
++ (id)birdKindWithID:(int)birdID
+                name:(NSString *)name
+             comment:(NSString *)comment
+               image:(UIImage *)image
+       dataCopyRight:(NSString *)dataCopyRight
+             groupID:(int)groupID
+           groupName:(NSString *)groupName
 {
     return [[self alloc] initWithBirdID:birdID
                                    name:name
@@ -51,14 +51,14 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"HALBirdKindEntity: "
-            "birdID:%d  "
-            "name:%@  "
-            "comment:%@  "
-            "image:%@  "
-            "dataCopyRight:%@  "
-            "groupID:%d  "
-            "groupName:%@  "
+    return [NSString stringWithFormat:@"HALBirdKind: "
+            "birdID:%d "
+            "name:%@ "
+            "comment:%@ "
+            "image:%@ "
+            "dataCopyRight:%@ "
+            "groupID:%d "
+            "groupName:%@ "
             , self.birdID, self.name, self.comment, self.image, self.dataCopyRight, self.groupID, self.groupName];
 }
 @end

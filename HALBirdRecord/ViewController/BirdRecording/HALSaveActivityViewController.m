@@ -15,17 +15,17 @@
 @property (weak, nonatomic) IBOutlet UITextView *commentTextView;
 @property (weak, nonatomic) IBOutlet UITextView *BirdRecordTextView;
 
-@property(nonatomic) HALBirdRecord *birdRecord;
-@property(nonatomic, copy) void (^completion)(HALActivityRecordEntity *);
+@property(nonatomic) HALActivity *activity;
+@property(nonatomic, copy) void (^completion)(HALActivity *);
 @end
 
 @implementation HALSaveActivityViewController
 
--(id) initWithBirdRecord:(HALBirdRecord *)birdRecord completion:(void(^)(HALActivityRecordEntity *))completion
+-(id) initWithActivity:(HALActivity *)activity completion:(void(^)(HALActivity *))completion
 {
     self = [super initWithNibName:NSStringFromClass([self class]) bundle:nil];
     if (self) {
-        self.birdRecord = birdRecord;
+        self.activity = activity;
         self.completion = completion;
         self.title = @"アクティビティ";
     }
@@ -53,19 +53,11 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)setCancelButton
-{
-    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"キャンセル" style:UIBarButtonItemStyleBordered handler:^(id sender){
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }];
-    self.navigationItem.leftBarButtonItem = cancelButton;
-}
-
 - (void)setBirdRecordText
 {
     NSString *text;
-    for (HALBirdRecordEntity *birdRecordEntity in self.birdRecord.birdRecordList) {
-        text = text ? [NSString stringWithFormat:@"%@ / %@", text, birdRecordEntity.kind.name] : birdRecordEntity.kind.name;
+    for (HALBirdRecord *birdRecord in self.activity.birdRecordList) {
+        text = text ? [NSString stringWithFormat:@"%@ / %@", text, birdRecord.kind.name] : birdRecord.kind.name;
     }
     self.BirdRecordTextView.text = text;
 }
@@ -86,15 +78,14 @@
     if ([title isEqualToString:@""]) {
         title = [[NSDate date] dateString];
     }
-    HALActivityRecordEntity *entity = [[HALActivityRecordEntity alloc] init];
-    entity.title = title;
-    entity.location = self.locationTextField.text;
-    entity.comment = self.commentTextView.text;
-    entity.datetime = [NSDate date];
+    self.activity.title = title;
+    self.activity.location = self.locationTextField.text;
+    self.activity.comment = self.commentTextView.text;
+    self.activity.datetime = [NSDate date];
     
     WeakSelf weakSelf = self;
     [self dismissViewControllerAnimated:YES completion:^{
-        weakSelf.completion(entity);
+        weakSelf.completion(weakSelf.activity);
     }];
 }
 @end
