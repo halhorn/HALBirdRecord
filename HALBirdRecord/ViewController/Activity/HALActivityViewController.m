@@ -70,7 +70,7 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"YYYY/MM/dd";
     NSString *timeAndLocation = [dateFormatter stringFromDate:self.activity.datetime];
-    if (![self.activity.location isEqualToString:@""]) {
+    if (self.activity.location != nil && ![self.activity.location isEqualToString:@""]) {
         timeAndLocation = [NSString stringWithFormat:@"%@ @ %@", timeAndLocation, self.activity.location];
     }
     self.timeAndLocationLabel.text = timeAndLocation;
