@@ -59,6 +59,14 @@
 {
     self.activityTableViewController = [[HALActivityTableViewController alloc] initWithActivity:self.activity];
     [self.activityTableView addSubview:self.activityTableViewController.view];
+    [self setupTimeAndLocationLabel];
+    self.commentTextView.text = self.activity.comment;
+    self.mapView.region = [self.activity getRegion];
+    [self.mapView addAnnotations:[HALBirdPointAnnotation annotationListWithActivity:self.activity]];
+}
+
+- (void)setupTimeAndLocationLabel
+{
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"YYYY/MM/dd";
     NSString *timeAndLocation = [dateFormatter stringFromDate:self.activity.datetime];
@@ -66,9 +74,6 @@
         timeAndLocation = [NSString stringWithFormat:@"%@ @ %@", timeAndLocation, self.activity.location];
     }
     self.timeAndLocationLabel.text = timeAndLocation;
-    self.commentTextView.text = self.activity.comment;
-    [self.mapView setRegion:[self.activity getRegion]];
-    [self.mapView addAnnotations:[HALBirdPointAnnotation annotationListWithActivity:self.activity]];
 }
 
 @end
