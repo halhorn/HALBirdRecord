@@ -14,6 +14,7 @@
 		29501EE5185A8AD2004AF7F9 /* HALActivityTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29501EE3185A8AD2004AF7F9 /* HALActivityTableViewController.xib */; };
 		29501EE7185BEE04004AF7F9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29501EE6185BEE04004AF7F9 /* MapKit.framework */; };
 		29501EEA185BF76F004AF7F9 /* HALLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 29501EE9185BF76F004AF7F9 /* HALLocationManager.m */; };
+		29501EED185C7711004AF7F9 /* HALBirdPointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 29501EEC185C7711004AF7F9 /* HALBirdPointAnnotation.m */; };
 		295E905D1853FE3D000BA5FE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 295E905C1853FE3D000BA5FE /* Foundation.framework */; };
 		295E905F1853FE3D000BA5FE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 295E905E1853FE3D000BA5FE /* CoreGraphics.framework */; };
 		295E90611853FE3E000BA5FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 295E90601853FE3E000BA5FE /* UIKit.framework */; };
@@ -73,6 +74,8 @@
 		29501EE6185BEE04004AF7F9 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		29501EE8185BF76F004AF7F9 /* HALLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALLocationManager.h; sourceTree = "<group>"; };
 		29501EE9185BF76F004AF7F9 /* HALLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALLocationManager.m; sourceTree = "<group>"; };
+		29501EEB185C7711004AF7F9 /* HALBirdPointAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALBirdPointAnnotation.h; sourceTree = "<group>"; };
+		29501EEC185C7711004AF7F9 /* HALBirdPointAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALBirdPointAnnotation.m; sourceTree = "<group>"; };
 		295E90591853FE3D000BA5FE /* HALBirdRecord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HALBirdRecord.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		295E905C1853FE3D000BA5FE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		295E905E1853FE3D000BA5FE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -325,6 +328,8 @@
 				295E90B31854111D000BA5FE /* HALBirdKindList.m */,
 				295E90BF18546328000BA5FE /* HALBirdRecord.h */,
 				295E90C018546328000BA5FE /* HALBirdRecord.m */,
+				29501EEB185C7711004AF7F9 /* HALBirdPointAnnotation.h */,
+				29501EEC185C7711004AF7F9 /* HALBirdPointAnnotation.m */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -516,6 +521,7 @@
 			files = (
 				29501EEA185BF76F004AF7F9 /* HALLocationManager.m in Sources */,
 				295E906D1853FE3E000BA5FE /* HALAppDelegate.m in Sources */,
+				29501EED185C7711004AF7F9 /* HALBirdPointAnnotation.m in Sources */,
 				29501EDF185A8AB5004AF7F9 /* HALActivityViewController.m in Sources */,
 				295E90E518587F14000BA5FE /* HALActivityListTableViewController.m in Sources */,
 				295E90DB1857ECC6000BA5FE /* UIViewController+HALSetCancelButton.m in Sources */,
