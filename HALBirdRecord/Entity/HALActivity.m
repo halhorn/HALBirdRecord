@@ -47,15 +47,16 @@
     [self.birdRecordList addObject:birdRecord];
 }
 
-- (void)addBirdWithID:(int)birdID
+- (HALBirdRecord *)addBirdWithID:(int)birdID
 {
     HALBirdRecord *birdRecord = [self birdRecordWithID:birdID];
     if (birdRecord) {
         birdRecord.count++;
     } else {
-        HALBirdRecord *record = [HALBirdRecord birdRecordWithBirdID:birdID];
-        [self.birdRecordList addObject:record];
+        birdRecord = [HALBirdRecord birdRecordWithBirdID:birdID];
+        [self.birdRecordList addObject:birdRecord];
     }
+    return birdRecord;
 }
 
 - (void)removeBird:(int)birdID
