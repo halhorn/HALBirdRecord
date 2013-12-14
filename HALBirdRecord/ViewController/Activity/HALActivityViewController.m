@@ -8,11 +8,13 @@
 
 #import "HALActivityViewController.h"
 #import "HALActivityTableViewController.h"
+#import <MapKit/MapKit.h>
 
 @interface HALActivityViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *timeAndLocationLabel;
 @property (weak, nonatomic) IBOutlet UITextView *commentTextView;
 @property (weak, nonatomic) IBOutlet UIView *activityTableView;
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property(nonatomic) HALActivity *activity;
 @property(nonatomic) HALActivityTableViewController *activityTableViewController;
 
