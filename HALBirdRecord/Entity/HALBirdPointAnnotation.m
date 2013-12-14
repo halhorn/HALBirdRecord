@@ -18,6 +18,15 @@
 
 @implementation HALBirdPointAnnotation
 
++ (NSArray *)annotationListWithActivity:(HALActivity *)activity
+{
+    NSMutableArray *annotationList = [[NSMutableArray alloc] init];
+    for (HALBirdRecord *birdRecord in activity.birdRecordList) {
+        [annotationList addObject:[[HALBirdPointAnnotation alloc] initWithBirdRecord:birdRecord]];
+    }
+    return [NSArray arrayWithArray:annotationList];
+}
+
 - (id)initWithBirdRecord:(HALBirdRecord *)birdRecord
 {
     self = [super init];

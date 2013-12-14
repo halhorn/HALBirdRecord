@@ -8,6 +8,7 @@
 
 #import "HALActivityViewController.h"
 #import "HALActivityTableViewController.h"
+#import "HALBirdPointAnnotation.h"
 #import <MapKit/MapKit.h>
 
 @interface HALActivityViewController ()
@@ -67,6 +68,7 @@
     self.timeAndLocationLabel.text = timeAndLocation;
     self.commentTextView.text = self.activity.comment;
     [self.mapView setRegion:[self.activity getRegion]];
+    [self.mapView addAnnotations:[HALBirdPointAnnotation annotationListWithActivity:self.activity]];
 }
 
 @end

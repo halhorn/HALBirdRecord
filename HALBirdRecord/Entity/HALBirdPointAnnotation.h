@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 #import "HALBirdRecord.h"
+#import "HALActivity.h"
 
 @interface HALBirdPointAnnotation : NSObject<MKAnnotation>
 
++ (NSArray *)annotationListWithActivity:(HALActivity *)activity;
 - (id)initWithBirdRecord:(HALBirdRecord *)birdRecord;
 
 @end
