@@ -8,6 +8,7 @@
 
 #import "HALActivityViewController.h"
 #import "HALActivityTableViewController.h"
+#import "HALBirdMapViewController.h"
 #import "HALBirdPointAnnotation.h"
 #import <MapKit/MapKit.h>
 
@@ -59,8 +60,8 @@
 {
     self.activityTableViewController = [[HALActivityTableViewController alloc] initWithActivity:self.activity];
     [self.activityTableView addSubview:self.activityTableViewController.view];
-    [self setupTimeAndLocationLabel];
     self.commentTextView.text = self.activity.comment;
+    [self setupTimeAndLocationLabel];
     self.mapView.region = [self.activity getRegion];
     [self.mapView addAnnotations:[HALBirdPointAnnotation annotationListWithActivity:self.activity]];
 }
@@ -74,6 +75,11 @@
         timeAndLocation = [NSString stringWithFormat:@"%@ @ %@", timeAndLocation, self.activity.location];
     }
     self.timeAndLocationLabel.text = timeAndLocation;
+}
+
+- (IBAction)onTapMap:(id)sender {
+    HALBirdMapViewController *viewController = [[HALBirdMapViewController alloc] initWithActivity:self.activity];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 @end
