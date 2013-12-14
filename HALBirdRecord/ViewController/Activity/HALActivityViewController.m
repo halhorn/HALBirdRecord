@@ -10,7 +10,8 @@
 #import "HALActivityTableViewController.h"
 
 @interface HALActivityViewController ()
-
+@property (weak, nonatomic) IBOutlet UILabel *timeAndLocationLabel;
+@property (weak, nonatomic) IBOutlet UITextView *commentTextView;
 @property (weak, nonatomic) IBOutlet UIView *activityTableView;
 @property(nonatomic) HALActivity *activity;
 @property(nonatomic) HALActivityTableViewController *activityTableViewController;
@@ -24,6 +25,7 @@
     self = [self initWithNibName:NSStringFromClass([self class]) bundle:nil];
     if (self) {
         self.activity = activity;
+        self.title = activity.title;
     }
     return self;
 }
@@ -41,14 +43,27 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.activityTableViewController = [[HALActivityTableViewController alloc] initWithActivity:self.activity];
-    [self.activityTableView addSubview:self.activityTableViewController.view];
+    [self setupUI];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)setupUI
+{
+    self.activityTableViewController = [[HALActivityTableViewController alloc] initWithActivity:self.activity];
+    [self.activityTableView addSubview:self.activityTableViewController.view];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"YYYY/MM/dd";
+    NSString *timeAndLocation = [dateFormatter stringFromDate:self.activity.datetime];
+    if (![self.activity.location isEqualToString:@""]) {
+        timeAndLocation = [NSString stringWithFormat:@"%@ @ %@", timeAndLocation, self.activity.location];
+    }
+    self.timeAndLocationLabel.text = timeAndLocation;
+    self.commentTextView.text = self.activity.comment;
 }
 
 @end
