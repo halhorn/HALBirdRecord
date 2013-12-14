@@ -45,6 +45,10 @@
     [self setCancelButton];
     [self setBirdRecordText];
     [self setGestureForCloseSoftKeyboard];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存"
+                                                                              style:UIBarButtonItemStyleBordered
+                                                                             target:self
+                                                                             action:@selector(onTapSaveButton:)];
 }
 
 - (void)didReceiveMemoryWarning
@@ -73,7 +77,7 @@
     [self.view addGestureRecognizer:gestureRecognizer];
 }
 
-- (IBAction)onTapSaveButton:(id)sender {
+- (void)onTapSaveButton:(id)sender {
     NSString *title = self.titleTextField.text;
     if ([title isEqualToString:@""]) {
         title = [[NSDate date] dateString];
