@@ -66,6 +66,7 @@
     }
     self.timeAndLocationLabel.text = timeAndLocation;
     self.commentTextView.text = self.activity.comment;
+    [self.mapView setRegion:[self.activity getRegion]];
 }
 
 @end
