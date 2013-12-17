@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="activityTableView" destination="qIT-4C-9wy" id="Dcf-8F-tqg"/>
                 <outlet property="commentTextView" destination="rsk-Wa-uIH" id="UiH-ds-rY8"/>
+                <outlet property="mapView" destination="PGA-Bd-Kyh" id="0cI-42-Xt3"/>
                 <outlet property="timeAndLocationLabel" destination="xFJ-fK-Hcj" id="KVg-2d-2MI"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
@@ -24,19 +25,34 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xFJ-fK-Hcj">
-                    <rect key="frame" x="20" y="10" width="178" height="21"/>
+                    <rect key="frame" x="20" y="10" width="196" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Comment Comment Comment Comment Comment Comment Comment Comment Comment " id="rsk-Wa-uIH">
-                    <rect key="frame" x="20" y="32" width="206" height="62"/>
+                    <rect key="frame" x="20" y="32" width="196" height="62"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="PGA-Bd-Kyh">
+                    <rect key="frame" x="216" y="10" width="84" height="84"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                </mapView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Iia-AQ-co9">
+                    <rect key="frame" x="216" y="10" width="84" height="84"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onTapMap:" destination="-1" eventType="touchUpInside" id="qtk-Tx-KCb"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

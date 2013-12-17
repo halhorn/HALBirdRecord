@@ -8,11 +8,15 @@
 
 #import "HALActivityViewController.h"
 #import "HALActivityTableViewController.h"
+#import "HALBirdMapViewController.h"
+#import "HALBirdPointAnnotation.h"
+#import <MapKit/MapKit.h>
 
 @interface HALActivityViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *timeAndLocationLabel;
 @property (weak, nonatomic) IBOutlet UITextView *commentTextView;
 @property (weak, nonatomic) IBOutlet UIView *activityTableView;
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property(nonatomic) HALActivity *activity;
 @property(nonatomic) HALActivityTableViewController *activityTableViewController;
 
@@ -56,14 +60,26 @@
 {
     self.activityTableViewController = [[HALActivityTableViewController alloc] initWithActivity:self.activity];
     [self.activityTableView addSubview:self.activityTableViewController.view];
+    self.commentTextView.text = self.activity.comment;
+    [self setupTimeAndLocationLabel];
+    self.mapView.region = [self.activity getRegion];
+    [self.mapView addAnnotations:[HALBirdPointAnnotation annotationListWithActivity:self.activity]];
+}
+
+- (void)setupTimeAndLocationLabel
+{
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"YYYY/MM/dd";
     NSString *timeAndLocation = [dateFormatter stringFromDate:self.activity.datetime];
-    if (![self.activity.location isEqualToString:@""]) {
+    if (self.activity.location != nil && ![self.activity.location isEqualToString:@""]) {
         timeAndLocation = [NSString stringWithFormat:@"%@ @ %@", timeAndLocation, self.activity.location];
     }
     self.timeAndLocationLabel.text = timeAndLocation;
-    self.commentTextView.text = self.activity.comment;
+}
+
+- (IBAction)onTapMap:(id)sender {
+    HALBirdMapViewController *viewController = [[HALBirdMapViewController alloc] initWithActivity:self.activity];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 @end

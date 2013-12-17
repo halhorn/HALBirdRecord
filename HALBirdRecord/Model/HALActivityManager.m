@@ -42,24 +42,23 @@
     NSMutableArray *activityList = [[NSMutableArray alloc] init];
     NSArray *activityRows = [self.db selectActivityRows];
     for (NSDictionary *activityRow in activityRows) {
-        NSNumber *activityID = activityRow[@"id"];
-        NSNumber *activityUnixTime = activityRow[@"datetime"];
+        NSNumber *activityUnixTime = [self removeNSNull:activityRow[@"datetime"]];
         NSNumber *activityDBID = activityRow[@"id"];
         
         HALActivity *activity = [[HALActivity alloc] init];
-        activity.title = activityRow[@"title"];
-        activity.location = activityRow[@"location"];
-        activity.comment = activityRow[@"comment"];
+        activity.title = [self removeNSNull:activityRow[@"title"]];
+        activity.location = [self removeNSNull:activityRow[@"location"]];
+        activity.comment = [self removeNSNull:activityRow[@"comment"]];
         activity.datetime = [NSDate dateWithTimeIntervalSince1970:[activityUnixTime doubleValue]];
         activity.dbID = [activityDBID intValue];
         
-        NSArray *birdRows = [self.db selectBirdRecordListWithActivityDBID:[activityID intValue]];
+        NSArray *birdRows = [self.db selectBirdRecordListWithActivityDBID:[activityDBID intValue]];
         for (NSDictionary *birdRow in birdRows) {
-            NSNumber *birdID = birdRow[@"birdID"];
-            NSNumber *count = birdRow[@"count"];
-            NSNumber *latitude = birdRow[@"latitude"];
-            NSNumber *longitude = birdRow[@"longitude"];
-            NSNumber *birdUnixtime = birdRow[@"datetime"];
+            NSNumber *birdID = [self removeNSNull:birdRow[@"birdID"]];
+            NSNumber *count = [self removeNSNull:birdRow[@"count"]];
+            NSNumber *latitude = [self removeNSNull:birdRow[@"latitude"]];
+            NSNumber *longitude = [self removeNSNull:birdRow[@"longitude"]];
+            NSNumber *birdUnixtime = [self removeNSNull:birdRow[@"datetime"]];
             NSNumber *birdDBID = birdRow[@"id"];
             
             HALBirdRecord *bird = [[HALBirdRecord alloc] initWithBirdID:[birdID intValue]];
@@ -81,6 +80,11 @@
     activityID = [self.db selectLastIdOfActivityTable];
     [self.db insertBirdRecordList:activity.birdRecordList activityID:activityID];
     [self loadActivityList];
+}
+
+- (id)removeNSNull:(id)var
+{
+    return [var isEqual:[NSNull null]] ? nil : var;
 }
 
 - (NSString *)description

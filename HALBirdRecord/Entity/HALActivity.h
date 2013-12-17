@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
 #import "HALBirdRecord.h"
 
 @interface HALActivity : NSObject
@@ -21,7 +22,8 @@
 - (BOOL)birdExists:(int)birdID;
 - (HALBirdRecord *)birdRecordWithID:(int)birdID;
 - (void)addBird:(HALBirdRecord *)birdRecord;
-- (void)addBirdWithID:(int)birdID;
+- (HALBirdRecord *)addBirdWithID:(int)birdID;
 - (void)removeBird:(int)birdID;
+- (MKCoordinateRegion)getRegion;
 
 @end
