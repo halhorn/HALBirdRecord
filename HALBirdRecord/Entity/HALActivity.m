@@ -79,7 +79,7 @@
 {
     if (self.birdRecordList.count == 0) {
         // データが無かったらとりあえず京都でも表示しとけ
-        return MKCoordinateRegionMake(CLLocationCoordinate2DMake(135.4601, 35.0042), MKCoordinateSpanMake(1, 1));
+        return MKCoordinateRegionMake(CLLocationCoordinate2DMake(35.0042, 135.4601), MKCoordinateSpanMake(1, 1));
     }
     double minLatitude = 360;
     double minLongitude = 360;
