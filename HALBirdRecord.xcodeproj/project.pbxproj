@@ -42,8 +42,6 @@
 		295E90CA18554739000BA5FE /* HALDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E90C918554739000BA5FE /* HALDB.m */; };
 		295E90CD1855488C000BA5FE /* NSURL+HALLocalFileURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E90CC1855488C000BA5FE /* NSURL+HALLocalFileURL.m */; };
 		295E90D018560789000BA5FE /* HALActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E90CF18560789000BA5FE /* HALActivity.m */; };
-		295E90D418575F52000BA5FE /* HALSaveActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E90D218575F52000BA5FE /* HALSaveActivityViewController.m */; };
-		295E90D518575F52000BA5FE /* HALSaveActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 295E90D318575F52000BA5FE /* HALSaveActivityViewController.xib */; };
 		295E90D818576E84000BA5FE /* NSDate+HALDateString.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E90D718576E84000BA5FE /* NSDate+HALDateString.m */; };
 		295E90DB1857ECC6000BA5FE /* UIViewController+HALSetCancelButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E90DA1857ECC5000BA5FE /* UIViewController+HALSetCancelButton.m */; };
 		295E90E018587EEC000BA5FE /* HALActivityListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 295E90DE18587EEC000BA5FE /* HALActivityListViewController.m */; };
@@ -119,9 +117,6 @@
 		295E90CC1855488C000BA5FE /* NSURL+HALLocalFileURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+HALLocalFileURL.m"; sourceTree = "<group>"; };
 		295E90CE18560789000BA5FE /* HALActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALActivity.h; sourceTree = "<group>"; };
 		295E90CF18560789000BA5FE /* HALActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALActivity.m; sourceTree = "<group>"; };
-		295E90D118575F52000BA5FE /* HALSaveActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALSaveActivityViewController.h; sourceTree = "<group>"; };
-		295E90D218575F52000BA5FE /* HALSaveActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALSaveActivityViewController.m; sourceTree = "<group>"; };
-		295E90D318575F52000BA5FE /* HALSaveActivityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALSaveActivityViewController.xib; sourceTree = "<group>"; };
 		295E90D618576E84000BA5FE /* NSDate+HALDateString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+HALDateString.h"; sourceTree = "<group>"; };
 		295E90D718576E84000BA5FE /* NSDate+HALDateString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+HALDateString.m"; sourceTree = "<group>"; };
 		295E90D91857ECC5000BA5FE /* UIViewController+HALSetCancelButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HALSetCancelButton.h"; sourceTree = "<group>"; };
@@ -282,9 +277,6 @@
 				295E90AC185410C5000BA5FE /* HALFlatBirdKindListTableViewController.h */,
 				295E90AD185410C5000BA5FE /* HALFlatBirdKindListTableViewController.m */,
 				295E90AE185410C5000BA5FE /* HALFlatBirdKindListTableViewController.xib */,
-				295E90D118575F52000BA5FE /* HALSaveActivityViewController.h */,
-				295E90D218575F52000BA5FE /* HALSaveActivityViewController.m */,
-				295E90D318575F52000BA5FE /* HALSaveActivityViewController.xib */,
 			);
 			path = BirdSelector;
 			sourceTree = "<group>";
@@ -440,7 +432,6 @@
 				29501EF2185C8032004AF7F9 /* HALBirdMapViewController.xib in Resources */,
 				295E909E18540C44000BA5FE /* BirdKind.plist in Resources */,
 				295E90751853FE3E000BA5FE /* Images.xcassets in Resources */,
-				295E90D518575F52000BA5FE /* HALSaveActivityViewController.xib in Resources */,
 				295E90671853FE3E000BA5FE /* InfoPlist.strings in Resources */,
 				295E90E618587F14000BA5FE /* HALActivityListTableViewController.xib in Resources */,
 				295E90AB18541087000BA5FE /* HALBirdKindListViewController.xib in Resources */,
@@ -537,7 +528,6 @@
 				295E90AA18541087000BA5FE /* HALBirdKindListViewController.m in Sources */,
 				295E90691853FE3E000BA5FE /* main.m in Sources */,
 				295E909B18540994000BA5FE /* UIViewController+HALViewControllerFromNib.m in Sources */,
-				295E90D418575F52000BA5FE /* HALSaveActivityViewController.m in Sources */,
 				295E90B818541369000BA5FE /* HALBirdKind.m in Sources */,
 				295E90E018587EEC000BA5FE /* HALActivityListViewController.m in Sources */,
 				295E90D818576E84000BA5FE /* NSDate+HALDateString.m in Sources */,

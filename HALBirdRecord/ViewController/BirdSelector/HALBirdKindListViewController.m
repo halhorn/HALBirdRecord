@@ -8,7 +8,6 @@
 
 #import "HALBirdKindListViewController.h"
 #import "HALFlatBirdKindListTableViewController.h"
-#import "HALSaveActivityViewController.h"
 #import "UIViewController+HALViewControllerFromNib.h"
 #import "HALDB.h"
 #import "HALActivityManager.h"
