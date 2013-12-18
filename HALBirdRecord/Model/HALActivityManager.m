@@ -95,6 +95,7 @@
 {
     [self.db deleteBirdRecordsInActivity:activity];
     [self.db insertBirdRecordList:activity.birdRecordList activityID:activity.dbID];
+    [self.db updateActivity:activity];
     [self loadActivityList];
 }
 

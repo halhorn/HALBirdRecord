@@ -42,6 +42,12 @@
     [self setupNavBar];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.activityManager loadActivityList];
+    [self.activityRecordTableViewController.tableView reloadData];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

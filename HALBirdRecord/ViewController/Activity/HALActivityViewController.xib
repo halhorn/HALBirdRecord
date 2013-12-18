@@ -10,7 +10,7 @@
                 <outlet property="activityTableView" destination="qIT-4C-9wy" id="Dcf-8F-tqg"/>
                 <outlet property="commentTextView" destination="rsk-Wa-uIH" id="UiH-ds-rY8"/>
                 <outlet property="mapView" destination="PGA-Bd-Kyh" id="0cI-42-Xt3"/>
-                <outlet property="timeAndLocationLabel" destination="xFJ-fK-Hcj" id="KVg-2d-2MI"/>
+                <outlet property="titleTextField" destination="hHp-1p-EKo" id="WW3-zz-uje"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -24,19 +24,15 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xFJ-fK-Hcj">
-                    <rect key="frame" x="20" y="10" width="196" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Comment Comment Comment Comment Comment Comment Comment Comment Comment " id="rsk-Wa-uIH">
                     <rect key="frame" x="20" y="32" width="196" height="62"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="zgP-sz-1O5"/>
+                    </connections>
                 </textView>
                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="PGA-Bd-Kyh">
                     <rect key="frame" x="216" y="10" width="84" height="84"/>
@@ -53,11 +49,27 @@
                         <action selector="onTapMap:" destination="-1" eventType="touchUpInside" id="qtk-Tx-KCb"/>
                     </connections>
                 </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Title" minimumFontSize="17" clearButtonMode="whileEditing" id="hHp-1p-EKo">
+                    <rect key="frame" x="20" y="8" width="196" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <action selector="onTitleEditDone:" destination="-1" eventType="editingDidEnd" id="IzE-94-oaa"/>
+                        <outlet property="delegate" destination="-1" id="7Av-ZT-bb3"/>
+                    </connections>
+                </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
+        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="S9j-fV-KdZ">
+            <rect key="frame" x="0.0" y="0.0" width="97" height="30"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+            <textInputTraits key="textInputTraits"/>
+        </textField>
     </objects>
 </document>
