@@ -268,12 +268,12 @@
 			children = (
 				29501ED8185A89E0004AF7F9 /* Activity */,
 				295E90DC18587E77000BA5FE /* ActivityList */,
-				295E909218540836000BA5FE /* BirdRecording */,
+				295E909218540836000BA5FE /* BirdSelector */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		295E909218540836000BA5FE /* BirdRecording */ = {
+		295E909218540836000BA5FE /* BirdSelector */ = {
 			isa = PBXGroup;
 			children = (
 				295E90A718541087000BA5FE /* HALBirdKindListViewController.h */,
@@ -286,7 +286,7 @@
 				295E90D218575F52000BA5FE /* HALSaveActivityViewController.m */,
 				295E90D318575F52000BA5FE /* HALSaveActivityViewController.xib */,
 			);
-			path = BirdRecording;
+			path = BirdSelector;
 			sourceTree = "<group>";
 		};
 		295E909818540910000BA5FE /* Category */ = {
