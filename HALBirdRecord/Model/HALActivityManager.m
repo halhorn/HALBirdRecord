@@ -66,19 +66,35 @@
             bird.count = [count intValue];
             bird.coordinate = CLLocationCoordinate2DMake([latitude doubleValue], [longitude doubleValue]);
             bird.datetime = [NSDate dateWithTimeIntervalSince1970:[birdUnixtime doubleValue]];
-            [activity addBird:bird];
+            [activity addBirdRecord:bird];
         }
         [activityList addObject:activity];
     }
     _activityList = activityList;
 }
 
-- (void)registActivity:(HALActivity *)activity
+- (void)saveActivity:(HALActivity *)activity
+{
+    if (activity.dbID) {
+        [self updateExistingActivity:activity];
+    } else {
+        [self registNewActivity:activity];
+    }
+}
+
+- (void)registNewActivity:(HALActivity *)activity
 {
     int activityID = 0;
     [self.db insertActivityRecord:activity];
     activityID = [self.db selectLastIdOfActivityTable];
     [self.db insertBirdRecordList:activity.birdRecordList activityID:activityID];
+    [self loadActivityList];
+}
+
+- (void)updateExistingActivity:(HALActivity *)activity
+{
+    [self.db deleteBirdRecordsInActivity:activity];
+    [self.db insertBirdRecordList:activity.birdRecordList activityID:activity.dbID];
     [self loadActivityList];
 }
 

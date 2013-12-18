@@ -10,6 +10,8 @@
 #import "HALActivityViewController.h"
 #import "HALActivityManager.h"
 
+#define kHALDataOffset 1
+
 @interface HALActivityListTableViewController ()
 
 @property(nonatomic) HALActivityManager *activityManager;
@@ -34,6 +36,11 @@
         [self setup];
     }
     return self;
+}
+
+- (int)dataOffset
+{
+    return kHALDataOffset;
 }
 
 - (void)viewDidLoad
@@ -76,7 +83,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return self.activityManager.activityList.count;
+    return self.activityManager.activityList.count + kHALDataOffset;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -88,8 +95,13 @@
     }
     
     // Configure the cell...
-    HALActivity *activity = self.activityManager.activityList[indexPath.row];
-    cell.textLabel.text = activity.title;
+    if (indexPath.row < kHALDataOffset) {
+        // トップ項目
+        cell.textLabel.text = @"＋新しいアクティビティ";
+    } else {
+        HALActivity *activity = self.activityManager.activityList[indexPath.row - kHALDataOffset];
+        cell.textLabel.text = activity.title;
+    }
     
     return cell;
 }

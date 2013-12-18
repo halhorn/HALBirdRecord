@@ -15,7 +15,7 @@
 @interface HALFlatBirdKindListTableViewController ()
 
 @property(nonatomic) HALBirdKindList *birdKindList;
-@property(nonatomic) HALActivity *activity;
+@property(nonatomic) NSMutableArray *birdRecordList;
 
 @end
 
@@ -43,7 +43,7 @@
 - (void)setup
 {
     self.birdKindList = [HALBirdKindList sharedBirdKindList];
-    self.activity = [[HALActivity alloc] init];
+    self.birdRecordList = [[NSMutableArray alloc] init];
 }
 
 - (void)viewDidLoad
@@ -61,6 +61,16 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (HALBirdRecord *)birdRecordWithBirdID:(int)birdID
+{
+    for (HALBirdRecord *record in self.birdRecordList) {
+        if (record.birdID == birdID) {
+            return record;
+        }
+    }
+    return nil;
 }
 
 #pragma mark - Table view data source
@@ -90,7 +100,7 @@
     NSArray *birdGroup = self.birdKindList.birdKindList[indexPath.section];
     HALBirdKind *birdKind =birdGroup[indexPath.row];
     cell.textLabel.text = birdKind.name;
-    cell.accessoryType = [self.activity birdExists:birdKind.birdID] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    cell.accessoryType = [self birdRecordWithBirdID:birdKind.birdID] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
 
     return cell;
 }
@@ -148,19 +158,21 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     HALBirdKind *birdKind = self.birdKindList.birdKindList[indexPath.section][indexPath.row];
-    if (![self.activity birdExists:birdKind.birdID]) {
-        [self.activity addBirdWithID:birdKind.birdID];
+    HALBirdRecord *record = [self birdRecordWithBirdID:birdKind.birdID];
+    if (!record) {
+        HALBirdRecord *record = [[HALBirdRecord alloc] initWithBirdID:birdKind.birdID];
+        [self.birdRecordList addObject:record];
     } else {
-        [self.activity removeBird:birdKind.birdID];
+        [self.birdRecordList removeObject:record];
     }
     [tableView reloadData];
 }
 
 #pragma mark - HALBirdRecordViewDelegate
 
-- (HALActivity *)sendActivity
+- (NSArray *)sendBirdList
 {
-    return self.activity;
+    return [NSArray arrayWithArray:self.birdRecordList];
 }
 
 @end

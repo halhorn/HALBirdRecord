@@ -11,10 +11,12 @@
 
 @protocol HALBirdRecordViewDelegate <NSObject>
 
-- (HALActivity *)sendActivity;
+- (NSArray *)sendBirdList;
 
 @end
 
 @interface HALBirdKindListViewController : UIViewController
+
+-(id) initWithCompletion:(void(^)(NSArray *))completion;
 
 @end

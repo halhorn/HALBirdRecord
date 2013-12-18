@@ -165,6 +165,18 @@
     return changes;
 }
 
+- (int)deleteBirdRecordsInActivity:(HALActivity *)activity
+{
+    if (!activity) {return -1;}
+    NSString *sqlFormat = [NSString stringWithFormat:@"delete from %@ where activityID = ?", kHALBirdRecordTable];
+
+    [self.fmDB open];
+    [self.fmDB executeUpdate:sqlFormat, @(activity.dbID)];
+    int changes = [self.fmDB changes];
+    [self.fmDB close];
+    return changes;
+}
+
 - (void)dropTables
 {
     [self.fmDB open];

@@ -21,7 +21,8 @@
 
 - (BOOL)birdExists:(int)birdID;
 - (HALBirdRecord *)birdRecordWithID:(int)birdID;
-- (void)addBird:(HALBirdRecord *)birdRecord;
+- (void)addBirdRecord:(HALBirdRecord *)birdRecord;
+- (void)addBirdRecordList:(NSArray *)birdRecordList;
 - (HALBirdRecord *)addBirdWithID:(int)birdID;
 - (void)removeBird:(int)birdID;
 - (MKCoordinateRegion)getRegion;

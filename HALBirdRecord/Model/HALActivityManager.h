@@ -15,6 +15,6 @@
 
 + (instancetype)sharedManager;
 - (void)loadActivityList;
-- (void)registActivity:(HALActivity *)activity;
+- (void)saveActivity:(HALActivity *)activity;
 
 @end

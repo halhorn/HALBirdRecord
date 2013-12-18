@@ -16,7 +16,7 @@
 {
     self = [super init];
     if (self) {
-        self.dbID = -1;
+        self.dbID = 0;
         self.datetime = [NSDate date];
         self.title = @"";
         self.location = @"";
@@ -41,12 +41,16 @@
     return nil;
 }
 
-- (void)addBird:(HALBirdRecord *)birdRecord
+- (void)addBirdRecord:(HALBirdRecord *)birdRecord
 {
-    if ([self birdExists:birdRecord.birdID]) {
-        NSAssert(NO, @"Activityには一種類につき一つしかBirdRecordを入れられません。");
-    }
     [self.birdRecordList addObject:birdRecord];
+}
+
+- (void)addBirdRecordList:(NSArray *)birdRecordList
+{
+    for (HALBirdRecord *record in birdRecordList) {
+        [self addBirdRecord:record];
+    }
 }
 
 - (HALBirdRecord *)addBirdWithID:(int)birdID

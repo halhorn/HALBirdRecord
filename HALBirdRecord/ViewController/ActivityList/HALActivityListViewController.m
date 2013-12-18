@@ -59,12 +59,28 @@
     }];
 }
 
+- (void)showNewActivity
+{
+    HALActivity *activity = [[HALActivity alloc] init];
+    activity.title = @"新規アクティビティ";
+    [self.activityManager saveActivity:activity];
+    
+    HALActivityViewController *viewController = [[HALActivityViewController alloc] initWithActivity:activity shouldShowRegister:YES];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    HALActivity *activity = self.activityManager.activityList[indexPath.row];
-    HALActivityViewController *viewController = [[HALActivityViewController alloc] initWithActivity:activity];
+    int dataOffset = self.activityRecordTableViewController.dataOffset;
+
+    if (indexPath.row < dataOffset) {
+        [self showNewActivity];
+        return;
+    }
+    HALActivity *activity = self.activityManager.activityList[indexPath.row - dataOffset];
+    HALActivityViewController *viewController = [[HALActivityViewController alloc] initWithActivity:activity shouldShowRegister:NO];
     [self.navigationController pushViewController:viewController animated:YES];
 }
 

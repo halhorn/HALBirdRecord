@@ -10,4 +10,6 @@
 
 @interface HALActivityListTableViewController : UITableViewController
 
+@property(nonatomic, readonly) int dataOffset;
+
 @end

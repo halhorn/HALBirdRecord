@@ -8,7 +8,9 @@
 
 #import "HALActivityViewController.h"
 #import "HALActivityTableViewController.h"
+#import "HALActivityManager.h"
 #import "HALBirdMapViewController.h"
+#import "HALBirdKindListViewController.h"
 #import "HALBirdPointAnnotation.h"
 #import <MapKit/MapKit.h>
 
@@ -19,17 +21,19 @@
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property(nonatomic) HALActivity *activity;
 @property(nonatomic) HALActivityTableViewController *activityTableViewController;
+@property(nonatomic, assign) BOOL shouldShowRegister;
 
 @end
 
 @implementation HALActivityViewController
 
-- (id)initWithActivity:(HALActivity *)activity
+- (id)initWithActivity:(HALActivity *)activity shouldShowRegister:(BOOL)shouldShowRegister
 {
     self = [self initWithNibName:NSStringFromClass([self class]) bundle:nil];
     if (self) {
         self.activity = activity;
         self.title = activity.title;
+        self.shouldShowRegister = shouldShowRegister;
     }
     return self;
 }
@@ -48,6 +52,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self setupUI];
+    
+    // 新規アクティビティの場合
+    if (self.shouldShowRegister) {
+        [self showBirdSelectorView];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -64,6 +73,10 @@
     [self setupTimeAndLocationLabel];
     self.mapView.region = [self.activity getRegion];
     [self.mapView addAnnotations:[HALBirdPointAnnotation annotationListWithActivity:self.activity]];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"追加"
+                                                                              style:UIBarButtonItemStyleBordered
+                                                                             target:self
+                                                                             action:@selector(onTapAddButton:)];
 }
 
 - (void)setupTimeAndLocationLabel
@@ -75,6 +88,27 @@
         timeAndLocation = [NSString stringWithFormat:@"%@ @ %@", timeAndLocation, self.activity.location];
     }
     self.timeAndLocationLabel.text = timeAndLocation;
+}
+
+- (void)showBirdSelectorView
+{
+    WeakSelf weakSelf = self;
+    HALBirdKindListViewController *viewController = [[HALBirdKindListViewController alloc] initWithCompletion:^(NSArray *birdRecordList){
+        [weakSelf addAndSaveBirdRecordList:birdRecordList];
+    }];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    [self presentViewController:navController animated:YES completion:nil];
+}
+
+- (void)addAndSaveBirdRecordList:(NSArray *)birdRecordList
+{
+    [self.activity addBirdRecordList:birdRecordList];
+    [[HALActivityManager sharedManager] saveActivity:self.activity];
+}
+
+- (void)onTapAddButton:(id)sender
+{
+    [self showBirdSelectorView];
 }
 
 - (IBAction)onTapMap:(id)sender {
