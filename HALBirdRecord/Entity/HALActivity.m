@@ -26,21 +26,6 @@
     return self;
 }
 
-- (BOOL)birdExists:(int)birdID
-{
-    return [self birdRecordWithID:birdID] != nil;
-}
-
-- (HALBirdRecord *)birdRecordWithID:(int)birdID
-{
-    for (HALBirdRecord *birdRecord in self.birdRecordList) {
-        if (birdRecord.birdID == birdID) {
-            return birdRecord;
-        }
-    }
-    return nil;
-}
-
 - (void)addBirdRecord:(HALBirdRecord *)birdRecord
 {
     [self.birdRecordList addObject:birdRecord];
@@ -50,32 +35,6 @@
 {
     for (HALBirdRecord *record in birdRecordList) {
         [self addBirdRecord:record];
-    }
-}
-
-- (HALBirdRecord *)addBirdWithID:(int)birdID
-{
-    HALBirdRecord *birdRecord = [self birdRecordWithID:birdID];
-    if (birdRecord) {
-        birdRecord.count++;
-    } else {
-        birdRecord = [HALBirdRecord birdRecordWithBirdID:birdID];
-        [self.birdRecordList addObject:birdRecord];
-    }
-    return birdRecord;
-}
-
-- (void)removeBird:(int)birdID
-{
-    HALBirdRecord *remove;
-    for (HALBirdRecord *birdRecord in self.birdRecordList) {
-        if (birdRecord.birdID == birdID) {
-            remove = birdRecord;
-            break;
-        }
-    }
-    if (remove) {
-        [self.birdRecordList removeObject:remove];
     }
 }
 

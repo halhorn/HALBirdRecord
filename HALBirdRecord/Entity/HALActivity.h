@@ -19,12 +19,8 @@
 @property(nonatomic) NSDate *datetime;
 @property(nonatomic) NSMutableArray *birdRecordList;
 
-- (BOOL)birdExists:(int)birdID;
-- (HALBirdRecord *)birdRecordWithID:(int)birdID;
 - (void)addBirdRecord:(HALBirdRecord *)birdRecord;
 - (void)addBirdRecordList:(NSArray *)birdRecordList;
-- (HALBirdRecord *)addBirdWithID:(int)birdID;
-- (void)removeBird:(int)birdID;
 - (MKCoordinateRegion)getRegion;
 
 @end
