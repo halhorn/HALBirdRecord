@@ -99,6 +99,13 @@
     [self loadActivityList];
 }
 
+- (void)deleteActivity:(HALActivity *)activity
+{
+    [self.db deleteBirdRecordsInActivity:activity];
+    [self.db deleteActivity:activity];
+    [self loadActivityList];
+}
+
 - (id)removeNSNull:(id)var
 {
     return [var isEqual:[NSNull null]] ? nil : var;
