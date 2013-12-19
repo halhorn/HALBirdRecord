@@ -39,7 +39,6 @@
     self.activityRecordTableViewController = [HALActivityListTableViewController viewControllerFromNib];
     self.activityRecordTableViewController.tableView.delegate = self;
     [self.activityRecordView addSubview:self.activityRecordTableViewController.view];
-    [self setupNavBar];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -52,17 +51,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)setupNavBar
-{
-    WeakSelf weakSelf = self;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"＋" style:UIBarButtonItemStyleBordered handler:^(id sender){
-        HALBirdKindListViewController *viewController = [HALBirdKindListViewController viewControllerFromNib];
-        UINavigationController *navBarController = [[UINavigationController alloc] initWithRootViewController:viewController];
-        navBarController.navigationBar.translucent = NO;
-        [weakSelf presentViewController:navBarController animated:YES completion:nil];
-    }];
 }
 
 - (void)showNewActivity
