@@ -69,7 +69,6 @@
 {
     HALActivity *activity = [[HALActivity alloc] init];
     activity.title = @"新規アクティビティ";
-    [self.activityManager saveActivity:activity];
     
     HALActivityViewController *viewController = [[HALActivityViewController alloc] initWithActivity:activity shouldShowRegister:YES];
     [self.navigationController pushViewController:viewController animated:YES];
