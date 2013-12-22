@@ -112,6 +112,7 @@
         [weakSelf addAndSaveBirdRecordList:birdRecordList];
     }];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    navController.navigationBar.translucent = NO;
     [self presentViewController:navController animated:YES completion:nil];
 }
 
