@@ -50,9 +50,7 @@
     [self.fmDB executeUpdate:[NSString stringWithFormat:@"create table if not exists %@("
                               "id integer primary key autoincrement,"
                               "title text not null,"
-                              "location text,"
-                              "comment text,"
-                              "datetime integer"
+                              "comment text"
                               ");", kHALActivityRecordTable]];
     
     [[NSUserDefaults standardUserDefaults] setObject:kHALDBVersion forKey:kHALDBVersionKey];
@@ -120,13 +118,11 @@
     if (!activity) {return -1;}
     NSString *sqlFormat = [NSString stringWithFormat:@"insert into %@("
                            "title,"
-                           "location,"
-                           "comment,"
-                           "datetime"
+                           "comment"
                            ") "
-                           "values(?,?,?,?);", kHALActivityRecordTable];
+                           "values(?,?);", kHALActivityRecordTable];
     [self.fmDB open];
-    [self.fmDB executeUpdate:sqlFormat, activity.title, activity.location, activity.comment, activity.datetime];
+    [self.fmDB executeUpdate:sqlFormat, activity.title, activity.comment];
     int changes = [self.fmDB changes];
     [self.fmDB close];
     return changes;
@@ -168,10 +164,10 @@
 - (int)updateActivity:(HALActivity *)activity
 {
     if (!activity || !activity.dbID) {return -1;}
-    NSString *sqlFormat = [NSString stringWithFormat:@"update %@ set title = ?, location = ?, comment = ?, datetime = ? where id = ?", kHALActivityRecordTable];
+    NSString *sqlFormat = [NSString stringWithFormat:@"update %@ set title = ?, comment = ? where id = ?", kHALActivityRecordTable];
     
     [self.fmDB open];
-    [self.fmDB executeUpdate:sqlFormat, activity.title, activity.location, activity.comment, activity.datetime, @(activity.dbID)];
+    [self.fmDB executeUpdate:sqlFormat, activity.title, activity.comment, @(activity.dbID)];
     int changes = [self.fmDB changes];
     [self.fmDB close];
     return changes;
