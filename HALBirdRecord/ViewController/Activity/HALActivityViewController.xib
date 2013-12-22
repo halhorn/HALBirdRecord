@@ -20,26 +20,27 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" id="qIT-4C-9wy">
-                    <rect key="frame" x="0.0" y="102" width="320" height="402"/>
+                    <rect key="frame" x="0.0" y="93" width="320" height="411"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Comment Comment Comment Comment Comment Comment Comment Comment Comment " id="rsk-Wa-uIH">
-                    <rect key="frame" x="20" y="32" width="196" height="62"/>
+                    <rect key="frame" x="0.0" y="35" width="227" height="59"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.90553373098373413" green="1" blue="0.96093231439590454" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <dataDetectorType key="dataDetectorTypes" link="YES" address="YES"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="zgP-sz-1O5"/>
                     </connections>
                 </textView>
                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="PGA-Bd-Kyh">
-                    <rect key="frame" x="216" y="10" width="84" height="84"/>
+                    <rect key="frame" x="226" y="0.0" width="94" height="94"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                 </mapView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Iia-AQ-co9">
-                    <rect key="frame" x="216" y="10" width="84" height="84"/>
+                    <rect key="frame" x="226" y="0.0" width="94" height="94"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal">
@@ -49,11 +50,12 @@
                         <action selector="onTapMap:" destination="-1" eventType="touchUpInside" id="qtk-Tx-KCb"/>
                     </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Title" minimumFontSize="17" clearButtonMode="whileEditing" id="hHp-1p-EKo">
-                    <rect key="frame" x="20" y="8" width="196" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Title" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" id="hHp-1p-EKo">
+                    <rect key="frame" x="0.0" y="0.0" width="227" height="36"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <color key="backgroundColor" red="0.99698084592819214" green="0.99945557117462158" blue="0.91399377584457397" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
                     <connections>
                         <action selector="onTitleEditDone:" destination="-1" eventType="editingDidEnd" id="IzE-94-oaa"/>
                         <outlet property="delegate" destination="-1" id="7Av-ZT-bb3"/>
