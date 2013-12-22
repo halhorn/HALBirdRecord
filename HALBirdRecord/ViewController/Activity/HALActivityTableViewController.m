@@ -7,6 +7,7 @@
 //
 
 #import "HALActivityTableViewController.h"
+#import "HALActivityManager.h"
 
 @interface HALActivityTableViewController ()
 
@@ -85,19 +86,20 @@
 }
 */
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        [self.activity.birdRecordList removeObjectAtIndex:indexPath.row];
+        [[HALActivityManager sharedManager] saveActivity:self.activity];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
 
 /*
 // Override to support rearranging the table view.

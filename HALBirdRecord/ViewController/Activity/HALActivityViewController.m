@@ -8,28 +8,34 @@
 
 #import "HALActivityViewController.h"
 #import "HALActivityTableViewController.h"
+#import "HALActivityManager.h"
 #import "HALBirdMapViewController.h"
+#import "HALBirdKindListViewController.h"
 #import "HALBirdPointAnnotation.h"
 #import <MapKit/MapKit.h>
 
-@interface HALActivityViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *timeAndLocationLabel;
+@interface HALActivityViewController ()<UITextFieldDelegate, UITextViewDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet UITextView *commentTextView;
 @property (weak, nonatomic) IBOutlet UIView *activityTableView;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property(nonatomic) HALActivityManager *activityManager;
 @property(nonatomic) HALActivity *activity;
 @property(nonatomic) HALActivityTableViewController *activityTableViewController;
+@property(nonatomic, assign) BOOL shouldShowRegister;
 
 @end
 
 @implementation HALActivityViewController
 
-- (id)initWithActivity:(HALActivity *)activity
+- (id)initWithActivity:(HALActivity *)activity shouldShowRegister:(BOOL)shouldShowRegister
 {
     self = [self initWithNibName:NSStringFromClass([self class]) bundle:nil];
     if (self) {
+        self.activityManager = [HALActivityManager sharedManager];
         self.activity = activity;
         self.title = activity.title;
+        self.shouldShowRegister = shouldShowRegister;
     }
     return self;
 }
@@ -48,6 +54,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self setupUI];
+    
+    // 新規アクティビティの場合
+    if (self.shouldShowRegister) {
+        [self showBirdSelectorView];
+    }
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.activityTableViewController.tableView reloadData];
+    [self loadMapView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,25 +73,66 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - setup methods
+
 - (void)setupUI
 {
     self.activityTableViewController = [[HALActivityTableViewController alloc] initWithActivity:self.activity];
     [self.activityTableView addSubview:self.activityTableViewController.view];
+    self.titleTextField.text = self.activity.title;
     self.commentTextView.text = self.activity.comment;
-    [self setupTimeAndLocationLabel];
+    [self setGestureForClosingKeyBoard];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"追加"
+                                                                              style:UIBarButtonItemStyleBordered
+                                                                             target:self
+                                                                             action:@selector(onTapAddButton:)];
+}
+
+- (void)loadMapView
+{
     self.mapView.region = [self.activity getRegion];
+    [self.mapView removeAnnotations:self.mapView.annotations];
     [self.mapView addAnnotations:[HALBirdPointAnnotation annotationListWithActivity:self.activity]];
 }
 
-- (void)setupTimeAndLocationLabel
+- (void)setGestureForClosingKeyBoard {
+    WeakSelf weakSelf = self;
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithHandler:^(UIGestureRecognizer *sender, UIGestureRecognizerState state, CGPoint location){
+        [weakSelf.view endEditing:YES];
+    }];
+    [self.view addGestureRecognizer:gestureRecognizer];
+}
+
+#pragma mark - other methods
+
+- (void)showBirdSelectorView
 {
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateFormat = @"YYYY/MM/dd";
-    NSString *timeAndLocation = [dateFormatter stringFromDate:self.activity.datetime];
-    if (self.activity.location != nil && ![self.activity.location isEqualToString:@""]) {
-        timeAndLocation = [NSString stringWithFormat:@"%@ @ %@", timeAndLocation, self.activity.location];
-    }
-    self.timeAndLocationLabel.text = timeAndLocation;
+    WeakSelf weakSelf = self;
+    HALBirdKindListViewController *viewController = [[HALBirdKindListViewController alloc] initWithCompletion:^(NSArray *birdRecordList){
+        [weakSelf addAndSaveBirdRecordList:birdRecordList];
+    }];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    navController.navigationBar.translucent = NO;
+    [self presentViewController:navController animated:YES completion:nil];
+}
+
+- (void)addAndSaveBirdRecordList:(NSArray *)birdRecordList
+{
+    [self.activity addBirdRecordList:birdRecordList];
+    [self.activityManager saveActivity:self.activity];
+}
+
+#pragma mark - event handler
+
+- (void)onTapAddButton:(id)sender
+{
+    [self showBirdSelectorView];
+}
+
+- (IBAction)onTitleEditDone:(id)sender {
+    self.activity.title = self.titleTextField.text;
+    self.title = self.activity.title;
+    [self.activityManager saveActivity:self.activity];
 }
 
 - (IBAction)onTapMap:(id)sender {
@@ -82,4 +140,19 @@
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self.view endEditing:YES];
+    return YES;
+}
+
+#pragma mark - UITextViewDelegate
+- (BOOL)textViewShouldEndEditing:(UITextView *)textView
+{
+    self.activity.comment = self.commentTextView.text;
+    [self.activityManager saveActivity:self.activity];
+    return YES;
+}
 @end

@@ -10,6 +10,8 @@
 #import "HALActivityViewController.h"
 #import "HALActivityManager.h"
 
+#define kHALDataOffset 1
+
 @interface HALActivityListTableViewController ()
 
 @property(nonatomic) HALActivityManager *activityManager;
@@ -36,6 +38,11 @@
     return self;
 }
 
+- (int)dataOffset
+{
+    return kHALDataOffset;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -45,12 +52,6 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [self.activityManager loadActivityList];
-    [(UITableView *)self.view reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -76,7 +77,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return self.activityManager.activityList.count;
+    return self.activityManager.activityList.count + kHALDataOffset;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -88,8 +89,13 @@
     }
     
     // Configure the cell...
-    HALActivity *activity = self.activityManager.activityList[indexPath.row];
-    cell.textLabel.text = activity.title;
+    if (indexPath.row < kHALDataOffset) {
+        // トップ項目
+        cell.textLabel.text = @"＋新しいアクティビティ";
+    } else {
+        HALActivity *activity = self.activityManager.activityList[indexPath.row - kHALDataOffset];
+        cell.textLabel.text = activity.title;
+    }
     
     return cell;
 }
@@ -103,19 +109,21 @@
 }
 */
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        HALActivity *activity = self.activityManager.activityList[indexPath.row - kHALDataOffset];
+        [self.activityManager deleteActivity:activity];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
+    }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.

@@ -8,7 +8,6 @@
 
 #import "HALActivityListViewController.h"
 #import "HALActivityListTableViewController.h"
-#import "HALBirdKindListViewController.h"
 #import "HALActivityViewController.h"
 #import "HALActivityManager.h"
 #import "UIViewController+HALViewControllerFromNib.h"
@@ -28,6 +27,7 @@
     if (self) {
         // Custom initialization
         self.activityManager = [HALActivityManager sharedManager];
+        self.title = @"鳥ログ";
     }
     return self;
 }
@@ -39,7 +39,12 @@
     self.activityRecordTableViewController = [HALActivityListTableViewController viewControllerFromNib];
     self.activityRecordTableViewController.tableView.delegate = self;
     [self.activityRecordView addSubview:self.activityRecordTableViewController.view];
-    [self setupNavBar];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.activityManager loadActivityList];
+    [self.activityRecordTableViewController.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,23 +53,27 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)setupNavBar
+- (void)showNewActivity
 {
-    WeakSelf weakSelf = self;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"＋" style:UIBarButtonItemStyleBordered handler:^(id sender){
-        HALBirdKindListViewController *viewController = [HALBirdKindListViewController viewControllerFromNib];
-        UINavigationController *navBarController = [[UINavigationController alloc] initWithRootViewController:viewController];
-        navBarController.navigationBar.translucent = NO;
-        [weakSelf presentViewController:navBarController animated:YES completion:nil];
-    }];
+    HALActivity *activity = [[HALActivity alloc] init];
+    activity.title = @"新規アクティビティ";
+    
+    HALActivityViewController *viewController = [[HALActivityViewController alloc] initWithActivity:activity shouldShowRegister:YES];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    HALActivity *activity = self.activityManager.activityList[indexPath.row];
-    HALActivityViewController *viewController = [[HALActivityViewController alloc] initWithActivity:activity];
+    int dataOffset = self.activityRecordTableViewController.dataOffset;
+
+    if (indexPath.row < dataOffset) {
+        [self showNewActivity];
+        return;
+    }
+    HALActivity *activity = self.activityManager.activityList[indexPath.row - dataOffset];
+    HALActivityViewController *viewController = [[HALActivityViewController alloc] initWithActivity:activity shouldShowRegister:NO];
     [self.navigationController pushViewController:viewController animated:YES];
 }
 

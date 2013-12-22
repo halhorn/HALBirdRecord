@@ -165,6 +165,42 @@
     return changes;
 }
 
+- (int)updateActivity:(HALActivity *)activity
+{
+    if (!activity || !activity.dbID) {return -1;}
+    NSString *sqlFormat = [NSString stringWithFormat:@"update %@ set title = ?, location = ?, comment = ?, datetime = ? where id = ?", kHALActivityRecordTable];
+    
+    [self.fmDB open];
+    [self.fmDB executeUpdate:sqlFormat, activity.title, activity.location, activity.comment, activity.datetime, @(activity.dbID)];
+    int changes = [self.fmDB changes];
+    [self.fmDB close];
+    return changes;
+}
+
+- (int)deleteBirdRecordsInActivity:(HALActivity *)activity
+{
+    if (!activity) {return -1;}
+    NSString *sqlFormat = [NSString stringWithFormat:@"delete from %@ where activityID = ?", kHALBirdRecordTable];
+
+    [self.fmDB open];
+    [self.fmDB executeUpdate:sqlFormat, @(activity.dbID)];
+    int changes = [self.fmDB changes];
+    [self.fmDB close];
+    return changes;
+}
+
+- (int)deleteActivity:(HALActivity *)activity
+{
+    if (!activity) {return -1;}
+    NSString *sqlFormat = [NSString stringWithFormat:@"delete from %@ where id = ?", kHALActivityRecordTable];
+    
+    [self.fmDB open];
+    [self.fmDB executeUpdate:sqlFormat, @(activity.dbID)];
+    int changes = [self.fmDB changes];
+    [self.fmDB close];
+    return changes;
+}
+
 - (void)dropTables
 {
     [self.fmDB open];

@@ -11,6 +11,6 @@
 
 @interface HALActivityViewController : UIViewController
 
--(id) initWithActivity:(HALActivity *)activity;
+-(id) initWithActivity:(HALActivity *)activity shouldShowRegister:(BOOL)shouldShowRegister;
 
 @end

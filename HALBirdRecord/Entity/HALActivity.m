@@ -16,7 +16,7 @@
 {
     self = [super init];
     if (self) {
-        self.dbID = -1;
+        self.dbID = 0;
         self.datetime = [NSDate date];
         self.title = @"";
         self.location = @"";
@@ -26,52 +26,15 @@
     return self;
 }
 
-- (BOOL)birdExists:(int)birdID
+- (void)addBirdRecord:(HALBirdRecord *)birdRecord
 {
-    return [self birdRecordWithID:birdID] != nil;
-}
-
-- (HALBirdRecord *)birdRecordWithID:(int)birdID
-{
-    for (HALBirdRecord *birdRecord in self.birdRecordList) {
-        if (birdRecord.birdID == birdID) {
-            return birdRecord;
-        }
-    }
-    return nil;
-}
-
-- (void)addBird:(HALBirdRecord *)birdRecord
-{
-    if ([self birdExists:birdRecord.birdID]) {
-        NSAssert(NO, @"Activityには一種類につき一つしかBirdRecordを入れられません。");
-    }
     [self.birdRecordList addObject:birdRecord];
 }
 
-- (HALBirdRecord *)addBirdWithID:(int)birdID
+- (void)addBirdRecordList:(NSArray *)birdRecordList
 {
-    HALBirdRecord *birdRecord = [self birdRecordWithID:birdID];
-    if (birdRecord) {
-        birdRecord.count++;
-    } else {
-        birdRecord = [HALBirdRecord birdRecordWithBirdID:birdID];
-        [self.birdRecordList addObject:birdRecord];
-    }
-    return birdRecord;
-}
-
-- (void)removeBird:(int)birdID
-{
-    HALBirdRecord *remove;
-    for (HALBirdRecord *birdRecord in self.birdRecordList) {
-        if (birdRecord.birdID == birdID) {
-            remove = birdRecord;
-            break;
-        }
-    }
-    if (remove) {
-        [self.birdRecordList removeObject:remove];
+    for (HALBirdRecord *record in birdRecordList) {
+        [self addBirdRecord:record];
     }
 }
 
@@ -79,7 +42,7 @@
 {
     if (self.birdRecordList.count == 0) {
         // データが無かったらとりあえず京都でも表示しとけ
-        return MKCoordinateRegionMake(CLLocationCoordinate2DMake(135.4601, 35.0042), MKCoordinateSpanMake(1, 1));
+        return MKCoordinateRegionMake(CLLocationCoordinate2DMake(35.0042, 135.4601), MKCoordinateSpanMake(1, 1));
     }
     double minLatitude = 360;
     double minLongitude = 360;

@@ -10,6 +10,8 @@
 
 @interface HALBirdKindList()
 
+@property(nonatomic) NSArray *rawBirdKindList;
+
 @end
 
 @implementation HALBirdKindList
@@ -28,23 +30,37 @@
 {
     self = [super init];
     if (self) {
-        [self loadBirdKindList];
+        _rawBirdKindList = [self loadRawBirdKindList];
+        _birdKindList = [self birdKindListWithRawBirdList:self.rawBirdKindList];
     }
     return self;
 }
 
-- (void)loadBirdKindList
+- (int)numberOfGroups
+{
+    return self.birdKindList.count;
+}
+
+- (NSString *)groupNameForGroupIndex:(int)index
+{
+    return @"";
+}
+
+- (NSArray *)birdKindListWithRawBirdList:(NSArray *)rawBirdKindList
+{
+    return nil;
+}
+
+- (NSArray *)loadRawBirdKindList
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:@"BirdKind" ofType:@"plist"];
     NSArray *birdKindGroup = [NSArray arrayWithContentsOfFile:path];
     
     NSMutableArray *array = [[NSMutableArray alloc] init];
-    _numberOfGroups = 0;
     for (NSDictionary *groupDict in birdKindGroup) {
         NSAssert([groupDict[@"GroupID"] isKindOfClass:[NSNumber class]], @"GroupIDはNumber");
         NSAssert([groupDict[@"GroupName"] isKindOfClass:[NSString class]], @"GroupNameはString");
         NSAssert([groupDict[@"BirdList"] isKindOfClass:[NSArray class]], @"BirdListはNSArray");
-        NSMutableArray *birdArray = [[NSMutableArray alloc] init];
         for (NSDictionary *kindDict in groupDict[@"BirdList"]) {
             NSAssert([kindDict[@"BirdID"] isKindOfClass:[NSNumber class]], @"BirdIDはNumber");
             NSAssert([kindDict[@"Name"] isKindOfClass:[NSString class]], @"NameはString");
@@ -60,21 +76,17 @@
                                                 dataCopyRight:kindDict[@"DataCopyRight"]
                                                       groupID:[(NSNumber *)groupDict[@"GroupID"] intValue]
                                                     groupName:groupDict[@"GroupName"]];
-            [birdArray addObject:kind];
+            [array addObject:kind];
         }
-        [array addObject:[NSArray arrayWithArray:birdArray]];
-        _numberOfGroups++;
     }
-    _birdKindList = [NSArray arrayWithArray:array];
+    return [NSArray arrayWithArray:array];
 }
 
 - (HALBirdKind *)birdKindFromBirdID:(int)birdID
 {
-    for (NSArray *group in self.birdKindList) {
-        for (HALBirdKind *kind in group) {
-            if (kind.birdID == birdID) {
-                return kind;
-            }
+    for (HALBirdKind *kind in self.rawBirdKindList) {
+        if (kind.birdID == birdID) {
+            return kind;
         }
     }
     return nil;

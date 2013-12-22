@@ -7,7 +7,7 @@
 //
 
 #import "HALFlatBirdKindListTableViewController.h"
-#import "HALBirdKindList.h"
+#import "HALFamilyBirdKindList.h"
 #import "HALBirdKind.h"
 #import "HALBirdRecord.h"
 #import "HALActivity.h"
@@ -15,7 +15,7 @@
 @interface HALFlatBirdKindListTableViewController ()
 
 @property(nonatomic) HALBirdKindList *birdKindList;
-@property(nonatomic) HALActivity *activity;
+@property(nonatomic) NSMutableArray *birdRecordList;
 
 @end
 
@@ -42,8 +42,8 @@
 
 - (void)setup
 {
-    self.birdKindList = [HALBirdKindList sharedBirdKindList];
-    self.activity = [[HALActivity alloc] init];
+    self.birdKindList = [HALFamilyBirdKindList sharedBirdKindList];
+    self.birdRecordList = [[NSMutableArray alloc] init];
 }
 
 - (void)viewDidLoad
@@ -63,12 +63,22 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (HALBirdRecord *)birdRecordWithBirdID:(int)birdID
+{
+    for (HALBirdRecord *record in self.birdRecordList) {
+        if (record.birdID == birdID) {
+            return record;
+        }
+    }
+    return nil;
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return self.birdKindList.birdKindList.count;
+    return [self.birdKindList numberOfGroups];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -90,16 +100,14 @@
     NSArray *birdGroup = self.birdKindList.birdKindList[indexPath.section];
     HALBirdKind *birdKind =birdGroup[indexPath.row];
     cell.textLabel.text = birdKind.name;
-    cell.accessoryType = [self.activity birdExists:birdKind.birdID] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    cell.accessoryType = [self birdRecordWithBirdID:birdKind.birdID] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
 
     return cell;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    NSArray *birdGroup = self.birdKindList.birdKindList[section];
-    HALBirdKind *kind = birdGroup[0];
-    return kind.groupName;
+    return [self.birdKindList groupNameForGroupIndex:section];
 }
 
 /*
@@ -148,19 +156,21 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     HALBirdKind *birdKind = self.birdKindList.birdKindList[indexPath.section][indexPath.row];
-    if (![self.activity birdExists:birdKind.birdID]) {
-        [self.activity addBirdWithID:birdKind.birdID];
+    HALBirdRecord *record = [self birdRecordWithBirdID:birdKind.birdID];
+    if (!record) {
+        HALBirdRecord *record = [[HALBirdRecord alloc] initWithBirdID:birdKind.birdID];
+        [self.birdRecordList addObject:record];
     } else {
-        [self.activity removeBird:birdKind.birdID];
+        [self.birdRecordList removeObject:record];
     }
     [tableView reloadData];
 }
 
 #pragma mark - HALBirdRecordViewDelegate
 
-- (HALActivity *)sendActivity
+- (NSArray *)sendBirdList
 {
-    return self.activity;
+    return [NSArray arrayWithArray:self.birdRecordList];
 }
 
 @end
