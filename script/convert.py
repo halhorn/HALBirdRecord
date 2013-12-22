@@ -2,12 +2,16 @@
 # -*- coding: utf-8 -*-
 
 import re
+import urllib
+import os
 
 dataFile = "WikiRawData.txt"
 outFile = "../HALBirdRecord/Data/BirdKind.plist"
+imgDir = "./photo/"
 groupPattern = re.compile(r'<h3>.*>([^<>]*科)')
 foreignPattern = re.compile(r'<h2>.*(外来種)')
 birdPattern = re.compile(r'<li><a[^<>]*href="([^"]*)"[^<>]*>([^<>]*)</a>.*</li>')
+birdImagePattern = re.compile(r'<img[^<>]* src="([^"]+\.(jpg|jpeg|JPG|JPEC))"');
 
 def convert():
     data = read()
@@ -23,16 +27,33 @@ def read():
         line = line.rstrip()
         groupMatch = groupPattern.search(line) or foreignPattern.search(line)
         birdMatch = birdPattern.search(line)
+        # グループ
         if groupMatch:
             bird = []
             data.append({"GroupID":groupID, "GroupName":groupMatch.group(1), "BirdList":bird})
             print "%d: %s" % (groupID, groupMatch.group(1))
             groupID += 1
+        # 鳥の種類
         if birdMatch:
+            url = birdMatch.group(1)
+            getImage('http://ja.wikipedia.org' + url, birdID)
             bird.append({"BirdID":birdID, "Name":birdMatch.group(2), "DataCopyRight":"wikipedia"})
             print "  %d: %s" % (birdID, birdMatch.group(2))
             birdID += 1
     return data
+
+def getImage(url, birdID):
+    birdPage = urllib.urlopen(url)
+    html = birdPage.read()
+    imgMatch = birdImagePattern.search(html)
+    if not imgMatch:
+        print "No Image"
+        return
+    path = imgMatch.group(1)
+    url = 'http:' + path
+    saveFilePath = "%s%03d.jpg" % (imgDir, birdID)
+    urllib.urlretrieve(url, saveFilePath)
+    print saveFilePath
 
 def output(data):
     tmp = ""
