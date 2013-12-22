@@ -14,9 +14,7 @@
 
 @property(nonatomic) int dbID;
 @property(nonatomic) NSString *title;
-@property(nonatomic) NSString *location;
 @property(nonatomic) NSString *comment;
-@property(nonatomic) NSDate *datetime;
 @property(nonatomic) NSMutableArray *birdRecordList;
 
 - (void)addBirdRecord:(HALBirdRecord *)birdRecord;

@@ -42,14 +42,11 @@
     NSMutableArray *activityList = [[NSMutableArray alloc] init];
     NSArray *activityRows = [self.db selectActivityRows];
     for (NSDictionary *activityRow in activityRows) {
-        NSNumber *activityUnixTime = [self removeNSNull:activityRow[@"datetime"]];
         NSNumber *activityDBID = activityRow[@"id"];
         
         HALActivity *activity = [[HALActivity alloc] init];
         activity.title = [self removeNSNull:activityRow[@"title"]];
-        activity.location = [self removeNSNull:activityRow[@"location"]];
         activity.comment = [self removeNSNull:activityRow[@"comment"]];
-        activity.datetime = [NSDate dateWithTimeIntervalSince1970:[activityUnixTime doubleValue]];
         activity.dbID = [activityDBID intValue];
         
         NSArray *birdRows = [self.db selectBirdRecordListWithActivityDBID:[activityDBID intValue]];

@@ -17,9 +17,7 @@
     self = [super init];
     if (self) {
         self.dbID = 0;
-        self.datetime = [NSDate date];
         self.title = @"";
-        self.location = @"";
         self.comment = @"";
         _birdRecordList = [[NSMutableArray alloc] init];
     }
@@ -64,7 +62,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"title:%@ datetime:%@ location:%@ comment:%@ birds:%@", self.title, self.datetime, self.location, self.comment, self.birdRecordList];
+    return [NSString stringWithFormat:@"title:%@ comment:%@ birds:%@", self.title, self.comment, self.birdRecordList];
 }
 
 @end
