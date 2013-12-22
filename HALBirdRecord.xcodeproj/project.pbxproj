@@ -307,6 +307,7 @@
 		295E90B1185410D4000BA5FE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				29FA598718668CA900928318 /* BirdKindList */,
 				29501ECE1858C8B6004AF7F9 /* HALActivityManager.h */,
 				29501ECF1858C8B6004AF7F9 /* HALActivityManager.m */,
 				295E90C818554739000BA5FE /* HALDB.h */,
@@ -324,8 +325,6 @@
 				295E90CF18560789000BA5FE /* HALActivity.m */,
 				295E90B618541369000BA5FE /* HALBirdKind.h */,
 				295E90B718541369000BA5FE /* HALBirdKind.m */,
-				295E90B21854111D000BA5FE /* HALBirdKindList.h */,
-				295E90B31854111D000BA5FE /* HALBirdKindList.m */,
 				295E90BF18546328000BA5FE /* HALBirdRecord.h */,
 				295E90C018546328000BA5FE /* HALBirdRecord.m */,
 				29501EEB185C7711004AF7F9 /* HALBirdPointAnnotation.h */,
@@ -345,6 +344,15 @@
 				295E90E418587F14000BA5FE /* HALActivityListTableViewController.xib */,
 			);
 			path = ActivityList;
+			sourceTree = "<group>";
+		};
+		29FA598718668CA900928318 /* BirdKindList */ = {
+			isa = PBXGroup;
+			children = (
+				295E90B21854111D000BA5FE /* HALBirdKindList.h */,
+				295E90B31854111D000BA5FE /* HALBirdKindList.m */,
+			);
+			path = BirdKindList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

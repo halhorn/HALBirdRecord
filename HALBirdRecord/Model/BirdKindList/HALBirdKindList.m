@@ -28,12 +28,18 @@
 {
     self = [super init];
     if (self) {
-        [self loadBirdKindList];
+        NSArray *rawBirdKindList = [self loadRawBirdKindList];
+        _birdKindList = [self birdKindListWithRawBirdList:rawBirdKindList];
     }
     return self;
 }
 
-- (void)loadBirdKindList
+- (NSArray *)birdKindListWithRawBirdList:(NSArray *)rawBirdKindList
+{
+    return rawBirdKindList;
+}
+
+- (NSArray *)loadRawBirdKindList
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:@"BirdKind" ofType:@"plist"];
     NSArray *birdKindGroup = [NSArray arrayWithContentsOfFile:path];
@@ -65,7 +71,7 @@
         [array addObject:[NSArray arrayWithArray:birdArray]];
         _numberOfGroups++;
     }
-    _birdKindList = [NSArray arrayWithArray:array];
+    return [NSArray arrayWithArray:array];
 }
 
 - (HALBirdKind *)birdKindFromBirdID:(int)birdID
