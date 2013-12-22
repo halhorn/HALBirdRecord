@@ -7,7 +7,7 @@
 //
 
 #import "HALFlatBirdKindListTableViewController.h"
-#import "HALBirdKindList.h"
+#import "HALFamilyBirdKindList.h"
 #import "HALBirdKind.h"
 #import "HALBirdRecord.h"
 #import "HALActivity.h"
@@ -42,7 +42,7 @@
 
 - (void)setup
 {
-    self.birdKindList = [HALBirdKindList sharedBirdKindList];
+    self.birdKindList = [HALFamilyBirdKindList sharedBirdKindList];
     self.birdRecordList = [[NSMutableArray alloc] init];
 }
 
@@ -78,7 +78,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return self.birdKindList.birdKindList.count;
+    return [self.birdKindList numberOfGroups];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -107,9 +107,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    NSArray *birdGroup = self.birdKindList.birdKindList[section];
-    HALBirdKind *kind = birdGroup[0];
-    return kind.groupName;
+    return [self.birdKindList groupNameForGroupIndex:section];
 }
 
 /*
