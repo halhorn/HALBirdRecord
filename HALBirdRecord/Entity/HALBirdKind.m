@@ -8,8 +8,6 @@
 
 #import "HALBirdKind.h"
 
-@class HALBirdKindList;
-
 @implementation HALBirdKind
 - (id)initWithBirdID:(int)birdID
                 name:(NSString *)name

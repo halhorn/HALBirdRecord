@@ -8,7 +8,6 @@
 
 #import "HALActivityListViewController.h"
 #import "HALActivityListTableViewController.h"
-#import "HALBirdKindListViewController.h"
 #import "HALActivityViewController.h"
 #import "HALActivityManager.h"
 #import "UIViewController+HALViewControllerFromNib.h"
