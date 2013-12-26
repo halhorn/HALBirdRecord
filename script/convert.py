@@ -3,7 +3,7 @@
 
 import re
 import urllib
-import os
+import os, sys
 
 dataFile = "WikiRawData.txt"
 outFile = "../HALBirdRecord/Data/BirdKind.plist"
@@ -11,14 +11,21 @@ imgDir = "./photo/"
 groupPattern = re.compile(r'<h3>.*>([^<>]*科)')
 foreignPattern = re.compile(r'<h2>.*(外来種)')
 birdPattern = re.compile(r'<li><a[^<>]*href="([^"]*)"[^<>]*>([^<>]*)</a>.*</li>')
-birdImagePattern = re.compile(r'<img[^<>]* src="([^"]+\.(jpg|jpeg|JPG|JPEC))"');
+birdImagePattern = re.compile(r'<a[^<>]href="([^"]+)"[^<>]+>\s*<img[^<>]* src="([^"]+\.(jpg|jpeg|JPG|JPEC))"')
+licensePatterns = [
+    re.compile(r'このファイルは(.+)の(もと|下)に?利用を許諾されています。'),
+    re.compile(r'(パブリックドメイン)</a></b>とされました。'),
+    re.compile(r'(GNU Free Documentation License</a></b> に示されるバージョン[^<>]+(またはそれ以降)?)のライセンスの下提供されています'),
+    re.compile(r'この作品の権利を放棄し<b><a [^<>]+>(パブリックドメイン)</a></b>とします。'),
+    re.compile(r'(?:the image|such work) is in the <b><a [^<>]+>(public domain)</a></b>')
+]
 
-def convert():
-    data = read()
+def convert(imgFetchStart):
+    data = read(imgFetchStart)
     output(data)
     print "Done."
 
-def read():
+def read(imgFetchStart):
     data = []
     bird = []
     groupID = 1;
@@ -36,7 +43,8 @@ def read():
         # 鳥の種類
         if birdMatch:
             url = birdMatch.group(1)
-            getImage('http://ja.wikipedia.org' + url, birdID)
+            if int(birdID) >= imgFetchStart:
+                getImage('http://ja.wikipedia.org' + url, birdID)
             bird.append({"BirdID":birdID, "Name":birdMatch.group(2), "DataCopyRight":"wikipedia"})
             print "  %d: %s" % (birdID, birdMatch.group(2))
             birdID += 1
@@ -49,11 +57,27 @@ def getImage(url, birdID):
     if not imgMatch:
         print "No Image"
         return
-    path = imgMatch.group(1)
+    licensePageUrl = 'http://ja.wikipedia.org' + imgMatch.group(1)
+    license = getImageLicense(licensePageUrl)
+    if not license:
+        print "No license at %s" % licensePageUrl
+        return
+    print license
+    path = imgMatch.group(2)
     url = 'http:' + path
     saveFilePath = "%s%03d.jpg" % (imgDir, birdID)
     urllib.urlretrieve(url, saveFilePath)
-    print saveFilePath
+
+def getImageLicense(url):
+    imgPage = urllib.urlopen(url)
+    html = imgPage.read()
+    license = ''
+    for pattern in licensePatterns:
+        licenseMatch = pattern.search(html)
+        if licenseMatch:
+            license = re.sub(r'<[^<>]*>', '', licenseMatch.group(1))
+            break
+    return license
 
 def output(data):
     tmp = ""
@@ -96,4 +120,4 @@ def output(data):
     f.write(out)
 
 if __name__ == "__main__":
-    convert()
+    convert(int(sys.argv[1]))
