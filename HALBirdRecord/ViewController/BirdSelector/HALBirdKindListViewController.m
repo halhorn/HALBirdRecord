@@ -46,6 +46,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.birdListViewController = [HALFlatBirdKindListTableViewController viewControllerFromNib];
+    self.birdListViewController.birdKindListViewController = self;
     [self.BirdListView addSubview:self.birdListViewController.view];
 
     [self setCancelButton];

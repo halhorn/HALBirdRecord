@@ -64,18 +64,30 @@
         for (NSDictionary *kindDict in groupDict[@"BirdList"]) {
             NSAssert([kindDict[@"BirdID"] isKindOfClass:[NSNumber class]], @"BirdIDはNumber");
             NSAssert([kindDict[@"Name"] isKindOfClass:[NSString class]], @"NameはString");
+            NSAssert([kindDict[@"Url"] isKindOfClass:[NSString class]], @"UrlはString");
             NSAssert([kindDict[@"Comment"] isKindOfClass:[NSString class]], @"CommentはString");
             NSAssert([kindDict[@"DataCopyRight"] isKindOfClass:[NSString class]], @"DataCopyRightはString");
-            NSAssert([kindDict[@"Image"] isKindOfClass:[NSString class]], @"ImageはString");
+            int birdID = [(NSNumber *)kindDict[@"BirdID"] intValue];
             
-            UIImage *image = [kindDict[@"Image"] isEqualToString:@""] ? nil : [UIImage imageNamed:kindDict[@"Image"]];
-            HALBirdKind *kind = [HALBirdKind birdKindWithID:[(NSNumber *)kindDict[@"BirdID"] intValue]
-                                                         name:kindDict[@"Name"]
-                                                      comment:kindDict[@"Comment"]
-                                                        image:image
-                                                dataCopyRight:kindDict[@"DataCopyRight"]
-                                                      groupID:[(NSNumber *)groupDict[@"GroupID"] intValue]
-                                                    groupName:groupDict[@"GroupName"]];
+            NSString *photoName = [NSString stringWithFormat:@"%03d", birdID];
+            NSString *photoPath = [[NSBundle mainBundle] pathForResource:photoName ofType:@"jpg"];
+            if (!photoPath) {
+                photoPath = [[NSBundle mainBundle] pathForResource:@"nophoto" ofType:@"jpg"];
+            }
+            UIImage *image = [UIImage imageWithContentsOfFile:photoPath];
+            NSURL *url = nil;
+            NSString *urlStr = kindDict[@"Url"];
+            if (![urlStr isEqualToString:@""]) {
+                url = [NSURL URLWithString:urlStr];
+            }
+            HALBirdKind *kind = [HALBirdKind birdKindWithID:birdID
+                                                       name:kindDict[@"Name"]
+                                                        url:url
+                                                    comment:kindDict[@"Comment"]
+                                                      image:image
+                                              dataCopyRight:kindDict[@"DataCopyRight"]
+                                                    groupID:[(NSNumber *)groupDict[@"GroupID"] intValue]
+                                                  groupName:groupDict[@"GroupName"]];
             [array addObject:kind];
         }
     }

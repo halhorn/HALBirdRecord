@@ -57,7 +57,10 @@
     
     // 新規アクティビティの場合
     if (self.shouldShowRegister) {
-        [self showBirdSelectorView];
+        WeakSelf weakSelf = self;
+        [self performBlock:^(id sender){
+            [weakSelf showBirdSelectorView];
+        } afterDelay:0.1];
     }
 }
 

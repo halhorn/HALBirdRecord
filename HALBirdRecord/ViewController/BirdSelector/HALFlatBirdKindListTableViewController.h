@@ -10,5 +10,6 @@
 #import "HALBirdKindListViewController.h"
 
 @interface HALFlatBirdKindListTableViewController : UITableViewController<HALBirdRecordViewDelegate>
+@property(nonatomic, weak) HALBirdKindListViewController *birdKindListViewController;
 
 @end
