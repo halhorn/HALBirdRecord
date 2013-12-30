@@ -10,6 +10,7 @@
 		2925949918701B8200FA2EED /* UIImage+HALThumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = 2925949818701B8200FA2EED /* UIImage+HALThumbnail.m */; };
 		2925949E1870689900FA2EED /* HALWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2925949C1870689900FA2EED /* HALWebViewController.m */; };
 		292594A11871546200FA2EED /* HALWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 292594A01871546200FA2EED /* HALWebViewController.xib */; };
+		292594A41871B63300FA2EED /* HALSearchedBirdKindList.m in Sources */ = {isa = PBXBuildFile; fileRef = 292594A31871B63300FA2EED /* HALSearchedBirdKindList.m */; };
 		29501ED01858C8B6004AF7F9 /* HALActivityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 29501ECF1858C8B6004AF7F9 /* HALActivityManager.m */; };
 		29501EDF185A8AB5004AF7F9 /* HALActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29501EDD185A8AB5004AF7F9 /* HALActivityViewController.m */; };
 		29501EE0185A8AB5004AF7F9 /* HALActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29501EDE185A8AB5004AF7F9 /* HALActivityViewController.xib */; };
@@ -813,6 +814,8 @@
 		2925949B1870689900FA2EED /* HALWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALWebViewController.h; sourceTree = "<group>"; };
 		2925949C1870689900FA2EED /* HALWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALWebViewController.m; sourceTree = "<group>"; };
 		292594A01871546200FA2EED /* HALWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALWebViewController.xib; sourceTree = "<group>"; };
+		292594A21871B63300FA2EED /* HALSearchedBirdKindList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALSearchedBirdKindList.h; sourceTree = "<group>"; };
+		292594A31871B63300FA2EED /* HALSearchedBirdKindList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALSearchedBirdKindList.m; sourceTree = "<group>"; };
 		29501ECE1858C8B6004AF7F9 /* HALActivityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALActivityManager.h; sourceTree = "<group>"; };
 		29501ECF1858C8B6004AF7F9 /* HALActivityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALActivityManager.m; sourceTree = "<group>"; };
 		29501EDC185A8AB5004AF7F9 /* HALActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALActivityViewController.h; sourceTree = "<group>"; };
@@ -1860,6 +1863,8 @@
 				295E90B31854111D000BA5FE /* HALBirdKindList.m */,
 				29FA59881866A69800928318 /* HALFamilyBirdKindList.h */,
 				29FA59891866A69800928318 /* HALFamilyBirdKindList.m */,
+				292594A21871B63300FA2EED /* HALSearchedBirdKindList.h */,
+				292594A31871B63300FA2EED /* HALSearchedBirdKindList.m */,
 			);
 			path = BirdKindList;
 			sourceTree = "<group>";
@@ -3545,6 +3550,7 @@
 				295E90C118546328000BA5FE /* HALBirdRecord.m in Sources */,
 				29FA598A1866A69800928318 /* HALFamilyBirdKindList.m in Sources */,
 				29501EF1185C8032004AF7F9 /* HALBirdMapViewController.m in Sources */,
+				292594A41871B63300FA2EED /* HALSearchedBirdKindList.m in Sources */,
 				295E90CA18554739000BA5FE /* HALDB.m in Sources */,
 				295E90B41854111D000BA5FE /* HALBirdKindList.m in Sources */,
 				29501ED01858C8B6004AF7F9 /* HALActivityManager.m in Sources */,
