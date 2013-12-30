@@ -11,6 +11,7 @@
 #import "UIViewController+HALViewControllerFromNib.h"
 #import "HALDB.h"
 #import "HALActivityManager.h"
+#import "UIViewController+HALCloseTextFieldKeyboard.h"
 
 @interface HALBirdKindListViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIView *BirdListView;
@@ -91,6 +92,12 @@
     NSMutableString *afterInputText = textField.text.mutableCopy;
     [afterInputText replaceCharactersInRange:range withString:string];
     [self.birdListViewController setSearchWord:afterInputText];
+    return YES;
+}
+
+- (BOOL)textFieldShouldClear:(UITextField *)textField
+{
+    [self.birdListViewController setSearchWord:@""];
     return YES;
 }
 

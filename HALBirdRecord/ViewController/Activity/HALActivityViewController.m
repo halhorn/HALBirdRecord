@@ -13,6 +13,7 @@
 #import "HALBirdKindListViewController.h"
 #import "HALBirdPointAnnotation.h"
 #import <MapKit/MapKit.h>
+#import "UIViewController+HALCloseTextFieldKeyboard.h"
 
 @interface HALActivityViewController ()<UITextFieldDelegate, UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
@@ -98,14 +99,6 @@
     [self.mapView addAnnotations:[HALBirdPointAnnotation annotationListWithActivity:self.activity]];
 }
 
-- (void)setGestureForClosingKeyBoard {
-    WeakSelf weakSelf = self;
-    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithHandler:^(UIGestureRecognizer *sender, UIGestureRecognizerState state, CGPoint location){
-        [weakSelf.view endEditing:YES];
-    }];
-    [self.view addGestureRecognizer:gestureRecognizer];
-}
-
 #pragma mark - other methods
 
 - (void)showBirdSelectorView
@@ -141,14 +134,6 @@
 - (IBAction)onTapMap:(id)sender {
     HALBirdMapViewController *viewController = [[HALBirdMapViewController alloc] initWithActivity:self.activity];
     [self.navigationController pushViewController:viewController animated:YES];
-}
-
-#pragma mark - UITextFieldDelegate
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [self.view endEditing:YES];
-    return YES;
 }
 
 #pragma mark - UITextViewDelegate

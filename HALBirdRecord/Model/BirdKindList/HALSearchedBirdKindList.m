@@ -26,10 +26,17 @@
     return self;
 }
 
+- (NSString *)convertKana:(NSString *)string
+{
+    NSMutableString *convertedString = [string mutableCopy];
+    CFStringTransform((CFMutableStringRef)convertedString, NULL, kCFStringTransformHiraganaKatakana, false);
+    return [NSString stringWithString:convertedString];
+}
+
 - (void)setSearchWord:(NSString *)searchWord
 {
     _searchWord = searchWord;
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name contains %@", searchWord];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name contains %@", [self convertKana:searchWord]];
     self.searchedBirdKindList = [self.birdKindList.rawBirdKindList filteredArrayUsingPredicate:predicate];
 }
 

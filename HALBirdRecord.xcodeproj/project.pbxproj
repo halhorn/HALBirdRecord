@@ -11,6 +11,7 @@
 		2925949E1870689900FA2EED /* HALWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2925949C1870689900FA2EED /* HALWebViewController.m */; };
 		292594A11871546200FA2EED /* HALWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 292594A01871546200FA2EED /* HALWebViewController.xib */; };
 		292594A41871B63300FA2EED /* HALSearchedBirdKindList.m in Sources */ = {isa = PBXBuildFile; fileRef = 292594A31871B63300FA2EED /* HALSearchedBirdKindList.m */; };
+		292594A71871C2A000FA2EED /* UIViewController+HALCloseTextFieldKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 292594A61871C29F00FA2EED /* UIViewController+HALCloseTextFieldKeyboard.m */; };
 		29501ED01858C8B6004AF7F9 /* HALActivityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 29501ECF1858C8B6004AF7F9 /* HALActivityManager.m */; };
 		29501EDF185A8AB5004AF7F9 /* HALActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29501EDD185A8AB5004AF7F9 /* HALActivityViewController.m */; };
 		29501EE0185A8AB5004AF7F9 /* HALActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29501EDE185A8AB5004AF7F9 /* HALActivityViewController.xib */; };
@@ -816,6 +817,8 @@
 		292594A01871546200FA2EED /* HALWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALWebViewController.xib; sourceTree = "<group>"; };
 		292594A21871B63300FA2EED /* HALSearchedBirdKindList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALSearchedBirdKindList.h; sourceTree = "<group>"; };
 		292594A31871B63300FA2EED /* HALSearchedBirdKindList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALSearchedBirdKindList.m; sourceTree = "<group>"; };
+		292594A51871C29F00FA2EED /* UIViewController+HALCloseTextFieldKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HALCloseTextFieldKeyboard.h"; sourceTree = "<group>"; };
+		292594A61871C29F00FA2EED /* UIViewController+HALCloseTextFieldKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HALCloseTextFieldKeyboard.m"; sourceTree = "<group>"; };
 		29501ECE1858C8B6004AF7F9 /* HALActivityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALActivityManager.h; sourceTree = "<group>"; };
 		29501ECF1858C8B6004AF7F9 /* HALActivityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALActivityManager.m; sourceTree = "<group>"; };
 		29501EDC185A8AB5004AF7F9 /* HALActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALActivityViewController.h; sourceTree = "<group>"; };
@@ -1801,6 +1804,8 @@
 				295E90DA1857ECC5000BA5FE /* UIViewController+HALSetCancelButton.m */,
 				2925949718701B8200FA2EED /* UIImage+HALThumbnail.h */,
 				2925949818701B8200FA2EED /* UIImage+HALThumbnail.m */,
+				292594A51871C29F00FA2EED /* UIViewController+HALCloseTextFieldKeyboard.h */,
+				292594A61871C29F00FA2EED /* UIViewController+HALCloseTextFieldKeyboard.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -3531,6 +3536,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				292594A71871C2A000FA2EED /* UIViewController+HALCloseTextFieldKeyboard.m in Sources */,
 				29501EEA185BF76F004AF7F9 /* HALLocationManager.m in Sources */,
 				295E906D1853FE3E000BA5FE /* HALAppDelegate.m in Sources */,
 				29501EED185C7711004AF7F9 /* HALBirdPointAnnotation.m in Sources */,

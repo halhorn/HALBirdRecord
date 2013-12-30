@@ -16,7 +16,7 @@
 #import "HALWebViewController.h"
 #import "UIImage+HALThumbnail.h"
 
-@interface HALFlatBirdKindListTableViewController ()
+@interface HALFlatBirdKindListTableViewController ()<UITextFieldDelegate, UIScrollViewDelegate>
 
 @property(nonatomic) HALBirdKindList *birdKindList;
 @property(nonatomic) HALSearchedBirdKindList *searchedBirdKindList;
@@ -61,7 +61,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -205,6 +204,12 @@
         [self.birdRecordList removeObject:record];
     }
     [tableView reloadData];
+}
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self.birdKindListViewController.view endEditing:YES];
 }
 
 #pragma mark - HALBirdRecordViewDelegate
