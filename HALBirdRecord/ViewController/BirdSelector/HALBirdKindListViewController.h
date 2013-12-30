@@ -9,14 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "HALActivity.h"
 
-@protocol HALBirdRecordViewDelegate <NSObject>
-
-- (NSArray *)sendBirdList;
-
-@end
-
 @interface HALBirdKindListViewController : UIViewController
 
 -(id) initWithCompletion:(void(^)(NSArray *))completion;
 
 @end
+
+@protocol HALBirdRecordViewDelegate <NSObject>
+
+@property(nonatomic, weak) HALBirdKindListViewController *birdKindListViewController;
+- (NSArray *)sendBirdList;
+
+@end
+

@@ -11,6 +11,7 @@
 @implementation HALBirdKind
 - (id)initWithBirdID:(int)birdID
                 name:(NSString *)name
+                 url:(NSURL *)url
              comment:(NSString *)comment
                image:(UIImage *)image
        dataCopyRight:(NSString *)dataCopyRight
@@ -21,6 +22,7 @@
     if (self) {
         _birdID = birdID;
         _name = name;
+        _url = url;
         _comment = comment;
         _image = image;
         _dataCopyRight = dataCopyRight;
@@ -32,6 +34,7 @@
 
 + (id)birdKindWithID:(int)birdID
                 name:(NSString *)name
+                 url:(NSURL *)url
              comment:(NSString *)comment
                image:(UIImage *)image
        dataCopyRight:(NSString *)dataCopyRight
@@ -40,6 +43,7 @@
 {
     return [[self alloc] initWithBirdID:birdID
                                    name:name
+                                    url:url
                                 comment:comment
                                   image:image
                           dataCopyRight:dataCopyRight
@@ -52,11 +56,12 @@
     return [NSString stringWithFormat:@"HALBirdKind: "
             "birdID:%d "
             "name:%@ "
+            "url:%@ "
             "comment:%@ "
             "image:%@ "
             "dataCopyRight:%@ "
             "groupID:%d "
             "groupName:%@ "
-            , self.birdID, self.name, self.comment, self.image, self.dataCopyRight, self.groupID, self.groupName];
+            , self.birdID, self.name, self.url, self.comment, self.image, self.dataCopyRight, self.groupID, self.groupName];
 }
 @end

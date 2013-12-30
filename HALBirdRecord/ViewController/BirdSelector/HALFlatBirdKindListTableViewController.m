@@ -7,10 +7,13 @@
 //
 
 #import "HALFlatBirdKindListTableViewController.h"
+#import "HALBirdKindListViewController.h"
 #import "HALFamilyBirdKindList.h"
 #import "HALBirdKind.h"
 #import "HALBirdRecord.h"
 #import "HALActivity.h"
+#import "HALWebViewController.h"
+#import "UIImage+HALThumbnail.h"
 
 @interface HALFlatBirdKindListTableViewController ()
 
@@ -73,6 +76,22 @@
     return nil;
 }
 
+- (void)imageViewTouched:(UITapGestureRecognizer*)sender
+{
+    CGPoint point = [sender locationInView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:point];
+    HALBirdKind *birdKind = [self birdKindFromIndexPath:indexPath];
+    HALWebViewController *webViewCotroller = [[HALWebViewController alloc] initWithURL:birdKind.url title:birdKind.name];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:webViewCotroller];
+    [self.birdKindListViewController presentViewController:navController animated:YES completion:nil];
+}
+
+- (HALBirdKind *)birdKindFromIndexPath:(NSIndexPath *)indexPath
+{
+    NSArray *birdGroup = self.birdKindList.birdKindList[indexPath.section];
+    return birdGroup[indexPath.row];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -97,10 +116,15 @@
     }
     
     // Configure the cell...
-    NSArray *birdGroup = self.birdKindList.birdKindList[indexPath.section];
-    HALBirdKind *birdKind =birdGroup[indexPath.row];
+    CGSize imageSize = CGSizeMake(50, 50);
+    HALBirdKind *birdKind = [self birdKindFromIndexPath:indexPath];
     cell.textLabel.text = birdKind.name;
     cell.accessoryType = [self birdRecordWithBirdID:birdKind.birdID] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    cell.imageView.image = [birdKind.image makeThumbnailOfSize:imageSize];
+    cell.imageView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                          action:@selector(imageViewTouched:)];
+    [cell.imageView addGestureRecognizer:tap];
 
     return cell;
 }

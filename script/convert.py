@@ -43,9 +43,11 @@ def read(imgFetchStart):
         # 鳥の種類
         if birdMatch:
             url = birdMatch.group(1)
+            if url:
+                url = "http://ja.wikipedia.org" + url
             if int(birdID) >= imgFetchStart:
                 getImage('http://ja.wikipedia.org' + url, birdID)
-            bird.append({"BirdID":birdID, "Name":birdMatch.group(2), "DataCopyRight":"wikipedia"})
+            bird.append({"BirdID":birdID, "Name":birdMatch.group(2), "Url":url, "DataCopyRight":"wikipedia"})
             print "  %d: %s" % (birdID, birdMatch.group(2))
             birdID += 1
     return data
@@ -96,14 +98,14 @@ def output(data):
 				<integer>%d</integer>
 				<key>Name</key>
 				<string>%s</string>
-				<key>Image</key>
-				<string></string>
+				<key>Url</key>
+				<string>%s</string>
 				<key>Comment</key>
 				<string></string>
 				<key>DataCopyRight</key>
 				<string>%s</string>
 			</dict>
-""" % (bird["BirdID"], bird["Name"], bird["DataCopyRight"])
+""" % (bird["BirdID"], bird["Name"], bird["Url"], bird["DataCopyRight"])
         tmp += """		</array>
 	</dict>
 """

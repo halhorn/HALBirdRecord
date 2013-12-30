@@ -11,6 +11,7 @@
 @interface HALBirdKind : NSObject
 @property(nonatomic, readonly) int birdID;
 @property(nonatomic, readonly) NSString *name;
+@property(nonatomic, readonly) NSURL *url;
 @property(nonatomic, readonly) NSString *comment;
 @property(nonatomic, readonly) UIImage *image;
 @property(nonatomic, readonly) NSString *dataCopyRight;
@@ -19,17 +20,19 @@
 
 - (id)initWithBirdID:(int)birdID
                 name:(NSString *)name
+                 url:(NSURL *)url
              comment:(NSString *)comment
                image:(UIImage *)image
        dataCopyRight:(NSString *)dataCopyRight
              groupID:(int)groupID
            groupName:(NSString *)groupName;
 + (id)birdKindWithID:(int)birdID
-              name:(NSString *)name
-           comment:(NSString *)comment
-             image:(UIImage *)image
-     dataCopyRight:(NSString *)dataCopyRight
-           groupID:(int)groupID
-         groupName:(NSString *)groupName;
+                name:(NSString *)name
+                 url:(NSURL *)url
+             comment:(NSString *)comment
+               image:(UIImage *)image
+       dataCopyRight:(NSString *)dataCopyRight
+             groupID:(int)groupID
+           groupName:(NSString *)groupName;
 
 @end
