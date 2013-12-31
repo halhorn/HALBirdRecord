@@ -8,12 +8,6 @@
 
 #import "HALBirdKindList.h"
 
-@interface HALBirdKindList()
-
-@property(nonatomic) NSArray *rawBirdKindList;
-
-@end
-
 @implementation HALBirdKindList
 
 + (instancetype)sharedBirdKindList
@@ -91,7 +85,8 @@
             [array addObject:kind];
         }
     }
-    return [NSArray arrayWithArray:array];
+    NSSortDescriptor *nameSortDescripter = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+    return [array sortedArrayUsingDescriptors:@[nameSortDescripter]];
 }
 
 - (HALBirdKind *)birdKindFromBirdID:(int)birdID
@@ -103,4 +98,5 @@
     }
     return nil;
 }
+
 @end

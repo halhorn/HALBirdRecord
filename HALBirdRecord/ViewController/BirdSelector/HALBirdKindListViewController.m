@@ -11,9 +11,11 @@
 #import "UIViewController+HALViewControllerFromNib.h"
 #import "HALDB.h"
 #import "HALActivityManager.h"
+#import "UIViewController+HALCloseTextFieldKeyboard.h"
 
-@interface HALBirdKindListViewController ()
-@property (weak, nonatomic) IBOutlet UIView *BirdListView;
+@interface HALBirdKindListViewController ()<UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UIView *birdListView;
+@property (weak, nonatomic) IBOutlet UITextField *searchTextField;
 
 @property(nonatomic, copy) void(^completion)(NSArray *birdRecordList);
 @property(nonatomic) UIViewController<HALBirdRecordViewDelegate> *birdListViewController;
@@ -47,7 +49,11 @@
     // Do any additional setup after loading the view from its nib.
     self.birdListViewController = [HALFlatBirdKindListTableViewController viewControllerFromNib];
     self.birdListViewController.birdKindListViewController = self;
-    [self.BirdListView addSubview:self.birdListViewController.view];
+    CGSize size = self.birdListView.frame.size;
+    self.birdListViewController.view.frame = CGRectMake(0, 0, size.width, size.height);
+    [self.birdListView addSubview:self.birdListViewController.view];
+    self.searchTextField.delegate = self;
+    [self.searchTextField becomeFirstResponder];
 
     [self setCancelButton];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"追加"
@@ -81,6 +87,21 @@
             [weakSelf dismissViewControllerAnimated:YES completion:nil];
         }];
     }
+}
+
+#pragma mark - UITextFieldDelegate
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSMutableString *afterInputText = textField.text.mutableCopy;
+    [afterInputText replaceCharactersInRange:range withString:string];
+    [self.birdListViewController setSearchWord:afterInputText];
+    return YES;
+}
+
+- (BOOL)textFieldShouldClear:(UITextField *)textField
+{
+    [self.birdListViewController setSearchWord:@""];
+    return YES;
 }
 
 @end

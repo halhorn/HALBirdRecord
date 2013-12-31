@@ -19,6 +19,7 @@
 
 @property(nonatomic, weak) HALBirdKindListViewController *birdKindListViewController;
 - (NSArray *)sendBirdList;
+- (void)setSearchWord:(NSString *)searchWord;
 
 @end
 

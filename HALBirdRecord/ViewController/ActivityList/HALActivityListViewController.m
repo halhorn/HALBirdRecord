@@ -7,16 +7,16 @@
 //
 
 #import "HALActivityListViewController.h"
-#import "HALActivityListTableViewController.h"
 #import "HALActivityViewController.h"
 #import "HALActivityManager.h"
 #import "UIViewController+HALViewControllerFromNib.h"
 
+#define kHALDataOffset 1
+
 @interface HALActivityListViewController ()<UITableViewDelegate>
-@property (weak, nonatomic) IBOutlet UIView *activityRecordView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property(nonatomic) HALActivityManager *activityManager;
-@property(nonatomic) HALActivityListTableViewController *activityRecordTableViewController;
 @end
 
 @implementation HALActivityListViewController
@@ -28,6 +28,7 @@
         // Custom initialization
         self.activityManager = [HALActivityManager sharedManager];
         self.title = @"鳥ログ";
+        self.activityManager = [HALActivityManager sharedManager];
     }
     return self;
 }
@@ -36,15 +37,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.activityRecordTableViewController = [HALActivityListTableViewController viewControllerFromNib];
-    self.activityRecordTableViewController.tableView.delegate = self;
-    [self.activityRecordView addSubview:self.activityRecordTableViewController.view];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [self.activityManager loadActivityList];
-    [self.activityRecordTableViewController.tableView reloadData];
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,17 +60,89 @@
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    // Return the number of rows in the section.
+    return self.activityManager.activityList.count + kHALDataOffset;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    // Configure the cell...
+    if (indexPath.row < kHALDataOffset) {
+        // トップ項目
+        cell.textLabel.text = @"＋新しいアクティビティ";
+    } else {
+        HALActivity *activity = self.activityManager.activityList[indexPath.row - kHALDataOffset];
+        cell.textLabel.text = activity.title;
+    }
+    
+    return cell;
+}
+
+/*
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
+
+
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete the row from the data source
+        HALActivity *activity = self.activityManager.activityList[indexPath.row - kHALDataOffset];
+        [self.activityManager deleteActivity:activity];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }
+}
+
+
+/*
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+ {
+ }
+ */
+
+/*
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
+
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    int dataOffset = self.activityRecordTableViewController.dataOffset;
-
-    if (indexPath.row < dataOffset) {
+    if (indexPath.row < kHALDataOffset) {
         [self showNewActivity];
         return;
     }
-    HALActivity *activity = self.activityManager.activityList[indexPath.row - dataOffset];
+    HALActivity *activity = self.activityManager.activityList[indexPath.row - kHALDataOffset];
     HALActivityViewController *viewController = [[HALActivityViewController alloc] initWithActivity:activity shouldShowRegister:NO];
     [self.navigationController pushViewController:viewController animated:YES];
 }
