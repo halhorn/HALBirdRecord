@@ -12,6 +12,7 @@
 #import "HALBirdMapViewController.h"
 #import "HALBirdKindListViewController.h"
 #import "HALBirdPointAnnotation.h"
+#import "HALMapManager.h"
 #import <MapKit/MapKit.h>
 #import "UIViewController+HALCloseTextFieldKeyboard.h"
 
@@ -97,9 +98,10 @@
 
 - (void)loadMapView
 {
-    self.mapView.region = [self.activity getRegion];
+    HALMapManager *mapManager = [HALMapManager managerWithActivity:self.activity];
+    self.mapView.region = [mapManager region];
     [self.mapView removeAnnotations:self.mapView.annotations];
-    [self.mapView addAnnotations:[HALBirdPointAnnotation annotationListWithActivity:self.activity]];
+    [self.mapView addAnnotations:[mapManager annotationList]];
 }
 
 #pragma mark - other methods

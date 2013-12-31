@@ -19,6 +19,5 @@
 
 - (void)addBirdRecord:(HALBirdRecord *)birdRecord;
 - (void)addBirdRecordList:(NSArray *)birdRecordList;
-- (MKCoordinateRegion)getRegion;
 
 @end

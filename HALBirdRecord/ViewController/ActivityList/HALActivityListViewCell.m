@@ -8,6 +8,7 @@
 
 #import "HALActivityListViewCell.h"
 #import "HALBirdPointAnnotation.h"
+#import "HALMapManager.h"
 #import <MapKit/MapKit.h>
 
 @interface HALActivityListViewCell()
@@ -54,9 +55,11 @@ static NSDateFormatter *dateFormatter;
     self.birdCountContainerView.layer.cornerRadius = 10;
     self.birdCountContainerView.clipsToBounds = YES;
     self.birdCountLabel.text = [NSString stringWithFormat:@"%d", activity.birdRecordList.count];
-    self.mapView.region = [self.activity getRegion];
-    [self.mapView addAnnotations:[HALBirdPointAnnotation annotationListWithActivity:self.activity]];
     self.dateLabel.text = [self dateLabelText];
+
+    HALMapManager *mapManager = [HALMapManager managerWithActivity:activity];
+    self.mapView.region = [mapManager vastRegion];
+    [self.mapView addAnnotations:[mapManager averagePointAnnotation]];
 }
 
 - (NSString *)dateLabelText

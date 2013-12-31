@@ -18,28 +18,6 @@
 
 @implementation HALBirdPointAnnotation
 
-+ (NSArray *)annotationListWithActivity:(HALActivity *)activity
-{
-    NSMutableArray *annotationList = [[NSMutableArray alloc] init];
-    for (HALBirdRecord *birdRecord in activity.birdRecordList) {
-        [annotationList addObject:[[HALBirdPointAnnotation alloc] initWithBirdRecord:birdRecord]];
-    }
-    return [NSArray arrayWithArray:annotationList];
-}
-
-+ (NSArray *)averagePointAnnotationWithActivity:(HALActivity *)activity
-{
-    CGFloat latitude = 0;
-    CGFloat longitude = 0;
-    for (HALBirdRecord *birdRecord in activity.birdRecordList) {
-        latitude += birdRecord.coordinate.latitude;
-        longitude += birdRecord.coordinate.longitude;
-    }
-    int count = activity.birdRecordList.count;
-    HALBirdPointAnnotation *annotation = [[HALBirdPointAnnotation alloc] initWithCoordinate:CLLocationCoordinate2DMake(latitude / count, longitude / count) title:@"所在地" subtitle:@""];
-    return @[annotation];
-}
-
 - (id)initWithBirdRecord:(HALBirdRecord *)birdRecord
 {
     self = [super init];

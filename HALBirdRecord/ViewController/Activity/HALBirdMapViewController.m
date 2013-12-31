@@ -8,6 +8,7 @@
 
 #import "HALBirdMapViewController.h"
 #import "HALBirdPointAnnotation.h"
+#import "HALMapManager.h"
 #import "UIViewController+HALViewControllerFromNib.h"
 #import <MapKit/MapKit.h>
 
@@ -42,8 +43,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.mapView.region = [self.activity getRegion];
-    [self.mapView addAnnotations:[HALBirdPointAnnotation annotationListWithActivity:self.activity]];
+    HALMapManager *mapManager = [HALMapManager managerWithActivity:self.activity];
+    self.mapView.region = [mapManager region];
+    [self.mapView addAnnotations:[mapManager annotationList]];
 }
 
 - (void)didReceiveMemoryWarning
