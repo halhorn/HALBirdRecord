@@ -59,6 +59,7 @@ static NSDateFormatter *dateFormatter;
 
     HALMapManager *mapManager = [HALMapManager managerWithActivity:activity];
     self.mapView.region = [mapManager vastRegion];
+    [self.mapView removeAnnotations:self.mapView.annotations];
     [self.mapView addAnnotations:[mapManager averagePointAnnotation]];
 }
 

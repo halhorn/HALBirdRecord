@@ -35,6 +35,17 @@
                         <outlet property="delegate" destination="-1" id="zgP-sz-1O5"/>
                     </connections>
                 </textView>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Title" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" id="hHp-1p-EKo">
+                    <rect key="frame" x="0.0" y="0.0" width="227" height="36"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.99698084592819214" green="0.99945557117462158" blue="0.91399377584457397" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                    <connections>
+                        <action selector="onTitleEditDone:" destination="-1" eventType="editingDidEnd" id="IzE-94-oaa"/>
+                        <outlet property="delegate" destination="-1" id="7Av-ZT-bb3"/>
+                    </connections>
+                </textField>
                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="PGA-Bd-Kyh">
                     <rect key="frame" x="226" y="0.0" width="94" height="94"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
@@ -50,17 +61,6 @@
                         <action selector="onTapMap:" destination="-1" eventType="touchUpInside" id="qtk-Tx-KCb"/>
                     </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Title" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" id="hHp-1p-EKo">
-                    <rect key="frame" x="0.0" y="0.0" width="227" height="36"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.99698084592819214" green="0.99945557117462158" blue="0.91399377584457397" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                    <connections>
-                        <action selector="onTitleEditDone:" destination="-1" eventType="editingDidEnd" id="IzE-94-oaa"/>
-                        <outlet property="delegate" destination="-1" id="7Av-ZT-bb3"/>
-                    </connections>
-                </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
