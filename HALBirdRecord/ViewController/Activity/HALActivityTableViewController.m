@@ -74,6 +74,8 @@
     
     HALBirdRecord *birdRecord = self.activity.birdRecordList[indexPath.row];
     cell.textLabel.text = birdRecord.kind.name;
+    cell.detailTextLabel.text = birdRecord.datetime.description;
+    cell.imageView.image = birdRecord.kind.image;
     return cell;
 }
 

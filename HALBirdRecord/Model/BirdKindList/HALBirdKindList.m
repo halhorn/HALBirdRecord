@@ -7,6 +7,7 @@
 //
 
 #import "HALBirdKindList.h"
+#import "UIImage+HALThumbnail.h"
 
 @implementation HALBirdKindList
 
@@ -47,6 +48,7 @@
 
 - (NSArray *)loadRawBirdKindList
 {
+    CGSize imageSize = CGSizeMake(50, 50);
     NSString *path = [[NSBundle mainBundle] pathForResource:@"BirdKind" ofType:@"plist"];
     NSArray *birdKindGroup = [NSArray arrayWithContentsOfFile:path];
     
@@ -68,7 +70,7 @@
             if (!photoPath) {
                 photoPath = [[NSBundle mainBundle] pathForResource:@"nophoto" ofType:@"jpg"];
             }
-            UIImage *image = [UIImage imageWithContentsOfFile:photoPath];
+            UIImage *image = [[UIImage imageWithContentsOfFile:photoPath] thumbnailOfSize:imageSize];
             NSURL *url = nil;
             NSString *urlStr = kindDict[@"Url"];
             if (![urlStr isEqualToString:@""]) {

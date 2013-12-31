@@ -132,11 +132,10 @@
     }
     
     // Configure the cell...
-    CGSize imageSize = CGSizeMake(50, 50);
     HALBirdKind *birdKind = [self birdKindFromIndexPath:indexPath];
     cell.textLabel.text = birdKind.name;
     cell.accessoryType = [self birdRecordWithBirdID:birdKind.birdID] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
-    cell.imageView.image = [birdKind.image makeThumbnailOfSize:imageSize];
+    cell.imageView.image = birdKind.image;
     cell.imageView.userInteractionEnabled = YES;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                           action:@selector(imageViewTouched:)];
