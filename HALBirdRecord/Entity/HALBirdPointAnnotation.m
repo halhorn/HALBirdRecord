@@ -27,6 +27,19 @@
     return [NSArray arrayWithArray:annotationList];
 }
 
++ (NSArray *)averagePointAnnotationWithActivity:(HALActivity *)activity
+{
+    CGFloat latitude = 0;
+    CGFloat longitude = 0;
+    for (HALBirdRecord *birdRecord in activity.birdRecordList) {
+        latitude += birdRecord.coordinate.latitude;
+        longitude += birdRecord.coordinate.longitude;
+    }
+    int count = activity.birdRecordList.count;
+    HALBirdPointAnnotation *annotation = [[HALBirdPointAnnotation alloc] initWithCoordinate:CLLocationCoordinate2DMake(latitude / count, longitude / count) title:@"所在地" subtitle:@""];
+    return @[annotation];
+}
+
 - (id)initWithBirdRecord:(HALBirdRecord *)birdRecord
 {
     self = [super init];
@@ -36,6 +49,17 @@
         self.coordinate = birdRecord.coordinate;
         self.title = birdRecord.kind.name;
         self.subtitle = [dateFormatter stringFromDate:birdRecord.datetime];
+    }
+    return self;
+}
+
+- (id)initWithCoordinate:(CLLocationCoordinate2D)coordinate title:(NSString *)title subtitle:(NSString *)subtitle
+{
+    self = [super init];
+    if (self) {
+        self.coordinate = coordinate;
+        self.title = title;
+        self.subtitle = subtitle;
     }
     return self;
 }
