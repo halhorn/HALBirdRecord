@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HALBirdKindListViewController">
             <connections>
-                <outlet property="BirdListView" destination="uaO-zf-QNJ" id="iRh-Tt-Wbc"/>
+                <outlet property="birdListView" destination="uaO-zf-QNJ" id="FF7-E4-SN5"/>
                 <outlet property="searchTextField" destination="2WQ-vt-4v1" id="9vv-e7-efU"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>

@@ -82,7 +82,10 @@
 - (void)setupUI
 {
     self.activityTableViewController = [[HALActivityTableViewController alloc] initWithActivity:self.activity];
+    CGSize size = self.activityTableView.frame.size;
+    self.activityTableViewController.view.frame = CGRectMake(0, 0, size.width, size.height);
     [self.activityTableView addSubview:self.activityTableViewController.view];
+    
     self.titleTextField.text = self.activity.title;
     self.commentTextView.text = self.activity.comment;
     [self setGestureForClosingKeyBoard];

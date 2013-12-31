@@ -14,7 +14,7 @@
 #import "UIViewController+HALCloseTextFieldKeyboard.h"
 
 @interface HALBirdKindListViewController ()<UITextFieldDelegate>
-@property (weak, nonatomic) IBOutlet UIView *BirdListView;
+@property (weak, nonatomic) IBOutlet UIView *birdListView;
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
 
 @property(nonatomic, copy) void(^completion)(NSArray *birdRecordList);
@@ -49,7 +49,9 @@
     // Do any additional setup after loading the view from its nib.
     self.birdListViewController = [HALFlatBirdKindListTableViewController viewControllerFromNib];
     self.birdListViewController.birdKindListViewController = self;
-    [self.BirdListView addSubview:self.birdListViewController.view];
+    CGSize size = self.birdListView.frame.size;
+    self.birdListViewController.view.frame = CGRectMake(0, 0, size.width, size.height);
+    [self.birdListView addSubview:self.birdListViewController.view];
     self.searchTextField.delegate = self;
     [self.searchTextField becomeFirstResponder];
 
