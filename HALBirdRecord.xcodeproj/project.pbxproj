@@ -12,6 +12,8 @@
 		292594A11871546200FA2EED /* HALWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 292594A01871546200FA2EED /* HALWebViewController.xib */; };
 		292594A41871B63300FA2EED /* HALSearchedBirdKindList.m in Sources */ = {isa = PBXBuildFile; fileRef = 292594A31871B63300FA2EED /* HALSearchedBirdKindList.m */; };
 		292594A71871C2A000FA2EED /* UIViewController+HALCloseTextFieldKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 292594A61871C29F00FA2EED /* UIViewController+HALCloseTextFieldKeyboard.m */; };
+		292594AA18728B0800FA2EED /* HALActivityListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 292594A918728B0800FA2EED /* HALActivityListViewCell.m */; };
+		292594AC18728B3900FA2EED /* HALActivityListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 292594AB18728B3900FA2EED /* HALActivityListViewCell.xib */; };
 		29501ED01858C8B6004AF7F9 /* HALActivityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 29501ECF1858C8B6004AF7F9 /* HALActivityManager.m */; };
 		29501EDF185A8AB5004AF7F9 /* HALActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29501EDD185A8AB5004AF7F9 /* HALActivityViewController.m */; };
 		29501EE0185A8AB5004AF7F9 /* HALActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29501EDE185A8AB5004AF7F9 /* HALActivityViewController.xib */; };
@@ -817,6 +819,9 @@
 		292594A31871B63300FA2EED /* HALSearchedBirdKindList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALSearchedBirdKindList.m; sourceTree = "<group>"; };
 		292594A51871C29F00FA2EED /* UIViewController+HALCloseTextFieldKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HALCloseTextFieldKeyboard.h"; sourceTree = "<group>"; };
 		292594A61871C29F00FA2EED /* UIViewController+HALCloseTextFieldKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HALCloseTextFieldKeyboard.m"; sourceTree = "<group>"; };
+		292594A818728B0800FA2EED /* HALActivityListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALActivityListViewCell.h; sourceTree = "<group>"; };
+		292594A918728B0800FA2EED /* HALActivityListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALActivityListViewCell.m; sourceTree = "<group>"; };
+		292594AB18728B3900FA2EED /* HALActivityListViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALActivityListViewCell.xib; sourceTree = "<group>"; };
 		29501ECE1858C8B6004AF7F9 /* HALActivityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALActivityManager.h; sourceTree = "<group>"; };
 		29501ECF1858C8B6004AF7F9 /* HALActivityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALActivityManager.m; sourceTree = "<group>"; };
 		29501EDC185A8AB5004AF7F9 /* HALActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALActivityViewController.h; sourceTree = "<group>"; };
@@ -1849,6 +1854,9 @@
 				295E90DD18587EEC000BA5FE /* HALActivityListViewController.h */,
 				295E90DE18587EEC000BA5FE /* HALActivityListViewController.m */,
 				295E90DF18587EEC000BA5FE /* HALActivityListViewController.xib */,
+				292594A818728B0800FA2EED /* HALActivityListViewCell.h */,
+				292594A918728B0800FA2EED /* HALActivityListViewCell.m */,
+				292594AB18728B3900FA2EED /* HALActivityListViewCell.xib */,
 			);
 			path = ActivityList;
 			sourceTree = "<group>";
@@ -2748,6 +2756,7 @@
 				29FA5D40186BB09C00928318 /* 226.jpg in Resources */,
 				29FA5EA9186BB09C00928318 /* 631.jpg in Resources */,
 				29FA5E88186BB09C00928318 /* 585.jpg in Resources */,
+				292594AC18728B3900FA2EED /* HALActivityListViewCell.xib in Resources */,
 				29FA5E96186BB09C00928318 /* 604.jpg in Resources */,
 				29FA5DA2186BB09C00928318 /* 331.jpg in Resources */,
 				29FA5E15186BB09C00928318 /* 455.jpg in Resources */,
@@ -3542,6 +3551,7 @@
 				295E90D818576E84000BA5FE /* NSDate+HALDateString.m in Sources */,
 				29501EE4185A8AD2004AF7F9 /* HALActivityTableViewController.m in Sources */,
 				295E90D018560789000BA5FE /* HALActivity.m in Sources */,
+				292594AA18728B0800FA2EED /* HALActivityListViewCell.m in Sources */,
 				2925949918701B8200FA2EED /* UIImage+HALThumbnail.m in Sources */,
 				295E90C118546328000BA5FE /* HALBirdRecord.m in Sources */,
 				29FA598A1866A69800928318 /* HALFamilyBirdKindList.m in Sources */,

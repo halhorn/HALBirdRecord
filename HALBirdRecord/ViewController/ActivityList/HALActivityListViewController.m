@@ -9,6 +9,7 @@
 #import "HALActivityListViewController.h"
 #import "HALActivityViewController.h"
 #import "HALActivityManager.h"
+#import "HALActivityListViewCell.h"
 #import "UIViewController+HALViewControllerFromNib.h"
 
 #define kHALDataOffset 1
@@ -37,6 +38,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self.tableView registerNib:[HALActivityListViewCell nib]
+         forCellReuseIdentifier:[HALActivityListViewCell cellIdentifier]];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -75,22 +78,19 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    
     // Configure the cell...
     if (indexPath.row < kHALDataOffset) {
         // トップ項目
+        UITableViewCell *cell = cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"DefaultCell"];
         cell.textLabel.text = @"＋新しいアクティビティ";
+        return cell;
     } else {
+        HALActivityListViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[HALActivityListViewCell cellIdentifier]];
+        
         HALActivity *activity = self.activityManager.activityList[indexPath.row - kHALDataOffset];
-        cell.textLabel.text = activity.title;
+        [cell setupUIWithActivity:activity];
+        return cell;
     }
-    
-    return cell;
 }
 
 /*
@@ -133,6 +133,15 @@
  return YES;
  }
  */
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row < kHALDataOffset) {
+        return 40;
+    } else {
+        return 68;
+    }
+}
 
 #pragma mark - Table view delegate
 
