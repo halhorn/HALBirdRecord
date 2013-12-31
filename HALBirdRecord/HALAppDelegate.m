@@ -9,6 +9,7 @@
 #import "HALAppDelegate.h"
 #import "HALActivityListViewController.h"
 #import "UIViewController+HALViewControllerFromNib.h"
+#import "HALFamilyBirdKindList.h"
 
 @implementation HALAppDelegate
 
@@ -21,6 +22,9 @@
     navigationController.navigationBar.translucent = NO;
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
+    
+    // 事前に鳥リストを読み込み
+    [HALFamilyBirdKindList sharedBirdKindList];
     return YES;
 }
 
