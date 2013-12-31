@@ -12,6 +12,7 @@
 #import "HALBirdKindListViewController.h"
 #import "HALBirdPointAnnotation.h"
 #import "HALMapManager.h"
+#import "HALWebViewController.h"
 #import <MapKit/MapKit.h>
 #import "UIViewController+HALCloseTextFieldKeyboard.h"
 
@@ -120,6 +121,16 @@
     [self.activityManager saveActivity:self.activity];
 }
 
+- (void)imageViewTouched:(UITapGestureRecognizer*)sender
+{
+    CGPoint point = [sender locationInView:self.birdRecordTableView];
+    NSIndexPath *indexPath = [self.birdRecordTableView indexPathForRowAtPoint:point];
+    HALBirdKind *birdKind = ((HALBirdRecord *)self.activity.birdRecordList[indexPath.row]).kind;
+    HALWebViewController *webViewCotroller = [[HALWebViewController alloc] initWithURL:birdKind.url title:birdKind.name];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:webViewCotroller];
+    [self presentViewController:navController animated:YES completion:nil];
+}
+
 #pragma mark - event handler
 
 - (void)onTapAddButton:(id)sender
@@ -165,6 +176,10 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
         cell.detailTextLabel.textColor = [UIColor grayColor];
+        cell.imageView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                              action:@selector(imageViewTouched:)];
+        [cell.imageView addGestureRecognizer:tap];
     }
     
     HALBirdRecord *birdRecord = self.activity.birdRecordList[indexPath.row];
