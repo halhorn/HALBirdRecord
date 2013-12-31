@@ -22,6 +22,7 @@
 {
     self = [super init];
     if (self) {
+        _birdRecord = birdRecord;
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         dateFormatter.dateFormat = @"HH:mm:ss";
         self.coordinate = birdRecord.coordinate;

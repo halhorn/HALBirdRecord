@@ -12,6 +12,7 @@
 
 @interface HALBirdPointAnnotation : NSObject<MKAnnotation>
 
+@property(nonatomic, readonly) HALBirdRecord *birdRecord;
 - (id)initWithBirdRecord:(HALBirdRecord *)birdRecord;
 - (id)initWithCoordinate:(CLLocationCoordinate2D)coordinate title:(NSString *)title subtitle:(NSString *)subtitle;
 
