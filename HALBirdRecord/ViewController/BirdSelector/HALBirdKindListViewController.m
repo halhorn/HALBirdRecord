@@ -51,6 +51,7 @@
     self.birdListViewController.birdKindListViewController = self;
     [self.BirdListView addSubview:self.birdListViewController.view];
     self.searchTextField.delegate = self;
+    [self.searchTextField becomeFirstResponder];
 
     [self setCancelButton];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"追加"
