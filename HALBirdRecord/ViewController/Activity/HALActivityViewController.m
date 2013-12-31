@@ -221,8 +221,6 @@
     MKPinAnnotationView *pinAnnotationView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:PinIdentifier];
     if(pinAnnotationView == nil){
         pinAnnotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:PinIdentifier];
-        pinAnnotationView.animatesDrop = YES;
-        pinAnnotationView.canShowCallout = YES;
     }
     pinAnnotationView.pinColor = birdPointAnnotation.birdRecord == self.selectedBirdRecord ? MKPinAnnotationColorGreen :MKPinAnnotationColorRed;
     return pinAnnotationView;
