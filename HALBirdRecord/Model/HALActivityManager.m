@@ -11,6 +11,7 @@
 
 @interface HALActivityManager()
 
+@property(nonatomic) NSArray *activityList;
 @property(nonatomic) HALDB *db;
 
 @end
@@ -32,42 +33,28 @@
     self = [super init];
     if (self) {
         self.db = [[HALDB alloc] init];
-        [self loadActivityList];
     }
     return self;
 }
 
-- (void)loadActivityList
+- (int)activityCount
 {
-    NSMutableArray *activityList = [[NSMutableArray alloc] init];
-    NSArray *activityRows = [self.db selectActivityRows];
-    for (NSDictionary *activityRow in activityRows) {
-        NSNumber *activityDBID = activityRow[@"id"];
-        
-        HALActivity *activity = [[HALActivity alloc] init];
-        activity.title = [self removeNSNull:activityRow[@"title"]];
-        activity.comment = [self removeNSNull:activityRow[@"comment"]];
-        activity.dbID = [activityDBID intValue];
-        
-        NSArray *birdRows = [self.db selectBirdRecordListWithActivityDBID:[activityDBID intValue]];
-        for (NSDictionary *birdRow in birdRows) {
-            NSNumber *birdID = [self removeNSNull:birdRow[@"birdID"]];
-            NSNumber *count = [self removeNSNull:birdRow[@"count"]];
-            NSNumber *latitude = [self removeNSNull:birdRow[@"latitude"]];
-            NSNumber *longitude = [self removeNSNull:birdRow[@"longitude"]];
-            NSNumber *birdUnixtime = [self removeNSNull:birdRow[@"datetime"]];
-            NSNumber *birdDBID = birdRow[@"id"];
-            
-            HALBirdRecord *bird = [[HALBirdRecord alloc] initWithBirdID:[birdID intValue]];
-            bird.dbID = [birdDBID intValue];
-            bird.count = [count intValue];
-            bird.coordinate = CLLocationCoordinate2DMake([latitude doubleValue], [longitude doubleValue]);
-            bird.datetime = [NSDate dateWithTimeIntervalSince1970:[birdUnixtime doubleValue]];
-            [activity addBirdRecord:bird];
-        }
-        [activityList addObject:activity];
+    if (!self.activityList) {
+        [self loadActivityList];
     }
-    _activityList = activityList;
+    return self.activityList.count;
+}
+
+- (HALActivity *)activityWithIndex:(int)index
+{
+    if (!self.activityList) {
+        [self loadActivityList];
+    }
+    HALActivity *activity = self.activityList[index];
+    if (!activity.birdRecordList.count) {
+        [self loadBirdListForActivity:activity];
+    }
+    return activity;
 }
 
 - (void)saveActivity:(HALActivity *)activity
@@ -103,14 +90,48 @@
     [self loadActivityList];
 }
 
+#pragma mark - private method
+
+- (void)loadActivityList
+{
+    NSMutableArray *activityList = [[NSMutableArray alloc] init];
+    NSArray *activityRows = [self.db selectActivityRows];
+    for (NSDictionary *activityRow in activityRows) {
+        NSNumber *activityDBID = activityRow[@"id"];
+        
+        HALActivity *activity = [[HALActivity alloc] init];
+        activity.title = [self removeNSNull:activityRow[@"title"]];
+        activity.comment = [self removeNSNull:activityRow[@"comment"]];
+        activity.dbID = [activityDBID intValue];
+        // birdListは後で読み込む
+        [activityList addObject:activity];
+    }
+    _activityList = activityList;
+}
+
+- (void)loadBirdListForActivity:(HALActivity *)activity
+{
+    NSArray *birdRows = [self.db selectBirdRecordListWithActivityDBID:activity.dbID];
+    for (NSDictionary *birdRow in birdRows) {
+        NSNumber *birdID = [self removeNSNull:birdRow[@"birdID"]];
+        NSNumber *count = [self removeNSNull:birdRow[@"count"]];
+        NSNumber *latitude = [self removeNSNull:birdRow[@"latitude"]];
+        NSNumber *longitude = [self removeNSNull:birdRow[@"longitude"]];
+        NSNumber *birdUnixtime = [self removeNSNull:birdRow[@"datetime"]];
+        NSNumber *birdDBID = birdRow[@"id"];
+        
+        HALBirdRecord *bird = [[HALBirdRecord alloc] initWithBirdID:[birdID intValue]];
+        bird.dbID = [birdDBID intValue];
+        bird.count = [count intValue];
+        bird.coordinate = CLLocationCoordinate2DMake([latitude doubleValue], [longitude doubleValue]);
+        bird.datetime = [NSDate dateWithTimeIntervalSince1970:[birdUnixtime doubleValue]];
+        [activity addBirdRecord:bird];
+    }
+}
+
 - (id)removeNSNull:(id)var
 {
     return [var isEqual:[NSNull null]] ? nil : var;
-}
-
-- (NSString *)description
-{
-    return [NSString stringWithFormat:@"%@", self.activityList];
 }
 
 @end

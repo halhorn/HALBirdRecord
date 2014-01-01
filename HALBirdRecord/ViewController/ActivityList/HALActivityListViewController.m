@@ -43,7 +43,6 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [self.activityManager loadActivityList];
     [self.tableView reloadData];
 }
 
@@ -72,7 +71,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return self.activityManager.activityList.count + kHALDataOffset;
+    return [self.activityManager activityCount] + kHALDataOffset;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -86,7 +85,7 @@
     } else {
         HALActivityListViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[HALActivityListViewCell cellIdentifier]];
         
-        HALActivity *activity = self.activityManager.activityList[indexPath.row - kHALDataOffset];
+        HALActivity *activity = [self.activityManager activityWithIndex:indexPath.row - kHALDataOffset];
         [cell setupUIWithActivity:activity];
         return cell;
     }
@@ -107,7 +106,7 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        HALActivity *activity = self.activityManager.activityList[indexPath.row - kHALDataOffset];
+        HALActivity *activity = [self.activityManager activityWithIndex:indexPath.row - kHALDataOffset];
         [self.activityManager deleteActivity:activity];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
@@ -150,7 +149,7 @@
         [self showNewActivity];
         return;
     }
-    HALActivity *activity = self.activityManager.activityList[indexPath.row - kHALDataOffset];
+    HALActivity *activity = [self.activityManager activityWithIndex:indexPath.row - kHALDataOffset];
     HALActivityViewController *viewController = [[HALActivityViewController alloc] initWithActivity:activity shouldShowRegister:NO];
     [self.navigationController pushViewController:viewController animated:YES];
 }

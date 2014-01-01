@@ -15,7 +15,7 @@
 @property(nonatomic) int dbID;
 @property(nonatomic) NSString *title;
 @property(nonatomic) NSString *comment;
-@property(nonatomic) NSMutableArray *birdRecordList;
+@property(nonatomic, readonly) NSMutableArray *birdRecordList;
 
 - (void)addBirdRecord:(HALBirdRecord *)birdRecord;
 - (void)addBirdRecordList:(NSArray *)birdRecordList;
