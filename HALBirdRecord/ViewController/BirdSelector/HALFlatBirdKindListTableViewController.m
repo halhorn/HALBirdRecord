@@ -14,7 +14,6 @@
 #import "HALBirdRecord.h"
 #import "HALActivity.h"
 #import "HALWebViewController.h"
-#import "UIImage+HALThumbnail.h"
 
 @interface HALFlatBirdKindListTableViewController ()<UITextFieldDelegate, UIScrollViewDelegate>
 

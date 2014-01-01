@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2925949918701B8200FA2EED /* UIImage+HALThumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = 2925949818701B8200FA2EED /* UIImage+HALThumbnail.m */; };
 		2925949E1870689900FA2EED /* HALWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2925949C1870689900FA2EED /* HALWebViewController.m */; };
 		292594A11871546200FA2EED /* HALWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 292594A01871546200FA2EED /* HALWebViewController.xib */; };
 		292594A41871B63300FA2EED /* HALSearchedBirdKindList.m in Sources */ = {isa = PBXBuildFile; fileRef = 292594A31871B63300FA2EED /* HALSearchedBirdKindList.m */; };
@@ -754,7 +753,7 @@
 		2925A0491874615A00FA2EED /* 831.png in Resources */ = {isa = PBXBuildFile; fileRef = 29259D661874615900FA2EED /* 831.png */; };
 		2925A04A1874615A00FA2EED /* 833.png in Resources */ = {isa = PBXBuildFile; fileRef = 29259D671874615900FA2EED /* 833.png */; };
 		2925A04B1874615A00FA2EED /* 835.png in Resources */ = {isa = PBXBuildFile; fileRef = 29259D681874615A00FA2EED /* 835.png */; };
-		2925A04C1874615A00FA2EED /* nodata.png in Resources */ = {isa = PBXBuildFile; fileRef = 29259D691874615A00FA2EED /* nodata.png */; };
+		2925A04C1874615A00FA2EED /* nophoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 29259D691874615A00FA2EED /* nophoto.png */; };
 		29501ED01858C8B6004AF7F9 /* HALActivityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 29501ECF1858C8B6004AF7F9 /* HALActivityManager.m */; };
 		29501EDF185A8AB5004AF7F9 /* HALActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29501EDD185A8AB5004AF7F9 /* HALActivityViewController.m */; };
 		29501EE0185A8AB5004AF7F9 /* HALActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29501EDE185A8AB5004AF7F9 /* HALActivityViewController.xib */; };
@@ -808,8 +807,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2925949718701B8200FA2EED /* UIImage+HALThumbnail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+HALThumbnail.h"; sourceTree = "<group>"; };
-		2925949818701B8200FA2EED /* UIImage+HALThumbnail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+HALThumbnail.m"; sourceTree = "<group>"; };
 		2925949B1870689900FA2EED /* HALWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALWebViewController.h; sourceTree = "<group>"; };
 		2925949C1870689900FA2EED /* HALWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALWebViewController.m; sourceTree = "<group>"; };
 		292594A01871546200FA2EED /* HALWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALWebViewController.xib; sourceTree = "<group>"; };
@@ -1562,7 +1559,7 @@
 		29259D661874615900FA2EED /* 831.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 831.png; path = resource/resized_photo/831.png; sourceTree = SOURCE_ROOT; };
 		29259D671874615900FA2EED /* 833.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 833.png; path = resource/resized_photo/833.png; sourceTree = SOURCE_ROOT; };
 		29259D681874615A00FA2EED /* 835.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 835.png; path = resource/resized_photo/835.png; sourceTree = SOURCE_ROOT; };
-		29259D691874615A00FA2EED /* nodata.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nodata.png; path = resource/resized_photo/nodata.png; sourceTree = SOURCE_ROOT; };
+		29259D691874615A00FA2EED /* nophoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nophoto.png; path = resource/resized_photo/nophoto.png; sourceTree = SOURCE_ROOT; };
 		29501ECE1858C8B6004AF7F9 /* HALActivityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALActivityManager.h; sourceTree = "<group>"; };
 		29501ECF1858C8B6004AF7F9 /* HALActivityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALActivityManager.m; sourceTree = "<group>"; };
 		29501EDC185A8AB5004AF7F9 /* HALActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALActivityViewController.h; sourceTree = "<group>"; };
@@ -1792,8 +1789,6 @@
 				295E90D718576E84000BA5FE /* NSDate+HALDateString.m */,
 				295E90CB1855488C000BA5FE /* NSURL+HALLocalFileURL.h */,
 				295E90CC1855488C000BA5FE /* NSURL+HALLocalFileURL.m */,
-				2925949718701B8200FA2EED /* UIImage+HALThumbnail.h */,
-				2925949818701B8200FA2EED /* UIImage+HALThumbnail.m */,
 				292594A51871C29F00FA2EED /* UIViewController+HALCloseTextFieldKeyboard.h */,
 				292594A61871C29F00FA2EED /* UIViewController+HALCloseTextFieldKeyboard.m */,
 				295E90D91857ECC5000BA5FE /* UIViewController+HALSetCancelButton.h */,
@@ -2613,7 +2608,7 @@
 				29259D661874615900FA2EED /* 831.png */,
 				29259D671874615900FA2EED /* 833.png */,
 				29259D681874615A00FA2EED /* 835.png */,
-				29259D691874615A00FA2EED /* nodata.png */,
+				29259D691874615A00FA2EED /* nophoto.png */,
 			);
 			path = BirdPhoto;
 			sourceTree = "<group>";
@@ -3073,7 +3068,7 @@
 				29259FD41874615A00FA2EED /* 693.png in Resources */,
 				29259D761874615A00FA2EED /* 013.png in Resources */,
 				29259F0E1874615A00FA2EED /* 457.png in Resources */,
-				2925A04C1874615A00FA2EED /* nodata.png in Resources */,
+				2925A04C1874615A00FA2EED /* nophoto.png in Resources */,
 				29259E6F1874615A00FA2EED /* 284.png in Resources */,
 				2925A00E1874615A00FA2EED /* 761.png in Resources */,
 				29259EDA1874615A00FA2EED /* 400.png in Resources */,
@@ -3545,7 +3540,6 @@
 				292594C01873E58000FA2EED /* HALBirdKindLoader.m in Sources */,
 				295E90D018560789000BA5FE /* HALActivity.m in Sources */,
 				292594AA18728B0800FA2EED /* HALActivityListViewCell.m in Sources */,
-				2925949918701B8200FA2EED /* UIImage+HALThumbnail.m in Sources */,
 				295E90C118546328000BA5FE /* HALBirdRecord.m in Sources */,
 				29FA598A1866A69800928318 /* HALFamilyBirdKindList.m in Sources */,
 				29501EF1185C8032004AF7F9 /* HALBirdMapViewController.m in Sources */,
