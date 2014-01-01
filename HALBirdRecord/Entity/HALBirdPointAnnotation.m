@@ -18,24 +18,27 @@
 
 @implementation HALBirdPointAnnotation
 
-+ (NSArray *)annotationListWithActivity:(HALActivity *)activity
-{
-    NSMutableArray *annotationList = [[NSMutableArray alloc] init];
-    for (HALBirdRecord *birdRecord in activity.birdRecordList) {
-        [annotationList addObject:[[HALBirdPointAnnotation alloc] initWithBirdRecord:birdRecord]];
-    }
-    return [NSArray arrayWithArray:annotationList];
-}
-
 - (id)initWithBirdRecord:(HALBirdRecord *)birdRecord
 {
     self = [super init];
     if (self) {
+        _birdRecord = birdRecord;
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         dateFormatter.dateFormat = @"HH:mm:ss";
         self.coordinate = birdRecord.coordinate;
         self.title = birdRecord.kind.name;
         self.subtitle = [dateFormatter stringFromDate:birdRecord.datetime];
+    }
+    return self;
+}
+
+- (id)initWithCoordinate:(CLLocationCoordinate2D)coordinate title:(NSString *)title subtitle:(NSString *)subtitle
+{
+    self = [super init];
+    if (self) {
+        self.coordinate = coordinate;
+        self.title = title;
+        self.subtitle = subtitle;
     }
     return self;
 }

@@ -10,6 +10,6 @@
 
 @interface UIViewController (HALCloseTextFieldKeyboard)<UITextFieldDelegate>
 
-- (void)setGestureForClosingKeyBoard;
+- (void)setGestureForClosingKeyBoardToView:(UIView *)view;
 
 @end

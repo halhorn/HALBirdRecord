@@ -10,7 +10,7 @@
 
 @implementation UIImage (HALThumbnail)
 
-- (UIImage *) makeThumbnailOfSize:(CGSize)size
+- (UIImage *) thumbnailOfSize:(CGSize)size
 {
     UIGraphicsBeginImageContext(size);
     // draw scaled image into thumbnail context

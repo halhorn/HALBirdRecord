@@ -18,7 +18,7 @@
 
 @interface HALFlatBirdKindListTableViewController ()<UITextFieldDelegate, UIScrollViewDelegate>
 
-@property(nonatomic) HALBirdKindList *birdKindList;
+@property(nonatomic) HALBirdKindListBase *birdKindList;
 @property(nonatomic) HALSearchedBirdKindList *searchedBirdKindList;
 @property(nonatomic) NSMutableArray *birdRecordList;
 
@@ -129,18 +129,17 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.imageView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                              action:@selector(imageViewTouched:)];
+        [cell.imageView addGestureRecognizer:tap];
     }
     
     // Configure the cell...
-    CGSize imageSize = CGSizeMake(50, 50);
     HALBirdKind *birdKind = [self birdKindFromIndexPath:indexPath];
     cell.textLabel.text = birdKind.name;
     cell.accessoryType = [self birdRecordWithBirdID:birdKind.birdID] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
-    cell.imageView.image = [birdKind.image makeThumbnailOfSize:imageSize];
-    cell.imageView.userInteractionEnabled = YES;
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                          action:@selector(imageViewTouched:)];
-    [cell.imageView addGestureRecognizer:tap];
+    cell.imageView.image = birdKind.image;
 
     return cell;
 }

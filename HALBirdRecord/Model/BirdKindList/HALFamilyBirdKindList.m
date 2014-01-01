@@ -20,6 +20,21 @@
     return sharedObject;
 }
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        self.birdKindList = [self birdKindListWithRawBirdList:[HALBirdKindLoader sharedLoader].birdKindList];
+    }
+    return self;
+}
+
+- (NSString *)groupNameForGroupIndex:(int)index
+{
+    HALBirdKind *kind = self.birdKindList[index][0];
+    return kind.groupName;
+}
+
 - (NSArray *)birdKindListWithRawBirdList:(NSArray *)rawBirdKindList
 {
     NSSortDescriptor *familySortDescripter = [NSSortDescriptor sortDescriptorWithKey:@"groupName" ascending:YES];
@@ -40,9 +55,4 @@
     return [NSArray arrayWithArray:array];
 }
 
-- (NSString *)groupNameForGroupIndex:(int)index
-{
-    HALBirdKind *kind = self.birdKindList[index][0];
-    return kind.groupName;
-}
 @end

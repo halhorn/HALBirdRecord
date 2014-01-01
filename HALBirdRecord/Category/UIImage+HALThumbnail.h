@@ -10,6 +10,6 @@
 
 @interface UIImage (HALThumbnail)
 
-- (UIImage *) makeThumbnailOfSize:(CGSize)size;
+- (UIImage *) thumbnailOfSize:(CGSize)size;
 
 @end

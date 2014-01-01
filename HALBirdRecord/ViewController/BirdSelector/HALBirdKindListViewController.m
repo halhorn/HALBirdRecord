@@ -8,10 +8,11 @@
 
 #import "HALBirdKindListViewController.h"
 #import "HALFlatBirdKindListTableViewController.h"
-#import "UIViewController+HALViewControllerFromNib.h"
 #import "HALDB.h"
 #import "HALActivityManager.h"
 #import "UIViewController+HALCloseTextFieldKeyboard.h"
+#import "UIViewController+HALViewControllerFromNib.h"
+#import "UIViewController+HALSetCancelButton.h"
 
 @interface HALBirdKindListViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIView *birdListView;
@@ -55,7 +56,19 @@
     self.searchTextField.delegate = self;
     [self.searchTextField becomeFirstResponder];
 
-    [self setCancelButton];
+    WeakSelf weakSelf = self;
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"キャンセル" style:UIBarButtonItemStyleBordered handler:^(id sender){
+        if (![self.birdListViewController sendBirdList].count) {
+            [weakSelf dismissViewControllerAnimated:YES completion:nil];
+            return;
+        }
+        [UIAlertView showAlertViewWithTitle:nil message:@"追加中のデータは破棄されます。よろしいですか？" cancelButtonTitle:@"いいえ" otherButtonTitles:@[@"はい"] handler:^(UIAlertView *alertView, NSInteger buttonIndex){
+            if (buttonIndex == alertView.cancelButtonIndex) {
+                return;
+            }
+            [weakSelf dismissViewControllerAnimated:YES completion:nil];
+        }];
+    }];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"追加"
                                                                               style:UIBarButtonItemStyleBordered
                                                                              target:self

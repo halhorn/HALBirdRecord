@@ -11,10 +11,9 @@
 
 @interface HALActivityManager : NSObject
 
-@property(nonatomic, readonly) NSArray *activityList;
-
 + (instancetype)sharedManager;
-- (void)loadActivityList;
+- (int)activityCount;
+- (HALActivity *)activityWithIndex:(int)index;
 - (void)saveActivity:(HALActivity *)activity;
 - (void)deleteActivity:(HALActivity *)activity;
 

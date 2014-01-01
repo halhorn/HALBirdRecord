@@ -7,7 +7,7 @@
 //
 
 #import "HALBirdRecord.h"
-#import "HALBirdKindList.h"
+#import "HALBirdKindListBase.h"
 #import "HALLocationManager.h"
 
 @interface HALBirdRecord()
@@ -16,7 +16,9 @@
 
 @end
 
-@implementation HALBirdRecord
+@implementation HALBirdRecord {
+    HALBirdKind *_kind;
+}
 
 #pragma mark getter/setter
 
@@ -42,12 +44,20 @@
         _birdID = birdID;
         _datetime = [NSDate date];
         _count = 1;
-        _kind = [[HALBirdKindList sharedBirdKindList] birdKindFromBirdID:birdID];
+        _kind = nil;
         [self.locationManager getCurrentLocationWithCompletion:^(CLLocationCoordinate2D coordinate){
             _coordinate = coordinate;
         }];
     }
     return self;
+}
+
+- (HALBirdKind *)kind
+{
+    if (!_kind) {
+        _kind = [[HALBirdKindLoader sharedLoader] birdKindFromBirdID:self.birdID];
+    }
+    return _kind;
 }
 
 #pragma mark methods

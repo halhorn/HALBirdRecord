@@ -8,7 +8,6 @@
 
 #import "HALWebViewController.h"
 #import "UIViewController+HALViewControllerFromNib.h"
-#import <SVProgressHUD/SVProgressHUD.h>
 
 @interface HALWebViewController ()<UIWebViewDelegate>
 @property (nonatomic) NSURL *url;

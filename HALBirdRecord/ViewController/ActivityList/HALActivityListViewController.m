@@ -9,6 +9,7 @@
 #import "HALActivityListViewController.h"
 #import "HALActivityViewController.h"
 #import "HALActivityManager.h"
+#import "HALActivityListViewCell.h"
 #import "UIViewController+HALViewControllerFromNib.h"
 
 #define kHALDataOffset 1
@@ -28,7 +29,6 @@
         // Custom initialization
         self.activityManager = [HALActivityManager sharedManager];
         self.title = @"鳥ログ";
-        self.activityManager = [HALActivityManager sharedManager];
     }
     return self;
 }
@@ -37,11 +37,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    [self.tableView registerNib:[HALActivityListViewCell nib]
+         forCellReuseIdentifier:[HALActivityListViewCell cellIdentifier]];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [self.activityManager loadActivityList];
     [self.tableView reloadData];
 }
 
@@ -70,27 +71,24 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return self.activityManager.activityList.count + kHALDataOffset;
+    return [self.activityManager activityCount] + kHALDataOffset;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    
     // Configure the cell...
     if (indexPath.row < kHALDataOffset) {
         // トップ項目
+        UITableViewCell *cell = cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"DefaultCell"];
         cell.textLabel.text = @"＋新しいアクティビティ";
+        return cell;
     } else {
-        HALActivity *activity = self.activityManager.activityList[indexPath.row - kHALDataOffset];
-        cell.textLabel.text = activity.title;
+        HALActivityListViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[HALActivityListViewCell cellIdentifier]];
+        
+        HALActivity *activity = [self.activityManager activityWithIndex:indexPath.row - kHALDataOffset];
+        [cell setupUIWithActivity:activity];
+        return cell;
     }
-    
-    return cell;
 }
 
 /*
@@ -108,7 +106,7 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        HALActivity *activity = self.activityManager.activityList[indexPath.row - kHALDataOffset];
+        HALActivity *activity = [self.activityManager activityWithIndex:indexPath.row - kHALDataOffset];
         [self.activityManager deleteActivity:activity];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }
@@ -134,6 +132,15 @@
  }
  */
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row < kHALDataOffset) {
+        return 40;
+    } else {
+        return 68;
+    }
+}
+
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -142,7 +149,7 @@
         [self showNewActivity];
         return;
     }
-    HALActivity *activity = self.activityManager.activityList[indexPath.row - kHALDataOffset];
+    HALActivity *activity = [self.activityManager activityWithIndex:indexPath.row - kHALDataOffset];
     HALActivityViewController *viewController = [[HALActivityViewController alloc] initWithActivity:activity shouldShowRegister:NO];
     [self.navigationController pushViewController:viewController animated:YES];
 }

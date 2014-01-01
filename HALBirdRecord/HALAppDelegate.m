@@ -22,9 +22,9 @@
     navigationController.navigationBar.translucent = NO;
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
-    
+
     // 事前に鳥リストを読み込み
-    [HALFamilyBirdKindList sharedBirdKindList];
+    [HALBirdKindLoader sharedLoader];
     return YES;
 }
 

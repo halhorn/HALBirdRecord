@@ -6,9 +6,9 @@
 //  Copyright (c) 2013年 halhorn. All rights reserved.
 //
 
-#import "HALBirdKindList.h"
+#import "HALBirdKindListBase.h"
 
-@interface HALFamilyBirdKindList : HALBirdKindList
+@interface HALFamilyBirdKindList : HALBirdKindListBase
 
 + (instancetype)sharedBirdKindList;
 

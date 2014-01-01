@@ -10,10 +10,10 @@
 
 @implementation UIViewController (HALCloseTextFieldKeyboard)
 
-- (void)setGestureForClosingKeyBoard
+- (void)setGestureForClosingKeyBoardToView:(UIView *)view
 {
-    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                            action:@selector(closeKeyBoard:)]];
+    [view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                       action:@selector(closeKeyBoard:)]];
 }
 
 - (void)closeKeyBoard:(id)sender
