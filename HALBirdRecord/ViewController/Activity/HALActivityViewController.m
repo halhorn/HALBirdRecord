@@ -145,6 +145,7 @@
 }
 
 - (IBAction)onTapMap:(id)sender {
+    [self.view endEditing:YES];
     HALBirdMapViewController *viewController = [[HALBirdMapViewController alloc] initWithActivity:self.activity];
     [self.navigationController pushViewController:viewController animated:YES];
 }
@@ -207,6 +208,8 @@
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self.view endEditing:YES];
+    
     self.selectedBirdRecord = self.activity.birdRecordList[indexPath.row];
     MKCoordinateRegion region = self.mapView.region;
     [self.mapView setRegion:MKCoordinateRegionMake(CLLocationCoordinate2DMake(0, 0), MKCoordinateSpanMake(1, 1)) animated:NO];
