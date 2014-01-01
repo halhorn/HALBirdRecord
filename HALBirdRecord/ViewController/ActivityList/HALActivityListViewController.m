@@ -29,7 +29,6 @@
         // Custom initialization
         self.activityManager = [HALActivityManager sharedManager];
         self.title = @"鳥ログ";
-        self.activityManager = [HALActivityManager sharedManager];
     }
     return self;
 }

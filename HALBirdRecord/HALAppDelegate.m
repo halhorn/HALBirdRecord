@@ -22,9 +22,11 @@
     navigationController.navigationBar.translucent = NO;
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
-    
-    // 事前に鳥リストを読み込み
-    [HALFamilyBirdKindList sharedBirdKindList];
+
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        // 事前に非同期で鳥リストを読み込み
+        [HALFamilyBirdKindList sharedBirdKindList];
+    });
     return YES;
 }
 
