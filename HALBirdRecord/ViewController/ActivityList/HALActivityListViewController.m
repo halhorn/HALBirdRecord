@@ -80,6 +80,7 @@
     if (indexPath.row < kHALDataOffset) {
         // トップ項目
         UITableViewCell *cell = cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"DefaultCell"];
+        cell.textLabel.textColor = kHALTextColor;
         cell.textLabel.text = @"＋新しいアクティビティ";
         return cell;
     } else {

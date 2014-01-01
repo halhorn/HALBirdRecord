@@ -47,6 +47,15 @@ static NSDateFormatter *dateFormatter;
     return [UINib nibWithNibName:@"HALActivityListViewCell" bundle:nil];
 }
 
+- (void)awakeFromNib
+{
+    self.titleLabel.textColor = kHALTextColor;
+    self.commentLabel.textColor = kHALSubTextColor;
+    self.dateLabel.textColor = kHALSubTextColor;
+    self.birdCountContainerView.backgroundColor = kHALActivityListBirdCountBackgroundColor;
+    self.birdCountLabel.textColor = kHALTextColor;
+}
+
 - (void)setupUIWithActivity:(HALActivity *)activity
 {
     self.activity = activity;

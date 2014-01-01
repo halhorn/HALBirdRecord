@@ -87,6 +87,10 @@
 {
     self.titleTextField.text = self.activity.title;
     self.commentTextView.text = self.activity.comment;
+    self.titleTextField.textColor = kHALTextColor;
+    self.titleTextField.backgroundColor = kHALActivityTitleBackgroundColor;
+    self.commentTextView.textColor = kHALSubTextColor;
+    self.commentTextView.backgroundColor = kHALActivityCommentBackgroundColor;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"追加"
                                                                               style:UIBarButtonItemStyleBordered
                                                                              target:self
@@ -176,7 +180,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-        cell.detailTextLabel.textColor = [UIColor grayColor];
+        cell.textLabel.textColor = kHALTextColor;
+        cell.detailTextLabel.textColor = kHALSubTextColor;
         cell.imageView.userInteractionEnabled = YES;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                               action:@selector(imageViewTouched:)];

@@ -22,6 +22,7 @@
     navigationController.navigationBar.translucent = NO;
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
+    [self setupUIAppearance];
 
     // 事前に鳥リストを読み込み
     [HALBirdKindLoader sharedLoader];
@@ -53,6 +54,17 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)setupUIAppearance
+{
+    UINavigationBar<UIAppearance> *navBarAppearance = [UINavigationBar appearance];
+    navBarAppearance.barTintColor = kHALNavigationBarBackgroundColor;
+    navBarAppearance.tintColor = kHALNavigationBarButtonTextColor;
+    navBarAppearance.titleTextAttributes =
+     @{
+       UITextAttributeTextColor : kHALNavigationBarTitleTextColor,
+       };
 }
 
 @end

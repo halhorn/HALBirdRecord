@@ -17,4 +17,21 @@
     #import <SVProgressHUD/SVProgressHUD.h>
     #import "UIViewController+HALSetCancelButton.h"
 #endif
+
 #define WeakSelf __weak typeof (self)
+#define RGBA(r, g, b, a)    [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
+
+// Color //////////////////////
+// Common
+#define kHALTextColor RGBA(67, 47, 47, 1.0)
+#define kHALSubTextColor RGBA(130, 130, 140, 1.0)
+#define kHALNavigationBarBackgroundColor RGBA(214, 233, 202, 1.0)
+#define kHALNavigationBarTitleTextColor  RGBA(114, 109, 64, 1.0)
+#define kHALNavigationBarButtonTextColor RGBA(114, 109, 64, 1.0)
+
+// ActivityList
+#define kHALActivityListBirdCountBackgroundColor RGBA(185, 208, 139, 1.0)
+
+// Activity
+#define kHALActivityTitleBackgroundColor   RGBA(248, 244, 230, 1.0)
+#define kHALActivityCommentBackgroundColor RGBA(230, 234, 227, 1.0)
