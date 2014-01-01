@@ -7,7 +7,7 @@ import os, sys
 
 dataFile = "WikiRawData.txt"
 outFile = "../HALBirdRecord/Data/BirdKind.plist"
-imgDir = "./photo/"
+imgDir = "../resource/photo/"
 groupPattern = re.compile(r'<h3>.*>([^<>]*科)')
 foreignPattern = re.compile(r'<h2>.*(外来種)')
 birdPattern = re.compile(r'<li><a[^<>]*href="([^"]*)"[^<>]*>([^<>]*)</a>.*</li>')
