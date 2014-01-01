@@ -23,10 +23,8 @@
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
 
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        // 事前に非同期で鳥リストを読み込み
-        [HALBirdKindLoader sharedLoader];
-    });
+    // 事前に鳥リストを読み込み
+    [HALBirdKindLoader sharedLoader];
     return YES;
 }
 
