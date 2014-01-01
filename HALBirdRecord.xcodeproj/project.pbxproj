@@ -1789,18 +1789,18 @@
 		295E909818540910000BA5FE /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				295E909918540994000BA5FE /* UIViewController+HALViewControllerFromNib.h */,
-				295E909A18540994000BA5FE /* UIViewController+HALViewControllerFromNib.m */,
-				295E90CB1855488C000BA5FE /* NSURL+HALLocalFileURL.h */,
-				295E90CC1855488C000BA5FE /* NSURL+HALLocalFileURL.m */,
 				295E90D618576E84000BA5FE /* NSDate+HALDateString.h */,
 				295E90D718576E84000BA5FE /* NSDate+HALDateString.m */,
-				295E90D91857ECC5000BA5FE /* UIViewController+HALSetCancelButton.h */,
-				295E90DA1857ECC5000BA5FE /* UIViewController+HALSetCancelButton.m */,
+				295E90CB1855488C000BA5FE /* NSURL+HALLocalFileURL.h */,
+				295E90CC1855488C000BA5FE /* NSURL+HALLocalFileURL.m */,
 				2925949718701B8200FA2EED /* UIImage+HALThumbnail.h */,
 				2925949818701B8200FA2EED /* UIImage+HALThumbnail.m */,
 				292594A51871C29F00FA2EED /* UIViewController+HALCloseTextFieldKeyboard.h */,
 				292594A61871C29F00FA2EED /* UIViewController+HALCloseTextFieldKeyboard.m */,
+				295E90D91857ECC5000BA5FE /* UIViewController+HALSetCancelButton.h */,
+				295E90DA1857ECC5000BA5FE /* UIViewController+HALSetCancelButton.m */,
+				295E909918540994000BA5FE /* UIViewController+HALViewControllerFromNib.h */,
+				295E909A18540994000BA5FE /* UIViewController+HALViewControllerFromNib.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
