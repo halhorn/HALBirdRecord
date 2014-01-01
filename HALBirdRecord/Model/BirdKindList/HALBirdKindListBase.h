@@ -8,15 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "HALBirdKind.h"
+#import "HALBirdKindLoader.h"
 
-@interface HALBirdKindList : NSObject
+@interface HALBirdKindListBase : NSObject
 
-@property(nonatomic, readonly) NSArray *birdKindList;
-@property(nonatomic) NSArray *rawBirdKindList;
+@property(nonatomic) NSArray *birdKindList;
 
 + (instancetype)sharedBirdKindList;
-- (HALBirdKind *)birdKindFromBirdID:(int)birdID;
-- (NSArray *)birdKindListWithRawBirdList:(NSArray *)rawBirdKindList;
+
 - (int)numberOfGroups;
 - (NSString *)groupNameForGroupIndex:(int)index;
 

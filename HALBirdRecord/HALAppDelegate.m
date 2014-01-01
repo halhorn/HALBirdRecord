@@ -25,7 +25,7 @@
 
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         // 事前に非同期で鳥リストを読み込み
-        [HALFamilyBirdKindList sharedBirdKindList];
+        [HALBirdKindLoader sharedLoader];
     });
     return YES;
 }

@@ -7,7 +7,7 @@
 //
 
 #import "HALBirdRecord.h"
-#import "HALBirdKindList.h"
+#import "HALBirdKindListBase.h"
 #import "HALLocationManager.h"
 
 @interface HALBirdRecord()
@@ -55,7 +55,7 @@
 - (HALBirdKind *)kind
 {
     if (!_kind) {
-        _kind = [[HALBirdKindList sharedBirdKindList] birdKindFromBirdID:self.birdID];
+        _kind = [[HALBirdKindLoader sharedLoader] birdKindFromBirdID:self.birdID];
     }
     return _kind;
 }

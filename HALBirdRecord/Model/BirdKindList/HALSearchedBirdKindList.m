@@ -7,11 +7,11 @@
 //
 
 #import "HALSearchedBirdKindList.h"
-#import "HALBirdKindList.h"
+#import "HALBirdKindListBase.h"
 
 @interface HALSearchedBirdKindList()
 
-@property(nonatomic) HALBirdKindList *birdKindList;
+@property(nonatomic) HALBirdKindListBase *birdKindList;
 
 @end
 
@@ -21,7 +21,7 @@
 {
     self = [super init];
     if (self) {
-        self.birdKindList = [HALBirdKindList sharedBirdKindList];
+        self.birdKindList = [HALBirdKindListBase sharedBirdKindList];
     }
     return self;
 }
@@ -37,7 +37,7 @@
 {
     _searchWord = searchWord;
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name contains %@", [self convertKana:searchWord]];
-    self.searchedBirdKindList = [self.birdKindList.rawBirdKindList filteredArrayUsingPredicate:predicate];
+    self.searchedBirdKindList = [[HALBirdKindLoader sharedLoader].birdKindList filteredArrayUsingPredicate:predicate];
 }
 
 - (BOOL)isSearchWordSet

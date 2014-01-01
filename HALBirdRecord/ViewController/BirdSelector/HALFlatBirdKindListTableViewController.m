@@ -18,7 +18,7 @@
 
 @interface HALFlatBirdKindListTableViewController ()<UITextFieldDelegate, UIScrollViewDelegate>
 
-@property(nonatomic) HALBirdKindList *birdKindList;
+@property(nonatomic) HALBirdKindListBase *birdKindList;
 @property(nonatomic) HALSearchedBirdKindList *searchedBirdKindList;
 @property(nonatomic) NSMutableArray *birdRecordList;
 
