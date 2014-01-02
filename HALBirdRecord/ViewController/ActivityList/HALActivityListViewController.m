@@ -11,8 +11,9 @@
 #import "HALActivityManager.h"
 #import "HALActivityListViewCell.h"
 #import "UIViewController+HALViewControllerFromNib.h"
+#import "HALStatisticsViewCell.h"
 
-#define kHALDataOffset 1
+#define kHALDataOffset 2
 
 @interface HALActivityListViewController ()<UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -39,6 +40,9 @@
     // Do any additional setup after loading the view from its nib.
     [self.tableView registerNib:[HALActivityListViewCell nib]
          forCellReuseIdentifier:[HALActivityListViewCell cellIdentifier]];
+    [self.tableView registerNib:[HALStatisticsViewCell nib]
+         forCellReuseIdentifier:[HALStatisticsViewCell cellIdentifier]];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self.tableView
                                              selector:@selector(reloadData)
                                                  name:[HALActivityManager updateActivityNotificationName]
@@ -76,9 +80,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Configure the cell...
-    if (indexPath.row < kHALDataOffset) {
-        // トップ項目
-        UITableViewCell *cell = cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"DefaultCell"];
+    if (indexPath.row == 0) {
+        // 統計
+        return [tableView dequeueReusableCellWithIdentifier:[HALStatisticsViewCell cellIdentifier]];
+    }
+    if (indexPath.row == 1) {
+        // 新規アクティビティ
+        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"DefaultCell"];
         cell.textLabel.textColor = kHALTextColor;
         cell.textLabel.text = @"＋新しいアクティビティ";
         return cell;
@@ -133,7 +141,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row < kHALDataOffset) {
+    if (indexPath.row == 0) {
+        return 80;
+    } else if (indexPath.row == 1) {
         return 40;
     } else {
         return 68;
@@ -145,7 +155,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.row < kHALDataOffset) {
+    if (indexPath.row == 0) {
+        
+        return;
+    } else if (indexPath.row == 1) {
         [self showNewActivity];
         return;
     }
