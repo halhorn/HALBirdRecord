@@ -14,6 +14,7 @@
 + (NSString *)updateActivityNotificationName;
 + (instancetype)sharedManager;
 - (int)activityCount;
+- (int)totalBirdKindCount;
 - (HALActivity *)activityWithIndex:(int)index;
 - (void)saveActivity:(HALActivity *)activity;
 - (void)deleteActivity:(HALActivity *)activity;

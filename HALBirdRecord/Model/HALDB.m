@@ -113,6 +113,19 @@
     return -1;
 }
 
+- (int)countTotalBirdKinds
+{
+    NSString *sqlFormat = [NSString stringWithFormat:@"select count(distinct birdID) as count from %@", kHALBirdRecordTable];
+    [self.fmDB open];
+    FMResultSet *resultSet = [self.fmDB executeQuery:sqlFormat];
+    if ([resultSet next]) {
+        NSNumber *last_id = [resultSet resultDictionary][@"count"];
+        return [last_id intValue];
+    }
+    NSLog(@"NoData in table");
+    return -1;
+}
+
 - (int)insertActivityRecord:(HALActivity *)activity
 {
     if (!activity) {return -1;}

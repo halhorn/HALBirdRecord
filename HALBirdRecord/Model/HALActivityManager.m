@@ -64,6 +64,11 @@
     return activity;
 }
 
+- (int)totalBirdKindCount
+{
+    return [self.db countTotalBirdKinds];
+}
+
 - (void)saveActivity:(HALActivity *)activity
 {
     if (activity.dbID) {
