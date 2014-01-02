@@ -10,6 +10,7 @@
 #import "HALActivityListViewController.h"
 #import "UIViewController+HALViewControllerFromNib.h"
 #import "HALFamilyBirdKindList.h"
+#import "UIDevice+HALOSVersion.h"
 
 @implementation HALAppDelegate
 
@@ -22,6 +23,7 @@
     navigationController.navigationBar.translucent = NO;
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
+    [self setupUIAppearance];
 
     // 事前に鳥リストを読み込み
     [HALBirdKindLoader sharedLoader];
@@ -53,6 +55,32 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)setupUIAppearance
+{
+    UINavigationBar<UIAppearance> *navBarAppearance = [UINavigationBar appearance];
+    if ([UIDevice currentDevice].majorVersion >= 7) {
+        // iOS7
+        navBarAppearance.barTintColor = kHALNavigationBarBackgroundColor;
+        navBarAppearance.tintColor = kHALNavigationBarButtonTextColor;
+    } else {
+        // iOS6
+        UIBarButtonItem<UIAppearance> *barButtonItemAppearance = [UIBarButtonItem appearance];
+        navBarAppearance.tintColor = kHALNavigationBarBackgroundColor;
+        [barButtonItemAppearance setTitleTextAttributes:
+         @{
+           UITextAttributeTextColor : [UIColor whiteColor],
+           UITextAttributeTextShadowColor : [UIColor clearColor],
+           }
+                                                    forState:UIControlStateNormal];
+        barButtonItemAppearance.tintColor = kHALNavigationBarButtonBackgroundColorForiOS6;
+    }
+    navBarAppearance.titleTextAttributes =
+     @{
+       UITextAttributeTextColor : kHALNavigationBarTitleTextColor,
+       UITextAttributeTextShadowColor : [UIColor clearColor],
+       };
 }
 
 @end

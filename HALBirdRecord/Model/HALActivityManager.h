@@ -11,6 +11,7 @@
 
 @interface HALActivityManager : NSObject
 
++ (NSString *)updateActivityNotificationName;
 + (instancetype)sharedManager;
 - (int)activityCount;
 - (HALActivity *)activityWithIndex:(int)index;

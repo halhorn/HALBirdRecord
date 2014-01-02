@@ -26,6 +26,7 @@
     self = [super initWithNib];
     if (self) {
         self.activity = activity;
+        self.title = activity.title;
     }
     return self;
 }

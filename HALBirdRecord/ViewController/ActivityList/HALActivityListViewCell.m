@@ -16,7 +16,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *commentLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
-@property (weak, nonatomic) IBOutlet UIView *birdCountContainerView;
 @property (weak, nonatomic) IBOutlet UILabel *birdCountLabel;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
@@ -47,13 +46,19 @@ static NSDateFormatter *dateFormatter;
     return [UINib nibWithNibName:@"HALActivityListViewCell" bundle:nil];
 }
 
+- (void)awakeFromNib
+{
+    self.titleLabel.textColor = kHALTextColor;
+    self.commentLabel.textColor = kHALSubTextColor;
+    self.dateLabel.textColor = kHALSubTextColor;
+    self.birdCountLabel.textColor = kHALTextColor;
+}
+
 - (void)setupUIWithActivity:(HALActivity *)activity
 {
     self.activity = activity;
     self.titleLabel.text = activity.title;
     self.commentLabel.text = activity.comment;
-    self.birdCountContainerView.layer.cornerRadius = 10;
-    self.birdCountContainerView.clipsToBounds = YES;
     self.birdCountLabel.text = [NSString stringWithFormat:@"%d", activity.birdRecordList.count];
     self.dateLabel.text = [self dateLabelText];
 
@@ -83,6 +88,18 @@ static NSDateFormatter *dateFormatter;
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+#pragma mark - MKMapViewDelegate
+
+-(MKAnnotationView *)mapView:(MKMapView*)mapView viewForAnnotation:(id)annotation{
+    static NSString *PinIdentifier = @"Pin";
+    MKPinAnnotationView *pinAnnotationView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:PinIdentifier];
+    if(pinAnnotationView == nil){
+        pinAnnotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:PinIdentifier];
+    }
+    pinAnnotationView.canShowCallout = NO;
+    return pinAnnotationView;
 }
 
 @end

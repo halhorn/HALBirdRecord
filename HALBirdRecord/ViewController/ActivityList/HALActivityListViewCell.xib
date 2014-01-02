@@ -14,9 +14,12 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="67"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" mapType="standard" id="TOM-N3-9y8">
+                    <mapView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" id="TOM-N3-9y8">
                         <rect key="frame" x="0.0" y="0.0" width="68" height="68"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <connections>
+                            <outlet property="delegate" destination="dtX-uA-REj" id="O5a-qJ-ABk"/>
+                        </connections>
                     </mapView>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IfZ-Y2-2jq">
                         <rect key="frame" x="76" y="4" width="219" height="21"/>
@@ -38,23 +41,19 @@
                         <color key="textColor" red="0.42438334226608276" green="0.42437064647674561" blue="0.42437782883644104" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" id="4cz-lX-fcu">
-                        <rect key="frame" x="290" y="-25" width="50" height="50"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bird_count_background.png" id="y5e-KZ-jea">
+                        <rect key="frame" x="287" y="0.0" width="33" height="25"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="125" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zwH-h2-CTJ">
-                                <rect key="frame" x="0.0" y="25" width="30" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="0.92219387850000001" green="0.93272191820000006" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
+                    </imageView>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="125" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zwH-h2-CTJ">
+                        <rect key="frame" x="290" y="-1" width="30" height="25"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </tableViewCellContentView>
             <connections>
-                <outlet property="birdCountContainerView" destination="4cz-lX-fcu" id="shT-MR-qgp"/>
                 <outlet property="birdCountLabel" destination="zwH-h2-CTJ" id="rro-jc-uYx"/>
                 <outlet property="commentLabel" destination="dht-RN-7UB" id="ZH6-dw-WDt"/>
                 <outlet property="dateLabel" destination="wFm-kd-nA2" id="TcS-PR-3FZ"/>
@@ -63,4 +62,7 @@
             </connections>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="bird_count_background.png" width="33" height="25"/>
+    </resources>
 </document>

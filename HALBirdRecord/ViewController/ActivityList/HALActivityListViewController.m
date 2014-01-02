@@ -39,11 +39,10 @@
     // Do any additional setup after loading the view from its nib.
     [self.tableView registerNib:[HALActivityListViewCell nib]
          forCellReuseIdentifier:[HALActivityListViewCell cellIdentifier]];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [self.tableView reloadData];
+    [[NSNotificationCenter defaultCenter] addObserver:self.tableView
+                                             selector:@selector(reloadData)
+                                                 name:[HALActivityManager updateActivityNotificationName]
+                                               object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -80,6 +79,7 @@
     if (indexPath.row < kHALDataOffset) {
         // トップ項目
         UITableViewCell *cell = cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"DefaultCell"];
+        cell.textLabel.textColor = kHALTextColor;
         cell.textLabel.text = @"＋新しいアクティビティ";
         return cell;
     } else {
@@ -91,14 +91,13 @@
     }
 }
 
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the specified item to be editable.
+    return indexPath.row >= kHALDataOffset;
+}
+
 
 
 // Override to support editing the table view.
@@ -145,6 +144,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row < kHALDataOffset) {
         [self showNewActivity];
         return;

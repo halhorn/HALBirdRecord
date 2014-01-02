@@ -9,6 +9,8 @@
 #import "HALActivityManager.h"
 #import "HALDB.h"
 
+#define kHALUpdateActivityNotificationName @"HALActivityManagerUpdateActivity"
+
 @interface HALActivityManager()
 
 @property(nonatomic) NSArray *activityList;
@@ -17,6 +19,11 @@
 @end
 
 @implementation HALActivityManager
+
++ (NSString *)updateActivityNotificationName
+{
+    return kHALUpdateActivityNotificationName;
+}
 
 + (instancetype)sharedManager
 {
@@ -73,6 +80,7 @@
     activityID = [self.db selectLastIdOfActivityTable];
     [self.db insertBirdRecordList:activity.birdRecordList activityID:activityID];
     [self loadActivityList];
+    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kHALUpdateActivityNotificationName object:nil]];
 }
 
 - (void)updateExistingActivity:(HALActivity *)activity
@@ -81,6 +89,7 @@
     [self.db insertBirdRecordList:activity.birdRecordList activityID:activity.dbID];
     [self.db updateActivity:activity];
     [self loadActivityList];
+    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kHALUpdateActivityNotificationName object:nil]];
 }
 
 - (void)deleteActivity:(HALActivity *)activity
@@ -88,6 +97,7 @@
     [self.db deleteBirdRecordsInActivity:activity];
     [self.db deleteActivity:activity];
     [self loadActivityList];
+    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kHALUpdateActivityNotificationName object:nil]];
 }
 
 #pragma mark - private method

@@ -14,7 +14,6 @@
 #import "HALBirdRecord.h"
 #import "HALActivity.h"
 #import "HALWebViewController.h"
-#import "UIImage+HALThumbnail.h"
 
 @interface HALFlatBirdKindListTableViewController ()<UITextFieldDelegate, UIScrollViewDelegate>
 
@@ -129,6 +128,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.textLabel.textColor = kHALTextColor;
         cell.imageView.userInteractionEnabled = YES;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                               action:@selector(imageViewTouched:)];
@@ -199,10 +199,19 @@
     if (!record) {
         HALBirdRecord *record = [[HALBirdRecord alloc] initWithBirdID:birdKind.birdID];
         [self.birdRecordList addObject:record];
+        [self.birdKindListViewController updateAddButtonBirdCount];
+        [tableView reloadData];
     } else {
-        [self.birdRecordList removeObject:record];
+        WeakSelf weakSelf = self;
+        NSString *message = [NSString stringWithFormat:@"%@を追加リストから削除しますか？", birdKind.name];
+        [UIAlertView showAlertViewWithTitle:@"取り消し" message:message cancelButtonTitle:@"いいえ" otherButtonTitles:@[@"はい"] handler:^(UIAlertView *alertView, NSInteger buttonIndex){
+            if (buttonIndex != alertView.cancelButtonIndex) {
+                [weakSelf.birdRecordList removeObject:record];
+                [self.birdKindListViewController updateAddButtonBirdCount];
+                [tableView reloadData];
+            }
+        }];
     }
-    [tableView reloadData];
 }
 
 #pragma mark - UIScrollViewDelegate

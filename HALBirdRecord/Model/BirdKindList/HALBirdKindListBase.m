@@ -7,7 +7,6 @@
 //
 
 #import "HALBirdKindListBase.h"
-#import "UIImage+HALThumbnail.h"
 
 @interface HALBirdKindListBase()
 
