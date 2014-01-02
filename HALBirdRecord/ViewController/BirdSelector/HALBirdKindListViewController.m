@@ -87,6 +87,26 @@
     // Dispose of any resources that can be recreated.
 }
 
+// 指定時間ごとにテキストの変更が無いかをチェックし、変更があればテキストの候補を表示する。
+- (void)startTextFieldWatcherBlock:(void(^)(NSString *))block{
+    UITextField *targetTextField = self.searchTextField;
+    
+    __block NSString *text = targetTextField.text;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        // 100ms毎にテキスト入力欄に変更が無いかをチェック
+        while (self.searchTextField.isEditing) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (![targetTextField.text isEqualToString:text]){
+                    // 変更があった場合。
+                    text = targetTextField.text;
+                    block(text);
+                }
+            });
+            [NSThread sleepForTimeInterval:0.1];
+        }
+    });
+}
+
 #pragma mark - UIEventHandler
 
 - (void)onTapAddButton:(id)sender
@@ -109,18 +129,10 @@
 }
 
 #pragma mark - UITextFieldDelegate
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+- (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    NSMutableString *afterInputText = textField.text.mutableCopy;
-    [afterInputText replaceCharactersInRange:range withString:string];
-    [self.birdListViewController setSearchWord:afterInputText];
-    return YES;
+    [self startTextFieldWatcherBlock:^(NSString *newText){
+        [self.birdListViewController setSearchWord:newText];
+    }];
 }
-
-- (BOOL)textFieldShouldClear:(UITextField *)textField
-{
-    [self.birdListViewController setSearchWord:@""];
-    return YES;
-}
-
 @end
