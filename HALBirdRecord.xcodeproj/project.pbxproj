@@ -754,6 +754,7 @@
 		2925A04A1874615A00FA2EED /* 833.png in Resources */ = {isa = PBXBuildFile; fileRef = 29259D671874615900FA2EED /* 833.png */; };
 		2925A04B1874615A00FA2EED /* 835.png in Resources */ = {isa = PBXBuildFile; fileRef = 29259D681874615A00FA2EED /* 835.png */; };
 		2925A04C1874615A00FA2EED /* nophoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 29259D691874615A00FA2EED /* nophoto.png */; };
+		2925A04F187528FB00FA2EED /* UIDevice+HALOSVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 2925A04E187528FB00FA2EED /* UIDevice+HALOSVersion.m */; };
 		29501ED01858C8B6004AF7F9 /* HALActivityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 29501ECF1858C8B6004AF7F9 /* HALActivityManager.m */; };
 		29501EDF185A8AB5004AF7F9 /* HALActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29501EDD185A8AB5004AF7F9 /* HALActivityViewController.m */; };
 		29501EE0185A8AB5004AF7F9 /* HALActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29501EDE185A8AB5004AF7F9 /* HALActivityViewController.xib */; };
@@ -1560,6 +1561,8 @@
 		29259D671874615900FA2EED /* 833.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 833.png; path = resource/resized_photo/833.png; sourceTree = SOURCE_ROOT; };
 		29259D681874615A00FA2EED /* 835.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 835.png; path = resource/resized_photo/835.png; sourceTree = SOURCE_ROOT; };
 		29259D691874615A00FA2EED /* nophoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nophoto.png; path = resource/resized_photo/nophoto.png; sourceTree = SOURCE_ROOT; };
+		2925A04D187528FB00FA2EED /* UIDevice+HALOSVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+HALOSVersion.h"; sourceTree = "<group>"; };
+		2925A04E187528FB00FA2EED /* UIDevice+HALOSVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+HALOSVersion.m"; sourceTree = "<group>"; };
 		29501ECE1858C8B6004AF7F9 /* HALActivityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALActivityManager.h; sourceTree = "<group>"; };
 		29501ECF1858C8B6004AF7F9 /* HALActivityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALActivityManager.m; sourceTree = "<group>"; };
 		29501EDC185A8AB5004AF7F9 /* HALActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALActivityViewController.h; sourceTree = "<group>"; };
@@ -1795,6 +1798,8 @@
 				295E90DA1857ECC5000BA5FE /* UIViewController+HALSetCancelButton.m */,
 				295E909918540994000BA5FE /* UIViewController+HALViewControllerFromNib.h */,
 				295E909A18540994000BA5FE /* UIViewController+HALViewControllerFromNib.m */,
+				2925A04D187528FB00FA2EED /* UIDevice+HALOSVersion.h */,
+				2925A04E187528FB00FA2EED /* UIDevice+HALOSVersion.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -3533,6 +3538,7 @@
 				295E90AA18541087000BA5FE /* HALBirdKindListViewController.m in Sources */,
 				295E90691853FE3E000BA5FE /* main.m in Sources */,
 				295E909B18540994000BA5FE /* UIViewController+HALViewControllerFromNib.m in Sources */,
+				2925A04F187528FB00FA2EED /* UIDevice+HALOSVersion.m in Sources */,
 				295E90B818541369000BA5FE /* HALBirdKind.m in Sources */,
 				295E90E018587EEC000BA5FE /* HALActivityListViewController.m in Sources */,
 				2925949E1870689900FA2EED /* HALWebViewController.m in Sources */,

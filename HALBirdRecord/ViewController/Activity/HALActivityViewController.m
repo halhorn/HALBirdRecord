@@ -114,6 +114,7 @@
 {
     WeakSelf weakSelf = self;
     HALBirdKindListViewController *viewController = [[HALBirdKindListViewController alloc] initWithCompletion:^(NSArray *birdRecordList){
+        [SVProgressHUD showSuccessWithStatus:@"追加しました"];
         [weakSelf addAndSaveBirdRecordList:birdRecordList];
     }];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];

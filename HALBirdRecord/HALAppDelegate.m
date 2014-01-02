@@ -10,6 +10,7 @@
 #import "HALActivityListViewController.h"
 #import "UIViewController+HALViewControllerFromNib.h"
 #import "HALFamilyBirdKindList.h"
+#import "UIDevice+HALOSVersion.h"
 
 @implementation HALAppDelegate
 
@@ -59,11 +60,26 @@
 - (void)setupUIAppearance
 {
     UINavigationBar<UIAppearance> *navBarAppearance = [UINavigationBar appearance];
-    navBarAppearance.barTintColor = kHALNavigationBarBackgroundColor;
-    navBarAppearance.tintColor = kHALNavigationBarButtonTextColor;
+    if ([UIDevice currentDevice].majorVersion >= 7) {
+        // iOS7
+        navBarAppearance.barTintColor = kHALNavigationBarBackgroundColor;
+        navBarAppearance.tintColor = kHALNavigationBarButtonTextColor;
+    } else {
+        // iOS6
+        UIBarButtonItem<UIAppearance> *barButtonItemAppearance = [UIBarButtonItem appearance];
+        navBarAppearance.tintColor = kHALNavigationBarBackgroundColor;
+        [barButtonItemAppearance setTitleTextAttributes:
+         @{
+           UITextAttributeTextColor : [UIColor whiteColor],
+           UITextAttributeTextShadowColor : [UIColor clearColor],
+           }
+                                                    forState:UIControlStateNormal];
+        barButtonItemAppearance.tintColor = kHALNavigationBarButtonBackgroundColorForiOS6;
+    }
     navBarAppearance.titleTextAttributes =
      @{
        UITextAttributeTextColor : kHALNavigationBarTitleTextColor,
+       UITextAttributeTextShadowColor : [UIColor clearColor],
        };
 }
 
