@@ -10,7 +10,7 @@
 #import "HALBirdPointAnnotation.h"
 
 #define kHALMapRegionNormalMinSpan 0.001
-#define kHALMapRegionVastMinSpan 5
+#define kHALMapRegionVastMinSpan 3
 #define kHALMapRegionMarginScale 1.5
 
 @interface HALMapManager()
