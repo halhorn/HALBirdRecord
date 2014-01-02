@@ -94,4 +94,16 @@ static NSDateFormatter *dateFormatter;
     // Configure the view for the selected state
 }
 
+#pragma mark - MKMapViewDelegate
+
+-(MKAnnotationView *)mapView:(MKMapView*)mapView viewForAnnotation:(id)annotation{
+    static NSString *PinIdentifier = @"Pin";
+    MKPinAnnotationView *pinAnnotationView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:PinIdentifier];
+    if(pinAnnotationView == nil){
+        pinAnnotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:PinIdentifier];
+    }
+    pinAnnotationView.canShowCallout = NO;
+    return pinAnnotationView;
+}
+
 @end
