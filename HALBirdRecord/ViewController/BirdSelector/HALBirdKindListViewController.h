@@ -12,6 +12,7 @@
 @interface HALBirdKindListViewController : UIViewController
 
 -(id) initWithCompletion:(void(^)(NSArray *))completion;
+-(void) updateAddButtonBirdCount;
 
 @end
 
