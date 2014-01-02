@@ -217,6 +217,8 @@
     
     self.selectedBirdRecord = self.activity.birdRecordList[indexPath.row];
     MKCoordinateRegion region = self.mapView.region;
+    
+    // マップを更新
     [self.mapView setRegion:MKCoordinateRegionMake(CLLocationCoordinate2DMake(0, 0), MKCoordinateSpanMake(1, 1)) animated:NO];
     [self.mapView setRegion:region animated:NO];
 }
