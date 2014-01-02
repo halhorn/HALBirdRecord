@@ -13,12 +13,13 @@
 #import "HALBirdPointAnnotation.h"
 #import "HALMapManager.h"
 #import "HALWebViewController.h"
-#import <MapKit/MapKit.h>
 #import "UIViewController+HALCloseTextFieldKeyboard.h"
+#import <MapKit/MapKit.h>
+#import <SZTextView/SZTextView.h>
 
 @interface HALActivityViewController ()<UITextFieldDelegate, UITextViewDelegate, UITableViewDelegate, MKMapViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
-@property (weak, nonatomic) IBOutlet UITextView *commentTextView;
+@property (weak, nonatomic) IBOutlet SZTextView *commentTextView;
 @property (weak, nonatomic) IBOutlet UITableView *birdRecordTableView;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property(nonatomic) HALActivityManager *activityManager;
@@ -91,6 +92,7 @@
     self.titleTextField.backgroundColor = kHALActivityTitleBackgroundColor;
     self.commentTextView.textColor = kHALSubTextColor;
     self.commentTextView.backgroundColor = kHALActivityCommentBackgroundColor;
+    self.commentTextView.placeholder = @"コメントを入力";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"追加"
                                                                               style:UIBarButtonItemStyleBordered
                                                                              target:self

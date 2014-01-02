@@ -23,7 +23,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="94"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Comment Comment Comment Comment Comment Comment Comment Comment Comment " id="rsk-Wa-uIH">
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Comment Comment Comment Comment Comment Comment Comment Comment Comment " id="rsk-Wa-uIH" customClass="SZTextView">
                             <rect key="frame" x="0.0" y="35" width="227" height="59"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.90553373098373413" green="1" blue="0.96093231439590454" alpha="1" colorSpace="calibratedRGB"/>

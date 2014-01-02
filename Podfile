@@ -6,6 +6,7 @@ pod 'Parse'
 pod 'FMDB'
 pod 'BlocksKit', '1.8.3'
 pod 'SVProgressHUD'
+pod 'SZTextView', '~> 1.1.0'
 
 target :HALBirdRecordTests, :exclusive => true do
     pod 'Kiwi', '>= 2.2.1'
