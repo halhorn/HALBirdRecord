@@ -755,6 +755,8 @@
 		2925A04B1874615A00FA2EED /* 835.png in Resources */ = {isa = PBXBuildFile; fileRef = 29259D681874615A00FA2EED /* 835.png */; };
 		2925A04C1874615A00FA2EED /* nophoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 29259D691874615A00FA2EED /* nophoto.png */; };
 		2925A04F187528FB00FA2EED /* UIDevice+HALOSVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 2925A04E187528FB00FA2EED /* UIDevice+HALOSVersion.m */; };
+		2925A0531875430F00FA2EED /* bird_count_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 2925A0511875430F00FA2EED /* bird_count_background.png */; };
+		2925A0541875430F00FA2EED /* bird_count_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2925A0521875430F00FA2EED /* bird_count_background@2x.png */; };
 		29501ED01858C8B6004AF7F9 /* HALActivityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 29501ECF1858C8B6004AF7F9 /* HALActivityManager.m */; };
 		29501EDF185A8AB5004AF7F9 /* HALActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29501EDD185A8AB5004AF7F9 /* HALActivityViewController.m */; };
 		29501EE0185A8AB5004AF7F9 /* HALActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29501EDE185A8AB5004AF7F9 /* HALActivityViewController.xib */; };
@@ -1563,6 +1565,8 @@
 		29259D691874615A00FA2EED /* nophoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nophoto.png; path = resource/resized_photo/nophoto.png; sourceTree = SOURCE_ROOT; };
 		2925A04D187528FB00FA2EED /* UIDevice+HALOSVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+HALOSVersion.h"; sourceTree = "<group>"; };
 		2925A04E187528FB00FA2EED /* UIDevice+HALOSVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+HALOSVersion.m"; sourceTree = "<group>"; };
+		2925A0511875430F00FA2EED /* bird_count_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bird_count_background.png; sourceTree = "<group>"; };
+		2925A0521875430F00FA2EED /* bird_count_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bird_count_background@2x.png"; sourceTree = "<group>"; };
 		29501ECE1858C8B6004AF7F9 /* HALActivityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALActivityManager.h; sourceTree = "<group>"; };
 		29501ECF1858C8B6004AF7F9 /* HALActivityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALActivityManager.m; sourceTree = "<group>"; };
 		29501EDC185A8AB5004AF7F9 /* HALActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALActivityViewController.h; sourceTree = "<group>"; };
@@ -1667,6 +1671,15 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		2925A0501875422500FA2EED /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				2925A0511875430F00FA2EED /* bird_count_background.png */,
+				2925A0521875430F00FA2EED /* bird_count_background@2x.png */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
 		29501ED8185A89E0004AF7F9 /* Activity */ = {
 			isa = PBXGroup;
 			children = (
@@ -1725,6 +1738,7 @@
 				295E909818540910000BA5FE /* Category */,
 				295E909C18540BDB000BA5FE /* Data */,
 				295E90B518541332000BA5FE /* Entity */,
+				2925A0501875422500FA2EED /* Image */,
 				295E90B1185410D4000BA5FE /* Model */,
 				295E90631853FE3E000BA5FE /* Supporting Files */,
 				295E909118540804000BA5FE /* ViewController */,
@@ -2752,6 +2766,7 @@
 				29259D9E1874615A00FA2EED /* 054.png in Resources */,
 				29259DEC1874615A00FA2EED /* 140.png in Resources */,
 				29259F0F1874615A00FA2EED /* 458.png in Resources */,
+				2925A0541875430F00FA2EED /* bird_count_background@2x.png in Resources */,
 				29259FD91874615A00FA2EED /* 701.png in Resources */,
 				29259FC01874615A00FA2EED /* 666.png in Resources */,
 				29259FBE1874615A00FA2EED /* 664.png in Resources */,
@@ -3171,6 +3186,7 @@
 				29259F981874615A00FA2EED /* 622.png in Resources */,
 				29259FEB1874615A00FA2EED /* 722.png in Resources */,
 				29259FCD1874615A00FA2EED /* 681.png in Resources */,
+				2925A0531875430F00FA2EED /* bird_count_background.png in Resources */,
 				29259EA91874615A00FA2EED /* 348.png in Resources */,
 				29259F3F1874615A00FA2EED /* 512.png in Resources */,
 				29259FDF1874615A00FA2EED /* 708.png in Resources */,

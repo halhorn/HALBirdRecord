@@ -16,7 +16,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *commentLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
-@property (weak, nonatomic) IBOutlet UIView *birdCountContainerView;
 @property (weak, nonatomic) IBOutlet UILabel *birdCountLabel;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
@@ -52,7 +51,6 @@ static NSDateFormatter *dateFormatter;
     self.titleLabel.textColor = kHALTextColor;
     self.commentLabel.textColor = kHALSubTextColor;
     self.dateLabel.textColor = kHALSubTextColor;
-    self.birdCountContainerView.backgroundColor = kHALActivityListBirdCountBackgroundColor;
     self.birdCountLabel.textColor = kHALTextColor;
 }
 
@@ -61,8 +59,6 @@ static NSDateFormatter *dateFormatter;
     self.activity = activity;
     self.titleLabel.text = activity.title;
     self.commentLabel.text = activity.comment;
-    self.birdCountContainerView.layer.cornerRadius = 10;
-    self.birdCountContainerView.clipsToBounds = YES;
     self.birdCountLabel.text = [NSString stringWithFormat:@"%d", activity.birdRecordList.count];
     self.dateLabel.text = [self dateLabelText];
 
