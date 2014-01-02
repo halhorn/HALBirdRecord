@@ -39,11 +39,10 @@
     // Do any additional setup after loading the view from its nib.
     [self.tableView registerNib:[HALActivityListViewCell nib]
          forCellReuseIdentifier:[HALActivityListViewCell cellIdentifier]];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [self.tableView reloadData];
+    [[NSNotificationCenter defaultCenter] addObserver:self.tableView
+                                             selector:@selector(reloadData)
+                                                 name:[HALActivityManager updateActivityNotificationName]
+                                               object:nil];
 }
 
 - (void)didReceiveMemoryWarning
