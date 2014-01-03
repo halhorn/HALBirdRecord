@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property(nonatomic) HALActivityManager *activityManager;
+@property(nonatomic) BOOL reloadTableFlag;
 @end
 
 @implementation HALActivityListViewController
@@ -30,6 +31,7 @@
         // Custom initialization
         self.activityManager = [HALActivityManager sharedManager];
         self.title = @"鳥ログ";
+        self.reloadTableFlag = YES;
     }
     return self;
 }
@@ -43,8 +45,8 @@
     [self.tableView registerNib:[HALStatisticsViewCell nib]
          forCellReuseIdentifier:[HALStatisticsViewCell cellIdentifier]];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self.tableView
-                                             selector:@selector(reloadData)
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadTable)
                                                  name:[HALActivityManager updateActivityNotificationName]
                                                object:nil];
 }
@@ -62,6 +64,13 @@
     
     HALActivityViewController *viewController = [[HALActivityViewController alloc] initWithActivity:activity shouldShowRegister:YES];
     [self.navigationController pushViewController:viewController animated:YES];
+}
+
+- (void)reloadTable
+{
+    if (self.reloadTableFlag) {
+        [self.tableView reloadData];
+    }
 }
 
 #pragma mark - Table view data source
@@ -116,8 +125,10 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
         HALActivity *activity = [self.activityManager activityWithIndex:indexPath.row - kHALDataOffset];
+        self.reloadTableFlag = NO;
         [self.activityManager deleteActivity:activity];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        self.reloadTableFlag = YES;
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
