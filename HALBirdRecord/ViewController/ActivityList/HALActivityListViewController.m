@@ -82,7 +82,9 @@
     // Configure the cell...
     if (indexPath.row == 0) {
         // 統計
-        return [tableView dequeueReusableCellWithIdentifier:[HALStatisticsViewCell cellIdentifier]];
+        HALStatisticsViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[HALStatisticsViewCell cellIdentifier]];
+        [cell load];
+        return cell;
     }
     if (indexPath.row == 1) {
         // 新規アクティビティ

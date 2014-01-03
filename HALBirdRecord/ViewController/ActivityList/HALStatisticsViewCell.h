@@ -13,4 +13,6 @@
 + (NSString *)cellIdentifier;
 + (UINib *)nib;
 
+- (void)load;
+
 @end
