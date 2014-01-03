@@ -80,10 +80,9 @@
 
 - (void)registNewActivity:(HALActivity *)activity
 {
-    int activityID = 0;
     [self.db insertActivityRecord:activity];
-    activityID = [self.db selectLastIdOfActivityTable];
-    [self.db insertBirdRecordList:activity.birdRecordList activityID:activityID];
+    activity.dbID = [self.db selectLastIdOfActivityTable];
+    [self.db insertBirdRecordList:activity.birdRecordList activityID:activity.dbID];
     [self loadActivityList];
     [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kHALUpdateActivityNotificationName object:nil]];
 }
