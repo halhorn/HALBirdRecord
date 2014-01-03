@@ -759,6 +759,7 @@
 		2925A0541875430F00FA2EED /* bird_count_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2925A0521875430F00FA2EED /* bird_count_background@2x.png */; };
 		2925A05A187564ED00FA2EED /* HALStatisticsViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2925A059187564ED00FA2EED /* HALStatisticsViewCell.m */; };
 		2925A05C1875651600FA2EED /* HALStatisticsViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2925A05B1875651600FA2EED /* HALStatisticsViewCell.xib */; };
+		2925A06018770D1E00FA2EED /* HALThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 2925A05F18770D1E00FA2EED /* HALThread.m */; };
 		29501ED01858C8B6004AF7F9 /* HALActivityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 29501ECF1858C8B6004AF7F9 /* HALActivityManager.m */; };
 		29501EDF185A8AB5004AF7F9 /* HALActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29501EDD185A8AB5004AF7F9 /* HALActivityViewController.m */; };
 		29501EE0185A8AB5004AF7F9 /* HALActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29501EDE185A8AB5004AF7F9 /* HALActivityViewController.xib */; };
@@ -1572,6 +1573,8 @@
 		2925A058187564ED00FA2EED /* HALStatisticsViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALStatisticsViewCell.h; sourceTree = "<group>"; };
 		2925A059187564ED00FA2EED /* HALStatisticsViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALStatisticsViewCell.m; sourceTree = "<group>"; };
 		2925A05B1875651600FA2EED /* HALStatisticsViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALStatisticsViewCell.xib; sourceTree = "<group>"; };
+		2925A05E18770D1E00FA2EED /* HALThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALThread.h; sourceTree = "<group>"; };
+		2925A05F18770D1E00FA2EED /* HALThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALThread.m; sourceTree = "<group>"; };
 		29501ECE1858C8B6004AF7F9 /* HALActivityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALActivityManager.h; sourceTree = "<group>"; };
 		29501ECF1858C8B6004AF7F9 /* HALActivityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALActivityManager.m; sourceTree = "<group>"; };
 		29501EDC185A8AB5004AF7F9 /* HALActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALActivityViewController.h; sourceTree = "<group>"; };
@@ -1844,6 +1847,8 @@
 				29501EE9185BF76F004AF7F9 /* HALLocationManager.m */,
 				292594B01872B86200FA2EED /* HALMapManager.h */,
 				292594B11872B86200FA2EED /* HALMapManager.m */,
+				2925A05E18770D1E00FA2EED /* HALThread.h */,
+				2925A05F18770D1E00FA2EED /* HALThread.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3559,6 +3564,7 @@
 				29501EEA185BF76F004AF7F9 /* HALLocationManager.m in Sources */,
 				295E906D1853FE3E000BA5FE /* HALAppDelegate.m in Sources */,
 				29501EED185C7711004AF7F9 /* HALBirdPointAnnotation.m in Sources */,
+				2925A06018770D1E00FA2EED /* HALThread.m in Sources */,
 				29501EDF185A8AB5004AF7F9 /* HALActivityViewController.m in Sources */,
 				295E90DB1857ECC6000BA5FE /* UIViewController+HALSetCancelButton.m in Sources */,
 				295E90AA18541087000BA5FE /* HALBirdKindListViewController.m in Sources */,

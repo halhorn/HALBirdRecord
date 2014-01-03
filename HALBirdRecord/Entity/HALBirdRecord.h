@@ -22,5 +22,6 @@
 + (id)birdRecordWithBirdID:(int)birdID;
 - (id)initWithBirdID:(int)birdID;
 - (void)setCurrentLocationAsync;
+- (BOOL)isProcessing;
 
 @end

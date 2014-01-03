@@ -13,6 +13,7 @@
 @interface HALBirdRecord()
 
 @property(nonatomic) HALLocationManager *locationManager;
+@property(nonatomic) int processingCount;
 
 @end
 
@@ -46,6 +47,7 @@
         _count = 1;
         _kind = nil;
         _coordinate = CLLocationCoordinate2DMake(0, 0);
+        _processingCount = 0;
     }
     return self;
 }
@@ -60,9 +62,16 @@
 
 - (void)setCurrentLocationAsync
 {
+    self.processingCount++;
     [self.locationManager getCurrentLocationWithCompletion:^(CLLocationCoordinate2D coordinate){
         _coordinate = coordinate;
+        self.processingCount--;
     }];
+}
+
+- (BOOL)isProcessing
+{
+    return self.processingCount > 0;
 }
 
 #pragma mark methods

@@ -10,9 +10,12 @@
 #import "HALFlatBirdKindListTableViewController.h"
 #import "HALDB.h"
 #import "HALActivityManager.h"
+#import "HALThread.h"
 #import "UIViewController+HALCloseTextFieldKeyboard.h"
 #import "UIViewController+HALViewControllerFromNib.h"
 #import "UIViewController+HALSetCancelButton.h"
+
+#define kHALMaxWaitTime 5
 
 @interface HALBirdKindListViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIView *birdListView;
@@ -107,25 +110,32 @@
     });
 }
 
+- (BOOL)isAllBirdRecordRedy
+{
+    for (HALBirdRecord *record in [self.birdListViewController sendBirdList]) {
+        if (record.isProcessing) {
+            return NO;
+        }
+    }
+    return YES;
+}
+
 #pragma mark - UIEventHandler
 
 - (void)onTapAddButton:(id)sender
 {
-    NSArray *birdList = [self.birdListViewController sendBirdList];
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
     
-    if (birdList.count) {
-        self.completion(birdList);
-        [self dismissViewControllerAnimated:YES completion:nil];
-    } else {
-        WeakSelf weakSelf = self;
-        [UIAlertView showAlertViewWithTitle:@"鳥さんはどこ？" message:@"鳥が一羽もいないアクティビティを保存しますか？" cancelButtonTitle:@"戻る" otherButtonTitles:@[@"保存"] handler:^(UIAlertView *alertView, NSInteger buttonIndex){
-            if (buttonIndex == alertView.cancelButtonIndex) {
-                return;
-            }
-            weakSelf.completion(birdList);
-            [weakSelf dismissViewControllerAnimated:YES completion:nil];
-        }];
-    }
+    // 全ての BirdList が保存可能になるのを待ってからcompletionを実行
+    WeakSelf weakSelf = self;
+    [HALThread waitUntil:^BOOL(){
+        return [weakSelf isAllBirdRecordRedy];
+        
+    } do:^(BOOL success){
+        weakSelf.completion([weakSelf.birdListViewController sendBirdList]);
+        [weakSelf dismissViewControllerAnimated:YES completion:nil];
+        
+    } maxWait:kHALMaxWaitTime];
 }
 
 #pragma mark - UITextFieldDelegate
