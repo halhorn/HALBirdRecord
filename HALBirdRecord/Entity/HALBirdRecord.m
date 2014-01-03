@@ -39,15 +39,13 @@
 {
     self = [super init];
     if (self) {
-        self.locationManager = [HALLocationManager sharedManager];
+        self.locationManager = [[HALLocationManager alloc] init];
         _dbID = 0;
         _birdID = birdID;
         _datetime = [NSDate date];
         _count = 1;
         _kind = nil;
-        [self.locationManager getCurrentLocationWithCompletion:^(CLLocationCoordinate2D coordinate){
-            _coordinate = coordinate;
-        }];
+        _coordinate = CLLocationCoordinate2DMake(0, 0);
     }
     return self;
 }
@@ -60,10 +58,17 @@
     return _kind;
 }
 
+- (void)setCurrentLocationAsync
+{
+    [self.locationManager getCurrentLocationWithCompletion:^(CLLocationCoordinate2D coordinate){
+        _coordinate = coordinate;
+    }];
+}
+
 #pragma mark methods
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"HALBirdRecord birdID:%d count:%d datetime:%@ coordinate:(%f,%f)", self.birdID, self.count, self.datetime, self.coordinate.latitude, self.coordinate.longitude];
+    return [NSString stringWithFormat:@"HALBirdRecord dbID:%d birdID:%d count:%d datetime:%@ coordinate:(%f,%f)", self.dbID, self.birdID, self.count, self.datetime, self.coordinate.latitude, self.coordinate.longitude];
 }
 @end

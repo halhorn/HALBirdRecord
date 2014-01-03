@@ -11,21 +11,11 @@
 @interface HALLocationManager()<CLLocationManagerDelegate>
 
 @property(nonatomic) CLLocationManager *manager;
-@property(nonatomic, copy) void(^getLocationCompletion)(CLLocationCoordinate2D);
+@property(nonatomic) NSMutableArray *completionArray;
 
 @end
 
 @implementation HALLocationManager
-
-+ (instancetype)sharedManager
-{
-    static dispatch_once_t onceToken;
-    static HALLocationManager *sharedObject;
-    dispatch_once(&onceToken, ^{
-        sharedObject = [[HALLocationManager alloc] init];
-    });
-    return sharedObject;
-}
 
 - (id)init
 {
@@ -36,13 +26,14 @@
             return nil;
         }
         [self setupManager];
+        self.completionArray = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
 -(void) getCurrentLocationWithCompletion:(void(^)(CLLocationCoordinate2D))completion;
 {
-    self.getLocationCompletion = completion;
+    [self.completionArray addObject:completion];
     [self.manager startUpdatingLocation];
 }
 
@@ -60,7 +51,10 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
     [self.manager stopUpdatingLocation];
-    self.getLocationCompletion(newLocation.coordinate);
+    for (void(^getLocationCompletion)(CLLocationCoordinate2D) in self.completionArray) {
+        getLocationCompletion(newLocation.coordinate);
+    }
+    self.completionArray = [[NSMutableArray alloc] init];
 }
 
 @end
