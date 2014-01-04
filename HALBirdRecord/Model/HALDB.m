@@ -141,6 +141,19 @@
     return -1;
 }
 
+- (int)countTotalCities
+{
+    NSString *sqlFormat = [NSString stringWithFormat:@"select count(distinct city) as count from %@", kHALBirdRecordTable];
+    [self.fmDB open];
+    FMResultSet *resultSet = [self.fmDB executeQuery:sqlFormat];
+    if ([resultSet next]) {
+        NSNumber *count = [resultSet resultDictionary][@"count"];
+        return [count intValue];
+    }
+    NSLog(@"NoData in table");
+    return -1;
+}
+
 - (int)insertActivityRecord:(HALActivity *)activity
 {
     if (!activity) {return -1;}

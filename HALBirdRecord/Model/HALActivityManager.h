@@ -16,6 +16,7 @@
 - (int)activityCount;
 - (int)totalBirdKindCount;
 - (int)totalPrefectureCount;
+- (int)totalCityCount;
 - (HALActivity *)activityWithIndex:(int)index;
 - (void)saveActivity:(HALActivity *)activity;
 - (void)deleteActivity:(HALActivity *)activity;

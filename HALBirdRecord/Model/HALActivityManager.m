@@ -74,6 +74,11 @@
     return [self.db countTotalPrefectures];
 }
 
+- (int)totalCityCount
+{
+    return [self.db countTotalCities];
+}
+
 - (void)saveActivity:(HALActivity *)activity
 {
     if (activity.dbID) {
