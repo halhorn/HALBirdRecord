@@ -47,8 +47,8 @@
         _count = 1;
         _kind = nil;
         _coordinate = CLLocationCoordinate2DMake(0, 0);
-        _prefecture = nil;
-        _city = nil;
+        _prefecture = @"";
+        _city = @"";
         _processingCount = 0;
     }
     return self;

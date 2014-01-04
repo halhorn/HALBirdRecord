@@ -130,7 +130,7 @@
 
 - (int)countTotalPrefectures
 {
-    NSString *sqlFormat = [NSString stringWithFormat:@"select count(distinct prefecture) as count from %@", kHALBirdRecordTable];
+    NSString *sqlFormat = [NSString stringWithFormat:@"select count(distinct prefecture) as count from %@ where prefecture not like ''", kHALBirdRecordTable];
     [self.fmDB open];
     FMResultSet *resultSet = [self.fmDB executeQuery:sqlFormat];
     if ([resultSet next]) {
@@ -143,7 +143,7 @@
 
 - (int)countTotalCities
 {
-    NSString *sqlFormat = [NSString stringWithFormat:@"select count(distinct city) as count from %@", kHALBirdRecordTable];
+    NSString *sqlFormat = [NSString stringWithFormat:@"select count(distinct city) as count from %@ where city not like ''", kHALBirdRecordTable];
     [self.fmDB open];
     FMResultSet *resultSet = [self.fmDB executeQuery:sqlFormat];
     if ([resultSet next]) {
