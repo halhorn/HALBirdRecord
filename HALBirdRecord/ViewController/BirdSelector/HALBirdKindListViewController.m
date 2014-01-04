@@ -133,10 +133,18 @@
     
     // 全ての BirdList が保存可能になるのを待ってからcompletionを実行
     WeakSelf weakSelf = self;
+    NSDate *startTime = [NSDate date];
     [HALThread waitUntil:^BOOL(){
         return [weakSelf isAllBirdRecordRedy];
         
     } do:^(BOOL success){
+        NSTimeInterval timeDelay = [[NSDate date] timeIntervalSinceDate:startTime];
+        [HALGAManager sendAction:@"Delay Adding Bird List (delay)"
+                           label:[NSString stringWithFormat:@"%d", (int)timeDelay]
+                           value:timeDelay];
+        if (!success) {
+            [HALGAManager sendAction:@"Fail to get Location" label:@"" value:0];
+        }
         weakSelf.completion([weakSelf.birdListViewController sendBirdList]);
         [weakSelf dismissViewControllerAnimated:YES completion:nil];
         

@@ -50,6 +50,16 @@
     [tracker set:kGAIScreenName value:nil];
 }
 
++ (void)sendAction:(NSString *)action label:(NSString *)label value:(double)value
+{
+    [HALGAManager sendEventWithCategory:@"Action" action:action label:label value:value];
+}
+
++ (void)sendState:(NSString *)state label:(NSString *)label value:(double)value
+{
+    [HALGAManager sendEventWithCategory:@"State" action:state label:label value:value];
+}
+
 + (void)sendEventWithCategory:(NSString *)category action:(NSString *)action label:(NSString *)label value:(double)value
 {
     id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];

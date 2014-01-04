@@ -130,6 +130,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
         HALActivity *activity = [self.activityManager activityWithIndex:indexPath.row - kHALDataOffset];
+        [HALGAManager sendAction:@"Delete Activity" label:activity.title value:activity.birdRecordList.count];
         self.reloadTableFlag = NO;
         [self.activityManager deleteActivity:activity];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
