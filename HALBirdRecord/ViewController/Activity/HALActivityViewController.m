@@ -65,6 +65,7 @@
     if (self.shouldShowRegister) {
         WeakSelf weakSelf = self;
         [self performBlock:^(id sender){
+            [HALGAManager sendAction:@"Open Bird Selector" label:@"New Activity" value:0];
             [weakSelf showBirdSelectorView];
         } afterDelay:0.1];
     }
@@ -74,6 +75,7 @@
 {
     [self.birdRecordTableView reloadData];
     [self loadMapView];
+    [HALGAManager sendView:@"Activity"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -114,6 +116,9 @@
 {
     WeakSelf weakSelf = self;
     HALBirdKindListViewController *viewController = [[HALBirdKindListViewController alloc] initWithCompletion:^(NSArray *birdRecordList){
+        [HALGAManager sendAction:@"Add and Save Bird Record (count)"
+                           label:[NSString stringWithFormat:@"%lu", (unsigned long)birdRecordList.count]
+                           value:birdRecordList.count];
         [SVProgressHUD showSuccessWithStatus:@"追加しました"];
         [weakSelf addAndSaveBirdRecordList:birdRecordList];
     }];
@@ -142,10 +147,12 @@
 
 - (void)onTapAddButton:(id)sender
 {
+    [HALGAManager sendAction:@"Open Bird Selector" label:@"Existing Activity" value:0];
     [self showBirdSelectorView];
 }
 
 - (IBAction)onTitleEditDone:(id)sender {
+    [HALGAManager sendAction:@"Edit Activity Title" label:self.titleTextField.text value:0];
     self.activity.title = self.titleTextField.text;
     self.title = self.activity.title;
     [self.activityManager saveActivity:self.activity];
@@ -160,6 +167,7 @@
 #pragma mark - UITextViewDelegate
 - (BOOL)textViewShouldEndEditing:(UITextView *)textView
 {
+    [HALGAManager sendAction:@"Edit Activity Comment" label:self.commentTextView.text value:0];
     self.activity.comment = self.commentTextView.text;
     [self.activityManager saveActivity:self.activity];
     return YES;
@@ -201,6 +209,9 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        HALBirdRecord *deletingRecord = self.activity.birdRecordList[indexPath.row];
+        [HALGAManager sendAction:@"Delete Bird Record" label:deletingRecord.kind.name value:0];
+
         // Delete the row from the data source
         [self.activity.birdRecordList removeObjectAtIndex:indexPath.row];
         [[HALActivityManager sharedManager] saveActivity:self.activity];

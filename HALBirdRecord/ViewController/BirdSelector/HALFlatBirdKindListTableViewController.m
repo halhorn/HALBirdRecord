@@ -197,6 +197,9 @@
     HALBirdKind *birdKind = [self birdKindFromIndexPath:indexPath];
     HALBirdRecord *record = [self birdRecordWithBirdID:birdKind.birdID];
     if (!record) {
+        [HALGAManager sendAction:@"Select Bird (Select with Search)"
+                           label:birdKind.name
+                           value:[self.searchedBirdKindList isSearchWordSet] ? 1 : 0];
         HALBirdRecord *record = [[HALBirdRecord alloc] initWithBirdID:birdKind.birdID];
         [record setCurrentLocationAsync];
         [self.birdRecordList addObject:record];

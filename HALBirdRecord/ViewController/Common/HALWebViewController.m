@@ -50,6 +50,14 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"閉じる" style:UIBarButtonItemStyleBordered handler:^(id sender){
         [weakSelf dismissViewControllerAnimated:YES completion:nil];
     }];
+    [HALGAManager sendAction:@"View Web"
+                       label:[[self.url absoluteString] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]
+                       value:0];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [HALGAManager sendView:@"Web Browser"];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
