@@ -15,7 +15,7 @@
 #import "UIViewController+HALViewControllerFromNib.h"
 #import "UIViewController+HALSetCancelButton.h"
 
-#define kHALMaxWaitTime 5
+#define kHALMaxWaitTime 10
 
 @interface HALBirdKindListViewController ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIView *birdListView;
