@@ -35,6 +35,7 @@
 
 // ActivityList
 #define kHALActivityListStatisticsBackgroundColor RGBA(233, 243, 228, 1.0)
+#define kHALActivityListStatisticsLineColor RGBA(153, 171, 78, 1.0)
 
 // Activity
 #define kHALActivityTitleBackgroundColor   RGBA(248, 244, 230, 1.0)

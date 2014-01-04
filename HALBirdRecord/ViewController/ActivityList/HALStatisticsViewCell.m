@@ -18,6 +18,12 @@
 @property (weak, nonatomic) IBOutlet UIView *birdCountGageContainer;
 @property (weak, nonatomic) IBOutlet UILabel *birdKindCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *birdKindCountTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *PrefectureCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *prefectureCountTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *cityCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *cityCountTitleLabel;
+@property (weak, nonatomic) IBOutlet UIView *lineView1;
+@property (weak, nonatomic) IBOutlet UIView *lineLabel2;
 
 @end
 
@@ -77,6 +83,14 @@
     self.birdKindCountLabel.textColor = kHALTextColor;
     self.birdKindCountTitleLabel.textColor = kHALSubTextColor;
     
+    self.PrefectureCountLabel.textColor = kHALTextColor;
+    self.prefectureCountTitleLabel.textColor = kHALSubTextColor;
+    self.cityCountLabel.textColor = kHALTextColor;
+    self.cityCountLabel.adjustsFontSizeToFitWidth = YES;
+    self.cityCountLabel.minimumScaleFactor = 0.5;
+    self.cityCountTitleLabel.textColor = kHALSubTextColor;
+    self.lineView1.backgroundColor = kHALActivityListStatisticsLineColor;
+    self.lineLabel2.backgroundColor = kHALActivityListStatisticsLineColor;
 }
 
 - (void)load
@@ -84,6 +98,8 @@
     int birdKindCount = [self.activityManager totalBirdKindCount];
     [self.birdKindCountGauge setValue:birdKindCount animated:YES];
     self.birdKindCountLabel.text = [NSString stringWithFormat:@"%d", birdKindCount];
+    self.PrefectureCountLabel.text = [NSString stringWithFormat:@"%d", [self.activityManager totalPrefectureCount]];
+    self.cityCountLabel.text = [NSString stringWithFormat:@"%d", [self.activityManager totalCityCount]];
 }
 
 @end
