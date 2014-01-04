@@ -17,9 +17,13 @@
 @property(nonatomic) int count;
 @property(nonatomic) NSDate *datetime;
 @property(nonatomic) CLLocationCoordinate2D coordinate;
+@property(nonatomic) NSString *prefecture;
+@property(nonatomic) NSString *city;
 @property(nonatomic, readonly) HALBirdKind *kind;
 
 + (id)birdRecordWithBirdID:(int)birdID;
 - (id)initWithBirdID:(int)birdID;
+- (void)setCurrentLocationAsync;
+- (BOOL)isProcessing;
 
 @end

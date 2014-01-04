@@ -11,38 +11,31 @@
 @interface HALLocationManager()<CLLocationManagerDelegate>
 
 @property(nonatomic) CLLocationManager *manager;
-@property(nonatomic, copy) void(^getLocationCompletion)(CLLocationCoordinate2D);
+@property(nonatomic) NSMutableArray *completionArray;
 
 @end
 
 @implementation HALLocationManager
 
-+ (instancetype)sharedManager
-{
-    static dispatch_once_t onceToken;
-    static HALLocationManager *sharedObject;
-    dispatch_once(&onceToken, ^{
-        sharedObject = [[HALLocationManager alloc] init];
-    });
-    return sharedObject;
-}
-
 - (id)init
 {
     self = [super init];
     if (self) {
-        if (![CLLocationManager locationServicesEnabled]) {
-            NSLog(@"Location Service Disabled!");
-            return nil;
-        }
         [self setupManager];
+        self.completionArray = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
--(void) getCurrentLocationWithCompletion:(void(^)(CLLocationCoordinate2D))completion;
+-(void) getCurrentLocationWithCompletion:(void(^)(CLLocationCoordinate2D, CLPlacemark *))completion;
 {
-    self.getLocationCompletion = completion;
+    if (![CLLocationManager locationServicesEnabled]) {
+        NSLog(@"Location Service Disabled!");
+        completion(CLLocationCoordinate2DMake(0, 0), nil);
+        return;
+    }
+    
+    [self.completionArray addObject:completion];
     [self.manager startUpdatingLocation];
 }
 
@@ -55,12 +48,28 @@
     self.manager.desiredAccuracy = kCLLocationAccuracyBest;
 }
 
+- (void)executeCompletionsWithCoordinate:(CLLocationCoordinate2D)coordinate placemark:(CLPlacemark *)placemark
+{
+    for (void(^getLocationCompletion)(CLLocationCoordinate2D, CLPlacemark *) in self.completionArray) {
+        getLocationCompletion(coordinate, placemark);
+    }
+    self.completionArray = [[NSMutableArray alloc] init];
+}
+
 #pragma mark - CLLocationManagerDelegate methdos
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
     [self.manager stopUpdatingLocation];
-    self.getLocationCompletion(newLocation.coordinate);
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    WeakSelf weakSelf = self;
+    [geocoder reverseGeocodeLocation:newLocation completionHandler:^(NSArray *placemarks, NSError *error){
+        CLPlacemark *placemark;
+        if (placemarks.count) {
+            placemark = placemarks[0];
+        }
+        [weakSelf executeCompletionsWithCoordinate:newLocation.coordinate placemark:placemark];
+    }];
 }
 
 @end

@@ -198,6 +198,7 @@
     HALBirdRecord *record = [self birdRecordWithBirdID:birdKind.birdID];
     if (!record) {
         HALBirdRecord *record = [[HALBirdRecord alloc] initWithBirdID:birdKind.birdID];
+        [record setCurrentLocationAsync];
         [self.birdRecordList addObject:record];
         [self.birdKindListViewController updateAddButtonBirdCount];
         [tableView reloadData];

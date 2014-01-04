@@ -16,6 +16,9 @@
 - (NSArray *)selectActivityRows;
 - (NSArray *)selectBirdRecordListWithActivityDBID:(int)dbID;
 - (int)selectLastIdOfActivityTable;
+- (int)countTotalBirdKinds;
+- (int)countTotalPrefectures;
+- (int)countTotalCities;
 - (int)insertActivityRecord:(HALActivity *)activity;
 - (int)insertBirdRecordList:(NSArray *)birdRecordList activityID:(int)activityID;
 - (int)updateActivity:(HALActivity *)activity;

@@ -11,13 +11,15 @@
 #import "HALActivityManager.h"
 #import "HALActivityListViewCell.h"
 #import "UIViewController+HALViewControllerFromNib.h"
+#import "HALStatisticsViewCell.h"
 
-#define kHALDataOffset 1
+#define kHALDataOffset 2
 
 @interface HALActivityListViewController ()<UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property(nonatomic) HALActivityManager *activityManager;
+@property(nonatomic) BOOL reloadTableFlag;
 @end
 
 @implementation HALActivityListViewController
@@ -29,6 +31,7 @@
         // Custom initialization
         self.activityManager = [HALActivityManager sharedManager];
         self.title = @"鳥ログ";
+        self.reloadTableFlag = YES;
     }
     return self;
 }
@@ -39,8 +42,11 @@
     // Do any additional setup after loading the view from its nib.
     [self.tableView registerNib:[HALActivityListViewCell nib]
          forCellReuseIdentifier:[HALActivityListViewCell cellIdentifier]];
-    [[NSNotificationCenter defaultCenter] addObserver:self.tableView
-                                             selector:@selector(reloadData)
+    [self.tableView registerNib:[HALStatisticsViewCell nib]
+         forCellReuseIdentifier:[HALStatisticsViewCell cellIdentifier]];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadTable)
                                                  name:[HALActivityManager updateActivityNotificationName]
                                                object:nil];
 }
@@ -60,6 +66,13 @@
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
+- (void)reloadTable
+{
+    if (self.reloadTableFlag) {
+        [self.tableView reloadData];
+    }
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -76,9 +89,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Configure the cell...
-    if (indexPath.row < kHALDataOffset) {
-        // トップ項目
-        UITableViewCell *cell = cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"DefaultCell"];
+    if (indexPath.row == 0) {
+        // 統計
+        HALStatisticsViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[HALStatisticsViewCell cellIdentifier]];
+        [cell load];
+        return cell;
+    }
+    if (indexPath.row == 1) {
+        // 新規アクティビティ
+        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"DefaultCell"];
         cell.textLabel.textColor = kHALTextColor;
         cell.textLabel.text = @"＋新しいアクティビティ";
         return cell;
@@ -106,8 +125,10 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
         HALActivity *activity = [self.activityManager activityWithIndex:indexPath.row - kHALDataOffset];
+        self.reloadTableFlag = NO;
         [self.activityManager deleteActivity:activity];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        self.reloadTableFlag = YES;
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -133,7 +154,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row < kHALDataOffset) {
+    if (indexPath.row == 0) {
+        return 80;
+    } else if (indexPath.row == 1) {
         return 40;
     } else {
         return 68;
@@ -142,10 +165,22 @@
 
 #pragma mark - Table view delegate
 
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0) {
+        // row:0 統計情報ページを作るまでは選択不可に
+        return nil;
+    }
+    return indexPath;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (indexPath.row < kHALDataOffset) {
+    if (indexPath.row == 0) {
+        
+        return;
+    } else if (indexPath.row == 1) {
         [self showNewActivity];
         return;
     }

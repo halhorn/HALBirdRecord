@@ -64,6 +64,21 @@
     return activity;
 }
 
+- (int)totalBirdKindCount
+{
+    return [self.db countTotalBirdKinds];
+}
+
+- (int)totalPrefectureCount
+{
+    return [self.db countTotalPrefectures];
+}
+
+- (int)totalCityCount
+{
+    return [self.db countTotalCities];
+}
+
 - (void)saveActivity:(HALActivity *)activity
 {
     if (activity.dbID) {
@@ -75,10 +90,9 @@
 
 - (void)registNewActivity:(HALActivity *)activity
 {
-    int activityID = 0;
     [self.db insertActivityRecord:activity];
-    activityID = [self.db selectLastIdOfActivityTable];
-    [self.db insertBirdRecordList:activity.birdRecordList activityID:activityID];
+    activity.dbID = [self.db selectLastIdOfActivityTable];
+    [self.db insertBirdRecordList:activity.birdRecordList activityID:activity.dbID];
     [self loadActivityList];
     [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kHALUpdateActivityNotificationName object:nil]];
 }
@@ -127,6 +141,8 @@
         NSNumber *count = [self removeNSNull:birdRow[@"count"]];
         NSNumber *latitude = [self removeNSNull:birdRow[@"latitude"]];
         NSNumber *longitude = [self removeNSNull:birdRow[@"longitude"]];
+        NSString *prefecture = [self removeNSNull:birdRow[@"prefecture"]];
+        NSString *city = [self removeNSNull:birdRow[@"city"]];
         NSNumber *birdUnixtime = [self removeNSNull:birdRow[@"datetime"]];
         NSNumber *birdDBID = birdRow[@"id"];
         
@@ -135,6 +151,8 @@
         bird.count = [count intValue];
         bird.coordinate = CLLocationCoordinate2DMake([latitude doubleValue], [longitude doubleValue]);
         bird.datetime = [NSDate dateWithTimeIntervalSince1970:[birdUnixtime doubleValue]];
+        bird.prefecture = prefecture;
+        bird.city = city;
         [activity addBirdRecord:bird];
     }
 }

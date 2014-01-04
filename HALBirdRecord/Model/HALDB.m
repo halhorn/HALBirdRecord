@@ -45,7 +45,9 @@
                               "count integer,"
                               "datetime integer,"
                               "latitude real,"
-                              "longitude real"
+                              "longitude real,"
+                              "prefecture text,"
+                              "city text"
                               ");", kHALBirdRecordTable]];
     [self.fmDB executeUpdate:[NSString stringWithFormat:@"create table if not exists %@("
                               "id integer primary key autoincrement,"
@@ -113,6 +115,45 @@
     return -1;
 }
 
+- (int)countTotalBirdKinds
+{
+    NSString *sqlFormat = [NSString stringWithFormat:@"select count(distinct birdID) as count from %@", kHALBirdRecordTable];
+    [self.fmDB open];
+    FMResultSet *resultSet = [self.fmDB executeQuery:sqlFormat];
+    if ([resultSet next]) {
+        NSNumber *count = [resultSet resultDictionary][@"count"];
+        return [count intValue];
+    }
+    NSLog(@"NoData in table");
+    return -1;
+}
+
+- (int)countTotalPrefectures
+{
+    NSString *sqlFormat = [NSString stringWithFormat:@"select count(distinct prefecture) as count from %@ where prefecture not like ''", kHALBirdRecordTable];
+    [self.fmDB open];
+    FMResultSet *resultSet = [self.fmDB executeQuery:sqlFormat];
+    if ([resultSet next]) {
+        NSNumber *count = [resultSet resultDictionary][@"count"];
+        return [count intValue];
+    }
+    NSLog(@"NoData in table");
+    return -1;
+}
+
+- (int)countTotalCities
+{
+    NSString *sqlFormat = [NSString stringWithFormat:@"select count(distinct city) as count from %@ where city not like ''", kHALBirdRecordTable];
+    [self.fmDB open];
+    FMResultSet *resultSet = [self.fmDB executeQuery:sqlFormat];
+    if ([resultSet next]) {
+        NSNumber *count = [resultSet resultDictionary][@"count"];
+        return [count intValue];
+    }
+    NSLog(@"NoData in table");
+    return -1;
+}
+
 - (int)insertActivityRecord:(HALActivity *)activity
 {
     if (!activity) {return -1;}
@@ -131,9 +172,9 @@
 - (int)insertBirdRecordList:(NSArray *)birdRecordList activityID:(int)activityID
 {
     if (!birdRecordList || !birdRecordList.count) {return -1;}
-    NSString *questions = @"(?,?,?,?,?,?)";
+    NSString *questions = @"(?,?,?,?,?,?,?,?)";
     for (int i = 1; i < birdRecordList.count; i++) {
-        questions = [NSString stringWithFormat:@"%@,(?,?,?,?,?,?)", questions];
+        questions = [NSString stringWithFormat:@"%@,(?,?,?,?,?,?,?,?)", questions];
     }
     NSString *sqlFormat = [NSString stringWithFormat:@"insert into %@("
                            "birdID,"
@@ -141,7 +182,9 @@
                            "count,"
                            "datetime,"
                            "latitude,"
-                           "longitude"
+                           "longitude,"
+                           "prefecture,"
+                           "city"
                            ") "
                            "values%@;", kHALBirdRecordTable, questions];
     NSMutableArray *args = [[NSMutableArray alloc] init];
@@ -152,6 +195,8 @@
         [args addObject:birdRecord.datetime];
         [args addObject:@(birdRecord.coordinate.latitude)];
         [args addObject:@(birdRecord.coordinate.longitude)];
+        [args addObject:birdRecord.prefecture];
+        [args addObject:birdRecord.city];
     }
 
     [self.fmDB open];

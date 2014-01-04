@@ -13,6 +13,7 @@
 @interface HALBirdRecord()
 
 @property(nonatomic) HALLocationManager *locationManager;
+@property(nonatomic) int processingCount;
 
 @end
 
@@ -39,15 +40,16 @@
 {
     self = [super init];
     if (self) {
-        self.locationManager = [HALLocationManager sharedManager];
+        self.locationManager = [[HALLocationManager alloc] init];
         _dbID = 0;
         _birdID = birdID;
         _datetime = [NSDate date];
         _count = 1;
         _kind = nil;
-        [self.locationManager getCurrentLocationWithCompletion:^(CLLocationCoordinate2D coordinate){
-            _coordinate = coordinate;
-        }];
+        _coordinate = CLLocationCoordinate2DMake(0, 0);
+        _prefecture = @"";
+        _city = @"";
+        _processingCount = 0;
     }
     return self;
 }
@@ -60,10 +62,31 @@
     return _kind;
 }
 
-#pragma mark methods
+- (void)setCurrentLocationAsync
+{
+    self.processingCount++;
+    [self.locationManager getCurrentLocationWithCompletion:^(CLLocationCoordinate2D coordinate, CLPlacemark *placemark){
+        _coordinate = coordinate;
+        if (placemark && [self isPrefectureString:placemark.addressDictionary[@"State"]]) {
+            _prefecture = placemark.addressDictionary[@"State"];
+            _city = placemark.addressDictionary[@"City"];
+        }
+        self.processingCount--;
+    }];
+}
+
+- (BOOL)isProcessing
+{
+    return self.processingCount > 0;
+}
+
+- (BOOL)isPrefectureString:(NSString *)str
+{
+    return [str hasSuffix:@"都"] || [str hasSuffix:@"道"] || [str hasSuffix:@"府"] || [str hasSuffix:@"県"];
+}
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"HALBirdRecord birdID:%d count:%d datetime:%@ coordinate:(%f,%f)", self.birdID, self.count, self.datetime, self.coordinate.latitude, self.coordinate.longitude];
+    return [NSString stringWithFormat:@"HALBirdRecord dbID:%d birdID:%d count:%d datetime:%@ coordinate:(%f,%f)[%@/%@]", self.dbID, self.birdID, self.count, self.datetime, self.coordinate.latitude, self.coordinate.longitude, self.prefecture, self.city];
 }
 @end
