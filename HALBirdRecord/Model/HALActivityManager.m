@@ -69,6 +69,11 @@
     return [self.db countTotalBirdKinds];
 }
 
+- (int)totalPrefectureCount
+{
+    return [self.db countTotalPrefectures];
+}
+
 - (void)saveActivity:(HALActivity *)activity
 {
     if (activity.dbID) {

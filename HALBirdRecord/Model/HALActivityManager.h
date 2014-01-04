@@ -15,6 +15,7 @@
 + (instancetype)sharedManager;
 - (int)activityCount;
 - (int)totalBirdKindCount;
+- (int)totalPrefectureCount;
 - (HALActivity *)activityWithIndex:(int)index;
 - (void)saveActivity:(HALActivity *)activity;
 - (void)deleteActivity:(HALActivity *)activity;

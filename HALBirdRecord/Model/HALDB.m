@@ -121,8 +121,21 @@
     [self.fmDB open];
     FMResultSet *resultSet = [self.fmDB executeQuery:sqlFormat];
     if ([resultSet next]) {
-        NSNumber *last_id = [resultSet resultDictionary][@"count"];
-        return [last_id intValue];
+        NSNumber *count = [resultSet resultDictionary][@"count"];
+        return [count intValue];
+    }
+    NSLog(@"NoData in table");
+    return -1;
+}
+
+- (int)countTotalPrefectures
+{
+    NSString *sqlFormat = [NSString stringWithFormat:@"select count(distinct prefecture) as count from %@", kHALBirdRecordTable];
+    [self.fmDB open];
+    FMResultSet *resultSet = [self.fmDB executeQuery:sqlFormat];
+    if ([resultSet next]) {
+        NSNumber *count = [resultSet resultDictionary][@"count"];
+        return [count intValue];
     }
     NSLog(@"NoData in table");
     return -1;
