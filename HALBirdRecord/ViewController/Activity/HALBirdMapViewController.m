@@ -49,6 +49,11 @@
     [self.mapView addAnnotations:[mapManager annotationList]];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [HALGAManager sendView:@"Activity - 鳥地図"];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

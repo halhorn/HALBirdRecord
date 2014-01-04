@@ -74,6 +74,7 @@
 {
     [self.birdRecordTableView reloadData];
     [self loadMapView];
+    [HALGAManager sendView:@"Activity"];
 }
 
 - (void)didReceiveMemoryWarning

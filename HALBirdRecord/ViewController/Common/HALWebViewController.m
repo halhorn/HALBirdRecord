@@ -52,6 +52,11 @@
     }];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [HALGAManager sendView:@"Web Browser"];
+}
+
 - (void)viewWillDisappear:(BOOL)animated
 {
     [SVProgressHUD dismiss];

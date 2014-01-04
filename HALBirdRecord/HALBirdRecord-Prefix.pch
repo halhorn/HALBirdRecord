@@ -16,6 +16,7 @@
     #import <BlocksKit/BlocksKit.h>
     #import <SVProgressHUD/SVProgressHUD.h>
     #import "UIViewController+HALSetCancelButton.h"
+    #import "HALGAManager.h"
 #endif
 
 #define WeakSelf __weak typeof (self)

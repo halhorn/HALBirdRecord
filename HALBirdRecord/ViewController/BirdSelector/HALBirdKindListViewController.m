@@ -84,6 +84,11 @@
                                                                              action:@selector(onTapAddButton:)];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [HALGAManager sendView:@"Bird Selector"];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
