@@ -17,6 +17,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [HALGAManager setup];
+    [HALGAManager sendState];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     HALActivityListViewController *viewController = [HALActivityListViewController viewControllerFromNib];
@@ -51,6 +53,7 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [HALGAManager sendState];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

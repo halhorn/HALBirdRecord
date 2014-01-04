@@ -12,10 +12,8 @@
 @interface HALGAManager : NSObject
 
 + (void)setup;
-+ (void)setFirstActivationDate:(id<GAITracker>)tracker;
++ (void)sendState;
 + (void)sendView:(NSString *)page;
 + (void)sendAction:(NSString *)action label:(NSString *)label value:(double)value;
-+ (void)sendState:(NSString *)state label:(NSString *)label value:(double)value;
-+ (void)sendEventWithCategory:(NSString *)category action:(NSString *)action label:(NSString *)label value:(double)value;
 
 @end
