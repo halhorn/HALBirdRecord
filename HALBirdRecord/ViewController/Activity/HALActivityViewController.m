@@ -17,7 +17,7 @@
 #import <MapKit/MapKit.h>
 #import <SZTextView/SZTextView.h>
 
-@interface HALActivityViewController ()<UITextFieldDelegate, UITextViewDelegate, UITableViewDelegate, MKMapViewDelegate>
+@interface HALActivityViewController ()<UITextFieldDelegate, UITextViewDelegate, UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet SZTextView *commentTextView;
 @property (weak, nonatomic) IBOutlet UITableView *birdRecordTableView;
