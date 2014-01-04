@@ -21,10 +21,6 @@
 {
     self = [super init];
     if (self) {
-        if (![CLLocationManager locationServicesEnabled]) {
-            NSLog(@"Location Service Disabled!");
-            return nil;
-        }
         [self setupManager];
         self.completionArray = [[NSMutableArray alloc] init];
     }
@@ -33,6 +29,12 @@
 
 -(void) getCurrentLocationWithCompletion:(void(^)(CLLocationCoordinate2D, CLPlacemark *))completion;
 {
+    if (![CLLocationManager locationServicesEnabled]) {
+        NSLog(@"Location Service Disabled!");
+        completion(CLLocationCoordinate2DMake(0, 0), nil);
+        return;
+    }
+    
     [self.completionArray addObject:completion];
     [self.manager startUpdatingLocation];
 }
@@ -46,21 +48,27 @@
     self.manager.desiredAccuracy = kCLLocationAccuracyBest;
 }
 
+- (void)executeCompletionsWithCoordinate:(CLLocationCoordinate2D)coordinate placemark:(CLPlacemark *)placemark
+{
+    for (void(^getLocationCompletion)(CLLocationCoordinate2D, CLPlacemark *) in self.completionArray) {
+        getLocationCompletion(coordinate, placemark);
+    }
+    self.completionArray = [[NSMutableArray alloc] init];
+}
+
 #pragma mark - CLLocationManagerDelegate methdos
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
     [self.manager stopUpdatingLocation];
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    WeakSelf weakSelf = self;
     [geocoder reverseGeocodeLocation:newLocation completionHandler:^(NSArray *placemarks, NSError *error){
         CLPlacemark *placemark;
         if (placemarks.count) {
             placemark = placemarks[0];
         }
-        for (void(^getLocationCompletion)(CLLocationCoordinate2D, CLPlacemark *) in self.completionArray) {
-            getLocationCompletion(newLocation.coordinate, placemark);
-        }
-        self.completionArray = [[NSMutableArray alloc] init];
+        [weakSelf executeCompletionsWithCoordinate:newLocation.coordinate placemark:placemark];
     }];
 }
 
