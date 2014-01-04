@@ -31,7 +31,7 @@
     return self;
 }
 
--(void) getCurrentLocationWithCompletion:(void(^)(CLLocationCoordinate2D))completion;
+-(void) getCurrentLocationWithCompletion:(void(^)(CLLocationCoordinate2D, CLPlacemark *))completion;
 {
     [self.completionArray addObject:completion];
     [self.manager startUpdatingLocation];
@@ -51,10 +51,17 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
     [self.manager stopUpdatingLocation];
-    for (void(^getLocationCompletion)(CLLocationCoordinate2D) in self.completionArray) {
-        getLocationCompletion(newLocation.coordinate);
-    }
-    self.completionArray = [[NSMutableArray alloc] init];
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder reverseGeocodeLocation:newLocation completionHandler:^(NSArray *placemarks, NSError *error){
+        CLPlacemark *placemark;
+        if (placemarks.count) {
+            placemark = placemarks[0];
+        }
+        for (void(^getLocationCompletion)(CLLocationCoordinate2D, CLPlacemark *) in self.completionArray) {
+            getLocationCompletion(newLocation.coordinate, placemark);
+        }
+        self.completionArray = [[NSMutableArray alloc] init];
+    }];
 }
 
 @end

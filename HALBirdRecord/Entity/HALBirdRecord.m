@@ -47,6 +47,8 @@
         _count = 1;
         _kind = nil;
         _coordinate = CLLocationCoordinate2DMake(0, 0);
+        _prefecture = nil;
+        _city = nil;
         _processingCount = 0;
     }
     return self;
@@ -63,8 +65,12 @@
 - (void)setCurrentLocationAsync
 {
     self.processingCount++;
-    [self.locationManager getCurrentLocationWithCompletion:^(CLLocationCoordinate2D coordinate){
+    [self.locationManager getCurrentLocationWithCompletion:^(CLLocationCoordinate2D coordinate, CLPlacemark *placemark){
         _coordinate = coordinate;
+        if (placemark && [self isPrefectureString:placemark.addressDictionary[@"State"]]) {
+            _prefecture = placemark.addressDictionary[@"State"];
+            _city = placemark.addressDictionary[@"City"];
+        }
         self.processingCount--;
     }];
 }
@@ -74,10 +80,13 @@
     return self.processingCount > 0;
 }
 
-#pragma mark methods
+- (BOOL)isPrefectureString:(NSString *)str
+{
+    return [str hasSuffix:@"都"] || [str hasSuffix:@"道"] || [str hasSuffix:@"府"] || [str hasSuffix:@"県"];
+}
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"HALBirdRecord dbID:%d birdID:%d count:%d datetime:%@ coordinate:(%f,%f)", self.dbID, self.birdID, self.count, self.datetime, self.coordinate.latitude, self.coordinate.longitude];
+    return [NSString stringWithFormat:@"HALBirdRecord dbID:%d birdID:%d count:%d datetime:%@ coordinate:(%f,%f)[%@/%@]", self.dbID, self.birdID, self.count, self.datetime, self.coordinate.latitude, self.coordinate.longitude, self.prefecture, self.city];
 }
 @end

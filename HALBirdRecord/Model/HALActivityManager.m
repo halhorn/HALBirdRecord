@@ -131,6 +131,8 @@
         NSNumber *count = [self removeNSNull:birdRow[@"count"]];
         NSNumber *latitude = [self removeNSNull:birdRow[@"latitude"]];
         NSNumber *longitude = [self removeNSNull:birdRow[@"longitude"]];
+        NSString *prefecture = [self removeNSNull:birdRow[@"prefecture"]];
+        NSString *city = [self removeNSNull:birdRow[@"city"]];
         NSNumber *birdUnixtime = [self removeNSNull:birdRow[@"datetime"]];
         NSNumber *birdDBID = birdRow[@"id"];
         
@@ -139,6 +141,8 @@
         bird.count = [count intValue];
         bird.coordinate = CLLocationCoordinate2DMake([latitude doubleValue], [longitude doubleValue]);
         bird.datetime = [NSDate dateWithTimeIntervalSince1970:[birdUnixtime doubleValue]];
+        bird.prefecture = prefecture;
+        bird.city = city;
         [activity addBirdRecord:bird];
     }
 }
