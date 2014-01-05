@@ -8,8 +8,8 @@
 
 #import "HALLicenseViewController.h"
 
-#define kHALTitleFontSize 20
-#define kHALDescriptionSize 12
+#define kHALTitleFontSize 24
+#define kHALDescriptionSize 10
 
 @interface HALLicenseViewController ()
 
@@ -32,6 +32,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.title = @"Acknowledgements / Licenses";
     
     NSString *path = [[NSBundle mainBundle] pathForResource:@"Pods-acknowledgements" ofType:@"plist"];
     NSDictionary *acknowledgementsDict = [NSDictionary dictionaryWithContentsOfFile:path];
@@ -40,10 +41,10 @@
     NSMutableAttributedString *acknowledgementsString = [[NSMutableAttributedString alloc] init];
     for (NSDictionary *acknowledgement in acknowledgements) {
         NSAttributedString *title = [[NSAttributedString alloc]
-                                     initWithString:[NSString stringWithFormat:@"%@¥n", acknowledgement[@"Title"]]
+                                     initWithString:[NSString stringWithFormat:@"%@\n", acknowledgement[@"Title"]]
                                      attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kHALTitleFontSize]}];
         NSAttributedString *description = [[NSAttributedString alloc]
-                                           initWithString:[NSString stringWithFormat:@"%@¥n¥n", acknowledgement[@"FooterText"]]
+                                           initWithString:[NSString stringWithFormat:@"%@\n\n", acknowledgement[@"FooterText"]]
                                            attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kHALDescriptionSize]}];
         [acknowledgementsString appendAttributedString:title];
         [acknowledgementsString appendAttributedString:description];

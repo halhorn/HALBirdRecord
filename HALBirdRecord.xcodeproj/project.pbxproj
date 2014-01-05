@@ -766,6 +766,7 @@
 		2925A0741878E45400FA2EED /* HALLicenseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2925A0721878E45400FA2EED /* HALLicenseViewController.xib */; };
 		2925A07D1878EB4900FA2EED /* HALApplicationInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2925A07B1878EB4900FA2EED /* HALApplicationInfoViewController.m */; };
 		2925A07E1878EB4900FA2EED /* HALApplicationInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2925A07C1878EB4900FA2EED /* HALApplicationInfoViewController.xib */; };
+		2925A0801878F57500FA2EED /* Pods-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2925A07F1878F57500FA2EED /* Pods-acknowledgements.plist */; };
 		29501ED01858C8B6004AF7F9 /* HALActivityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 29501ECF1858C8B6004AF7F9 /* HALActivityManager.m */; };
 		29501EDF185A8AB5004AF7F9 /* HALActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29501EDD185A8AB5004AF7F9 /* HALActivityViewController.m */; };
 		29501EE0185A8AB5004AF7F9 /* HALActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29501EDE185A8AB5004AF7F9 /* HALActivityViewController.xib */; };
@@ -1590,6 +1591,7 @@
 		2925A07A1878EB4900FA2EED /* HALApplicationInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALApplicationInfoViewController.h; sourceTree = "<group>"; };
 		2925A07B1878EB4900FA2EED /* HALApplicationInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALApplicationInfoViewController.m; sourceTree = "<group>"; };
 		2925A07C1878EB4900FA2EED /* HALApplicationInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALApplicationInfoViewController.xib; sourceTree = "<group>"; };
+		2925A07F1878F57500FA2EED /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
 		29501ECE1858C8B6004AF7F9 /* HALActivityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALActivityManager.h; sourceTree = "<group>"; };
 		29501ECF1858C8B6004AF7F9 /* HALActivityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALActivityManager.m; sourceTree = "<group>"; };
 		29501EDC185A8AB5004AF7F9 /* HALActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALActivityViewController.h; sourceTree = "<group>"; };
@@ -1791,6 +1793,7 @@
 				295E90651853FE3E000BA5FE /* InfoPlist.strings */,
 				295E90681853FE3E000BA5FE /* main.m */,
 				295E906A1853FE3E000BA5FE /* HALBirdRecord-Prefix.pch */,
+				2925A07F1878F57500FA2EED /* Pods-acknowledgements.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -2772,6 +2775,7 @@
 				29259D8A1874615A00FA2EED /* 034.png in Resources */,
 				29259DB21874615A00FA2EED /* 075.png in Resources */,
 				29259FC71874615A00FA2EED /* 674.png in Resources */,
+				2925A0801878F57500FA2EED /* Pods-acknowledgements.plist in Resources */,
 				29259E651874615A00FA2EED /* 273.png in Resources */,
 				29259F1B1874615A00FA2EED /* 470.png in Resources */,
 				29259EA41874615A00FA2EED /* 343.png in Resources */,

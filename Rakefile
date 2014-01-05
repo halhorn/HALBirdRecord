@@ -12,5 +12,6 @@ task :setup do
   sh 'bundle install'
   sh 'rbenv rehash'
   sh 'bundle exec pod install'
+  sh 'cp Pods/Pods-acknowledgements.plist HALBirdRecord/'
 end
 
