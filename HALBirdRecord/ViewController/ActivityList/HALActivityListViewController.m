@@ -16,11 +16,12 @@
 
 #define kHALDataOffset 2
 
-@interface HALActivityListViewController ()<UITableViewDelegate>
+@interface HALActivityListViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIView *explainView;
 
 @property(nonatomic) HALActivityManager *activityManager;
-@property(nonatomic) BOOL reloadTableFlag;
+@property(nonatomic) BOOL reloadViewFlag;
 @end
 
 @implementation HALActivityListViewController
@@ -32,7 +33,7 @@
         // Custom initialization
         self.activityManager = [HALActivityManager sharedManager];
         self.title = @"鳥ログ";
-        self.reloadTableFlag = YES;
+        self.reloadViewFlag = YES;
     }
     return self;
 }
@@ -46,12 +47,14 @@
     [self.tableView registerNib:[HALStatisticsViewCell nib]
          forCellReuseIdentifier:[HALStatisticsViewCell cellIdentifier]];
     
+    [self setupExplainView];
+    
     UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
     [infoButton addTarget:self action:@selector(onTapInfoButton:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:infoButton];
 
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(reloadTable)
+                                             selector:@selector(reloadViews)
                                                  name:[HALActivityManager updateActivityNotificationName]
                                                object:nil];
 }
@@ -76,10 +79,23 @@
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
-- (void)reloadTable
+- (void)setupExplainView
 {
-    if (self.reloadTableFlag) {
+    if (!self.activityManager.activityCount) {
+        self.explainView.layer.cornerRadius = 10;
+        self.explainView.layer.masksToBounds = YES;
+        self.explainView.backgroundColor = kHALActivityListStatisticsBackgroundColor;
+        self.explainView.hidden = NO;
+    } else {
+        self.explainView.hidden = YES;
+    }
+}
+
+- (void)reloadViews
+{
+    if (self.reloadViewFlag) {
         [self.tableView reloadData];
+        [self setupExplainView];
     }
 }
 
@@ -143,10 +159,11 @@
         // Delete the row from the data source
         HALActivity *activity = [self.activityManager activityWithIndex:indexPath.row - kHALDataOffset];
         [HALGAManager sendAction:@"Delete Activity" label:activity.title value:activity.birdRecordList.count];
-        self.reloadTableFlag = NO;
+        self.reloadViewFlag = NO;
         [self.activityManager deleteActivity:activity];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        self.reloadTableFlag = YES;
+        self.reloadViewFlag = YES;
+        [self setupExplainView];
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
