@@ -47,7 +47,7 @@
       ];
 
     WeakSelf weakSelf = self;
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"閉じる" style:UIBarButtonItemStyleBordered handler:^(id sender){
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"閉じる" style:UIBarButtonItemStyleBordered handler:^(id sender){
         [weakSelf dismissViewControllerAnimated:YES completion:nil];
     }];
 
