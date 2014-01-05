@@ -8,6 +8,7 @@
 
 #import "HALActivityListViewController.h"
 #import "HALActivityViewController.h"
+#import "HALApplicationInfoViewController.h"
 #import "HALActivityManager.h"
 #import "HALActivityListViewCell.h"
 #import "UIViewController+HALViewControllerFromNib.h"
@@ -45,6 +46,10 @@
     [self.tableView registerNib:[HALStatisticsViewCell nib]
          forCellReuseIdentifier:[HALStatisticsViewCell cellIdentifier]];
     
+    UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
+    [infoButton addTarget:self action:@selector(onTapInfoButton:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:infoButton];
+
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(reloadTable)
                                                  name:[HALActivityManager updateActivityNotificationName]
@@ -76,6 +81,13 @@
     if (self.reloadTableFlag) {
         [self.tableView reloadData];
     }
+}
+
+- (void)onTapInfoButton:(id)sender
+{
+    HALApplicationInfoViewController *viewController = [[HALApplicationInfoViewController alloc] initWithNib];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    [self presentViewController:navController animated:YES completion:nil];
 }
 
 #pragma mark - Table view data source
