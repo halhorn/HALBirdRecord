@@ -38,7 +38,7 @@
     NSMutableAttributedString *licenseString = [[NSMutableAttributedString alloc] init];
     [licenseString appendAttributedString:[self licenseStringWithTitle:@"使用ライブラリ" description:@""]];
     [licenseString appendAttributedString:[self libraryLicense]];
-    [licenseString appendAttributedString:[self licenseStringWithTitle:@"\n\n鳥種一覧・画像" description:@"WikiPedia:日本の野鳥一覧より\nhttp://ja.wikipedia.org/wiki/%E6%97%A5%E6%9C%AC%E3%81%AE%E9%87%8E%E9%B3%A5%E4%B8%80%E8%A6%A7"]];
+    [licenseString appendAttributedString:[self licenseStringWithTitle:@"\n\n鳥種画像ライセンス" description:@"WikiPedia:日本の野鳥一覧より\nhttp://ja.wikipedia.org/wiki/%E6%97%A5%E6%9C%AC%E3%81%AE%E9%87%8E%E9%B3%A5%E4%B8%80%E8%A6%A7"]];
     [licenseString appendAttributedString:[self birdLicense]];
     
     self.licenseTextView.attributedText = licenseString;
