@@ -14,10 +14,11 @@ birdPattern = re.compile(r'<li><a[^<>]*href="([^"]*)"[^<>]*>([^<>]*)</a>.*</li>'
 birdImagePattern = re.compile(r'<a[^<>]href="([^"]+)"[^<>]+>\s*<img[^<>]* src="([^"]+\.(jpg|jpeg|JPG|JPEC))"')
 licensePatterns = [
     re.compile(r'このファイルは(.+)の(もと|下)に?利用を許諾されています。'),
-    re.compile(r'(パブリックドメイン)</a></b>とされました。'),
+    re.compile(r'(パブリック.?ドメイン)'),
+    re.compile(r'(public.domain)'),
     re.compile(r'(GNU Free Documentation License</a></b> に示されるバージョン[^<>]+(またはそれ以降)?)のライセンスの下提供されています'),
-    re.compile(r'この作品の権利を放棄し<b><a [^<>]+>(パブリックドメイン)</a></b>とします。'),
-    re.compile(r'(?:the image|such work) is in the <b><a [^<>]+>(public domain)</a></b>')
+    re.compile(r'>(Creative.?Commons</a>\s?<a[^<>]+>[^<>]+</a>\s?License)'),
+    re.compile(r'>\s*([^<>]+)License'),
 ]
 
 def convert(imgFetchStart):
@@ -43,11 +44,12 @@ def read(imgFetchStart):
         # 鳥の種類
         if birdMatch:
             url = birdMatch.group(1)
-            if url:
+            if url and not url.startswith("http"):
                 url = "http://ja.wikipedia.org" + url
+            license = "";
             if int(birdID) >= imgFetchStart:
-                getImage('http://ja.wikipedia.org' + url, birdID)
-            bird.append({"BirdID":birdID, "Name":birdMatch.group(2), "Url":url, "DataCopyRight":"wikipedia"})
+                license = getImage(url, birdID)
+            bird.append({"BirdID":birdID, "Name":birdMatch.group(2), "Url":url, "DataCopyRight":license})
             print "  %d: %s" % (birdID, birdMatch.group(2))
             birdID += 1
     return data
@@ -69,10 +71,15 @@ def getImage(url, birdID):
     url = 'http:' + path
     saveFilePath = "%s%03d.jpg" % (imgDir, birdID)
     urllib.urlretrieve(url, saveFilePath)
+    if license:
+        return license + " - " + licensePageUrl
+    else:
+        return licensePageUrl
 
 def getImageLicense(url):
     imgPage = urllib.urlopen(url)
     html = imgPage.read()
+    html = html.replace('&#160;', ' ')
     license = ''
     for pattern in licensePatterns:
         licenseMatch = pattern.search(html)

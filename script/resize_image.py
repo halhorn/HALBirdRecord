@@ -4,8 +4,8 @@
 import os, sys
 max_num = 900;
 size = 88
-source_dir = "photo/"
-output_dir = "resized_photo/"
+source_dir = "../resource/photo/"
+output_dir = "../resource/resized_photo/"
 
 def resize():
     resize_command = "convert -resize '%dx' -resize 'x%d<' -resize '50%%' -gravity center -crop '%dx%d+0+0'" % (size * 2, size * 2, size, size)
