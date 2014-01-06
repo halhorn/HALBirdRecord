@@ -1,28 +1,23 @@
 //
-//  HALApplicationInfoViewController.m
+//  HALHelpListViewController.m
 //  HALBirdRecord
 //
-//  Created by 信田 春満 on 2014/01/05.
+//  Created by 信田 春満 on 2014/01/06.
 //  Copyright (c) 2014年 halhorn. All rights reserved.
 //
 
-#import "HALApplicationInfoViewController.h"
-#import "UIViewController+HALViewControllerFromNib.h"
-
-// pages
-#import "HALLicenseViewController.h"
 #import "HALHelpListViewController.h"
+#import "HALHelpViewController.h"
+#import "HALHelpListLoader.h"
+#import "HALHelp.h"
 
-#define kHALInfoSectionNo 0
+@interface HALHelpListViewController ()
 
-@interface HALApplicationInfoViewController ()
-
-@property(nonatomic) NSArray *sectionNames;
-@property(nonatomic) NSArray *views;
+@property(nonatomic) HALHelpListLoader *helpListLoader;
 
 @end
 
-@implementation HALApplicationInfoViewController
+@implementation HALHelpListViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -37,29 +32,14 @@
 {
     [super viewDidLoad];
 
-    self.title = @"Info";
-    
-    self.sectionNames = @[@"ヘルプ", @"Information"];
-    self.views =
-    @[
-      @[
-          @{@"title": @"ヘルプ／使い方", @"view": [[HALHelpListViewController alloc] initWithNib]},
-        ],
-      @[
-          @{@"title": @"ライセンス", @"view": [[HALLicenseViewController alloc] initWithNib]},
-          ],
-      ];
-
-    WeakSelf weakSelf = self;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"閉じる" style:UIBarButtonItemStyleBordered handler:^(id sender){
-        [weakSelf dismissViewControllerAnimated:YES completion:nil];
-    }];
-
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.title = @"ヘルプ／使い方";
+    self.helpListLoader = [HALHelpListLoader sharedLoader];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -72,15 +52,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
-    return self.views.count;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    NSArray *sectionViews = self.views[section];
-    return sectionViews.count;
+    return self.helpListLoader.helpList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -92,14 +69,9 @@
     }
     
     // Configure the cell...
-    cell.textLabel.text = self.views[indexPath.section][indexPath.row][@"title"];
-    
+    HALHelp *help = self.helpListLoader.helpList[indexPath.row];
+    cell.textLabel.text = help.question;
     return cell;
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    return self.sectionNames[section];
 }
 
 /*
@@ -141,14 +113,14 @@
 }
 */
 
-
 #pragma mark - Table view delegate
 
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIViewController *view = self.views[indexPath.section][indexPath.row][@"view"];
-    [self.navigationController pushViewController:view animated:YES];
+    HALHelp *help = self.helpListLoader.helpList[indexPath.row];
+    HALHelpViewController *viewController = [[HALHelpViewController alloc] initWithHelp:help];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
 
 @end
