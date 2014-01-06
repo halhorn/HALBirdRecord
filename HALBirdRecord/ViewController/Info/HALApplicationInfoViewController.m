@@ -9,11 +9,13 @@
 #import "HALApplicationInfoViewController.h"
 #import "UIViewController+HALViewControllerFromNib.h"
 #import "UIViewController+HALSetCancelButton.h"
+#import "NSString+HALURLEncode.h"
 
 // pages
 #import "HALLicenseViewController.h"
 #import "HALHelpListViewController.h"
 
+#define kHALContactUsMail @"halhorn@halmidi.com"
 #define kHALInfoSectionNo 0
 
 @interface HALApplicationInfoViewController ()
@@ -40,11 +42,12 @@
 
     self.title = @"Info";
     
-    self.sectionNames = @[@"ヘルプ", @"Information"];
+    self.sectionNames = @[@"アプリについて", @"その他"];
     self.views =
     @[
       @[
           @{@"title": @"ヘルプ／使い方", @"view": [[HALHelpListViewController alloc] initWithNib]},
+          @{@"title": @"お問い合わせ", @"selector": @"openContactUsMail"},
         ],
       @[
           @{@"title": @"ライセンス", @"view": [[HALLicenseViewController alloc] initWithNib]},
@@ -63,6 +66,23 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)openContactUsMail
+{
+    NSString *appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    UIDevice *device = [UIDevice currentDevice];
+    NSString *appInfo = [NSString stringWithFormat:@"AppVer:%@ / %@@%@%@",
+                         appVersion,
+                         device.model,
+                         device.systemName,
+                         device.systemVersion];
+    NSString *urlString = [NSString stringWithFormat:@"mailto:?to=%@&subject=%@%@",
+                           kHALContactUsMail,
+                           [@"鳥ログ：問い合わせ " urlEncodedString],
+                           [appInfo urlEncodedString]];
+    NSURL *url = [NSURL URLWithString:urlString];
+    [[UIApplication sharedApplication] openURL:url];
 }
 
 #pragma mark - Table view data source
@@ -144,8 +164,13 @@
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIViewController *view = self.views[indexPath.section][indexPath.row][@"view"];
-    [self.navigationController pushViewController:view animated:YES];
+    NSDictionary *dict = self.views[indexPath.section][indexPath.row];
+    if (dict[@"view"]) {
+        [self.navigationController pushViewController:dict[@"view"] animated:YES];
+    } else if(dict[@"selector"]) {
+        SEL selector = NSSelectorFromString(dict[@"selector"]);
+        [self performSelectorOnMainThread:selector withObject:nil waitUntilDone:NO];
+    }
 }
 
 @end

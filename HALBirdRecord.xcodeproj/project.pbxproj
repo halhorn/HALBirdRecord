@@ -774,6 +774,7 @@
 		2925A652187A30AC00FA2EED /* HALHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = 2925A651187A30AC00FA2EED /* HALHelp.m */; };
 		2925A655187A310B00FA2EED /* HALHelpListLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2925A654187A310B00FA2EED /* HALHelpListLoader.m */; };
 		2925A657187AE26C00FA2EED /* HelpList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2925A656187AE26C00FA2EED /* HelpList.plist */; };
+		2925A65D187AFC3F00FA2EED /* NSString+HALURLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2925A65C187AFC3F00FA2EED /* NSString+HALURLEncode.m */; };
 		29501ED01858C8B6004AF7F9 /* HALActivityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 29501ECF1858C8B6004AF7F9 /* HALActivityManager.m */; };
 		29501EDF185A8AB5004AF7F9 /* HALActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29501EDD185A8AB5004AF7F9 /* HALActivityViewController.m */; };
 		29501EE0185A8AB5004AF7F9 /* HALActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29501EDE185A8AB5004AF7F9 /* HALActivityViewController.xib */; };
@@ -1610,6 +1611,8 @@
 		2925A653187A310B00FA2EED /* HALHelpListLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALHelpListLoader.h; sourceTree = "<group>"; };
 		2925A654187A310B00FA2EED /* HALHelpListLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALHelpListLoader.m; sourceTree = "<group>"; };
 		2925A656187AE26C00FA2EED /* HelpList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = HelpList.plist; sourceTree = "<group>"; };
+		2925A65B187AFC3F00FA2EED /* NSString+HALURLEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HALURLEncode.h"; sourceTree = "<group>"; };
+		2925A65C187AFC3F00FA2EED /* NSString+HALURLEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HALURLEncode.m"; sourceTree = "<group>"; };
 		29501ECE1858C8B6004AF7F9 /* HALActivityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALActivityManager.h; sourceTree = "<group>"; };
 		29501ECF1858C8B6004AF7F9 /* HALActivityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALActivityManager.m; sourceTree = "<group>"; };
 		29501EDC185A8AB5004AF7F9 /* HALActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALActivityViewController.h; sourceTree = "<group>"; };
@@ -1888,6 +1891,8 @@
 				295E909A18540994000BA5FE /* UIViewController+HALViewControllerFromNib.m */,
 				2925A04D187528FB00FA2EED /* UIDevice+HALOSVersion.h */,
 				2925A04E187528FB00FA2EED /* UIDevice+HALOSVersion.m */,
+				2925A65B187AFC3F00FA2EED /* NSString+HALURLEncode.h */,
+				2925A65C187AFC3F00FA2EED /* NSString+HALURLEncode.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -3647,6 +3652,7 @@
 				29501EDF185A8AB5004AF7F9 /* HALActivityViewController.m in Sources */,
 				295E90DB1857ECC6000BA5FE /* UIViewController+HALSetCancelButton.m in Sources */,
 				295E90AA18541087000BA5FE /* HALBirdKindListViewController.m in Sources */,
+				2925A65D187AFC3F00FA2EED /* NSString+HALURLEncode.m in Sources */,
 				295E90691853FE3E000BA5FE /* main.m in Sources */,
 				295E909B18540994000BA5FE /* UIViewController+HALViewControllerFromNib.m in Sources */,
 				2925A655187A310B00FA2EED /* HALHelpListLoader.m in Sources */,
