@@ -6,7 +6,53 @@
 		<key>Question</key>
 		<string>鳥ログとは？</string>
 		<key>Answer</key>
-		<string>鳥ログは野鳥記録アプリです。</string>
+		<string>鳥ログは野鳥記録アプリです。
+
+いつ、どこで、どんな野鳥を見たかを正確かつ簡単に記録できます。
+また、これまで何種類の鳥を見たのか、どれだけの場所に行ったのか等の統計情報を簡単に見ることができます。
+        </string>
+	</dict>
+	<dict>
+		<key>Question</key>
+		<string>主な使い方</string>
+		<key>Answer</key>
+		<string>１．外にでかけましょう。
+２．「＋新規アクティビティ」をタップします。野鳥の選択画面が現れます。
+３．野鳥を見つけたら、野鳥の名前を入力し、見つけた野鳥を選択してください。この時時間と場所は自動的に記録されます。
+４．右上の追加ボタンをタップすると、選択した野鳥たちが記録に追加されます。
+５．さらに野鳥を追加する場合、右上の追加ボタンをタップしてください。
+６．野鳥探しのお出かけが終わったら、アクティビティのタイトルを変更したり、コメントをつけたりしましょう。
+        </string>
+	</dict>
+	<dict>
+		<key>Question</key>
+		<string>野鳥の発見場所・時間の取得について</string>
+		<key>Answer</key>
+		<string>野鳥を発見した場所・時間は自動で記録されます。記録のタイミングは、野鳥リストの項目をタップしたタイミングとなっています。</string>
+	</dict>
+	<dict>
+		<key>Question</key>
+		<string>アクティビティ数の上限について</string>
+		<key>Answer</key>
+		<string>現バージョンではアクティビティ数の上限は20となっております。今後のバージョンで、最大アクティビティ数の拡張（有料）を実装予定です。</string>
+	</dict>
+	<dict>
+		<key>Question</key>
+		<string>アクティビティ／記録した鳥の削除</string>
+		<key>Answer</key>
+		<string>削除したいアクティビティや鳥の項目を右から左にスワイプするとDeleteボタンが現れます。Deleteをタップすると、項目が削除されます。</string>
+	</dict>
+	<dict>
+		<key>Question</key>
+		<string>都道府県／市区町村が増えません</string>
+		<key>Answer</key>
+		<string>ネットワークの接続が悪いと、都道府県／市区町村の取得に失敗することがあります。失敗した都道府県／市区町村の再取得は現バージョンでは行っておりません。</string>
+	</dict>
+	<dict>
+		<key>Question</key>
+		<string>野鳥の発見場所・時間の修正</string>
+		<key>Answer</key>
+		<string>申し訳ありませんが、現バージョンでは修正はできません。要望が多い場合今後のバージョンで対応するかもしれません。</string>
 	</dict>
 </array>
 </plist>
