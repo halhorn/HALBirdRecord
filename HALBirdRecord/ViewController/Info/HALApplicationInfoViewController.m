@@ -8,6 +8,7 @@
 
 #import "HALApplicationInfoViewController.h"
 #import "UIViewController+HALViewControllerFromNib.h"
+#import "UIViewController+HALSetCancelButton.h"
 
 // pages
 #import "HALLicenseViewController.h"
@@ -50,11 +51,7 @@
           ],
       ];
 
-    WeakSelf weakSelf = self;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"閉じる" style:UIBarButtonItemStyleBordered handler:^(id sender){
-        [weakSelf dismissViewControllerAnimated:YES completion:nil];
-    }];
-
+    [self setCancelButton];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
