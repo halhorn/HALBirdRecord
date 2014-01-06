@@ -41,3 +41,7 @@
 // Activity
 #define kHALActivityTitleBackgroundColor   RGBA(248, 244, 230, 1.0)
 #define kHALActivityCommentBackgroundColor RGBA(230, 234, 227, 1.0)
+
+// Help
+#define kHALHelpQuestionBackgroundColor RGBA(248, 244, 230, 1.0)
+#define kHALHelpAnswerBackgroundColor   RGBA(233, 243, 228, 1.0)
