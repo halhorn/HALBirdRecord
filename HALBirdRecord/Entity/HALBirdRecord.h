@@ -26,5 +26,6 @@
 - (id)initWithBirdID:(int)birdID;
 - (void)setCurrentLocationAsync;
 - (BOOL)isProcessing;
+- (void)updateDB;
 
 @end

@@ -9,9 +9,11 @@
 #import "HALBirdRecord.h"
 #import "HALBirdKindListBase.h"
 #import "HALLocationManager.h"
+#import "HALDB.h"
 
 @interface HALBirdRecord()
 
+@property(nonatomic) HALDB *db;
 @property(nonatomic) HALLocationManager *locationManager;
 @property(nonatomic) int processingCount;
 
@@ -40,6 +42,7 @@
 {
     self = [super init];
     if (self) {
+        self.db = [HALDB sharedDB];
         self.locationManager = [[HALLocationManager alloc] init];
         _dbID = 0;
         _birdID = birdID;
@@ -84,6 +87,11 @@
 - (BOOL)isPrefectureString:(NSString *)str
 {
     return [str hasSuffix:@"都"] || [str hasSuffix:@"道"] || [str hasSuffix:@"府"] || [str hasSuffix:@"県"];
+}
+
+- (void)updateDB
+{
+    [self.db updateBirdRecord:self];
 }
 
 - (NSString *)description

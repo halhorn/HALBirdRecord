@@ -39,7 +39,7 @@
 {
     self = [super init];
     if (self) {
-        self.db = [[HALDB alloc] init];
+        self.db = [HALDB sharedDB];
     }
     return self;
 }

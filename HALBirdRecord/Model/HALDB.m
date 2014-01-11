@@ -24,6 +24,16 @@
 
 @implementation HALDB
 
++ (instancetype)sharedDB
+{
+    static dispatch_once_t onceToken;
+    static HALDB *sharedObject;
+    dispatch_once(&onceToken, ^{
+        sharedObject = [[HALDB alloc] init];
+    });
+    return sharedObject;
+}
+
 - (id)init {
     self = [super init];
     if (self) {
