@@ -29,13 +29,13 @@
     if (self) {
         NSString *dbPath = [[NSURL urlWithLocalFileName:kHALDBFile] path];
         self.fmDB = [FMDatabase databaseWithPath:dbPath];
-        [self createTableIfExists];
+        [self createTableIfNotExists];
     }
     
     return self;
 }
 
-- (void)createTableIfExists
+- (void)createTableIfNotExists
 {
     [self.fmDB open];
     [self.fmDB executeUpdate:[NSString stringWithFormat:@"create table if not exists %@("
