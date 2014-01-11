@@ -143,6 +143,7 @@
         NSNumber *longitude = [self removeNSNull:birdRow[@"longitude"]];
         NSString *prefecture = [self removeNSNull:birdRow[@"prefecture"]];
         NSString *city = [self removeNSNull:birdRow[@"city"]];
+        NSString *comment = [self removeNSNull:birdRow[@"comment"]];
         NSNumber *birdUnixtime = [self removeNSNull:birdRow[@"datetime"]];
         NSNumber *birdDBID = birdRow[@"id"];
         
@@ -153,6 +154,7 @@
         bird.datetime = [NSDate dateWithTimeIntervalSince1970:[birdUnixtime doubleValue]];
         bird.prefecture = prefecture;
         bird.city = city;
+        bird.comment = comment;
         [activity addBirdRecord:bird];
     }
 }
