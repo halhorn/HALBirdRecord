@@ -49,6 +49,7 @@
         _coordinate = CLLocationCoordinate2DMake(0, 0);
         _prefecture = @"";
         _city = @"";
+        _comment = @"";
         _processingCount = 0;
     }
     return self;
