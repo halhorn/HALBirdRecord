@@ -48,6 +48,7 @@
                               "longitude real,"
                               "prefecture text,"
                               "city text"
+                              "comment text"
                               ");", kHALBirdRecordTable]];
     [self.fmDB executeUpdate:[NSString stringWithFormat:@"create table if not exists %@("
                               "id integer primary key autoincrement,"
@@ -172,9 +173,9 @@
 - (int)insertBirdRecordList:(NSArray *)birdRecordList activityID:(int)activityID
 {
     if (!birdRecordList || !birdRecordList.count) {return -1;}
-    NSString *questions = @"(?,?,?,?,?,?,?,?)";
+    NSString *questions = @"(?,?,?,?,?,?,?,?,?)";
     for (int i = 1; i < birdRecordList.count; i++) {
-        questions = [NSString stringWithFormat:@"%@,(?,?,?,?,?,?,?,?)", questions];
+        questions = [NSString stringWithFormat:@"%@,(?,?,?,?,?,?,?,?,?)", questions];
     }
     NSString *sqlFormat = [NSString stringWithFormat:@"insert into %@("
                            "birdID,"
@@ -184,7 +185,8 @@
                            "latitude,"
                            "longitude,"
                            "prefecture,"
-                           "city"
+                           "city,"
+                           "comment"
                            ") "
                            "values%@;", kHALBirdRecordTable, questions];
     NSMutableArray *args = [[NSMutableArray alloc] init];
@@ -197,6 +199,7 @@
         [args addObject:@(birdRecord.coordinate.longitude)];
         [args addObject:birdRecord.prefecture];
         [args addObject:birdRecord.city];
+        [args addObject:birdRecord.comment];
     }
 
     [self.fmDB open];
@@ -237,6 +240,25 @@
     
     [self.fmDB open];
     [self.fmDB executeUpdate:sqlFormat, @(activity.dbID)];
+    int changes = [self.fmDB changes];
+    [self.fmDB close];
+    return changes;
+}
+
+- (int)updateBirdRecord:(HALBirdRecord *)record
+{
+    if (!record || !record.dbID) {return -1;}
+    NSString *sqlFormat = [NSString stringWithFormat:@"update %@ set "
+                           "count = ?,"
+                           "datetime = ?,"
+                           "latitude = ?,"
+                           "longitude = ?,"
+                           "prefecture = ?,"
+                           "city = ?,"
+                           "comment = ?"
+                           " where id = ?", kHALBirdRecordTable];
+    [self.fmDB open];
+    [self.fmDB executeUpdate:sqlFormat, record.count, record.datetime, @(record.coordinate.latitude), @(record.coordinate.longitude), record.prefecture, record.city, record.comment, @(record.dbID)];
     int changes = [self.fmDB changes];
     [self.fmDB close];
     return changes;
