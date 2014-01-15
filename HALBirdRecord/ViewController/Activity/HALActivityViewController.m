@@ -8,6 +8,7 @@
 
 #import "HALActivityViewController.h"
 #import "HALActivityManager.h"
+#import "HALBirdRecordTableViewCell.h"
 #import "HALBirdMapViewController.h"
 #import "HALBirdKindListViewController.h"
 #import "HALBirdPointAnnotation.h"
@@ -61,6 +62,9 @@
     // Do any additional setup after loading the view from its nib.
     [self setupUI];
     
+    [self.birdRecordTableView registerNib:[HALBirdRecordTableViewCell nib]
+                   forCellReuseIdentifier:[HALBirdRecordTableViewCell cellIdentifier]];
+
     // 新規アクティビティの場合
     if (self.shouldShowRegister) {
         WeakSelf weakSelf = self;
@@ -187,22 +191,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-        cell.textLabel.textColor = kHALTextColor;
-        cell.detailTextLabel.textColor = kHALSubTextColor;
-        cell.imageView.userInteractionEnabled = YES;
+    HALBirdRecordTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[HALBirdRecordTableViewCell cellIdentifier]];
+    if (![cell.birdImageView.gestureRecognizers count]) {
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                               action:@selector(imageViewTouched:)];
-        [cell.imageView addGestureRecognizer:tap];
+        [cell.birdImageView addGestureRecognizer:tap];
     }
     
     HALBirdRecord *birdRecord = self.activity.birdRecordList[indexPath.row];
-    cell.textLabel.text = birdRecord.kind.name;
-    cell.detailTextLabel.text = [self.dateFormatter stringFromDate:birdRecord.datetime];
-    cell.imageView.image = birdRecord.kind.image;
+    [cell setupView:birdRecord];
     return cell;
 }
 

@@ -274,7 +274,7 @@
                            "comment = ?"
                            " where id = ?", kHALBirdRecordTable];
     [self.fmDB open];
-    [self.fmDB executeUpdate:sqlFormat, record.count, record.datetime, @(record.coordinate.latitude), @(record.coordinate.longitude), record.prefecture, record.city, record.comment, @(record.dbID)];
+    [self.fmDB executeUpdate:sqlFormat, @(record.count), record.datetime, @(record.coordinate.latitude), @(record.coordinate.longitude), record.prefecture, record.city, record.comment, @(record.dbID)];
     int changes = [self.fmDB changes];
     [self.fmDB close];
     return changes;

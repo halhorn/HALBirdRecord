@@ -73,7 +73,9 @@
         _coordinate = coordinate;
         if (placemark && [self isPrefectureString:placemark.addressDictionary[@"State"]]) {
             _prefecture = placemark.addressDictionary[@"State"];
-            _city = placemark.addressDictionary[@"City"];
+            if (placemark.addressDictionary[@"City"]) {
+                _city = placemark.addressDictionary[@"City"];
+            }
         }
         self.processingCount--;
     }];
@@ -96,6 +98,6 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"HALBirdRecord dbID:%d birdID:%d count:%d datetime:%@ coordinate:(%f,%f)[%@/%@]", self.dbID, self.birdID, self.count, self.datetime, self.coordinate.latitude, self.coordinate.longitude, self.prefecture, self.city];
+    return [NSString stringWithFormat:@"HALBirdRecord dbID:%d birdID:%d count:%d datetime:%@ coordinate:(%f,%f)[%@/%@] comment:%@", self.dbID, self.birdID, self.count, self.datetime, self.coordinate.latitude, self.coordinate.longitude, self.prefecture, self.city, self.comment];
 }
 @end
