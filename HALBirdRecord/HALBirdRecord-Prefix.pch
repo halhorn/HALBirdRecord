@@ -30,6 +30,7 @@
 #define kHALNavigationBarTitleTextColor  RGBA(114, 109, 64, 1.0)
 #define kHALNavigationBarButtonTextColor RGBA(114, 109, 64, 1.0)
 #define kHALNavigationBarButtonBackgroundColorForiOS6 RGBA(146, 140, 54, 1.0)
+#define kHALButtonTextColor RGBA(88, 56, 34, 1.0)
 
 #define kHALGaugeArcFillColor    RGBA(220, 200, 160, 1.0)
 #define kHALGaugeBackgroundColor RGBA(230, 230, 230, 1.0)
@@ -41,6 +42,9 @@
 // Activity
 #define kHALActivityTitleBackgroundColor   RGBA(248, 244, 230, 1.0)
 #define kHALActivityCommentBackgroundColor RGBA(230, 234, 227, 1.0)
+
+// EditBirdRecordView
+#define kHALEditBirdRecordTitleBackgroundColor RGBA(233, 243, 228, 1.0)
 
 // Help
 #define kHALHelpQuestionBackgroundColor RGBA(248, 244, 230, 1.0)

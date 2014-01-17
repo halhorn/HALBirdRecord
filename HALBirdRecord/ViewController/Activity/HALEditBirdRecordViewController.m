@@ -27,8 +27,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateTimeLabel;
 @property (weak, nonatomic) IBOutlet UITextField *commentTextField;
 @property (weak, nonatomic) IBOutlet UIView *titleBackgroundView;
-@property (weak, nonatomic) IBOutlet UIButton *saveButton;
-@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 @end
 
 @implementation HALEditBirdRecordViewController
@@ -60,9 +58,10 @@
     self.birdNameLabel.text = self.birdRecord.kind.name;
     self.birdImageView.image = self.birdRecord.kind.image;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateFormat = @"yyyy/MM/dd HH:mm:ii";
+    dateFormatter.dateFormat = @"yyyy/MM/dd HH:mm:ss";
     self.dateTimeLabel.text = [dateFormatter stringFromDate:self.birdRecord.datetime];
     self.commentTextField.text = self.birdRecord.comment;
+    self.titleBackgroundView.backgroundColor = kHALEditBirdRecordTitleBackgroundColor;
     
     HALMapManager *mapManager = [HALMapManager managerWithActivity:self.activity];
     self.mapView.region = [mapManager region];

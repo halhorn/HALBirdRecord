@@ -11,9 +11,7 @@
                 <outlet property="birdNameLabel" destination="uRD-FN-YUg" id="sKK-ma-7Yz"/>
                 <outlet property="commentTextField" destination="Cx7-jI-mi4" id="yVk-mw-zGC"/>
                 <outlet property="dateTimeLabel" destination="2Gc-LY-NNe" id="ru4-Pm-6fo"/>
-                <outlet property="deleteButton" destination="B9i-rs-91s" id="r1B-OB-Jpl"/>
                 <outlet property="mapView" destination="Na8-Mp-B5t" id="bYZ-pw-aek"/>
-                <outlet property="saveButton" destination="hv9-SO-C3E" id="EWc-xq-f9G"/>
                 <outlet property="scrollView" destination="pQ9-Aa-iCD" id="hYB-Dw-YIv"/>
                 <outlet property="titleBackgroundView" destination="Efz-bx-8ed" id="Nmt-3A-Tbs"/>
                 <outlet property="view" destination="1" id="3"/>
@@ -56,8 +54,8 @@
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="コメント" minimumFontSize="17" id="Cx7-jI-mi4">
-                            <rect key="frame" x="20" y="338" width="280" height="30"/>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="コメント" minimumFontSize="17" clearButtonMode="whileEditing" id="Cx7-jI-mi4">
+                            <rect key="frame" x="20" y="324" width="280" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
