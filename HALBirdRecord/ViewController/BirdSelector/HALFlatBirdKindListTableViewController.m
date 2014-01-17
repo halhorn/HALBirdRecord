@@ -203,7 +203,7 @@
         HALBirdRecord *record = [[HALBirdRecord alloc] initWithBirdID:birdKind.birdID];
         [record setCurrentLocationAsync];
         [self.birdRecordList addObject:record];
-        [self.birdKindListViewController updateAddButtonBirdCount];
+        [self.birdKindListViewController onTapBirdRow];
         [tableView reloadData];
     } else {
         WeakSelf weakSelf = self;
@@ -211,7 +211,7 @@
         [UIAlertView showAlertViewWithTitle:@"取り消し" message:message cancelButtonTitle:@"いいえ" otherButtonTitles:@[@"はい"] handler:^(UIAlertView *alertView, NSInteger buttonIndex){
             if (buttonIndex != alertView.cancelButtonIndex) {
                 [weakSelf.birdRecordList removeObject:record];
-                [self.birdKindListViewController updateAddButtonBirdCount];
+                [self.birdKindListViewController onTapBirdRow];
                 [tableView reloadData];
             }
         }];

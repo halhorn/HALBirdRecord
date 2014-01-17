@@ -47,7 +47,7 @@
     return self;
 }
 
--(void) updateAddButtonBirdCount
+-(void) onTapBirdRow
 {
     int count = [self.birdListViewController sendBirdList].count;
     self.navigationItem.rightBarButtonItem.title = count ? [NSString stringWithFormat:@"追加（%d）", count] : @"追加";
