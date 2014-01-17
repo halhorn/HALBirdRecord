@@ -64,6 +64,8 @@
 - (void)setupUIAppearance
 {
     UINavigationBar<UIAppearance> *navBarAppearance = [UINavigationBar appearance];
+    UIButton<UIAppearance> *buttonAppearance = [UIButton appearance];
+    [buttonAppearance setTitleColor:kHALButtonTextColor forState:UIControlStateNormal];
     if ([UIDevice currentDevice].majorVersion >= 7) {
         // iOS7
         navBarAppearance.barTintColor = kHALNavigationBarBackgroundColor;

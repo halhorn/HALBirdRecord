@@ -8,23 +8,24 @@
 
 #import "HALActivityViewController.h"
 #import "HALActivityManager.h"
+#import "HALBirdRecordTableViewCell.h"
 #import "HALBirdMapViewController.h"
 #import "HALBirdKindListViewController.h"
 #import "HALBirdPointAnnotation.h"
 #import "HALMapManager.h"
 #import "HALWebViewController.h"
+#import "HALEditBirdRecordViewController.h"
 #import "UIViewController+HALCloseTextFieldKeyboard.h"
 #import <MapKit/MapKit.h>
 #import <SZTextView/SZTextView.h>
 
-@interface HALActivityViewController ()<UITextFieldDelegate, UITextViewDelegate, UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate>
+@interface HALActivityViewController ()<UITextFieldDelegate, UITextViewDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet SZTextView *commentTextView;
 @property (weak, nonatomic) IBOutlet UITableView *birdRecordTableView;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property(nonatomic) HALActivityManager *activityManager;
 @property(nonatomic) HALActivity *activity;
-@property(nonatomic) HALBirdRecord *selectedBirdRecord;
 @property(nonatomic) NSDateFormatter *dateFormatter;
 @property(nonatomic, assign) BOOL shouldShowRegister;
 
@@ -61,6 +62,9 @@
     // Do any additional setup after loading the view from its nib.
     [self setupUI];
     
+    [self.birdRecordTableView registerNib:[HALBirdRecordTableViewCell nib]
+                   forCellReuseIdentifier:[HALBirdRecordTableViewCell cellIdentifier]];
+
     // 新規アクティビティの場合
     if (self.shouldShowRegister) {
         WeakSelf weakSelf = self;
@@ -105,7 +109,6 @@
 {
     HALMapManager *mapManager = [HALMapManager managerWithActivity:self.activity];
     self.mapView.region = [mapManager region];
-    self.mapView.delegate = self;
     [self.mapView removeAnnotations:self.mapView.annotations];
     [self.mapView addAnnotations:[mapManager annotationList]];
 }
@@ -187,22 +190,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-        cell.textLabel.textColor = kHALTextColor;
-        cell.detailTextLabel.textColor = kHALSubTextColor;
-        cell.imageView.userInteractionEnabled = YES;
+    HALBirdRecordTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[HALBirdRecordTableViewCell cellIdentifier]];
+    if (![cell.birdImageView.gestureRecognizers count]) {
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                               action:@selector(imageViewTouched:)];
-        [cell.imageView addGestureRecognizer:tap];
+        [cell.birdImageView addGestureRecognizer:tap];
     }
     
     HALBirdRecord *birdRecord = self.activity.birdRecordList[indexPath.row];
-    cell.textLabel.text = birdRecord.kind.name;
-    cell.detailTextLabel.text = [self.dateFormatter stringFromDate:birdRecord.datetime];
-    cell.imageView.image = birdRecord.kind.image;
+    [cell setupView:birdRecord];
     return cell;
 }
 
@@ -230,14 +226,11 @@
 {
     [self.view endEditing:YES];
     
-    self.selectedBirdRecord = self.activity.birdRecordList[indexPath.row];
-    MKCoordinateRegion region = self.mapView.region;
-    
-    // マップを更新
-    [self.mapView setRegion:MKCoordinateRegionMake(CLLocationCoordinate2DMake(0, 0), MKCoordinateSpanMake(1, 1)) animated:NO];
-    [self.mapView setRegion:region animated:NO];
+    HALBirdRecord *birdRecord = self.activity.birdRecordList[indexPath.row];
+    HALEditBirdRecordViewController *viewController = [[HALEditBirdRecordViewController alloc] initWithBirdRecord:birdRecord activity:self.activity];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
-
+/*
 #pragma mark - MKMapViewDelegate
 
 -(MKAnnotationView *)mapView:(MKMapView*)mapView viewForAnnotation:(id)annotation{
@@ -250,5 +243,5 @@
     pinAnnotationView.pinColor = birdPointAnnotation.birdRecord == self.selectedBirdRecord ? MKPinAnnotationColorGreen :MKPinAnnotationColorRed;
     return pinAnnotationView;
 }
-
+*/
 @end

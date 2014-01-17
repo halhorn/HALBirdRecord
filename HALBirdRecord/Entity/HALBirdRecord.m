@@ -9,9 +9,11 @@
 #import "HALBirdRecord.h"
 #import "HALBirdKindListBase.h"
 #import "HALLocationManager.h"
+#import "HALDB.h"
 
 @interface HALBirdRecord()
 
+@property(nonatomic) HALDB *db;
 @property(nonatomic) HALLocationManager *locationManager;
 @property(nonatomic) int processingCount;
 
@@ -40,6 +42,7 @@
 {
     self = [super init];
     if (self) {
+        self.db = [HALDB sharedDB];
         self.locationManager = [[HALLocationManager alloc] init];
         _dbID = 0;
         _birdID = birdID;
@@ -49,6 +52,7 @@
         _coordinate = CLLocationCoordinate2DMake(0, 0);
         _prefecture = @"";
         _city = @"";
+        _comment = @"";
         _processingCount = 0;
     }
     return self;
@@ -69,7 +73,9 @@
         _coordinate = coordinate;
         if (placemark && [self isPrefectureString:placemark.addressDictionary[@"State"]]) {
             _prefecture = placemark.addressDictionary[@"State"];
-            _city = placemark.addressDictionary[@"City"];
+            if (placemark.addressDictionary[@"City"]) {
+                _city = placemark.addressDictionary[@"City"];
+            }
         }
         self.processingCount--;
     }];
@@ -85,8 +91,13 @@
     return [str hasSuffix:@"都"] || [str hasSuffix:@"道"] || [str hasSuffix:@"府"] || [str hasSuffix:@"県"];
 }
 
+- (void)updateDB
+{
+    [self.db updateBirdRecord:self];
+}
+
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"HALBirdRecord dbID:%d birdID:%d count:%d datetime:%@ coordinate:(%f,%f)[%@/%@]", self.dbID, self.birdID, self.count, self.datetime, self.coordinate.latitude, self.coordinate.longitude, self.prefecture, self.city];
+    return [NSString stringWithFormat:@"HALBirdRecord dbID:%d birdID:%d count:%d datetime:%@ coordinate:(%f,%f)[%@/%@] comment:%@", self.dbID, self.birdID, self.count, self.datetime, self.coordinate.latitude, self.coordinate.longitude, self.prefecture, self.city, self.comment];
 }
 @end

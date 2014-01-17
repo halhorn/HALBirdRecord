@@ -19,11 +19,13 @@
 @property(nonatomic) CLLocationCoordinate2D coordinate;
 @property(nonatomic) NSString *prefecture;
 @property(nonatomic) NSString *city;
+@property(nonatomic) NSString *comment;
 @property(nonatomic, readonly) HALBirdKind *kind;
 
 + (id)birdRecordWithBirdID:(int)birdID;
 - (id)initWithBirdID:(int)birdID;
 - (void)setCurrentLocationAsync;
 - (BOOL)isProcessing;
+- (void)updateDB;
 
 @end

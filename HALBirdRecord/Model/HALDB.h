@@ -12,6 +12,7 @@
 
 @interface HALDB : NSObject
 
++ (instancetype)sharedDB;
 - (void)showRecordInTable:(NSString *)tableName;
 - (NSArray *)selectActivityRows;
 - (NSArray *)selectBirdRecordListWithActivityDBID:(int)dbID;
@@ -24,6 +25,7 @@
 - (int)updateActivity:(HALActivity *)activity;
 - (int)deleteBirdRecordsInActivity:(HALActivity *)activity;
 - (int)deleteActivity:(HALActivity *)activity;
+- (int)updateBirdRecord:(HALBirdRecord *)record;
 - (void)dropTables;
 
 @end

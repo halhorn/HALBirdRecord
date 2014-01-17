@@ -14,7 +14,7 @@
 #define kHALBirdRecordTable @"BirdRecord"
 #define kHALActivityRecordTable @"ActivityRecord"
 #define kHALDBVersionKey @"DBVersion"
-#define kHALDBVersion @1
+#define kHALDBVersion 2
 
 @interface HALDB()
 
@@ -24,18 +24,34 @@
 
 @implementation HALDB
 
++ (instancetype)sharedDB
+{
+    static dispatch_once_t onceToken;
+    static HALDB *sharedObject;
+    dispatch_once(&onceToken, ^{
+        sharedObject = [[HALDB alloc] init];
+    });
+    return sharedObject;
+}
+
 - (id)init {
     self = [super init];
     if (self) {
         NSString *dbPath = [[NSURL urlWithLocalFileName:kHALDBFile] path];
         self.fmDB = [FMDatabase databaseWithPath:dbPath];
-        [self createTableIfExists];
+        
+        int ver = [[NSUserDefaults standardUserDefaults] integerForKey:kHALDBVersionKey];
+        if (ver == 0) {
+            [self createTableIfNotExists];
+        }else if (ver < kHALDBVersion) {
+            [self updateDB];
+        }
     }
     
     return self;
 }
 
-- (void)createTableIfExists
+- (void)createTableIfNotExists
 {
     [self.fmDB open];
     [self.fmDB executeUpdate:[NSString stringWithFormat:@"create table if not exists %@("
@@ -48,6 +64,7 @@
                               "longitude real,"
                               "prefecture text,"
                               "city text"
+                              "comment text"
                               ");", kHALBirdRecordTable]];
     [self.fmDB executeUpdate:[NSString stringWithFormat:@"create table if not exists %@("
                               "id integer primary key autoincrement,"
@@ -55,8 +72,8 @@
                               "comment text"
                               ");", kHALActivityRecordTable]];
     
-    [[NSUserDefaults standardUserDefaults] setObject:kHALDBVersion forKey:kHALDBVersionKey];
     [self.fmDB close];
+    [[NSUserDefaults standardUserDefaults] setObject:@kHALDBVersion forKey:kHALDBVersionKey];
 }
 
 - (void)showRecordInTable:(NSString *)tableName
@@ -172,9 +189,9 @@
 - (int)insertBirdRecordList:(NSArray *)birdRecordList activityID:(int)activityID
 {
     if (!birdRecordList || !birdRecordList.count) {return -1;}
-    NSString *questions = @"(?,?,?,?,?,?,?,?)";
+    NSString *questions = @"(?,?,?,?,?,?,?,?,?)";
     for (int i = 1; i < birdRecordList.count; i++) {
-        questions = [NSString stringWithFormat:@"%@,(?,?,?,?,?,?,?,?)", questions];
+        questions = [NSString stringWithFormat:@"%@,(?,?,?,?,?,?,?,?,?)", questions];
     }
     NSString *sqlFormat = [NSString stringWithFormat:@"insert into %@("
                            "birdID,"
@@ -184,7 +201,8 @@
                            "latitude,"
                            "longitude,"
                            "prefecture,"
-                           "city"
+                           "city,"
+                           "comment"
                            ") "
                            "values%@;", kHALBirdRecordTable, questions];
     NSMutableArray *args = [[NSMutableArray alloc] init];
@@ -197,6 +215,7 @@
         [args addObject:@(birdRecord.coordinate.longitude)];
         [args addObject:birdRecord.prefecture];
         [args addObject:birdRecord.city];
+        [args addObject:birdRecord.comment];
     }
 
     [self.fmDB open];
@@ -242,6 +261,25 @@
     return changes;
 }
 
+- (int)updateBirdRecord:(HALBirdRecord *)record
+{
+    if (!record || !record.dbID) {return -1;}
+    NSString *sqlFormat = [NSString stringWithFormat:@"update %@ set "
+                           "count = ?,"
+                           "datetime = ?,"
+                           "latitude = ?,"
+                           "longitude = ?,"
+                           "prefecture = ?,"
+                           "city = ?,"
+                           "comment = ?"
+                           " where id = ?", kHALBirdRecordTable];
+    [self.fmDB open];
+    [self.fmDB executeUpdate:sqlFormat, @(record.count), record.datetime, @(record.coordinate.latitude), @(record.coordinate.longitude), record.prefecture, record.city, record.comment, @(record.dbID)];
+    int changes = [self.fmDB changes];
+    [self.fmDB close];
+    return changes;
+}
+
 - (void)dropTables
 {
     [self.fmDB open];
@@ -249,5 +287,38 @@
     [self.fmDB executeUpdate:[NSString stringWithFormat:@"drop table %@;", kHALBirdRecordTable]];
     [self.fmDB close];
 }
+
+/////////////////////////////////////////////////////////////////
+// DB Updater
+- (void)updateDB
+{
+    NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
+    int ver = [settings integerForKey:kHALDBVersionKey];
+    [self.fmDB open];
+    while (ver < kHALDBVersion) {
+        ver = [self updateDBIteration:ver];
+        if (ver == 0) {
+            [self.fmDB rollback];
+            [self.fmDB close];
+            NSLog(@"RollBack DB");
+            return;
+        }
+    }
+    [self.fmDB close];
+    [settings setObject:@kHALDBVersion forKey:kHALDBVersionKey];
+}
+
+- (int)updateDBIteration:(int)ver
+{
+    // DBバージョン毎のアップデート処理
+    if (ver == 1) {
+        [self.fmDB executeUpdate:[NSString stringWithFormat:@"alter table %@ add column comment text;", kHALBirdRecordTable]];
+        [self.fmDB executeUpdate:[NSString stringWithFormat:@"update %@ set comment = '';", kHALBirdRecordTable]];
+        return 2;
+    }
+    NSLog(@"DBのアップデートに失敗(ver.%d)", ver);
+    return 0;
+}
+
 
 @end
