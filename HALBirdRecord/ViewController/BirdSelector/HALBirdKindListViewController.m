@@ -49,8 +49,12 @@
 
 -(void) onTapBirdRow
 {
+    /*
+    // 複数追加の場合
     int count = [self.birdListViewController sendBirdList].count;
     self.navigationItem.rightBarButtonItem.title = count ? [NSString stringWithFormat:@"追加（%d）", count] : @"追加";
+     */
+    [self saveAndDismiss];
 }
 
 - (void)viewDidLoad
@@ -78,10 +82,13 @@
             [weakSelf dismissViewControllerAnimated:YES completion:nil];
         }];
     }];
+    /*
+    // 複数追加の場合
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"追加"
                                                                               style:UIBarButtonItemStyleBordered
                                                                              target:self
                                                                              action:@selector(onTapAddButton:)];
+     */
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -125,9 +132,7 @@
     return YES;
 }
 
-#pragma mark - UIEventHandler
-
-- (void)onTapAddButton:(id)sender
+- (void)saveAndDismiss
 {
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
     
@@ -149,6 +154,13 @@
         [weakSelf dismissViewControllerAnimated:YES completion:nil];
         
     } maxWait:kHALMaxWaitTime];
+}
+
+#pragma mark - UIEventHandler
+
+- (void)onTapAddButton:(id)sender
+{
+    [self saveAndDismiss];
 }
 
 #pragma mark - UITextFieldDelegate
