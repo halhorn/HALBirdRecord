@@ -109,7 +109,6 @@
 {
     HALMapManager *mapManager = [HALMapManager managerWithActivity:self.activity];
     self.mapView.region = [mapManager region];
-    self.mapView.delegate = self;
     [self.mapView removeAnnotations:self.mapView.annotations];
     [self.mapView addAnnotations:[mapManager annotationList]];
 }
