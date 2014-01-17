@@ -14,7 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *birdImageView;
 @property (weak, nonatomic) IBOutlet UILabel *birdKindLabel;
 @property (weak, nonatomic) IBOutlet UILabel *datetimeLabel;
-@property (weak, nonatomic) IBOutlet UITextField *commentTextField;
+@property (weak, nonatomic) IBOutlet UILabel *commentLabel;
 
 - (void)setupView:(HALBirdRecord *)birdRecord;
 + (NSString *)cellIdentifier;

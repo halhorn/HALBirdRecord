@@ -32,23 +32,19 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="コメント" textAlignment="right" minimumFontSize="17" id="JzK-8G-HY2">
-                        <rect key="frame" x="51" y="23" width="269" height="20"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tYm-UG-Iap">
+                        <rect key="frame" x="51" y="21" width="269" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                        <connections>
-                            <action selector="onCommentEditingDone:" destination="c8E-pv-FDE" eventType="editingDidEnd" id="5zt-sq-96W"/>
-                            <outlet property="delegate" destination="c8E-pv-FDE" id="Gya-VC-aFy"/>
-                        </connections>
-                    </textField>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </tableViewCellContentView>
             <connections>
                 <outlet property="birdImageView" destination="JuQ-ZU-wwz" id="oiN-3V-g9e"/>
                 <outlet property="birdKindLabel" destination="cqg-Tz-5bc" id="zaR-fz-5pI"/>
-                <outlet property="commentTextField" destination="JzK-8G-HY2" id="Hgr-Z3-Sfc"/>
+                <outlet property="commentLabel" destination="tYm-UG-Iap" id="jEA-A5-CMZ"/>
                 <outlet property="datetimeLabel" destination="p05-r5-acs" id="nfy-yG-Zkd"/>
             </connections>
         </tableViewCell>

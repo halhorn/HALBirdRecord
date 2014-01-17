@@ -32,7 +32,7 @@ static NSDateFormatter *dateFormatter;
     self.birdImageView.userInteractionEnabled = YES;
     self.birdKindLabel.textColor = kHALTextColor;
     self.datetimeLabel.textColor = kHALSubTextColor;
-    self.commentTextField.textColor = kHALSubTextColor;
+    self.commentLabel.textColor = kHALSubTextColor;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -51,7 +51,7 @@ static NSDateFormatter *dateFormatter;
     self.birdImageView.image = birdRecord.kind.image;
     self.birdKindLabel.text = birdRecord.kind.name;
     self.datetimeLabel.text = [dateFormatter stringFromDate:birdRecord.datetime];
-    self.commentTextField.text = birdRecord.comment;
+    self.commentLabel.text = birdRecord.comment;
     self.birdRecord = birdRecord;
 }
 
@@ -66,7 +66,7 @@ static NSDateFormatter *dateFormatter;
 }
 
 - (IBAction)onCommentEditingDone:(id)sender {
-    self.birdRecord.comment = self.commentTextField.text;
+    self.birdRecord.comment = self.commentLabel.text;
     [self.birdRecord updateDB];
 }
 

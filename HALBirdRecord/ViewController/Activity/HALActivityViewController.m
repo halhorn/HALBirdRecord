@@ -14,18 +14,18 @@
 #import "HALBirdPointAnnotation.h"
 #import "HALMapManager.h"
 #import "HALWebViewController.h"
+#import "HALEditBirdRecordViewController.h"
 #import "UIViewController+HALCloseTextFieldKeyboard.h"
 #import <MapKit/MapKit.h>
 #import <SZTextView/SZTextView.h>
 
-@interface HALActivityViewController ()<UITextFieldDelegate, UITextViewDelegate, UITableViewDataSource, UITableViewDelegate, MKMapViewDelegate>
+@interface HALActivityViewController ()<UITextFieldDelegate, UITextViewDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet SZTextView *commentTextView;
 @property (weak, nonatomic) IBOutlet UITableView *birdRecordTableView;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property(nonatomic) HALActivityManager *activityManager;
 @property(nonatomic) HALActivity *activity;
-@property(nonatomic) HALBirdRecord *selectedBirdRecord;
 @property(nonatomic) NSDateFormatter *dateFormatter;
 @property(nonatomic, assign) BOOL shouldShowRegister;
 
@@ -227,14 +227,11 @@
 {
     [self.view endEditing:YES];
     
-    self.selectedBirdRecord = self.activity.birdRecordList[indexPath.row];
-    MKCoordinateRegion region = self.mapView.region;
-    
-    // マップを更新
-    [self.mapView setRegion:MKCoordinateRegionMake(CLLocationCoordinate2DMake(0, 0), MKCoordinateSpanMake(1, 1)) animated:NO];
-    [self.mapView setRegion:region animated:NO];
+    HALBirdRecord *birdRecord = self.activity.birdRecordList[indexPath.row];
+    HALEditBirdRecordViewController *viewController = [[HALEditBirdRecordViewController alloc] initWithBirdRecord:birdRecord activity:self.activity];
+    [self.navigationController pushViewController:viewController animated:YES];
 }
-
+/*
 #pragma mark - MKMapViewDelegate
 
 -(MKAnnotationView *)mapView:(MKMapView*)mapView viewForAnnotation:(id)annotation{
@@ -247,5 +244,5 @@
     pinAnnotationView.pinColor = birdPointAnnotation.birdRecord == self.selectedBirdRecord ? MKPinAnnotationColorGreen :MKPinAnnotationColorRed;
     return pinAnnotationView;
 }
-
+*/
 @end
