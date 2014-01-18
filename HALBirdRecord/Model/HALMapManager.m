@@ -12,6 +12,7 @@
 #define kHALMapRegionNormalMinSpan 0.001
 #define kHALMapRegionVastMinSpan 3
 #define kHALMapRegionMarginScale 1.5
+#define kHALMapRegionUpperMargin 0.4
 
 @interface HALMapManager()
 
@@ -91,6 +92,11 @@
     double centerLongitude = (minLongitude + maxLongitude) / 2;
     double spanLatitude = MAX((maxLatitude - minLatitude) * kHALMapRegionMarginScale, minSpan);
     double spanLongitude = MAX((maxLongitude - minLongitude) * kHALMapRegionMarginScale, minSpan);
+    
+    // ピンの分だけmapを上に伸ばす
+    centerLatitude += spanLatitude * kHALMapRegionUpperMargin / 2;
+    spanLatitude *= 1 + kHALMapRegionUpperMargin;
+    
     return MKCoordinateRegionMake(CLLocationCoordinate2DMake(centerLatitude, centerLongitude), MKCoordinateSpanMake(spanLatitude, spanLongitude));
 }
 
