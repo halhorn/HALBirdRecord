@@ -22,6 +22,7 @@
 @property(nonatomic) NSString *comment;
 @property(nonatomic, readonly) HALBirdKind *kind;
 
++ (NSString *)updateBirdRecordNotificationName;
 + (id)birdRecordWithBirdID:(int)birdID;
 - (id)initWithBirdID:(int)birdID;
 - (void)setCurrentLocationAsync;

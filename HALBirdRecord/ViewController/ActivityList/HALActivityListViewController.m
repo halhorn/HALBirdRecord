@@ -59,6 +59,10 @@
                                              selector:@selector(reloadViews)
                                                  name:[HALActivityManager updateActivityNotificationName]
                                                object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadViews)
+                                                 name:[HALBirdRecord updateBirdRecordNotificationName]
+                                               object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated

@@ -10,7 +10,7 @@
                 <outlet property="birdImageView" destination="oCn-kc-fh1" id="LZG-It-xx5"/>
                 <outlet property="birdNameLabel" destination="uRD-FN-YUg" id="sKK-ma-7Yz"/>
                 <outlet property="commentTextField" destination="Cx7-jI-mi4" id="yVk-mw-zGC"/>
-                <outlet property="dateTimeLabel" destination="2Gc-LY-NNe" id="ru4-Pm-6fo"/>
+                <outlet property="datetimePicker" destination="176-Z6-Adj" id="gNd-Iu-E4n"/>
                 <outlet property="mapView" destination="Na8-Mp-B5t" id="bYZ-pw-aek"/>
                 <outlet property="scrollView" destination="pQ9-Aa-iCD" id="hYB-Dw-YIv"/>
                 <outlet property="titleBackgroundView" destination="Efz-bx-8ed" id="Nmt-3A-Tbs"/>
@@ -44,46 +44,53 @@
                             <color key="backgroundColor" red="0.90500217679999995" green="0.98600506779999997" blue="0.99981087449999995" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="Na8-Mp-B5t">
-                            <rect key="frame" x="0.0" y="74" width="320" height="213"/>
+                            <rect key="frame" x="0.0" y="103" width="320" height="240"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="MUf-q7-z3P"/>
+                            </connections>
                         </mapView>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2013/11/12 08:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Gc-LY-NNe">
-                            <rect key="frame" x="62" y="295" width="195" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="コメント" minimumFontSize="17" clearButtonMode="whileEditing" id="Cx7-jI-mi4">
-                            <rect key="frame" x="20" y="324" width="280" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="コメント" minimumFontSize="17" clearButtonMode="whileEditing" id="Cx7-jI-mi4">
+                            <rect key="frame" x="8" y="75" width="304" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
+                                <action selector="onCommentEditEnd:" destination="-1" eventType="editingDidEnd" id="CaE-hi-7Od"/>
                                 <outlet property="delegate" destination="-1" id="agQ-gD-OeO"/>
                             </connections>
                         </textField>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hv9-SO-C3E">
-                            <rect key="frame" x="70" y="392" width="178" height="39"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <state key="normal" title="保存" backgroundImage="button_normal.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
+                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" id="176-Z6-Adj">
+                            <rect key="frame" x="0.0" y="342" width="320" height="162"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <date key="date" timeIntervalSinceReferenceDate="411699450.31025499">
+                                <!--2014-01-18 00:57:30 +0000-->
+                            </date>
+                            <timeZone key="timeZone" name="America/Los_Angeles">
+                                <mutableData key="data">
+VFppZgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAC5AAAABAAAABCepkign7sVkKCGKqChmveQ
+y4kaoNIj9HDSYSYQ1v50INiArZDa/tGg28CQENzes6DdqayQ3r6VoN+JjpDgnneg4WlwkOJ+WaDjSVKQ
+5F47oOUpNJDmR1gg5xJREOgnOiDo8jMQ6gccIOrSFRDr5v4g7LH3EO3G4CDukdkQ76/8oPBxuxDxj96g
+8n/BkPNvwKD0X6OQ9U+ioPY/hZD3L4Sg+CiiEPkPZqD6CIQQ+viDIPvoZhD82GUg/chIEP64RyD/qCoQ
+AJgpIAGIDBACeAsgA3EokARhJ6AFUQqQBkEJoAcw7JAHjUOgCRDOkAmtvyAK8LCQC+CvoAzZzRANwJGg
+DrmvEA+priAQmZEQEYmQIBJ5cxATaXIgFFlVEBVJVCAWOTcQFyk2IBgiU5AZCRggGgI1kBryNKAb4heQ
+HNIWoB3B+ZAesfigH6HbkCB2KyAhgb2QIlYNICNq2hAkNe8gJUq8ECYV0SAnKp4QJ/7toCkKgBAp3s+g
+KupiECu+saAs036QLZ6ToC6zYJAvfnWgMJNCkDFnkiAycySQM0d0IDRTBpA1J1YgNjLokDcHOCA4HAUQ
+OOcaIDn75xA6xvwgO9vJEDywGKA9u6sQPo/6oD+bjRBAb9ygQYSpkEJPvqBDZIuQRC+goEVEbZBF89Mg
+Ry2KEEfTtSBJDWwQSbOXIErtThBLnLOgTNZqkE18laBOtkyQT1x3oFCWLpBRPFmgUnYQkFMcO6BUVfKQ
+VPwdoFY11JBW5TogWB7xEFjFHCBZ/tMQWqT+IFvetRBchOAgXb6XEF5kwiBfnnkQYE3eoGGHlZBiLcCg
+Y2d3kGQNoqBlR1mQZe2EoGcnO5BnzWagaQcdkGmtSKBq5v+Qa5ZlIGzQHBBtdkcgbq/+EG9WKSBwj+AQ
+cTYLIHJvwhBzFe0gdE+kEHT/CaB2OMCQdt7roHgYopB4vs2gefiEkHqer6B72GaQfH6RoH24SJB+XnOg
+f5gqkAABAAECAwEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
+AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
+AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
+AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
+</mutableData>
+                            </timeZone>
                             <connections>
-                                <action selector="onTapSaveButton:" destination="-1" eventType="touchUpInside" id="qKE-zL-NCP"/>
+                                <action selector="onDatetimeChanged:" destination="-1" eventType="valueChanged" id="8Q1-SQ-iPQ"/>
                             </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="B9i-rs-91s">
-                            <rect key="frame" x="70" y="445" width="178" height="39"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <state key="normal" title="削除" backgroundImage="button_red.png">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="onTapDeleteButton:" destination="-1" eventType="touchUpInside" id="iCV-mT-33e"/>
-                            </connections>
-                        </button>
+                        </datePicker>
                     </subviews>
                 </scrollView>
             </subviews>
@@ -93,8 +100,4 @@
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
-    <resources>
-        <image name="button_normal.png" width="178" height="39"/>
-        <image name="button_red.png" width="178" height="39"/>
-    </resources>
 </document>
