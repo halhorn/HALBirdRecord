@@ -113,7 +113,7 @@
     
     spanLongitude = MIN(spanLongitude, 360);
     spanLatitude = MIN(spanLatitude, 180);
-    centerLatitude = MIN(90, 0);
+    centerLatitude = MIN(centerLatitude, 90);
     
     return MKCoordinateRegionMake(CLLocationCoordinate2DMake(centerLatitude, centerLongitude), MKCoordinateSpanMake(spanLatitude, spanLongitude));
 }
