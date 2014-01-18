@@ -46,7 +46,7 @@ static NSDateFormatter *dateFormatter;
 {
     if (!dateFormatter) {
         dateFormatter = [[NSDateFormatter alloc] init];
-        dateFormatter.dateFormat = @"HH:mm:ss";
+        dateFormatter.dateFormat = @"MM/dd HH:mm:ss";
     }
     self.birdImageView.image = birdRecord.kind.image;
     self.birdKindLabel.text = birdRecord.kind.name;
