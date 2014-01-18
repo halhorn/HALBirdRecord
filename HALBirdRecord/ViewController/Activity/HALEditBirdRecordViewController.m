@@ -70,6 +70,11 @@
     [self setKeyBoardNotification];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [HALGAManager sendView:@"EditBirdRecord"];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -81,6 +86,7 @@
     [self.birdRecord updateDB];
     [SVProgressHUD showSuccessWithStatus:@"保存しました"];
     [self.navigationController popViewControllerAnimated:YES];
+    [HALGAManager sendAction:@"Edit Bird Record" label:self.birdRecord.kind.name value:0];
 }
 
 - (IBAction)onTapDeleteButton:(id)sender {
@@ -92,6 +98,7 @@
             [activityManager saveActivity:weakSelf.activity];
             [SVProgressHUD showSuccessWithStatus:@"削除しました"];
             [self.navigationController popViewControllerAnimated:YES];
+            [HALGAManager sendAction:@"Delete Bird Record (in EditView rate)" label:self.birdRecord.kind.name value:1];
         }
     }];
 }

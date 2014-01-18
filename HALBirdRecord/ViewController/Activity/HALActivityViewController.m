@@ -206,7 +206,7 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         HALBirdRecord *deletingRecord = self.activity.birdRecordList[indexPath.row];
-        [HALGAManager sendAction:@"Delete Bird Record" label:deletingRecord.kind.name value:0];
+        [HALGAManager sendAction:@"Delete Bird Record (in EditView rate)" label:deletingRecord.kind.name value:0];
 
         // Delete the row from the data source
         [self.activity.birdRecordList removeObjectAtIndex:indexPath.row];
