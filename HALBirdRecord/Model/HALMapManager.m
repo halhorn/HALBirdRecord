@@ -111,6 +111,10 @@
     centerLatitude += spanLatitude * kHALMapRegionUpperMargin / 2;
     spanLatitude *= 1 + kHALMapRegionUpperMargin;
     
+    spanLongitude = MIN(spanLongitude, 360);
+    spanLatitude = MIN(spanLatitude, 180);
+    centerLatitude = MIN(90, 0);
+    
     return MKCoordinateRegionMake(CLLocationCoordinate2DMake(centerLatitude, centerLongitude), MKCoordinateSpanMake(spanLatitude, spanLongitude));
 }
 
