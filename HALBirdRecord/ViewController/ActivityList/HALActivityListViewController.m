@@ -23,6 +23,7 @@
 
 @property(nonatomic) HALActivityManager *activityManager;
 @property(nonatomic) BOOL reloadViewFlag;
+@property(nonatomic) HALStatisticsViewCell *statisticsViewCell;
 @end
 
 @implementation HALActivityListViewController
@@ -131,9 +132,9 @@
     // Configure the cell...
     if (indexPath.row == 0) {
         // 統計
-        HALStatisticsViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[HALStatisticsViewCell cellIdentifier]];
-        [cell load];
-        return cell;
+        self.statisticsViewCell = [tableView dequeueReusableCellWithIdentifier:[HALStatisticsViewCell cellIdentifier]];
+        [self.statisticsViewCell load];
+        return self.statisticsViewCell;
     }
     if (indexPath.row == 1) {
         // 新規アクティビティ
@@ -170,7 +171,9 @@
         [self.activityManager deleteActivity:activity];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         self.reloadViewFlag = YES;
+        
         [self setupExplainView];
+        [self.statisticsViewCell load];
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
