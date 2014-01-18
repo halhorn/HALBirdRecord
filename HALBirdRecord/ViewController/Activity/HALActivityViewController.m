@@ -65,6 +65,14 @@
     [self.birdRecordTableView registerNib:[HALBirdRecordTableViewCell nib]
                    forCellReuseIdentifier:[HALBirdRecordTableViewCell cellIdentifier]];
 
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadViews)
+                                                 name:[HALActivityManager updateActivityNotificationName]
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadViews)
+                                                 name:[HALBirdRecord updateBirdRecordNotificationName]
+                                               object:nil];
     // 新規アクティビティの場合
     if (self.shouldShowRegister) {
         WeakSelf weakSelf = self;
@@ -77,8 +85,6 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [self.birdRecordTableView reloadData];
-    [self loadMapView];
     [HALGAManager sendView:@"Activity"];
 }
 
@@ -103,6 +109,7 @@
                                                                               style:UIBarButtonItemStyleBordered
                                                                              target:self
                                                                              action:@selector(onTapAddButton:)];
+    [self reloadViews];
 }
 
 - (void)loadMapView
@@ -111,6 +118,12 @@
     self.mapView.region = [mapManager region];
     [self.mapView removeAnnotations:self.mapView.annotations];
     [self.mapView addAnnotations:[mapManager annotationList]];
+}
+
+- (void)reloadViews
+{
+    [self.birdRecordTableView reloadData];
+    [self loadMapView];
 }
 
 #pragma mark - other methods
