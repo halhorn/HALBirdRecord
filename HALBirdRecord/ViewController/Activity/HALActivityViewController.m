@@ -111,7 +111,17 @@
                                                                               style:UIBarButtonItemStyleBordered
                                                                              target:self
                                                                              action:@selector(onTapAddButton:)];
+    [self setupTableViewHeader];
     [self reloadViews];
+}
+
+- (void)setupTableViewHeader
+{
+    NSArray *sortModes = @[@"日時順", @"野鳥番号順"];
+    UISegmentedControl *segments = [[UISegmentedControl alloc] initWithItems:sortModes];
+    [segments addTarget:self action:@selector(onSortModeChanged:) forControlEvents:UIControlEventValueChanged];
+    segments.selectedSegmentIndex = 0;
+    self.birdRecordTableView.tableHeaderView = segments;
 }
 
 - (void)loadMapView
@@ -169,6 +179,26 @@
 {
     [HALGAManager sendAction:@"Open Bird Selector" label:@"Existing Activity" value:0];
     [self showBirdSelectorView];
+}
+
+- (void)onSortModeChanged:(UISegmentedControl *)segmentControl
+{
+    int index = segmentControl.selectedSegmentIndex;
+    HALBirdRecordOrder order;
+    switch (index) {
+        case 0:
+            order = HALBirdRecordOrderDateTime;
+            break;
+        case 1:
+            order = HALBirdrecordOrderBirdID;
+            break;
+            
+        default:
+            NSAssert(NO, @"Invalid Order");
+            return;
+    }
+    [self.activity loadBirdRecordListByOrder:order];
+    [self reloadViews];
 }
 
 - (IBAction)onTitleEditDone:(id)sender {
