@@ -8,14 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import "HALBirdRecord.h"
-#import "HALActivity.h"
+@class HALActivity;
+
+typedef NS_ENUM(NSUInteger, HALBirdRecordOrder) {
+    HALBirdRecordOrderDateTime,
+    HALBirdrecordOrderBirdID,
+};
 
 @interface HALDB : NSObject
 
 + (instancetype)sharedDB;
 - (void)showRecordInTable:(NSString *)tableName;
 - (NSArray *)selectActivityRows;
-- (NSArray *)selectBirdRecordListWithActivityDBID:(int)dbID;
+- (NSArray *)selectBirdRecordListWithActivityDBID:(int)dbID order:(HALBirdRecordOrder)order;
 - (int)selectLastIdOfActivityTable;
 - (int)countTotalBirdKinds;
 - (int)countTotalPrefectures;
