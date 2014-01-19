@@ -209,7 +209,7 @@
                            label:birdKind.name
                            value:[self.searchedBirdKindList isSearchWordSet] ? 1 : 0];
         HALBirdRecord *record = [[HALBirdRecord alloc] initWithBirdID:birdKind.birdID];
-        [record setCurrentLocationAsync];
+        [record setCurrentLocationAndPlacemarkAndUpdateDBAsync];
         [self.birdRecordList addObject:record];
         [self.birdKindListViewController onTapBirdRow];
         [tableView reloadData];

@@ -11,6 +11,6 @@
 
 @interface HALLocationManager : NSObject
 
--(void) getCurrentLocationWithCompletion:(void(^)(CLLocationCoordinate2D, CLPlacemark *))completion;
+-(void) getCurrentLocationWithCompletion:(void(^)(CLLocationCoordinate2D))completion;
 
 @end

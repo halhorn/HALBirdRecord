@@ -27,11 +27,11 @@
     return self;
 }
 
--(void) getCurrentLocationWithCompletion:(void(^)(CLLocationCoordinate2D, CLPlacemark *))completion;
+-(void) getCurrentLocationWithCompletion:(void(^)(CLLocationCoordinate2D))completion
 {
     if (![CLLocationManager locationServicesEnabled]) {
         NSLog(@"Location Service Disabled!");
-        completion(CLLocationCoordinate2DMake(0, 0), nil);
+        completion(CLLocationCoordinate2DMake(0, 0));
         return;
     }
     
@@ -48,10 +48,10 @@
     self.manager.desiredAccuracy = kCLLocationAccuracyBest;
 }
 
-- (void)executeCompletionsWithCoordinate:(CLLocationCoordinate2D)coordinate placemark:(CLPlacemark *)placemark
+- (void)executeCompletionsWithCoordinate:(CLLocationCoordinate2D)coordinate
 {
-    for (void(^getLocationCompletion)(CLLocationCoordinate2D, CLPlacemark *) in self.completionArray) {
-        getLocationCompletion(coordinate, placemark);
+    for (void(^getLocationCompletion)(CLLocationCoordinate2D) in self.completionArray) {
+        getLocationCompletion(coordinate);
     }
     self.completionArray = [[NSMutableArray alloc] init];
 }
@@ -61,15 +61,7 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
 {
     [self.manager stopUpdatingLocation];
-    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-    WeakSelf weakSelf = self;
-    [geocoder reverseGeocodeLocation:newLocation completionHandler:^(NSArray *placemarks, NSError *error){
-        CLPlacemark *placemark;
-        if (placemarks.count) {
-            placemark = placemarks[0];
-        }
-        [weakSelf executeCompletionsWithCoordinate:newLocation.coordinate placemark:placemark];
-    }];
+    [self executeCompletionsWithCoordinate:newLocation.coordinate];
 }
 
 @end

@@ -10,6 +10,7 @@
 #import "HALBirdKindListBase.h"
 #import "HALLocationManager.h"
 #import "HALDB.h"
+#import "CLGeocoder+HALCoordinateGeocoder.h"
 
 #define kHALUpdateBirdRecordNotificationName @"HALBirdRecordManagerUpdateActivity"
 
@@ -18,6 +19,7 @@
 @property(nonatomic) HALDB *db;
 @property(nonatomic) HALLocationManager *locationManager;
 @property(nonatomic) int processingCount;
+@property(nonatomic) id strongSelf;
 
 @end
 
@@ -73,18 +75,32 @@
     return _kind;
 }
 
-- (void)setCurrentLocationAsync
+- (void)setCurrentLocationAndPlacemarkAndUpdateDBAsync
 {
     self.processingCount++;
-    [self.locationManager getCurrentLocationWithCompletion:^(CLLocationCoordinate2D coordinate, CLPlacemark *placemark){
+    self.strongSelf = self;
+    WeakSelf weakSelf = self;
+    [self.locationManager getCurrentLocationWithCompletion:^(CLLocationCoordinate2D coordinate){
         _coordinate = coordinate;
-        if (placemark && [self isPrefectureString:placemark.addressDictionary[@"State"]]) {
+        [weakSelf updateDB];
+        [weakSelf updatePlacemarkAndDBAsync];
+    }];
+}
+
+- (void)updatePlacemarkAndDBAsync
+{
+    WeakSelf weakSelf = self;
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder reverseGeocodeCoordinate:self.coordinate completionHandler:^(CLPlacemark *placemark){
+        if (placemark && [weakSelf isPrefectureString:placemark.addressDictionary[@"State"]]) {
             _prefecture = placemark.addressDictionary[@"State"];
             if (placemark.addressDictionary[@"City"]) {
                 _city = placemark.addressDictionary[@"City"];
             }
         }
-        self.processingCount--;
+        [weakSelf updateDB];
+        weakSelf.processingCount--;
+        weakSelf.strongSelf = nil;
     }];
 }
 
