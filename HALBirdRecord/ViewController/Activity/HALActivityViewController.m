@@ -19,6 +19,8 @@
 #import <MapKit/MapKit.h>
 #import <SZTextView/SZTextView.h>
 
+#define kHALBirdRecordSortOrderKey @"BirdRecordSortOrderKey"
+
 @interface HALActivityViewController ()<UITextFieldDelegate, UITextViewDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (weak, nonatomic) IBOutlet SZTextView *commentTextView;
@@ -27,6 +29,7 @@
 @property(nonatomic) HALActivityManager *activityManager;
 @property(nonatomic) HALActivity *activity;
 @property(nonatomic) NSDateFormatter *dateFormatter;
+@property(nonatomic) HALBirdRecordOrder sortOrder;
 @property(nonatomic, assign) BOOL shouldShowRegister;
 @property(nonatomic, assign) BOOL reloadViewFlag;
 
@@ -44,6 +47,8 @@
         self.shouldShowRegister = shouldShowRegister;
         self.dateFormatter = [[NSDateFormatter alloc] init];
         self.dateFormatter.dateFormat = @"yyyy/MM/dd HH:mm";
+        NSNumber *sortOrderNum = [[NSUserDefaults standardUserDefaults] objectForKey:kHALBirdRecordSortOrderKey];
+        self.sortOrder = sortOrderNum ? [sortOrderNum intValue] : HALBirdRecordOrderDateTime;
         self.reloadViewFlag = YES;
     }
     return self;
@@ -121,7 +126,7 @@
     UISegmentedControl *segments = [[UISegmentedControl alloc] initWithItems:sortModes];
     segments.segmentedControlStyle = UISegmentedControlStyleBar;
     [segments addTarget:self action:@selector(onSortModeChanged:) forControlEvents:UIControlEventValueChanged];
-    segments.selectedSegmentIndex = 0;
+    segments.selectedSegmentIndex = self.sortOrder;
     self.birdRecordTableView.tableHeaderView = segments;
 }
 
@@ -136,6 +141,7 @@
 - (void)reloadViews
 {
     if (self.reloadViewFlag) {
+        [self.activity loadBirdRecordListByOrder:self.sortOrder];
         [self.birdRecordTableView reloadData];
         [self loadMapView];
     }
@@ -198,7 +204,8 @@
             NSAssert(NO, @"Invalid Order");
             return;
     }
-    [self.activity loadBirdRecordListByOrder:order];
+    self.sortOrder = order;
+    [[NSUserDefaults standardUserDefaults] setObject:@(self.sortOrder) forKey:kHALBirdRecordSortOrderKey];
     [self reloadViews];
 }
 
