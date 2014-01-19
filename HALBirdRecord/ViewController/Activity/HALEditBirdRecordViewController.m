@@ -145,6 +145,7 @@ didChangeDragState:(MKAnnotationViewDragState)newState
         HALBirdPointAnnotation *annotation = view.annotation;
         self.birdRecord.coordinate = annotation.coordinate;
         [self.birdRecord updateDB];
+        [self.birdRecord updatePlacemarkAndDBAsync];
         [HALGAManager sendAction:@"Update BirdRecord Location" label:@"" value:0];
     }
 }
