@@ -275,6 +275,7 @@
 {
     [self.view endEditing:YES];
     
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     HALBirdRecord *birdRecord = self.activity.birdRecordList[indexPath.row];
     HALEditBirdRecordViewController *viewController = [[HALEditBirdRecordViewController alloc] initWithBirdRecord:birdRecord activity:self.activity];
     [self.navigationController pushViewController:viewController animated:YES];
