@@ -19,6 +19,10 @@
 #import <MapKit/MapKit.h>
 #import <SZTextView/SZTextView.h>
 
+#define kHALDataSectionOffset 1
+#define kHALAddBirdRowHeight 39
+#define kHALAddBirdFontSize 17
+#define kHALDataRowHeight 44
 #define kHALBirdRecordSortOrderKey @"BirdRecordSortOrderKey"
 
 @interface HALActivityViewController ()<UITextFieldDelegate, UITextViewDelegate, UITableViewDataSource, UITableViewDelegate>
@@ -112,10 +116,6 @@
     self.commentTextView.textColor = kHALSubTextColor;
     self.commentTextView.backgroundColor = kHALActivityCommentBackgroundColor;
     self.commentTextView.placeholder = @"コメントを入力";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"追加"
-                                                                              style:UIBarButtonItemStyleBordered
-                                                                             target:self
-                                                                             action:@selector(onTapAddButton:)];
     [self setupTableViewHeader];
     [self reloadViews];
 }
@@ -174,6 +174,9 @@
 {
     CGPoint point = [sender locationInView:self.birdRecordTableView];
     NSIndexPath *indexPath = [self.birdRecordTableView indexPathForRowAtPoint:point];
+    if (indexPath.section < kHALDataSectionOffset) {
+        return;
+    }
     HALBirdKind *birdKind = ((HALBirdRecord *)self.activity.birdRecordList[indexPath.row]).kind;
     HALWebViewController *webViewCotroller = [[HALWebViewController alloc] initWithURL:birdKind.url title:birdKind.name];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:webViewCotroller];
@@ -235,31 +238,46 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return kHALDataSectionOffset + 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.activity.birdRecordList.count;
+    if (section == 0) {
+        return 1;
+    } else {
+        return self.activity.birdRecordList.count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    HALBirdRecordTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[HALBirdRecordTableViewCell cellIdentifier]];
-    if (![cell.birdImageView.gestureRecognizers count]) {
-        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                              action:@selector(imageViewTouched:)];
-        [cell.birdImageView addGestureRecognizer:tap];
+    if (indexPath.section == 0) {
+        static NSString *normalCellIdentifier = @"Cell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:normalCellIdentifier];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:normalCellIdentifier];
+            cell.textLabel.font = [UIFont boldSystemFontOfSize:kHALAddBirdFontSize];
+        }
+        cell.textLabel.text = @"＋野鳥を追加";
+        return cell;
+    } else {
+        HALBirdRecordTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[HALBirdRecordTableViewCell cellIdentifier]];
+        if (![cell.birdImageView.gestureRecognizers count]) {
+            UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                  action:@selector(imageViewTouched:)];
+            [cell.birdImageView addGestureRecognizer:tap];
+        }
+        
+        HALBirdRecord *birdRecord = self.activity.birdRecordList[indexPath.row];
+        [cell setupView:birdRecord];
+        return cell;
     }
-    
-    HALBirdRecord *birdRecord = self.activity.birdRecordList[indexPath.row];
-    [cell setupView:birdRecord];
-    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
+    if (editingStyle == UITableViewCellEditingStyleDelete && indexPath.section >= kHALDataSectionOffset) {
         HALBirdRecord *deletingRecord = self.activity.birdRecordList[indexPath.row];
         [HALGAManager sendAction:@"Delete Bird Record (in EditView rate)" label:deletingRecord.kind.name value:0];
 
@@ -276,17 +294,29 @@
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0) {
+        return kHALAddBirdRowHeight;
+    } else {
+        return kHALDataRowHeight;
+    }
+}
+
 #pragma mark - UITableViewDelegate
 
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.view endEditing:YES];
-    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    HALBirdRecord *birdRecord = self.activity.birdRecordList[indexPath.row];
-    HALEditBirdRecordViewController *viewController = [[HALEditBirdRecordViewController alloc] initWithBirdRecord:birdRecord activity:self.activity];
-    [self.navigationController pushViewController:viewController animated:YES];
+    if (indexPath.section == 0) {
+        [self onTapAddButton:[tableView cellForRowAtIndexPath:indexPath]];
+    } else {
+        HALBirdRecord *birdRecord = self.activity.birdRecordList[indexPath.row];
+        HALEditBirdRecordViewController *viewController = [[HALEditBirdRecordViewController alloc] initWithBirdRecord:birdRecord activity:self.activity];
+        [self.navigationController pushViewController:viewController animated:YES];
+    }
 }
 /*
 #pragma mark - MKMapViewDelegate
