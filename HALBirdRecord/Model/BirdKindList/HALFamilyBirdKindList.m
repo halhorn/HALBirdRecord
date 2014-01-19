@@ -37,14 +37,10 @@
 
 - (NSArray *)birdKindListWithRawBirdList:(NSArray *)rawBirdKindList
 {
-    NSSortDescriptor *familySortDescripter = [NSSortDescriptor sortDescriptorWithKey:@"groupName" ascending:YES];
-    NSSortDescriptor *nameSortDescripter = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
-    NSArray *sortedList = [rawBirdKindList sortedArrayUsingDescriptors:@[familySortDescripter, nameSortDescripter]];
-    
     NSMutableArray *array = [[NSMutableArray alloc] init];
     int groupID = -1;
     NSMutableArray *groupArray = [[NSMutableArray alloc] init];
-    for (HALBirdKind *kind in sortedList) {
+    for (HALBirdKind *kind in rawBirdKindList) {
         if (kind.groupID != groupID) {
             groupID = kind.groupID;
             groupArray = [[NSMutableArray alloc] init];
