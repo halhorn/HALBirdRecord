@@ -28,6 +28,7 @@
 @property(nonatomic) HALActivity *activity;
 @property(nonatomic) NSDateFormatter *dateFormatter;
 @property(nonatomic, assign) BOOL shouldShowRegister;
+@property(nonatomic, assign) BOOL reloadViewFlag;
 
 @end
 
@@ -43,6 +44,7 @@
         self.shouldShowRegister = shouldShowRegister;
         self.dateFormatter = [[NSDateFormatter alloc] init];
         self.dateFormatter.dateFormat = @"yyyy/MM/dd HH:mm";
+        self.reloadViewFlag = YES;
     }
     return self;
 }
@@ -122,8 +124,10 @@
 
 - (void)reloadViews
 {
-    [self.birdRecordTableView reloadData];
-    [self loadMapView];
+    if (self.reloadViewFlag) {
+        [self.birdRecordTableView reloadData];
+        [self loadMapView];
+    }
 }
 
 #pragma mark - other methods
@@ -222,9 +226,11 @@
         [HALGAManager sendAction:@"Delete Bird Record (in EditView rate)" label:deletingRecord.kind.name value:0];
 
         // Delete the row from the data source
+        self.reloadViewFlag = NO;
         [self.activity.birdRecordList removeObjectAtIndex:indexPath.row];
         [[HALActivityManager sharedManager] saveActivity:self.activity];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        self.reloadViewFlag = YES;
         [self loadMapView];
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
