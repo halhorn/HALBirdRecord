@@ -106,7 +106,7 @@
     NSString *orderStr;
     switch (order) {
         case HALBirdRecordOrderDateTime:
-            orderStr = @"datetime";
+            orderStr = @"datetime desc";
             break;
         case HALBirdrecordOrderBirdID:
             orderStr = @"birdID";
