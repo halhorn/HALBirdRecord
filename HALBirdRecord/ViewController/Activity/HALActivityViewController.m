@@ -117,7 +117,7 @@
 
 - (void)setupTableViewHeader
 {
-    NSArray *sortModes = @[@"日時順", @"野鳥番号順"];
+    NSArray *sortModes = @[@"日時順", @"日本鳥類目録順"];
     UISegmentedControl *segments = [[UISegmentedControl alloc] initWithItems:sortModes];
     [segments addTarget:self action:@selector(onSortModeChanged:) forControlEvents:UIControlEventValueChanged];
     segments.selectedSegmentIndex = 0;
