@@ -119,6 +119,7 @@
 {
     NSArray *sortModes = @[@"日時順", @"日本鳥類目録順"];
     UISegmentedControl *segments = [[UISegmentedControl alloc] initWithItems:sortModes];
+    segments.segmentedControlStyle = UISegmentedControlStyleBar;
     [segments addTarget:self action:@selector(onSortModeChanged:) forControlEvents:UIControlEventValueChanged];
     segments.selectedSegmentIndex = 0;
     self.birdRecordTableView.tableHeaderView = segments;
