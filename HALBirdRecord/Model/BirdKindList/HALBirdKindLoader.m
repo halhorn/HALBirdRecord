@@ -79,8 +79,7 @@
             [array addObject:kind];
         }
     }
-    NSSortDescriptor *nameSortDescripter = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
-    return [array sortedArrayUsingDescriptors:@[nameSortDescripter]];
+    return [NSArray arrayWithArray:array];
 }
 
 

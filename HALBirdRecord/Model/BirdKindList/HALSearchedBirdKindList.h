@@ -14,4 +14,6 @@
 @property(nonatomic) NSArray *searchedBirdKindList;
 @property(nonatomic, readonly) BOOL isSearchWordSet;
 
+- (NSString *)sectionNameAtIndex:(int)section;
+
 @end

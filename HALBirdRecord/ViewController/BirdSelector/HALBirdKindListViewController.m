@@ -170,4 +170,9 @@
         [self.birdListViewController setSearchWord:newText];
     }];
 }
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [self.birdListViewController setSearchWord:self.searchTextField.text];
+}
 @end

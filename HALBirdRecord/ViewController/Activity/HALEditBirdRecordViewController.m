@@ -15,18 +15,18 @@
 
 #define kHALTextFieldKeybordMargin 28
 
-@interface HALEditBirdRecordViewController ()
+@interface HALEditBirdRecordViewController ()<MKMapViewDelegate>
 
 @property(nonatomic) HALBirdRecord *birdRecord;
 @property(nonatomic) HALActivity *activity;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIView *titleBackgroundView;
 @property (weak, nonatomic) IBOutlet UILabel *birdNameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *birdImageView;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
-@property (weak, nonatomic) IBOutlet UILabel *dateTimeLabel;
 @property (weak, nonatomic) IBOutlet UITextField *commentTextField;
-@property (weak, nonatomic) IBOutlet UIView *titleBackgroundView;
+@property (weak, nonatomic) IBOutlet UIDatePicker *datetimePicker;
 @end
 
 @implementation HALEditBirdRecordViewController
@@ -57,11 +57,10 @@
     // Do any additional setup after loading the view from its nib.
     self.birdNameLabel.text = self.birdRecord.kind.name;
     self.birdImageView.image = self.birdRecord.kind.image;
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateFormat = @"yyyy/MM/dd HH:mm:ss";
-    self.dateTimeLabel.text = [dateFormatter stringFromDate:self.birdRecord.datetime];
+    self.datetimePicker.date = self.birdRecord.datetime;
     self.commentTextField.text = self.birdRecord.comment;
     self.titleBackgroundView.backgroundColor = kHALEditBirdRecordTitleBackgroundColor;
+    self.datetimePicker.backgroundColor = kHALEditBirdRecordDatetimeBackgroundColor;
     
     HALMapManager *mapManager = [HALMapManager managerWithActivity:self.activity];
     self.mapView.region = [mapManager region];
@@ -70,30 +69,27 @@
     [self setKeyBoardNotification];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [HALGAManager sendView:@"EditBirdRecord"];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)onTapSaveButton:(id)sender {
+- (IBAction)onCommentEditEnd:(id)sender {
     self.birdRecord.comment = self.commentTextField.text;
     [self.birdRecord updateDB];
-    [SVProgressHUD showSuccessWithStatus:@"保存しました"];
-    [self.navigationController popViewControllerAnimated:YES];
+    [HALGAManager sendAction:@"Update BirdRecord Comment" label:self.birdRecord.comment value:0];
 }
 
-- (IBAction)onTapDeleteButton:(id)sender {
-    WeakSelf weakSelf = self;
-    [UIAlertView showAlertViewWithTitle:@"削除" message:@"本当に削除してもよろしいですか" cancelButtonTitle:@"いいえ" otherButtonTitles:@[@"はい"] handler:^(UIAlertView *alertView, NSInteger buttonIndex){
-        if (buttonIndex != alertView.cancelButtonIndex) {
-            [weakSelf.activity.birdRecordList removeObject:weakSelf.birdRecord];
-            HALActivityManager *activityManager = [HALActivityManager sharedManager];
-            [activityManager saveActivity:weakSelf.activity];
-            [SVProgressHUD showSuccessWithStatus:@"削除しました"];
-            [self.navigationController popViewControllerAnimated:YES];
-        }
-    }];
+- (IBAction)onDatetimeChanged:(id)sender {
+    self.birdRecord.datetime = self.datetimePicker.date;
+    [self.birdRecord updateDB];
+    [HALGAManager sendAction:@"Update BirdRecord Datetime" label:@"" value:0];
 }
 
 - (void)setKeyBoardNotification
@@ -127,5 +123,33 @@
 {
     [self.scrollView setContentOffset:CGPointMake(0.0, 0.0) animated:YES];
 }
+
+#pragma mark - MKMapViewDelegate
+
+-(MKAnnotationView *)mapView:(MKMapView*)mapView viewForAnnotation:(id)annotation{
+    static NSString *PinIdentifier = @"Pin";
+    MKPinAnnotationView *pinAnnotationView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:PinIdentifier];
+    if(pinAnnotationView == nil){
+        pinAnnotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:PinIdentifier];
+    }
+    pinAnnotationView.draggable = YES;
+    return pinAnnotationView;
+}
+
+- (void)mapView:(MKMapView *)mapView
+ annotationView:(MKAnnotationView *)view
+didChangeDragState:(MKAnnotationViewDragState)newState
+   fromOldState:(MKAnnotationViewDragState)oldState
+{
+    if (newState == MKAnnotationViewDragStateEnding) {
+        HALBirdPointAnnotation *annotation = view.annotation;
+        self.birdRecord.coordinate = annotation.coordinate;
+        [self.birdRecord updateDB];
+        [self.birdRecord updatePlacemarkAndDBAsync];
+        [HALGAManager sendAction:@"Update BirdRecord Location" label:@"" value:0];
+    }
+}
+
+
 
 @end

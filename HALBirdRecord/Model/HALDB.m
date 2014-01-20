@@ -9,6 +9,7 @@
 #import "HALDB.h"
 #import "FMDataBase.h"
 #import "NSURL+HALLocalFileURL.h"
+#import "HALActivity.h"
 
 #define kHALDBFile @"HALBirdRecord.db"
 #define kHALBirdRecordTable @"BirdRecord"
@@ -100,9 +101,21 @@
     return [self selectWithSQL:sqlFormat args:nil];
 }
 
-- (NSArray *)selectBirdRecordListWithActivityDBID:(int)dbID
+- (NSArray *)selectBirdRecordListWithActivityDBID:(int)dbID order:(HALBirdRecordOrder)order
 {
-    NSString *sqlFormat = [NSString stringWithFormat:@"select * from %@ where activityID = ? order by id", kHALBirdRecordTable];
+    NSString *orderStr;
+    switch (order) {
+        case HALBirdRecordOrderDateTime:
+            orderStr = @"datetime desc";
+            break;
+        case HALBirdrecordOrderBirdID:
+            orderStr = @"birdID";
+            break;
+        default:
+            break;
+    }
+    
+    NSString *sqlFormat = [NSString stringWithFormat:@"select * from %@ where activityID = ? order by %@", kHALBirdRecordTable, orderStr];
     return [self selectWithSQL:sqlFormat args:@[@(dbID)]];
 }
 

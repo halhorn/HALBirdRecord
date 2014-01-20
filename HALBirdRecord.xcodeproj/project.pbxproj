@@ -820,6 +820,7 @@
 		29AA88ED1888B16E0088F049 /* button_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29AA88E91888B16E0088F049 /* button_normal@2x.png */; };
 		29AA88EE1888B16E0088F049 /* button_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 29AA88EA1888B16E0088F049 /* button_red.png */; };
 		29AA88EF1888B16E0088F049 /* button_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29AA88EB1888B16E0088F049 /* button_red@2x.png */; };
+		29DB75BF188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 29DB75BE188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.m */; };
 		29FA598A1866A69800928318 /* HALFamilyBirdKindList.m in Sources */ = {isa = PBXBuildFile; fileRef = 29FA59891866A69800928318 /* HALFamilyBirdKindList.m */; };
 		8CB74CD249324A338FFEA57C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A83F48CF6BC54B5CA5918A6C /* libPods.a */; };
 		A816F01858504F41A6567D35 /* libPods-HALBirdRecordTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C62F65DBDAAF458D961E9430 /* libPods-HALBirdRecordTests.a */; };
@@ -1689,6 +1690,8 @@
 		29AA88E91888B16E0088F049 /* button_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_normal@2x.png"; sourceTree = "<group>"; };
 		29AA88EA1888B16E0088F049 /* button_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_red.png; sourceTree = "<group>"; };
 		29AA88EB1888B16E0088F049 /* button_red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_red@2x.png"; sourceTree = "<group>"; };
+		29DB75BD188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLGeocoder+HALCoordinateGeocoder.h"; sourceTree = "<group>"; };
+		29DB75BE188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLGeocoder+HALCoordinateGeocoder.m"; sourceTree = "<group>"; };
 		29FA59881866A69800928318 /* HALFamilyBirdKindList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALFamilyBirdKindList.h; sourceTree = "<group>"; };
 		29FA59891866A69800928318 /* HALFamilyBirdKindList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALFamilyBirdKindList.m; sourceTree = "<group>"; };
 		2E26AEA3F8A241B2901F84F9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -1921,6 +1924,8 @@
 				2925A04E187528FB00FA2EED /* UIDevice+HALOSVersion.m */,
 				2925A65B187AFC3F00FA2EED /* NSString+HALURLEncode.h */,
 				2925A65C187AFC3F00FA2EED /* NSString+HALURLEncode.m */,
+				29DB75BD188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.h */,
+				29DB75BE188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -3697,6 +3702,7 @@
 				295E90E018587EEC000BA5FE /* HALActivityListViewController.m in Sources */,
 				2925949E1870689900FA2EED /* HALWebViewController.m in Sources */,
 				295E90D818576E84000BA5FE /* NSDate+HALDateString.m in Sources */,
+				29DB75BF188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.m in Sources */,
 				292594C01873E58000FA2EED /* HALBirdKindLoader.m in Sources */,
 				295E90D018560789000BA5FE /* HALActivity.m in Sources */,
 				2925A0731878E45400FA2EED /* HALLicenseViewController.m in Sources */,

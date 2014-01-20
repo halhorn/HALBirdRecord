@@ -9,9 +9,11 @@
 #import "HALSearchedBirdKindList.h"
 #import "HALBirdKindListBase.h"
 
+#define kHALGroupSuffix @"科"
+
 @interface HALSearchedBirdKindList()
 
-@property(nonatomic) HALBirdKindListBase *birdKindList;
+@property(nonatomic) NSArray *sortedBirdKind;
 
 @end
 
@@ -21,7 +23,9 @@
 {
     self = [super init];
     if (self) {
-        self.birdKindList = [HALBirdKindListBase sharedBirdKindList];
+        NSSortDescriptor *nameSortDescripter = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+        NSArray *rawBirdKindList = [HALBirdKindLoader sharedLoader].birdKindList;
+        self.sortedBirdKind = [rawBirdKindList sortedArrayUsingDescriptors:@[nameSortDescripter]];
     }
     return self;
 }
@@ -36,8 +40,28 @@
 - (void)setSearchWord:(NSString *)searchWord
 {
     _searchWord = searchWord;
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name contains %@", [self convertKana:searchWord]];
-    self.searchedBirdKindList = [[HALBirdKindLoader sharedLoader].birdKindList filteredArrayUsingPredicate:predicate];
+    NSMutableArray *list = [[NSMutableArray alloc] init];
+    NSString *kanaSearchWord = [self convertKana:searchWord];
+    NSPredicate *namePredicate = [NSPredicate predicateWithFormat:@"name contains %@", kanaSearchWord];
+    NSString *groupName = [NSString stringWithFormat:@"%@%@", kanaSearchWord, kHALGroupSuffix];
+    NSPredicate *groupPredicate = [NSPredicate predicateWithFormat:@"groupName like %@", groupName];
+    [list addObject:[self.sortedBirdKind filteredArrayUsingPredicate:namePredicate]];
+    NSArray *groupSearchedList = [self.sortedBirdKind filteredArrayUsingPredicate:groupPredicate];
+    if (groupSearchedList.count) {
+        [list addObject:groupSearchedList];
+    }
+    
+    self.searchedBirdKindList = [NSArray arrayWithArray:list];
+}
+
+- (NSString *)sectionNameAtIndex:(int)section
+{
+    if (section == 0) {
+        return @"鳥名での検索";
+    } else {
+        NSString *kanaSearchWord = [self convertKana:self.searchWord];
+        return [NSString stringWithFormat:@"%@%@の鳥", kanaSearchWord, kHALGroupSuffix];
+    }
 }
 
 - (BOOL)isSearchWordSet

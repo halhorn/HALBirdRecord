@@ -59,7 +59,7 @@
     }
     HALActivity *activity = self.activityList[index];
     if (!activity.birdRecordList.count) {
-        [self loadBirdListForActivity:activity];
+        [activity loadBirdRecordListByOrder:HALBirdRecordOrderDateTime];
     }
     return activity;
 }
@@ -131,32 +131,6 @@
         [activityList addObject:activity];
     }
     _activityList = activityList;
-}
-
-- (void)loadBirdListForActivity:(HALActivity *)activity
-{
-    NSArray *birdRows = [self.db selectBirdRecordListWithActivityDBID:activity.dbID];
-    for (NSDictionary *birdRow in birdRows) {
-        NSNumber *birdID = [self removeNSNull:birdRow[@"birdID"]];
-        NSNumber *count = [self removeNSNull:birdRow[@"count"]];
-        NSNumber *latitude = [self removeNSNull:birdRow[@"latitude"]];
-        NSNumber *longitude = [self removeNSNull:birdRow[@"longitude"]];
-        NSString *prefecture = [self removeNSNull:birdRow[@"prefecture"]];
-        NSString *city = [self removeNSNull:birdRow[@"city"]];
-        NSString *comment = [self removeNSNull:birdRow[@"comment"]];
-        NSNumber *birdUnixtime = [self removeNSNull:birdRow[@"datetime"]];
-        NSNumber *birdDBID = birdRow[@"id"];
-        
-        HALBirdRecord *bird = [[HALBirdRecord alloc] initWithBirdID:[birdID intValue]];
-        bird.dbID = [birdDBID intValue];
-        bird.count = [count intValue];
-        bird.coordinate = CLLocationCoordinate2DMake([latitude doubleValue], [longitude doubleValue]);
-        bird.datetime = [NSDate dateWithTimeIntervalSince1970:[birdUnixtime doubleValue]];
-        bird.prefecture = prefecture;
-        bird.city = city;
-        bird.comment = comment;
-        [activity addBirdRecord:bird];
-    }
 }
 
 - (id)removeNSNull:(id)var

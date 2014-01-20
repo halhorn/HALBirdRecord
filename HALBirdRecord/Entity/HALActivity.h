@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 #import "HALBirdRecord.h"
+#import "HALDB.h"
 
 @interface HALActivity : NSObject
 
@@ -19,5 +20,6 @@
 
 - (void)addBirdRecord:(HALBirdRecord *)birdRecord;
 - (void)addBirdRecordList:(NSArray *)birdRecordList;
+- (void)loadBirdRecordListByOrder:(HALBirdRecordOrder)order;
 
 @end

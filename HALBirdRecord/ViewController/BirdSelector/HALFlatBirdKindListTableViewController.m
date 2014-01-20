@@ -95,12 +95,13 @@
 
 - (HALBirdKind *)birdKindFromIndexPath:(NSIndexPath *)indexPath
 {
+    NSArray *source;
     if ([self.searchedBirdKindList isSearchWordSet]) {
-        return [self.searchedBirdKindList searchedBirdKindList][indexPath.row];
+        source = [self.searchedBirdKindList searchedBirdKindList];
     } else {
-        NSArray *birdGroup = self.birdKindList.birdKindList[indexPath.section];
-        return birdGroup[indexPath.row];
+        source = self.birdKindList.birdKindList;
     }
+    return source[indexPath.section][indexPath.row];
 }
 
 #pragma mark - Table view data source
@@ -108,18 +109,21 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return [self.searchedBirdKindList isSearchWordSet] ? 1 : [self.birdKindList numberOfGroups];
+    return [self.searchedBirdKindList isSearchWordSet] ?
+    [self.searchedBirdKindList searchedBirdKindList].count:
+    [self.birdKindList numberOfGroups];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
+    NSArray *group;
     if ([self.searchedBirdKindList isSearchWordSet]) {
-        return self.searchedBirdKindList.searchedBirdKindList.count;
+        group = self.searchedBirdKindList.searchedBirdKindList[section];
     } else {
-        NSArray *birdGroup = self.birdKindList.birdKindList[section];
-        return birdGroup.count;
+        group = self.birdKindList.birdKindList[section];
     }
+    return group.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -146,7 +150,11 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return [self.searchedBirdKindList isSearchWordSet] ? @"検索" : [self.birdKindList groupNameForGroupIndex:section];
+    if ([self.searchedBirdKindList isSearchWordSet]) {
+        return [self.searchedBirdKindList sectionNameAtIndex:section];
+    } else {
+        return [self.birdKindList groupNameForGroupIndex:section];
+    }
 }
 
 /*
@@ -201,7 +209,7 @@
                            label:birdKind.name
                            value:[self.searchedBirdKindList isSearchWordSet] ? 1 : 0];
         HALBirdRecord *record = [[HALBirdRecord alloc] initWithBirdID:birdKind.birdID];
-        [record setCurrentLocationAsync];
+        [record setCurrentLocationAndPlacemarkAndUpdateDBAsync];
         [self.birdRecordList addObject:record];
         [self.birdKindListViewController onTapBirdRow];
         [tableView reloadData];
