@@ -49,12 +49,6 @@
 	</dict>
 	<dict>
 		<key>Question</key>
-		<string>野鳥の発見場所・時間の修正</string>
-		<key>Answer</key>
-		<string>申し訳ありませんが、現バージョンでは修正はできません。要望が多い場合今後のバージョンで対応するかもしれません。</string>
-	</dict>
-	<dict>
-		<key>Question</key>
 		<string>日本鳥類目録順とは？</string>
 		<key>Answer</key>
 		<string>日本鳥類目録改訂第7版の順番に基づいています。探鳥会の鳥合わせの際などにこの順にソートすると便利です。</string>
