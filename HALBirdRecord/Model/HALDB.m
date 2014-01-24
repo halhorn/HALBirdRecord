@@ -15,7 +15,7 @@
 #define kHALBirdRecordTable @"BirdRecord"
 #define kHALActivityRecordTable @"ActivityRecord"
 #define kHALDBVersionKey @"DBVersion"
-#define kHALDBVersion 2
+#define kHALDBVersion 3
 
 @interface HALDB()
 
@@ -64,7 +64,7 @@
                               "latitude real,"
                               "longitude real,"
                               "prefecture text,"
-                              "city text"
+                              "city text,"
                               "comment text"
                               ");", kHALBirdRecordTable]];
     [self.fmDB executeUpdate:[NSString stringWithFormat:@"create table if not exists %@("
@@ -307,6 +307,7 @@
 {
     NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
     int ver = [settings integerForKey:kHALDBVersionKey];
+    [HALGAManager sendAction:@"Update DB From" label:[NSString stringWithFormat:@"%d", ver] value:0];
     [self.fmDB open];
     while (ver < kHALDBVersion) {
         ver = [self updateDBIteration:ver];
@@ -327,7 +328,26 @@
     if (ver == 1) {
         [self.fmDB executeUpdate:[NSString stringWithFormat:@"alter table %@ add column comment text;", kHALBirdRecordTable]];
         [self.fmDB executeUpdate:[NSString stringWithFormat:@"update %@ set comment = '';", kHALBirdRecordTable]];
-        return 2;
+        return 3;
+
+    }else if (ver == 2) {
+        if (![[self.fmDB executeQuery:[NSString stringWithFormat:@"select * from %@", kHALBirdRecordTable]] next]) {
+            [self.fmDB executeUpdate:[NSString stringWithFormat:@"drop table %@", kHALBirdRecordTable]];
+            [self.fmDB executeUpdate:[NSString stringWithFormat:@"create table if not exists %@("
+                                      "id integer primary key autoincrement,"
+                                      "birdID integer not null,"
+                                      "activityID integer,"
+                                      "count integer,"
+                                      "datetime integer,"
+                                      "latitude real,"
+                                      "longitude real,"
+                                      "prefecture text,"
+                                      "city text,"
+                                      "comment text"
+                                      ");", kHALBirdRecordTable]];
+            [HALGAManager sendAction:@"Update DB from ver.2 to ver.3" label:@"" value:0];
+        }
+        return 3;
     }
     NSLog(@"DBのアップデートに失敗(ver.%d)", ver);
     return 0;
