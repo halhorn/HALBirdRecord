@@ -821,6 +821,8 @@
 		29AA88EE1888B16E0088F049 /* button_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 29AA88EA1888B16E0088F049 /* button_red.png */; };
 		29AA88EF1888B16E0088F049 /* button_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29AA88EB1888B16E0088F049 /* button_red@2x.png */; };
 		29DB75BF188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 29DB75BE188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.m */; };
+		29DB75C2188DF5940009B82B /* HALProductManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 29DB75C1188DF5940009B82B /* HALProductManager.m */; };
+		29DB75C51890132E0009B82B /* HALProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 29DB75C41890132E0009B82B /* HALProduct.m */; };
 		29FA598A1866A69800928318 /* HALFamilyBirdKindList.m in Sources */ = {isa = PBXBuildFile; fileRef = 29FA59891866A69800928318 /* HALFamilyBirdKindList.m */; };
 		8CB74CD249324A338FFEA57C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A83F48CF6BC54B5CA5918A6C /* libPods.a */; };
 		A816F01858504F41A6567D35 /* libPods-HALBirdRecordTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C62F65DBDAAF458D961E9430 /* libPods-HALBirdRecordTests.a */; };
@@ -1692,6 +1694,10 @@
 		29AA88EB1888B16E0088F049 /* button_red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_red@2x.png"; sourceTree = "<group>"; };
 		29DB75BD188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLGeocoder+HALCoordinateGeocoder.h"; sourceTree = "<group>"; };
 		29DB75BE188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLGeocoder+HALCoordinateGeocoder.m"; sourceTree = "<group>"; };
+		29DB75C0188DF5940009B82B /* HALProductManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALProductManager.h; sourceTree = "<group>"; };
+		29DB75C1188DF5940009B82B /* HALProductManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALProductManager.m; sourceTree = "<group>"; };
+		29DB75C31890132E0009B82B /* HALProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALProduct.h; sourceTree = "<group>"; };
+		29DB75C41890132E0009B82B /* HALProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALProduct.m; sourceTree = "<group>"; };
 		29FA59881866A69800928318 /* HALFamilyBirdKindList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALFamilyBirdKindList.h; sourceTree = "<group>"; };
 		29FA59891866A69800928318 /* HALFamilyBirdKindList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALFamilyBirdKindList.m; sourceTree = "<group>"; };
 		2E26AEA3F8A241B2901F84F9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -1958,6 +1964,8 @@
 				292594B11872B86200FA2EED /* HALMapManager.m */,
 				2925A05E18770D1E00FA2EED /* HALThread.h */,
 				2925A05F18770D1E00FA2EED /* HALThread.m */,
+				29DB75C0188DF5940009B82B /* HALProductManager.h */,
+				29DB75C1188DF5940009B82B /* HALProductManager.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1975,6 +1983,8 @@
 				29501EEC185C7711004AF7F9 /* HALBirdPointAnnotation.m */,
 				2925A650187A30AC00FA2EED /* HALHelp.h */,
 				2925A651187A30AC00FA2EED /* HALHelp.m */,
+				29DB75C31890132E0009B82B /* HALProduct.h */,
+				29DB75C41890132E0009B82B /* HALProduct.m */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -3716,11 +3726,13 @@
 				295E90CA18554739000BA5FE /* HALDB.m in Sources */,
 				2925A64E187A2F8D00FA2EED /* HALHelpViewController.m in Sources */,
 				2925A652187A30AC00FA2EED /* HALHelp.m in Sources */,
+				29DB75C2188DF5940009B82B /* HALProductManager.m in Sources */,
 				292594B21872B86200FA2EED /* HALMapManager.m in Sources */,
 				295E90B41854111D000BA5FE /* HALBirdKindListBase.m in Sources */,
 				29501ED01858C8B6004AF7F9 /* HALActivityManager.m in Sources */,
 				2925A06B1878229500FA2EED /* HALGAManager.m in Sources */,
 				295E90AF185410C5000BA5FE /* HALFlatBirdKindListTableViewController.m in Sources */,
+				29DB75C51890132E0009B82B /* HALProduct.m in Sources */,
 				295E90CD1855488C000BA5FE /* NSURL+HALLocalFileURL.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

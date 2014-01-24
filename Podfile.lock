@@ -1,7 +1,7 @@
 PODS:
   - BlocksKit (1.8.3):
     - libffi
-  - Facebook-iOS-SDK (3.11.0)
+  - Facebook-iOS-SDK (3.11.1)
   - FMDB (2.1):
     - FMDB/standard
   - FMDB/common (2.1)
@@ -34,7 +34,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   BlocksKit: 27257f9cbbec0ea98c80ba83cc2ea7111ae62eb2
-  Facebook-iOS-SDK: 2eb12f9ed04f3d3956f0a4fb0e4e60c824dcd101
+  Facebook-iOS-SDK: 42a1de39170b858d675c2453d8aace55c51be2bb
   FMDB: 3fd5aaf632ca4ed39e3f101e0398504e6d5b0918
   GoogleAnalytics-iOS-SDK: 86393b99f7328ae8d8e975fcaa8632a39dafafe8
   Kiwi: 04c51e880831d291748ec702d42c4101f7eb95c9
