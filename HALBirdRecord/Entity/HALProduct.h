@@ -10,10 +10,10 @@
 
 #define kHALProductIDProAccount @"ProAccount"
 #define kHALProductIDDonationMember @"DonationMember"
-#define kHALProductIDExpand5Activity @"Expand5Activity"
-#define kHALProductIDExpand20Activity @"Expand20Activity"
-#define kHALProductIDExpand50Activity @"Expand50Activity"
-#define kHALProductIDExpand100Activity @"Expand100Activity"
+#define kHALProductIDExpand5Activities @"Expand5Activities"
+#define kHALProductIDExpand15Activities @"Expand15Activities"
+#define kHALProductIDExpand50Activities @"Expand50Activities"
+#define kHALProductIDExpand100Activities @"Expand100Activities"
 
 typedef NS_ENUM(NSUInteger, HALProductType) {
     HALProductTypeExpandActivity,

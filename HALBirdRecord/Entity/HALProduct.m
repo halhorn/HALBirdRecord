@@ -22,19 +22,19 @@
             _productType = HALProductTypePremiumAccount;
             _productSource = HALProductSourcePurchased;
             _value = 0;
-        } else if ([productID isEqualToString:kHALProductIDExpand5Activity]) {
+        } else if ([productID isEqualToString:kHALProductIDExpand5Activities]) {
             _productType = HALProductTypeExpandActivity;
             _productSource = HALProductSourcePurchased;
             _value = 5;
-        } else if ([productID isEqualToString:kHALProductIDExpand20Activity]) {
+        } else if ([productID isEqualToString:kHALProductIDExpand15Activities]) {
             _productType = HALProductTypeExpandActivity;
             _productSource = HALProductSourcePurchased;
-            _value = 20;
-        } else if ([productID isEqualToString:kHALProductIDExpand50Activity]) {
+            _value = 15;
+        } else if ([productID isEqualToString:kHALProductIDExpand50Activities]) {
             _productType = HALProductTypeExpandActivity;
             _productSource = HALProductSourcePurchased;
             _value = 50;
-        } else if ([productID isEqualToString:kHALProductIDExpand100Activity]) {
+        } else if ([productID isEqualToString:kHALProductIDExpand100Activities]) {
             _productType = HALProductTypeExpandActivity;
             _productSource = HALProductSourcePurchased;
             _value = 100;
@@ -51,16 +51,21 @@
     @[
       kHALProductIDProAccount,
       kHALProductIDDonationMember,
-      kHALProductIDExpand5Activity,
-      kHALProductIDExpand20Activity,
-      kHALProductIDExpand50Activity,
-      kHALProductIDExpand100Activity,
+      kHALProductIDExpand5Activities,
+      kHALProductIDExpand15Activities,
+      kHALProductIDExpand50Activities,
+      kHALProductIDExpand100Activities,
       ];
 }
 
 + (instancetype)productWithProductID:(NSString *)productID
 {
     return [[self alloc] initWithProductID:productID];
+}
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"HALPurchase - %@", self.productID];
 }
 
 @end

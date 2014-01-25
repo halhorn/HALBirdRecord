@@ -19,6 +19,5 @@
 - (BOOL)isProAccount;
 - (BOOL)isDonationMember;
 - (int)activityCapacity;
-- (void)restorePurchase;
 
 @end

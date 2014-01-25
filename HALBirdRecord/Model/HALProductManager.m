@@ -9,9 +9,8 @@
 #import "HALProductManager.h"
 #import <Parse/Parse.h>
 
-#define kHALProActivityCapacity 100000
 #define kHALDefaultActivityCapacity 20
-#define kHALPurchasedProductSettingKey @"HALPurchasedProductSetting"
+#define kHALProductSettingKey @"HALPurchasedProductSetting"
 
 @interface HALProductManager()
 
@@ -60,7 +59,7 @@
 - (int)activityCapacity
 {
     if ([self isProAccount] || [self isDonationMember]) {
-        return kHALProActivityCapacity;
+        return 0;
     }
     
     int capacity = kHALDefaultActivityCapacity;
@@ -88,28 +87,15 @@
     }];
 }
 
-- (void)restorePurchase
-{
-    // 購入した商品をクリア
-    for (HALProduct *product in [NSArray arrayWithArray:self.rawProductList]) {
-        if (product.productSource == HALProductSourcePurchased) {
-            [self.rawProductList removeObject:product];
-        }
-    }
-    // 購入リストを再登録
-    [PFPurchase restore];
-}
-
 #pragma mark - other private method
 
 - (void)loadProductList
 {
     self.rawProductList = [[NSMutableArray alloc] init];
-    NSArray *purchasedList = [[NSUserDefaults standardUserDefaults] objectForKey:kHALPurchasedProductSettingKey];
+    NSArray *purchasedList = [[NSUserDefaults standardUserDefaults] objectForKey:kHALProductSettingKey];
     if (!purchasedList) {
         purchasedList = @[];
     }
-    // 購入分を追加
     for (NSString *productID in purchasedList) {
         HALProduct *product = [HALProduct productWithProductID:productID];
         [self.rawProductList addObject:product];
@@ -120,11 +106,9 @@
 {
     NSMutableArray *purchasedIDList = [[NSMutableArray alloc] init];
     for (HALProduct *product in self.rawProductList) {
-        if (product.productSource == HALProductSourcePurchased) {
-            [purchasedIDList addObject:product.productID];
-        }
+        [purchasedIDList addObject:product.productID];
     }
-    [[NSUserDefaults standardUserDefaults] setObject:purchasedIDList forKey:kHALPurchasedProductSettingKey];
+    [[NSUserDefaults standardUserDefaults] setObject:purchasedIDList forKey:kHALProductSettingKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
