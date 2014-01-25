@@ -11,6 +11,8 @@
 #import "UIViewController+HALViewControllerFromNib.h"
 #import "HALFamilyBirdKindList.h"
 #import "UIDevice+HALOSVersion.h"
+#import "HALSecretSettings.h"
+#import <Parse/Parse.h>
 
 @implementation HALAppDelegate
 
@@ -27,6 +29,9 @@
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
     [self setupUIAppearance];
+
+    // Parseの設定
+    [Parse setApplicationId:kHALSecretParseApplicationID clientKey:kHALSecretParseClientKey];
 
     // 事前に鳥リストを読み込み
     [HALBirdKindLoader sharedLoader];

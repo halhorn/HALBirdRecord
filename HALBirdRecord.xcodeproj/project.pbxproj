@@ -1698,6 +1698,7 @@
 		29DB75C1188DF5940009B82B /* HALProductManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALProductManager.m; sourceTree = "<group>"; };
 		29DB75C31890132E0009B82B /* HALProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALProduct.h; sourceTree = "<group>"; };
 		29DB75C41890132E0009B82B /* HALProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALProduct.m; sourceTree = "<group>"; };
+		29DB75C8189360190009B82B /* HALSecretSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALSecretSettings.h; sourceTree = "<group>"; };
 		29FA59881866A69800928318 /* HALFamilyBirdKindList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALFamilyBirdKindList.h; sourceTree = "<group>"; };
 		29FA59891866A69800928318 /* HALFamilyBirdKindList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALFamilyBirdKindList.m; sourceTree = "<group>"; };
 		2E26AEA3F8A241B2901F84F9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -1866,6 +1867,7 @@
 				295E90681853FE3E000BA5FE /* main.m */,
 				295E906A1853FE3E000BA5FE /* HALBirdRecord-Prefix.pch */,
 				2925A07F1878F57500FA2EED /* Pods-acknowledgements.plist */,
+				29DB75C8189360190009B82B /* HALSecretSettings.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

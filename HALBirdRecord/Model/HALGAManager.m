@@ -10,8 +10,8 @@
 #import "HALActivityManager.h"
 #import <GoogleAnalytics-iOS-SDK/GAIDictionaryBuilder.h>
 #import <GoogleAnalytics-iOS-SDK/GAIFields.h>
+#import "HALSecretSettings.h"
 
-#define kHALGAID @"UA-46849208-1"
 #define kHALFirstLaunchDateKey @"FirstLaunchDate"
 #define kHALStateRecordedDateKey @"StateRecordedDate"
 
@@ -29,7 +29,7 @@
 
 + (void)sendFirstActivationDate
 {
-    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:kHALGAID];
+    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:kHALSecretGAID];
     NSUserDefaults *setting = [NSUserDefaults standardUserDefaults];
     NSString *firstLaunchDate = [setting objectForKey:kHALFirstLaunchDateKey];
     if (firstLaunchDate == nil) {
