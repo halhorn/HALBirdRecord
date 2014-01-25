@@ -11,11 +11,14 @@
 
 @interface HALProductManager : NSObject
 
+@property(nonatomic, readonly) NSArray *productList;
+
 + (instancetype)sharedManager;
 
-- (void)purchaseProduct:(HALProductKind)product withCompletion:(void(^)(BOOL))completion;
+- (void)purchaseProduct:(NSString *)productID withCompletion:(void(^)(BOOL))completion;
 - (BOOL)isProAccount;
 - (BOOL)isDonationMember;
 - (int)activityCapacity;
+- (void)restorePurchase;
 
 @end

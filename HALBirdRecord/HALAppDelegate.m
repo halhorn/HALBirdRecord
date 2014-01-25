@@ -8,6 +8,7 @@
 
 #import "HALAppDelegate.h"
 #import "HALActivityListViewController.h"
+#import "HALProductManager.h"
 #import "UIViewController+HALViewControllerFromNib.h"
 #import "HALFamilyBirdKindList.h"
 #import "UIDevice+HALOSVersion.h"
@@ -35,6 +36,10 @@
 
     // 事前に鳥リストを読み込み
     [HALBirdKindLoader sharedLoader];
+
+    // 購入処理セットアップ
+    [HALProductManager sharedManager];
+
     return YES;
 }
 

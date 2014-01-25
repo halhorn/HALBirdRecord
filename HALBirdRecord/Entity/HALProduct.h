@@ -8,30 +8,30 @@
 
 #import <Foundation/Foundation.h>
 
-#define kHALMaxProductKind 6
-
-typedef NS_ENUM(NSUInteger, HALProductKind) {
-    HALProductKindProAccount = 1,
-    HALProductKindDonationMember,
-    HALProductKindExpand5Activity,
-    HALProductKindExpand20Activity,
-    HALProductKindExpand50Activity,
-    HALProductKindExpand100Activity,
-};
+#define kHALProductIDProAccount @"ProAccount"
+#define kHALProductIDDonationMember @"DonationMember"
+#define kHALProductIDExpand5Activity @"Expand5Activity"
+#define kHALProductIDExpand20Activity @"Expand20Activity"
+#define kHALProductIDExpand50Activity @"Expand50Activity"
+#define kHALProductIDExpand100Activity @"Expand100Activity"
 
 typedef NS_ENUM(NSUInteger, HALProductType) {
     HALProductTypeExpandActivity,
     HALProductTypePremiumAccount,
 };
+typedef NS_ENUM(NSUInteger, HALProductSource) {
+    HALProductSourcePurchased,
+    HALProductSourceOther,
+};
 
 @interface HALProduct : NSObject
 
 @property(nonatomic, copy, readonly) NSString *productID;
-@property(nonatomic, readonly) HALProductKind productKind;
 @property(nonatomic, readonly) HALProductType productType;
+@property(nonatomic, readonly) HALProductSource productSource;
 @property(nonatomic, readonly) int value;
 
-- (id)initWithProductKind:(HALProductKind)productKind;
-+ (instancetype)productWithProductKind:(HALProductKind)productKind;
-+ (NSString *)productIDWithProductKind:(HALProductKind)productKind;
+- (id)initWithProductID:(NSString *)productID;
++ (instancetype)productWithProductID:(NSString *)productID;
++ (NSArray *)productIDList;
 @end

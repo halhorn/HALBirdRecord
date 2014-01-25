@@ -11,10 +11,11 @@
 
 #define kHALProActivityCapacity 100000
 #define kHALDefaultActivityCapacity 20
+#define kHALPurchasedProductSettingKey @"HALPurchasedProductSetting"
 
 @interface HALProductManager()
 
-@property(nonatomic) NSArray *productList;
+@property(nonatomic) NSMutableArray *rawProductList;
 
 @end
 
@@ -34,20 +35,26 @@
 {
     self = [super init];
     if (self) {
+        [self loadProductList];
         [self addProductObservers];
     }
     return self;
 }
 
 #pragma mark - other public methods
+- (NSArray *)productList
+{
+    return [NSArray arrayWithArray:self.rawProductList];
+}
+
 - (BOOL)isProAccount
 {
-    return [self containsProduct:HALProductKindProAccount];
+    return [self containsProduct:kHALProductIDProAccount];
 }
 
 - (BOOL)isDonationMember
 {
-    return [self containsProduct:HALProductKindDonationMember];
+    return [self containsProduct:kHALProductIDDonationMember];
 }
 
 - (int)activityCapacity
@@ -57,7 +64,7 @@
     }
     
     int capacity = kHALDefaultActivityCapacity;
-    for (HALProduct *product in self.productList) {
+    for (HALProduct *product in self.rawProductList) {
         if (product.productType == HALProductTypeExpandActivity) {
             capacity += product.value;
         }
@@ -65,9 +72,8 @@
     return capacity;
 }
 
-- (void)purchaseProduct:(HALProductKind)productKind withCompletion:(void(^)(BOOL))completion;
+- (void)purchaseProduct:(NSString *)productID withCompletion:(void(^)(BOOL))completion;
 {
-    NSString *productID = [HALProduct productIDWithProductKind:productKind];
     [PFPurchase buyProduct:productID block:^(NSError *error) {
         if (!error) {
             // Run UI logic that informs user the product has been purchased, such as displaying an alert view.
@@ -75,17 +81,57 @@
             [HALGAManager sendAction:@"Success Purchase" label:productID value:0];
         } else {
             completion(NO);
-            [HALGAManager sendAction:@"Fail Purchase" label:productID value:0];
+            [HALGAManager sendAction:@"Fail Purchase"
+                               label:[NSString stringWithFormat:@"ID:%@ error:%@", productID, error.userInfo]
+                               value:0];
         }
     }];
 }
 
+- (void)restorePurchase
+{
+    // 購入した商品をクリア
+    for (HALProduct *product in [NSArray arrayWithArray:self.rawProductList]) {
+        if (product.productSource == HALProductSourcePurchased) {
+            [self.rawProductList removeObject:product];
+        }
+    }
+    // 購入リストを再登録
+    [PFPurchase restore];
+}
+
 #pragma mark - other private method
 
-- (BOOL)containsProduct:(HALProductKind)productKind
+- (void)loadProductList
 {
-    for (HALProduct *product in self.productList) {
-        if (product.productKind == productKind) {
+    self.rawProductList = [[NSMutableArray alloc] init];
+    NSArray *purchasedList = [[NSUserDefaults standardUserDefaults] objectForKey:kHALPurchasedProductSettingKey];
+    if (!purchasedList) {
+        purchasedList = @[];
+    }
+    // 購入分を追加
+    for (NSString *productID in purchasedList) {
+        HALProduct *product = [HALProduct productWithProductID:productID];
+        [self.rawProductList addObject:product];
+    }
+}
+
+- (void)saveProductList
+{
+    NSMutableArray *purchasedIDList = [[NSMutableArray alloc] init];
+    for (HALProduct *product in self.rawProductList) {
+        if (product.productSource == HALProductSourcePurchased) {
+            [purchasedIDList addObject:product.productID];
+        }
+    }
+    [[NSUserDefaults standardUserDefaults] setObject:purchasedIDList forKey:kHALPurchasedProductSettingKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (BOOL)containsProduct:(NSString *)producID
+{
+    for (HALProduct *product in self.rawProductList) {
+        if ([product.productID isEqualToString:producID]) {
             return YES;
         }
     }
@@ -94,11 +140,11 @@
 
 - (void)addProductObservers
 {
-    for (HALProductKind kind = 1; kind <= kHALMaxProductKind; kind++) {
-        NSString *productID = [HALProduct productIDWithProductKind:kind];
-        
+    for (NSString *productID in [HALProduct productIDList]) {
         [PFPurchase addObserverForProduct:productID block:^(SKPaymentTransaction *transaction) {
-            NSLog(@"%@ was bought", productID);
+            [self.rawProductList addObject:[HALProduct productWithProductID:productID]];
+            [self saveProductList];
+            NSLog(@"purchase %@", productID);
         }];
     }
 }
