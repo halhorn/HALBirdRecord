@@ -8,10 +8,16 @@
 
 #import "HALNewActivityCell.h"
 #import "HALActivityManager.h"
+#import "HALProductManager.h"
 
 @interface HALNewActivityCell()
 @property (weak, nonatomic) IBOutlet UILabel *createActivityLabel;
+@property (weak, nonatomic) IBOutlet UIView *purchaseView;
 @property (weak, nonatomic) IBOutlet UILabel *activityCountLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *donationMemberIcon;
+@property (weak, nonatomic) IBOutlet UIImageView *proAccountIcon;
+
+@property(nonatomic, copy) void(^tapPurchaseBlock)(void);
 
 @end
 
@@ -30,13 +36,6 @@
 {
     self.createActivityLabel.textColor = kHALTextColor;
     self.activityCountLabel.textColor = kHALSubTextColor;
-    HALActivityManager *activityManager = [HALActivityManager sharedManager];
-    int capacity = [activityManager activityCapacity];
-    if (capacity == 0) {
-        self.activityCountLabel.text = [NSString stringWithFormat:@"(%d/∞)", activityManager.activityCount];
-    } else {
-        self.activityCountLabel.text = [NSString stringWithFormat:@"(%d/%d)", activityManager.activityCount, activityManager.activityCapacity];
-    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -54,6 +53,25 @@
 + (UINib *)nib
 {
     return [UINib nibWithNibName:@"HALNewActivityCell" bundle:nil];
+}
+
+- (void)loadWithTapPurchaseBlock:(void (^)(void))tapPurchaseBlock
+{
+    self.tapPurchaseBlock = tapPurchaseBlock;
+    
+    self.donationMemberIcon.hidden = YES;
+    self.proAccountIcon.hidden = YES;
+    self.purchaseView.hidden = YES;
+    
+    if ([[HALProductManager sharedManager] isDonationMember]) {
+        self.donationMemberIcon.hidden = NO;
+    } else if ([[HALProductManager sharedManager] isProAccount]) {
+        self.proAccountIcon.hidden = NO;
+    } else {
+        HALActivityManager *activityManager = [HALActivityManager sharedManager];
+        self.purchaseView.hidden = NO;
+        self.activityCountLabel.text = [NSString stringWithFormat:@"(%d/%d)", activityManager.activityCount, activityManager.activityCapacity];
+    }
 }
 
 - (IBAction)onTapPurchase:(id)sender {

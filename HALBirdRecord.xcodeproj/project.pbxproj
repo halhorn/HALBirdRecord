@@ -828,6 +828,10 @@
 		29D0C6D51894A2430040EB1A /* HALPurchaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6D31894A2430040EB1A /* HALPurchaseViewController.xib */; };
 		29D0C6E2189505270040EB1A /* HALPurchaseViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D0C6E1189505270040EB1A /* HALPurchaseViewCell.m */; };
 		29D0C6E4189505500040EB1A /* HALPurchaseViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6E3189505500040EB1A /* HALPurchaseViewCell.xib */; };
+		29D0C6EB1895273A0040EB1A /* icon_pro.png in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6E71895273A0040EB1A /* icon_pro.png */; };
+		29D0C6EC1895273A0040EB1A /* icon_pro@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6E81895273A0040EB1A /* icon_pro@2x.png */; };
+		29D0C6F3189538290040EB1A /* icon_donation.png in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6F1189538290040EB1A /* icon_donation.png */; };
+		29D0C6F4189538290040EB1A /* icon_donation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6F2189538290040EB1A /* icon_donation@2x.png */; };
 		29DB75BF188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 29DB75BE188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.m */; };
 		29DB75C2188DF5940009B82B /* HALProductManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 29DB75C1188DF5940009B82B /* HALProductManager.m */; };
 		29DB75C51890132E0009B82B /* HALProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 29DB75C41890132E0009B82B /* HALProduct.m */; };
@@ -1711,6 +1715,10 @@
 		29D0C6E0189505270040EB1A /* HALPurchaseViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALPurchaseViewCell.h; sourceTree = "<group>"; };
 		29D0C6E1189505270040EB1A /* HALPurchaseViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALPurchaseViewCell.m; sourceTree = "<group>"; };
 		29D0C6E3189505500040EB1A /* HALPurchaseViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALPurchaseViewCell.xib; sourceTree = "<group>"; };
+		29D0C6E71895273A0040EB1A /* icon_pro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_pro.png; sourceTree = "<group>"; };
+		29D0C6E81895273A0040EB1A /* icon_pro@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_pro@2x.png"; sourceTree = "<group>"; };
+		29D0C6F1189538290040EB1A /* icon_donation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_donation.png; sourceTree = "<group>"; };
+		29D0C6F2189538290040EB1A /* icon_donation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_donation@2x.png"; sourceTree = "<group>"; };
 		29DB75BD188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLGeocoder+HALCoordinateGeocoder.h"; sourceTree = "<group>"; };
 		29DB75BE188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLGeocoder+HALCoordinateGeocoder.m"; sourceTree = "<group>"; };
 		29DB75C0188DF5940009B82B /* HALProductManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = HALProductManager.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -1776,6 +1784,10 @@
 				29AA88E91888B16E0088F049 /* button_normal@2x.png */,
 				29AA88EA1888B16E0088F049 /* button_red.png */,
 				29AA88EB1888B16E0088F049 /* button_red@2x.png */,
+				29D0C6F1189538290040EB1A /* icon_donation.png */,
+				29D0C6F2189538290040EB1A /* icon_donation@2x.png */,
+				29D0C6E71895273A0040EB1A /* icon_pro.png */,
+				29D0C6E81895273A0040EB1A /* icon_pro@2x.png */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -3271,6 +3283,7 @@
 				2925A6111879282E00FA2EED /* 771.png in Resources */,
 				2925A5731879282E00FA2EED /* 575.png in Resources */,
 				2925A4251879282E00FA2EED /* 215.png in Resources */,
+				29D0C6F3189538290040EB1A /* icon_donation.png in Resources */,
 				2925A6041879282E00FA2EED /* 758.png in Resources */,
 				2925A49F1879282E00FA2EED /* 345.png in Resources */,
 				2925A4131879282E00FA2EED /* 189.png in Resources */,
@@ -3347,6 +3360,7 @@
 				2925A64F187A2F8D00FA2EED /* HALHelpViewController.xib in Resources */,
 				2925A4611879282E00FA2EED /* 276.png in Resources */,
 				2925A5261879282E00FA2EED /* 493.png in Resources */,
+				29D0C6EC1895273A0040EB1A /* icon_pro@2x.png in Resources */,
 				2925A44B1879282E00FA2EED /* 254.png in Resources */,
 				2925A4691879282E00FA2EED /* 285.png in Resources */,
 				2925A3901879282E00FA2EED /* 047.png in Resources */,
@@ -3597,6 +3611,7 @@
 				2925A4FF1879282E00FA2EED /* 449.png in Resources */,
 				2925A3E31879282E00FA2EED /* 138.png in Resources */,
 				2925A58D1879282E00FA2EED /* 618.png in Resources */,
+				29D0C6EB1895273A0040EB1A /* icon_pro.png in Resources */,
 				2925A4B81879282E00FA2EED /* 372.png in Resources */,
 				2925A4481879282E00FA2EED /* 251.png in Resources */,
 				2925A4C81879282E00FA2EED /* 388.png in Resources */,
@@ -3632,6 +3647,7 @@
 				2925A4771879282E00FA2EED /* 300.png in Resources */,
 				2925A3651879282E00FA2EED /* 003.png in Resources */,
 				2925A5541879282E00FA2EED /* 541.png in Resources */,
+				29D0C6F4189538290040EB1A /* icon_donation@2x.png in Resources */,
 				2925A5B81879282E00FA2EED /* 665.png in Resources */,
 				2925A5FD1879282E00FA2EED /* 751.png in Resources */,
 				2925A3C01879282E00FA2EED /* 098.png in Resources */,

@@ -10,9 +10,8 @@
 
 @interface HALNewActivityCell : UITableViewCell
 
-@property(nonatomic, copy) void(^tapPurchaseBlock)(void);
-
 + (NSString *)cellIdentifier;
 + (UINib *)nib;
+- (void)loadWithTapPurchaseBlock:(void(^)(void))tapPurchaseBlock;
 
 @end

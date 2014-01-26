@@ -148,10 +148,10 @@
         // 新規アクティビティ
         HALNewActivityCell *cell = [tableView dequeueReusableCellWithIdentifier:[HALNewActivityCell cellIdentifier]];
         WeakSelf weakSelf = self;
-        cell.tapPurchaseBlock = ^{
+        [cell loadWithTapPurchaseBlock:^{
             [weakSelf.navigationController pushViewController:[HALPurchaseViewController viewControllerFromNib]
                                                      animated:YES];
-        };
+        }];
         return cell;
     } else {
         HALActivityListViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[HALActivityListViewCell cellIdentifier]];
