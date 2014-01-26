@@ -20,7 +20,7 @@
             _value = 0;
             _title = @"Pro";
             _comment = @"保存できるアクティビティの数が無制限になります。";
-            _image = nil;
+            _image = [UIImage imageNamed:@"purchase_pro.png"];
             _price = 800;
         } else if ([productID isEqualToString:kHALProductIDDonationMember]) {
             _productType = HALProductTypePremiumAccount;
@@ -28,7 +28,7 @@
             _value = 0;
             _title = @"Pro* (開発賛助)";
             _comment = @"開発賛助をしてくださる方はご購入お願いします。機能はProと同等です。";
-            _image = nil;
+            _image = [UIImage imageNamed:@"purchase_donation.png"];
             _price = 2000;
         } else if ([productID isEqualToString:kHALProductIDExpand5Activities]) {
             _productType = HALProductTypeExpandActivity;
@@ -36,7 +36,7 @@
             _value = 5;
             _title = [NSString stringWithFormat:@"Activity+%d", _value];
             _comment = [NSString stringWithFormat:@"保存できるアクティビティの数を%d個増やすことができます。", _value];
-            _image = nil;
+            _image = [UIImage imageNamed:@"purchase_activity5.png"];
             _price = 100;
         } else if ([productID isEqualToString:kHALProductIDExpand15Activities]) {
             _productType = HALProductTypeExpandActivity;
@@ -44,7 +44,7 @@
             _value = 15;
             _title = [NSString stringWithFormat:@"Activity+%d", _value];
             _comment = [NSString stringWithFormat:@"保存できるアクティビティの数を%d個増やすことができます。", _value];
-            _image = nil;
+            _image = [UIImage imageNamed:@"purchase_activity15.png"];
             _price = 200;
         } else if ([productID isEqualToString:kHALProductIDExpand50Activities]) {
             _productType = HALProductTypeExpandActivity;
@@ -52,7 +52,7 @@
             _value = 50;
             _title = [NSString stringWithFormat:@"Activity+%d", _value];
             _comment = [NSString stringWithFormat:@"保存できるアクティビティの数を%d個増やすことができます。", _value];
-            _image = nil;
+            _image = [UIImage imageNamed:@"purchase_activity50.png"];
             _price = 400;
         } else if ([productID isEqualToString:kHALProductIDExpand100Activities]) {
             _productType = HALProductTypeExpandActivity;
@@ -60,7 +60,7 @@
             _value = 100;
             _title = [NSString stringWithFormat:@"Activity+%d", _value];
             _comment = [NSString stringWithFormat:@"保存できるアクティビティの数を%d個増やすことができます。", _value];
-            _image = nil;
+            _image = [UIImage imageNamed:@"purchase_activity100.png"];
             _price = 600;
         } else {
             NSAssert(0, @"Unknown Product");
