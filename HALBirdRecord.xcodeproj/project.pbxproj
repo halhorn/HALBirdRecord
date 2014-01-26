@@ -826,6 +826,8 @@
 		29D0C6CB189495EC0040EB1A /* 30_vector_icons_df_0004_Shape-29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6C9189495EC0040EB1A /* 30_vector_icons_df_0004_Shape-29@2x.png */; };
 		29D0C6D41894A2430040EB1A /* HALPurchaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D0C6D21894A2430040EB1A /* HALPurchaseViewController.m */; };
 		29D0C6D51894A2430040EB1A /* HALPurchaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6D31894A2430040EB1A /* HALPurchaseViewController.xib */; };
+		29D0C6E2189505270040EB1A /* HALPurchaseViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D0C6E1189505270040EB1A /* HALPurchaseViewCell.m */; };
+		29D0C6E4189505500040EB1A /* HALPurchaseViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6E3189505500040EB1A /* HALPurchaseViewCell.xib */; };
 		29DB75BF188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 29DB75BE188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.m */; };
 		29DB75C2188DF5940009B82B /* HALProductManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 29DB75C1188DF5940009B82B /* HALProductManager.m */; };
 		29DB75C51890132E0009B82B /* HALProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 29DB75C41890132E0009B82B /* HALProduct.m */; };
@@ -1706,6 +1708,9 @@
 		29D0C6D11894A2430040EB1A /* HALPurchaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALPurchaseViewController.h; sourceTree = "<group>"; };
 		29D0C6D21894A2430040EB1A /* HALPurchaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALPurchaseViewController.m; sourceTree = "<group>"; };
 		29D0C6D31894A2430040EB1A /* HALPurchaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALPurchaseViewController.xib; sourceTree = "<group>"; };
+		29D0C6E0189505270040EB1A /* HALPurchaseViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALPurchaseViewCell.h; sourceTree = "<group>"; };
+		29D0C6E1189505270040EB1A /* HALPurchaseViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALPurchaseViewCell.m; sourceTree = "<group>"; };
+		29D0C6E3189505500040EB1A /* HALPurchaseViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALPurchaseViewCell.xib; sourceTree = "<group>"; };
 		29DB75BD188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLGeocoder+HALCoordinateGeocoder.h"; sourceTree = "<group>"; };
 		29DB75BE188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLGeocoder+HALCoordinateGeocoder.m"; sourceTree = "<group>"; };
 		29DB75C0188DF5940009B82B /* HALProductManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = HALProductManager.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -2033,6 +2038,9 @@
 				29D0C6D11894A2430040EB1A /* HALPurchaseViewController.h */,
 				29D0C6D21894A2430040EB1A /* HALPurchaseViewController.m */,
 				29D0C6D31894A2430040EB1A /* HALPurchaseViewController.xib */,
+				29D0C6E0189505270040EB1A /* HALPurchaseViewCell.h */,
+				29D0C6E1189505270040EB1A /* HALPurchaseViewCell.m */,
+				29D0C6E3189505500040EB1A /* HALPurchaseViewCell.xib */,
 			);
 			path = Purchase;
 			sourceTree = "<group>";
@@ -3107,6 +3115,7 @@
 				2925A41A1879282E00FA2EED /* 197.png in Resources */,
 				2925A5991879282E00FA2EED /* 631.png in Resources */,
 				2925A3E11879282E00FA2EED /* 136.png in Resources */,
+				29D0C6E4189505500040EB1A /* HALPurchaseViewCell.xib in Resources */,
 				2925A3921879282E00FA2EED /* 049.png in Resources */,
 				2925A3811879282E00FA2EED /* 032.png in Resources */,
 				2925A5141879282E00FA2EED /* 470.png in Resources */,
@@ -3762,6 +3771,7 @@
 				292594A41871B63300FA2EED /* HALSearchedBirdKindList.m in Sources */,
 				295E90CA18554739000BA5FE /* HALDB.m in Sources */,
 				2925A64E187A2F8D00FA2EED /* HALHelpViewController.m in Sources */,
+				29D0C6E2189505270040EB1A /* HALPurchaseViewCell.m in Sources */,
 				2925A652187A30AC00FA2EED /* HALHelp.m in Sources */,
 				29DB75C2188DF5940009B82B /* HALProductManager.m in Sources */,
 				292594B21872B86200FA2EED /* HALMapManager.m in Sources */,

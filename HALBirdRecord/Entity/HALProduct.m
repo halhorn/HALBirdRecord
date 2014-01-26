@@ -69,7 +69,7 @@
     return self;
 }
 
-+ (NSArray *)productIDList
++ (NSArray *)purchaseProductIDList
 {
     return
     @[

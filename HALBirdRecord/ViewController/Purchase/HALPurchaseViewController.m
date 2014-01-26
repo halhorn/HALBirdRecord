@@ -7,8 +7,14 @@
 //
 
 #import "HALPurchaseViewController.h"
+#import "HALActivityManager.h"
+#import "HALProductManager.h"
+#import "HALPurchaseViewCell.h"
 
 @interface HALPurchaseViewController ()
+
+@property (weak, nonatomic) IBOutlet UIView *headerView;
+@property (weak, nonatomic) IBOutlet UILabel *activityCountLabel;
 
 @end
 
@@ -32,6 +38,20 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.title = @"機能拡張";
+    self.headerView.backgroundColor = kHALPurchaseHeaderBackgroundColor;
+    HALActivityManager *activityManager = [HALActivityManager sharedManager];
+    int capacity = [activityManager activityCapacity];
+    if (capacity == 0) {
+        self.activityCountLabel.text = [NSString stringWithFormat:@"(%d/∞)", activityManager.activityCount];
+    } else {
+        self.activityCountLabel.text = [NSString stringWithFormat:@"(%d/%d)", activityManager.activityCount, activityManager.activityCapacity];
+    }
+    self.tableView.tableHeaderView = self.headerView;
+
+    [self.tableView registerNib:[HALPurchaseViewCell nib]
+         forCellReuseIdentifier:[HALPurchaseViewCell cellIdentifier]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,31 +64,40 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
+    if (section == 0) {
+        return 0;
+    } else {
+        return [HALProduct purchaseProductIDList].count;
+    }
     return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
+    HALPurchaseViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[HALPurchaseViewCell cellIdentifier]];
     
     // Configure the cell...
+    if (indexPath.section == 0) {
+        // フリー
+    } else {
+        // 課金
+         [cell loadWithProductID:[HALProduct purchaseProductIDList][indexPath.row]];
+    }
     
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 74;
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -108,22 +137,25 @@
 }
 */
 
-/*
+
 #pragma mark - Table view delegate
 
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here, for example:
-    // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-
-    // Pass the selected object to the new view controller.
-    
-    // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [SVProgressHUD show];
+    if (indexPath.section == 1) {
+        NSString *productID = [HALProduct purchaseProductIDList][indexPath.row];
+        [[HALProductManager sharedManager] purchaseProduct:productID withCompletion:^(BOOL success){
+            if (success) {
+                [SVProgressHUD showSuccessWithStatus:@"購入しました。"];
+                [[HALActivityManager sharedManager] notifyActivityUpdate];
+            } else {
+                [SVProgressHUD showErrorWithStatus:@"購入できませんでした。"];
+            }
+        }];
+    }
 }
- 
- */
 
 @end

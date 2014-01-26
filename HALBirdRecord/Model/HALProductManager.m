@@ -124,7 +124,7 @@
 
 - (void)addProductObservers
 {
-    for (NSString *productID in [HALProduct productIDList]) {
+    for (NSString *productID in [HALProduct purchaseProductIDList]) {
         [PFPurchase addObserverForProduct:productID block:^(SKPaymentTransaction *transaction) {
             [self.rawProductList addObject:[HALProduct productWithProductID:productID]];
             [self saveProductList];

@@ -39,5 +39,5 @@ typedef NS_ENUM(NSUInteger, HALProductSource) {
 
 - (id)initWithProductID:(NSString *)productID;
 + (instancetype)productWithProductID:(NSString *)productID;
-+ (NSArray *)productIDList;
++ (NSArray *)purchaseProductIDList;
 @end

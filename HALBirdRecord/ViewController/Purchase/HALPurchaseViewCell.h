@@ -10,4 +10,8 @@
 
 @interface HALPurchaseViewCell : UITableViewCell
 
+- (void)loadWithProductID:(NSString *)productID;
++ (NSString *)cellIdentifier;
++ (UINib *)nib;
+
 @end
