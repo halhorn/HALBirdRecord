@@ -14,6 +14,7 @@
 + (NSString *)updateActivityNotificationName;
 + (instancetype)sharedManager;
 - (int)activityCount;
+- (int)activityCapacity;
 - (int)totalBirdKindCount;
 - (int)totalPrefectureCount;
 - (int)totalCityCount;

@@ -7,6 +7,7 @@
 //
 
 #import "HALActivityManager.h"
+#import "HALProductManager.h"
 #import "HALDB.h"
 
 #define kHALUpdateActivityNotificationName @"HALActivityManagerUpdateActivity"
@@ -50,6 +51,11 @@
         [self loadActivityList];
     }
     return self.activityList.count;
+}
+
+- (int)activityCapacity
+{
+    return [[HALProductManager sharedManager] activityCapacity];
 }
 
 - (HALActivity *)activityWithIndex:(int)index

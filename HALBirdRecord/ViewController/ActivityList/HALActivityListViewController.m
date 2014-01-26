@@ -9,10 +9,12 @@
 #import "HALActivityListViewController.h"
 #import "HALActivityViewController.h"
 #import "HALApplicationInfoViewController.h"
+#import "HALPurchaseViewController.h"
 #import "HALActivityManager.h"
 #import "HALActivityListViewCell.h"
 #import "UIViewController+HALViewControllerFromNib.h"
 #import "HALStatisticsViewCell.h"
+#import "HALNewActivityCell.h"
 
 #define kHALDataOffset 2
 #define kHALMaxActivityNum 20
@@ -48,6 +50,8 @@
          forCellReuseIdentifier:[HALActivityListViewCell cellIdentifier]];
     [self.tableView registerNib:[HALStatisticsViewCell nib]
          forCellReuseIdentifier:[HALStatisticsViewCell cellIdentifier]];
+    [self.tableView registerNib:[HALNewActivityCell nib]
+         forCellReuseIdentifier:[HALNewActivityCell cellIdentifier]];
     
     [self setupExplainView];
     
@@ -142,9 +146,12 @@
     }
     if (indexPath.row == 1) {
         // 新規アクティビティ
-        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"DefaultCell"];
-        cell.textLabel.textColor = kHALTextColor;
-        cell.textLabel.text = @"＋新しいアクティビティ";
+        HALNewActivityCell *cell = [tableView dequeueReusableCellWithIdentifier:[HALNewActivityCell cellIdentifier]];
+        WeakSelf weakSelf = self;
+        cell.tapPurchaseBlock = ^{
+            [weakSelf.navigationController pushViewController:[HALPurchaseViewController viewControllerFromNib]
+                                                     animated:YES];
+        };
         return cell;
     } else {
         HALActivityListViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[HALActivityListViewCell cellIdentifier]];
