@@ -18,16 +18,16 @@
             _productType = HALProductTypePremiumAccount;
             _productSource = HALProductSourcePurchased;
             _value = 0;
-            _title = @"鳥ログPro";
-            _comment = @"アクティビティの容量が無制限になります。Proマークが付きます。";
+            _title = @"Pro";
+            _comment = @"保存できるアクティビティの数が無制限になります。";
             _image = nil;
             _price = 800;
         } else if ([productID isEqualToString:kHALProductIDDonationMember]) {
             _productType = HALProductTypePremiumAccount;
             _productSource = HALProductSourcePurchased;
             _value = 0;
-            _title = @"名誉会員";
-            _comment = @"開発者への賛助をしてくださる方はご購入下さい。機能はProアカウントと同等ですが名誉会員マークが付きます。";
+            _title = @"Pro* (開発賛助)";
+            _comment = @"開発賛助をしてくださる方はご購入お願いします。機能はProと同等です。";
             _image = nil;
             _price = 2000;
         } else if ([productID isEqualToString:kHALProductIDExpand5Activities]) {
