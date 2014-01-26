@@ -31,6 +31,12 @@ typedef NS_ENUM(NSUInteger, HALProductSource) {
 @property(nonatomic, readonly) HALProductSource productSource;
 @property(nonatomic, readonly) int value;
 
+// 表示用
+@property(nonatomic, readonly) NSString *title;
+@property(nonatomic, readonly) NSString *comment;
+@property(nonatomic, readonly) UIImage *image;
+@property(nonatomic, readonly) int price;
+
 - (id)initWithProductID:(NSString *)productID;
 + (instancetype)productWithProductID:(NSString *)productID;
 + (NSArray *)productIDList;
