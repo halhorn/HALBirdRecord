@@ -100,7 +100,7 @@
     activity.dbID = [self.db selectLastIdOfActivityTable];
     [self.db insertBirdRecordList:activity.birdRecordList activityID:activity.dbID];
     [self loadActivityList];
-    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kHALUpdateActivityNotificationName object:nil]];
+    [self notifyActivityUpdate];
 }
 
 - (void)updateExistingActivity:(HALActivity *)activity
@@ -109,7 +109,7 @@
     [self.db insertBirdRecordList:activity.birdRecordList activityID:activity.dbID];
     [self.db updateActivity:activity];
     [self loadActivityList];
-    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kHALUpdateActivityNotificationName object:nil]];
+    [self notifyActivityUpdate];
 }
 
 - (void)deleteActivity:(HALActivity *)activity
@@ -117,6 +117,11 @@
     [self.db deleteBirdRecordsInActivity:activity];
     [self.db deleteActivity:activity];
     [self loadActivityList];
+    [self notifyActivityUpdate];
+}
+
+- (void)notifyActivityUpdate
+{
     [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kHALUpdateActivityNotificationName object:nil]];
 }
 

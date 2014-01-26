@@ -21,5 +21,6 @@
 - (HALActivity *)activityWithIndex:(int)index;
 - (void)saveActivity:(HALActivity *)activity;
 - (void)deleteActivity:(HALActivity *)activity;
+- (void)notifyActivityUpdate;
 
 @end
