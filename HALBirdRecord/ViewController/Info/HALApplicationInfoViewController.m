@@ -11,9 +11,10 @@
 #import "UIViewController+HALSetCancelButton.h"
 #import "NSString+HALURLEncode.h"
 
-// pages
+// views
 #import "HALLicenseViewController.h"
 #import "HALHelpListViewController.h"
+#import "HALPurchaseViewController.h"
 
 #define kHALContactUsMail @"halhorn@halmidi.com"
 #define kHALInfoSectionNo 0
@@ -42,15 +43,18 @@
 
     self.title = @"Info";
     
-    self.sectionNames = @[@"アプリについて", @"その他"];
+    self.sectionNames = @[@"機能拡張", @"アプリについて", @"その他"];
     self.views =
     @[
       @[
-          @{@"title": @"ヘルプ／使い方", @"view": [[HALHelpListViewController alloc] initWithNib]},
+          @{@"title": @"機能拡張", @"view": [HALPurchaseViewController viewControllerFromNib]},
+        ],
+      @[
+          @{@"title": @"ヘルプ／使い方", @"view": [HALHelpListViewController viewControllerFromNib]},
           @{@"title": @"お問い合わせ", @"selector": @"openContactUsMail"},
         ],
       @[
-          @{@"title": @"ライセンス", @"view": [[HALLicenseViewController alloc] initWithNib]},
+          @{@"title": @"ライセンス", @"view": [HALLicenseViewController viewControllerFromNib]},
           ],
       ];
 
