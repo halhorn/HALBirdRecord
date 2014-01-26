@@ -40,6 +40,13 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.title = @"機能拡張";
+    [self.tableView registerNib:[HALPurchaseViewCell nib]
+         forCellReuseIdentifier:[HALPurchaseViewCell cellIdentifier]];
+    [self setupHeaderView];
+}
+
+- (void)setupHeaderView
+{
     self.headerView.backgroundColor = kHALPurchaseHeaderBackgroundColor;
     HALActivityManager *activityManager = [HALActivityManager sharedManager];
     int capacity = [activityManager activityCapacity];
@@ -49,9 +56,6 @@
         self.activityCountLabel.text = [NSString stringWithFormat:@"(%d/%d)", activityManager.activityCount, activityManager.activityCapacity];
     }
     self.tableView.tableHeaderView = self.headerView;
-
-    [self.tableView registerNib:[HALPurchaseViewCell nib]
-         forCellReuseIdentifier:[HALPurchaseViewCell cellIdentifier]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -144,13 +148,18 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [SVProgressHUD show];
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
     if (indexPath.section == 1) {
         NSString *productID = [HALProduct purchaseProductIDList][indexPath.row];
+        WeakSelf weakSelf = self;
         [[HALProductManager sharedManager] purchaseProduct:productID withCompletion:^(BOOL success){
             if (success) {
                 [SVProgressHUD showSuccessWithStatus:@"購入しました。"];
                 [[HALActivityManager sharedManager] notifyActivityUpdate];
+                [weakSelf setupHeaderView];
+                [weakSelf performBlock:^(id sender){
+                    [weakSelf.navigationController popViewControllerAnimated:YES];
+                } afterDelay:1];
             } else {
                 [SVProgressHUD showErrorWithStatus:@"購入できませんでした。"];
             }
