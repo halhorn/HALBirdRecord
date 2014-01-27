@@ -8,7 +8,7 @@
 
 #import "HALNewActivityCell.h"
 #import "HALActivityManager.h"
-#import "HALProductManager.h"
+#import "HALAccount.h"
 
 @interface HALNewActivityCell()
 @property (weak, nonatomic) IBOutlet UILabel *createActivityLabel;
@@ -62,10 +62,11 @@
     self.donationMemberIcon.hidden = YES;
     self.proAccountIcon.hidden = YES;
     self.purchaseView.hidden = YES;
+    HALAccount *myAccount = [HALAccount myAccount];
     
-    if ([[HALProductManager sharedManager] isDonationMember]) {
+    if ([myAccount isDonationMember]) {
         self.donationMemberIcon.hidden = NO;
-    } else if ([[HALProductManager sharedManager] isProAccount]) {
+    } else if ([myAccount isProAccount]) {
         self.proAccountIcon.hidden = NO;
     } else {
         HALActivityManager *activityManager = [HALActivityManager sharedManager];
