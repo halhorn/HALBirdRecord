@@ -15,9 +15,9 @@
 #import "UIViewController+HALViewControllerFromNib.h"
 #import "HALStatisticsViewCell.h"
 #import "HALNewActivityCell.h"
+#import "HALAccount.h"
 
 #define kHALDataOffset 2
-#define kHALMaxActivityNum 20
 
 @interface HALActivityListViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -82,7 +82,7 @@
 
 - (void)showNewActivity
 {
-    if (self.activityManager.activityCount >= kHALMaxActivityNum) {
+    if (![[HALAccount myAccount] isUnlimitedAccount] && self.activityManager.activityCount >= [self.activityManager activityCapacity]) {
         [UIAlertView showAlertViewWithTitle:nil message:@"アクティビティ数が上限に達しました。新しいアクティビティを追加するには、古いアクティビティを削除してください。（アクティビティを右から左にスワイプすると削除できます。）" cancelButtonTitle:@"OK" otherButtonTitles:@[] handler:nil];
         return;
     }
