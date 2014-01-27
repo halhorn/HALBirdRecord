@@ -60,6 +60,11 @@
     return [self containsProduct:kHALProductIDDonationMember];
 }
 
+- (BOOL)isUnlimitedAccount
+{
+    return [self isProAccount] || [self isDonationMember];
+}
+
 - (int)activityCapacity
 {
     if ([self isProAccount] || [self isDonationMember]) {
