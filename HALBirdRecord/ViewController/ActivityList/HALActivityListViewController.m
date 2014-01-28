@@ -82,8 +82,14 @@
 
 - (void)showNewActivity
 {
+    // アクティビティ数チェック
     if (![[HALAccount myAccount] isUnlimitedAccount] && self.activityManager.activityCount >= [self.activityManager activityCapacity]) {
-        [UIAlertView showAlertViewWithTitle:nil message:@"アクティビティ数が上限に達しました。新しいアクティビティを追加するには、古いアクティビティを削除してください。（アクティビティを右から左にスワイプすると削除できます。）" cancelButtonTitle:@"OK" otherButtonTitles:@[] handler:nil];
+        WeakSelf weakSelf = self;
+        [UIAlertView showAlertViewWithTitle:nil message:@"アクティビティが満杯です。ショップで保存できるアクティビティの数を増やして下さい。" cancelButtonTitle:@"キャンセル" otherButtonTitles:@[@"ショップ"] handler:^(UIAlertView *alertView, NSInteger buttonIndex){
+            if (buttonIndex != alertView.cancelButtonIndex) {
+                [weakSelf goToShop];
+            }
+        }];
         return;
     }
     
@@ -92,6 +98,12 @@
     
     HALActivityViewController *viewController = [[HALActivityViewController alloc] initWithActivity:activity shouldShowRegister:YES];
     [self.navigationController pushViewController:viewController animated:YES];
+}
+
+- (void)goToShop
+{
+    [self.navigationController pushViewController:[HALPurchaseViewController viewControllerFromNib]
+                                         animated:YES];
 }
 
 - (void)setupExplainView
@@ -149,8 +161,7 @@
         HALNewActivityCell *cell = [tableView dequeueReusableCellWithIdentifier:[HALNewActivityCell cellIdentifier]];
         WeakSelf weakSelf = self;
         [cell loadWithTapPurchaseBlock:^{
-            [weakSelf.navigationController pushViewController:[HALPurchaseViewController viewControllerFromNib]
-                                                     animated:YES];
+            [weakSelf goToShop];
         }];
         return cell;
     } else {
