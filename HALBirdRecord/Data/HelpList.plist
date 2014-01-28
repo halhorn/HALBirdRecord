@@ -31,12 +31,6 @@
 	</dict>
 	<dict>
 		<key>Question</key>
-		<string>アクティビティ数の上限について</string>
-		<key>Answer</key>
-		<string>現バージョンではアクティビティ数の上限は20となっております。今後のバージョンで、最大アクティビティ数の拡張（有料）を実装予定です。</string>
-	</dict>
-	<dict>
-		<key>Question</key>
 		<string>アクティビティ／記録した鳥の削除</string>
 		<key>Answer</key>
 		<string>削除したいアクティビティや鳥の項目を右から左にスワイプするとDeleteボタンが現れます。Deleteをタップすると、項目が削除されます。</string>
