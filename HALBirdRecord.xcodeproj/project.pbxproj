@@ -833,6 +833,7 @@
 		29B9A88F18955D7A00B0AD14 /* purchase_pro.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B9A88218955D7A00B0AD14 /* purchase_pro.png */; };
 		29B9A89018955D7A00B0AD14 /* purchase_pro@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B9A88318955D7A00B0AD14 /* purchase_pro@2x.png */; };
 		29B9A8931895E1DF00B0AD14 /* HALAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B9A8921895E1DF00B0AD14 /* HALAccount.m */; };
+		29B9A8961899D24F00B0AD14 /* HALStudentAuthenticator.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B9A8951899D24F00B0AD14 /* HALStudentAuthenticator.m */; };
 		29D0C6C51893F1450040EB1A /* HALNewActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D0C6C41893F1450040EB1A /* HALNewActivityCell.m */; };
 		29D0C6C71893F15D0040EB1A /* HALNewActivityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6C61893F15D0040EB1A /* HALNewActivityCell.xib */; };
 		29D0C6CA189495EC0040EB1A /* 30_vector_icons_df_0004_Shape-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6C8189495EC0040EB1A /* 30_vector_icons_df_0004_Shape-29.png */; };
@@ -1731,6 +1732,8 @@
 		29B9A88318955D7A00B0AD14 /* purchase_pro@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "purchase_pro@2x.png"; sourceTree = "<group>"; };
 		29B9A8911895E1DF00B0AD14 /* HALAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALAccount.h; sourceTree = "<group>"; };
 		29B9A8921895E1DF00B0AD14 /* HALAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALAccount.m; sourceTree = "<group>"; };
+		29B9A8941899D24F00B0AD14 /* HALStudentAuthenticator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALStudentAuthenticator.h; sourceTree = "<group>"; };
+		29B9A8951899D24F00B0AD14 /* HALStudentAuthenticator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALStudentAuthenticator.m; sourceTree = "<group>"; };
 		29D0C6C31893F1450040EB1A /* HALNewActivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALNewActivityCell.h; sourceTree = "<group>"; };
 		29D0C6C41893F1450040EB1A /* HALNewActivityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALNewActivityCell.m; sourceTree = "<group>"; };
 		29D0C6C61893F15D0040EB1A /* HALNewActivityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALNewActivityCell.xib; sourceTree = "<group>"; };
@@ -2041,6 +2044,8 @@
 				2925A05F18770D1E00FA2EED /* HALThread.m */,
 				29DB75C0188DF5940009B82B /* HALProductManager.h */,
 				29DB75C1188DF5940009B82B /* HALProductManager.m */,
+				29B9A8941899D24F00B0AD14 /* HALStudentAuthenticator.h */,
+				29B9A8951899D24F00B0AD14 /* HALStudentAuthenticator.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -3838,6 +3843,7 @@
 				29FA598A1866A69800928318 /* HALFamilyBirdKindList.m in Sources */,
 				29AA88E6188822390088F049 /* HALEditBirdRecordViewController.m in Sources */,
 				29501EF1185C8032004AF7F9 /* HALBirdMapViewController.m in Sources */,
+				29B9A8961899D24F00B0AD14 /* HALStudentAuthenticator.m in Sources */,
 				292594A41871B63300FA2EED /* HALSearchedBirdKindList.m in Sources */,
 				295E90CA18554739000BA5FE /* HALDB.m in Sources */,
 				2925A64E187A2F8D00FA2EED /* HALHelpViewController.m in Sources */,
