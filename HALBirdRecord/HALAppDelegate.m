@@ -21,6 +21,15 @@
 {
     [HALGAManager setup];
     [HALGAManager sendState];
+
+    // Parseの設定
+    [Parse setApplicationId:kHALSecretParseApplicationID clientKey:kHALSecretParseClientKey];
+    
+    // 事前に鳥リストを読み込み
+    [HALBirdKindLoader sharedLoader];
+    
+    // 購入処理セットアップ
+    [HALProductManager sharedManager];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
@@ -30,15 +39,6 @@
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
     [self setupUIAppearance];
-
-    // Parseの設定
-    [Parse setApplicationId:kHALSecretParseApplicationID clientKey:kHALSecretParseClientKey];
-
-    // 事前に鳥リストを読み込み
-    [HALBirdKindLoader sharedLoader];
-
-    // 購入処理セットアップ
-    [HALProductManager sharedManager];
 
     return YES;
 }
