@@ -8,15 +8,23 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger, HALStudentAuthenticationRequestState) {
+    HALStudentAuthenticationRequestStateError = -2,
+    HALStudentAuthenticationRequestStateDenied = -1,
+    HALStudentAuthenticationRequestStateRequesting = 0,
+    HALStudentAuthenticationRequestStateAccepted = 1,
+};
+
 @interface HALStudentAuthenticator : NSObject
 
 + (instancetype)sharedAuthenticator;
 
 - (BOOL)isStudentAuthenticationRequesting;
 - (BOOL)isStudent;
-- (void)checkIsStudentWithCompletion:(void(^)(BOOL))completion;
+- (BOOL)isExpired;
+- (void)checkIsStudentWithCompletion:(void(^)(HALStudentAuthenticationRequestState))completion;
 - (void)requestStudentAuthenticationWithImage:(UIImage *)image
                                        expire:(NSDate *)expire
                                    completion:(void(^)(BOOL))completion;
-
+- (void)cancelStudentAuthenticationRequest;
 @end

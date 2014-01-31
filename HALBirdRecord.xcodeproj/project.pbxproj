@@ -834,6 +834,7 @@
 		29B9A89018955D7A00B0AD14 /* purchase_pro@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B9A88318955D7A00B0AD14 /* purchase_pro@2x.png */; };
 		29B9A8931895E1DF00B0AD14 /* HALAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B9A8921895E1DF00B0AD14 /* HALAccount.m */; };
 		29B9A8961899D24F00B0AD14 /* HALStudentAuthenticator.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B9A8951899D24F00B0AD14 /* HALStudentAuthenticator.m */; };
+		29B9A899189B268E00B0AD14 /* NSString+HALIsNullOrEmpty.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B9A898189B268E00B0AD14 /* NSString+HALIsNullOrEmpty.m */; };
 		29D0C6C51893F1450040EB1A /* HALNewActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D0C6C41893F1450040EB1A /* HALNewActivityCell.m */; };
 		29D0C6C71893F15D0040EB1A /* HALNewActivityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6C61893F15D0040EB1A /* HALNewActivityCell.xib */; };
 		29D0C6CA189495EC0040EB1A /* 30_vector_icons_df_0004_Shape-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6C8189495EC0040EB1A /* 30_vector_icons_df_0004_Shape-29.png */; };
@@ -1734,6 +1735,8 @@
 		29B9A8921895E1DF00B0AD14 /* HALAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALAccount.m; sourceTree = "<group>"; };
 		29B9A8941899D24F00B0AD14 /* HALStudentAuthenticator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALStudentAuthenticator.h; sourceTree = "<group>"; };
 		29B9A8951899D24F00B0AD14 /* HALStudentAuthenticator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALStudentAuthenticator.m; sourceTree = "<group>"; };
+		29B9A897189B268D00B0AD14 /* NSString+HALIsNullOrEmpty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HALIsNullOrEmpty.h"; sourceTree = "<group>"; };
+		29B9A898189B268E00B0AD14 /* NSString+HALIsNullOrEmpty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HALIsNullOrEmpty.m"; sourceTree = "<group>"; };
 		29D0C6C31893F1450040EB1A /* HALNewActivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALNewActivityCell.h; sourceTree = "<group>"; };
 		29D0C6C41893F1450040EB1A /* HALNewActivityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALNewActivityCell.m; sourceTree = "<group>"; };
 		29D0C6C61893F15D0040EB1A /* HALNewActivityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALNewActivityCell.xib; sourceTree = "<group>"; };
@@ -2006,6 +2009,8 @@
 				295E909A18540994000BA5FE /* UIViewController+HALViewControllerFromNib.m */,
 				2925A04D187528FB00FA2EED /* UIDevice+HALOSVersion.h */,
 				2925A04E187528FB00FA2EED /* UIDevice+HALOSVersion.m */,
+				29B9A897189B268D00B0AD14 /* NSString+HALIsNullOrEmpty.h */,
+				29B9A898189B268E00B0AD14 /* NSString+HALIsNullOrEmpty.m */,
 				2925A65B187AFC3F00FA2EED /* NSString+HALURLEncode.h */,
 				2925A65C187AFC3F00FA2EED /* NSString+HALURLEncode.m */,
 				29DB75BD188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.h */,
@@ -3832,6 +3837,7 @@
 				295E90E018587EEC000BA5FE /* HALActivityListViewController.m in Sources */,
 				2925949E1870689900FA2EED /* HALWebViewController.m in Sources */,
 				295E90D818576E84000BA5FE /* NSDate+HALDateString.m in Sources */,
+				29B9A899189B268E00B0AD14 /* NSString+HALIsNullOrEmpty.m in Sources */,
 				29DB75BF188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.m in Sources */,
 				292594C01873E58000FA2EED /* HALBirdKindLoader.m in Sources */,
 				295E90D018560789000BA5FE /* HALActivity.m in Sources */,
