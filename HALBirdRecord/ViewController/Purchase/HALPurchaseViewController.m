@@ -10,6 +10,8 @@
 #import "HALActivityManager.h"
 #import "HALProductManager.h"
 #import "HALPurchaseViewCell.h"
+#import "HALStudentAuthenticationViewController.h"
+#import "UIViewController+HALViewControllerFromNib.h"
 
 @interface HALPurchaseViewController ()
 
@@ -76,8 +78,10 @@
 {
     // Return the number of rows in the section.
     if (section == 0) {
-        return 0;
+        // 学生
+        return 1;
     } else {
+        // 課金
         return [HALProduct purchaseProductIDList].count;
     }
     return 0;
@@ -89,10 +93,11 @@
     
     // Configure the cell...
     if (indexPath.section == 0) {
-        // フリー
+        // 学生
+        [cell loadWithProductID:kHALProductIDStudentAccount];
     } else {
         // 課金
-         [cell loadWithProductID:[HALProduct purchaseProductIDList][indexPath.row]];
+        [cell loadWithProductID:[HALProduct purchaseProductIDList][indexPath.row]];
     }
     
     return cell;
@@ -148,8 +153,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
-    if (indexPath.section == 1) {
+    if (indexPath.section == 0) {
+        // 学生
+        HALStudentAuthenticationViewController *viewController = [HALStudentAuthenticationViewController viewControllerFromNib];
+        [self.navigationController pushViewController:viewController animated:YES];
+
+    } else if (indexPath.section == 1) {
+        // 課金
+        [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
         NSString *productID = [HALProduct purchaseProductIDList][indexPath.row];
         WeakSelf weakSelf = self;
         [[HALProductManager sharedManager] purchaseProduct:productID withCompletion:^(BOOL success){
