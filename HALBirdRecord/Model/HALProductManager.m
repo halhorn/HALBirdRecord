@@ -7,14 +7,15 @@
 //
 
 #import "HALProductManager.h"
+#import "HALStudentAuthenticator.h"
 #import <Parse/Parse.h>
 
-#define kHALDefaultActivityCapacity 20
 #define kHALProductSettingKey @"HALPurchasedProductSetting"
 
 @interface HALProductManager()
 
 @property(nonatomic) NSMutableArray *rawProductList;
+@property(nonatomic) HALStudentAuthenticator *studentAuthenticator;
 
 @end
 
@@ -50,37 +51,7 @@
     return [NSArray arrayWithArray:self.rawProductList];
 }
 
-- (BOOL)isProAccount
-{
-    return [self containsProduct:kHALProductIDProAccount];
-}
-
-- (BOOL)isDonationMember
-{
-    return [self containsProduct:kHALProductIDDonationMember];
-}
-
-- (BOOL)isUnlimitedAccount
-{
-    return [self isProAccount] || [self isDonationMember];
-}
-
-- (int)activityCapacity
-{
-    if ([self isProAccount] || [self isDonationMember]) {
-        return 0;
-    }
-    
-    int capacity = kHALDefaultActivityCapacity;
-    for (HALProduct *product in self.rawProductList) {
-        if (product.productType == HALProductTypeExpandActivity) {
-            capacity += product.value;
-        }
-    }
-    return capacity;
-}
-
-- (void)purchaseProduct:(NSString *)productID withCompletion:(void(^)(BOOL))completion;
+- (void)purchaseProduct:(NSString *)productID withCompletion:(void(^)(BOOL))completion
 {
     [PFPurchase buyProduct:productID block:^(NSError *error) {
         if (!error) {
@@ -121,25 +92,30 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-- (BOOL)containsProduct:(NSString *)producID
-{
-    for (HALProduct *product in self.rawProductList) {
-        if ([product.productID isEqualToString:producID]) {
-            return YES;
-        }
-    }
-    return NO;
-}
-
 - (void)addProductObservers
 {
+    WeakSelf weakSelf = self;
+    
+    // 課金
     for (NSString *productID in [HALProduct purchaseProductIDList]) {
         [PFPurchase addObserverForProduct:productID block:^(SKPaymentTransaction *transaction) {
-            [self.rawProductList addObject:[HALProduct productWithProductID:productID]];
-            [self saveProductList];
+            [weakSelf.rawProductList addObject:[HALProduct productWithProductID:productID]];
+            [weakSelf saveProductList];
             NSLog(@"purchase %@", productID);
         }];
     }
+    
+    // 学生
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(registerAsStudent)
+                                                 name:[HALStudentAuthenticator studentAuthenticatedNotificationName]
+                                               object:nil];
+}
+
+- (void)registerAsStudent
+{
+    [self.rawProductList addObject:kHALProductIDStudentAccount];
+    [self saveProductList];
 }
 
 @end

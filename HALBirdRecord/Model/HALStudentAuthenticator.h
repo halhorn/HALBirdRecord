@@ -18,6 +18,7 @@ typedef NS_ENUM(NSInteger, HALStudentAuthenticationRequestState) {
 @interface HALStudentAuthenticator : NSObject
 
 + (instancetype)sharedAuthenticator;
++ (NSString *)studentAuthenticatedNotificationName;
 
 - (BOOL)isStudentAuthenticationRequesting;
 - (BOOL)isStudent;

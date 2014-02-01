@@ -9,7 +9,9 @@
 #import "HALActivityManager.h"
 #import "HALProductManager.h"
 #import "HALDB.h"
+#import "HALProductManager.h"
 
+#define kHALDefaultActivityCapacity 20
 #define kHALUpdateActivityNotificationName @"HALActivityManagerUpdateActivity"
 
 @interface HALActivityManager()
@@ -55,8 +57,16 @@
 
 - (int)activityCapacity
 {
-    return [[HALProductManager sharedManager] activityCapacity];
+    int capacity = kHALDefaultActivityCapacity;
+    HALProductManager *productManager = [HALProductManager sharedManager];
+    for (HALProduct *product in [productManager productList]) {
+        if (product.productType == HALProductTypeExpandActivity) {
+            capacity += product.value;
+        }
+    }
+    return capacity;
 }
+
 
 - (HALActivity *)activityWithIndex:(int)index
 {

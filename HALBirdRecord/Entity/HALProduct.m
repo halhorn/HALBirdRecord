@@ -62,6 +62,14 @@
             _comment = [NSString stringWithFormat:@"保存できるアクティビティの数を%d個増やすことができます。", _value];
             _image = [UIImage imageNamed:@"purchase_activity100.png"];
             _price = 600;
+        } else if ([productID isEqualToString:kHALProductIDStudentAccount]) {
+            _productType = HALProductTypePremiumAccount;
+            _productSource = HALProductSourceStudentAuthentication;
+            _value = 0;
+            _title = @"学割アカウント";
+            _comment = @"保存できるアクティビティの数が無制限になります。学生限定。";
+            _image = [UIImage imageNamed:@"purchase_activity5.png"];
+            _price = 0;
         } else {
             NSAssert(0, @"Unknown Product");
         }
@@ -79,6 +87,14 @@
       kHALProductIDExpand100Activities,
       kHALProductIDProAccount,
       kHALProductIDDonationMember,
+      ];
+}
+
++ (NSArray *)freeProductIDList
+{
+    return
+    @[
+      
       ];
 }
 

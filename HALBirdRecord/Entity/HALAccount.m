@@ -38,22 +38,33 @@
 
 - (BOOL)isProAccount
 {
-    return [self.productManager isProAccount];
+    return [self hasProduct:kHALProductIDProAccount];
 }
 
 - (BOOL)isDonationMember
 {
-    return [self.productManager isDonationMember];
+    return [self hasProduct:kHALProductIDDonationMember];
+}
+
+- (BOOL)isStudentAccount
+{
+    return [self hasProduct:kHALProductIDStudentAccount];
 }
 
 - (BOOL)isUnlimitedAccount
 {
-    return [self.productManager isUnlimitedAccount];
+    return [self isDonationMember] || [self isProAccount] || [self isStudentAccount];
 }
 
-- (int)activityCapacity
+- (BOOL)hasProduct:(NSString *)producID
 {
-    return [self.productManager activityCapacity];
+    for (HALProduct *product in self.productManager.productList) {
+        if ([product.productID isEqualToString:producID]) {
+            return YES;
+        }
+    }
+    return NO;
 }
+
 
 @end

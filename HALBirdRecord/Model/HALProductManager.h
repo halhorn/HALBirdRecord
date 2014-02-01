@@ -16,9 +16,5 @@
 + (instancetype)sharedManager;
 
 - (void)purchaseProduct:(NSString *)productID withCompletion:(void(^)(BOOL))completion;
-- (BOOL)isProAccount;
-- (BOOL)isDonationMember;
-- (BOOL)isUnlimitedAccount;
-- (int)activityCapacity;
 
 @end

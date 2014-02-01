@@ -14,6 +14,7 @@
 #define kHALStudentIDSettingKey @"StudentID"
 #define kHALStudentExpireSettingKey @"StudentExpire"
 #define kHALStudentRequestClassName @"StudentRequest"
+#define kHALStudentAuthenticatedNotificationName @"StudentAuthenticatedNotification"
 
 #define kHALPropertyImage @"image"
 #define kHALPropertyExpire @"expire"
@@ -37,6 +38,11 @@
         
     }
     return self;
+}
+
++ (NSString *)studentAuthenticatedNotificationName
+{
+    return kHALStudentAuthenticatedNotificationName;
 }
 
 - (BOOL)isStudentAuthenticationRequesting
@@ -79,6 +85,7 @@
             [setting setObject:object[kHALPropertyExpire] forKey:kHALStudentExpireSettingKey];
             [setting removeObjectForKey:kHALStudentAuthenticationRequestIDSettingKey];
             [setting synchronize];
+            [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kHALStudentAuthenticatedNotificationName object:nil]];
         } else if (state == HALStudentAuthenticationRequestStateDenied) {
             [setting removeObjectForKey:kHALStudentAuthenticationRequestIDSettingKey];
             [setting synchronize];

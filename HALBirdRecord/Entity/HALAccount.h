@@ -15,6 +15,6 @@
 - (BOOL)isProAccount;
 - (BOOL)isDonationMember;
 - (BOOL)isUnlimitedAccount;
-- (int)activityCapacity;
+- (BOOL)isStudentAccount;
 
 @end

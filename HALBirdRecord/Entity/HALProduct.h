@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+// PurchaseProduct
 #define kHALProductIDProAccount @"ProAccount"
 #define kHALProductIDDonationMember @"DonationMember"
 #define kHALProductIDExpand5Activities @"Expand5Activities"
@@ -15,13 +16,17 @@
 #define kHALProductIDExpand50Activities @"Expand50Activities"
 #define kHALProductIDExpand100Activities @"Expand100Activities"
 
+// FreeProduct
+#define kHALProductIDStudentAccount @"StudentAccount"
+
 typedef NS_ENUM(NSUInteger, HALProductType) {
     HALProductTypeExpandActivity,
     HALProductTypePremiumAccount,
 };
 typedef NS_ENUM(NSUInteger, HALProductSource) {
     HALProductSourcePurchased,
-    HALProductSourceOther,
+    HALProductSourceStudentAuthentication,
+    HALProductSourceConsumableFree,
 };
 
 @interface HALProduct : NSObject
@@ -40,4 +45,5 @@ typedef NS_ENUM(NSUInteger, HALProductSource) {
 - (id)initWithProductID:(NSString *)productID;
 + (instancetype)productWithProductID:(NSString *)productID;
 + (NSArray *)purchaseProductIDList;
++ (NSArray *)freeProductIDList;
 @end
