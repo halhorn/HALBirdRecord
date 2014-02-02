@@ -33,6 +33,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *datePickerOKButton;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 
+@property (strong, nonatomic) IBOutlet UIView *requestingView;
+@property (weak, nonatomic) IBOutlet UILabel *requestingLabel;
+
+@property (nonatomic) HALStudentAuthenticator *authenticator;
 @property (nonatomic) NSDateFormatter *dateFormatter;
 @property (nonatomic) NSDate *expireDate;
 @property (nonatomic) UIImage *photo;
@@ -54,6 +58,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.authenticator = [HALStudentAuthenticator sharedAuthenticator];
     self.title = @"学割アカウント";
     self.dateFormatter = [[NSDateFormatter alloc] init];
     self.dateFormatter.dateFormat = @"yyyy/MM/dd";
@@ -63,6 +68,10 @@
     self.datePicker.date = date;
     self.expireDate = date;
     [self.graduationDateButton setTitle:[self.dateFormatter stringFromDate:date] forState:UIControlStateNormal];
+    
+    if ([self.authenticator isStudentAuthenticationRequesting]) {
+        [self.view addSubview:self.requestingView];
+    }
     
     [self setupColor];
 }
@@ -83,6 +92,7 @@
     self.photoCautionLabel.textColor = kHALSubTextColor;
     self.okView.backgroundColor = kHALStudentAuthenticationBackgroundColor;
     self.datePickerHeaderView.backgroundColor = kHALStudentAuthenticationBackgroundColor;
+    self.requestingLabel.textColor = kHALTextColor;
 }
 
 - (void)showDatePicker
@@ -154,9 +164,8 @@
 
 - (IBAction)onTapOK:(id)sender {
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
-    HALStudentAuthenticator *authenticator = [HALStudentAuthenticator sharedAuthenticator];
     WeakSelf weakSelf = self;
-    [authenticator requestStudentAuthenticationWithImage:self.photo expire:self.expireDate completion:^(BOOL succeeded){
+    [self.authenticator requestStudentAuthenticationWithImage:self.photo expire:self.expireDate completion:^(BOOL succeeded){
         if (!succeeded) {
             [SVProgressHUD showErrorWithStatus:@"失敗しました"];
             [UIAlertView showAlertViewWithTitle:@"認証に失敗しました" message:@"ネットワーク環境の良い場所でもう一度OKボタンを押して下さい。" cancelButtonTitle:@"OK" otherButtonTitles:@[] handler:nil];
@@ -178,6 +187,11 @@
     [self.graduationDateButton setTitle:[self.dateFormatter stringFromDate:self.expireDate] forState:UIControlStateNormal];
     [self dismissDatePicker];
     [self validateAndSwitchOKButton];
+}
+
+- (IBAction)onTapCancelRequest:(id)sender {
+    [self.authenticator cancelStudentAuthenticationRequest];
+    [self.requestingView removeFromSuperview];
 }
 
 #pragma mark - UIImagePickerControllerDelegate

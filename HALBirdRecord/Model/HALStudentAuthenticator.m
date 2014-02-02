@@ -90,7 +90,6 @@
     NSUserDefaults *setting = [NSUserDefaults standardUserDefaults];
     if ([self isStudentAuthenticationRequesting]) {
         [self cancelStudentAuthenticationRequest];
-        [setting removeObjectForKey:kHALStudentAuthenticationRequestIDSettingKey];
     }
     PFObject *requestObject = [PFObject objectWithClassName:kHALStudentRequestClassName];
     PFFile *imageFile = [PFFile fileWithName:[[NSUUID UUID] UUIDString] data:UIImagePNGRepresentation(image)];
@@ -112,11 +111,14 @@
     if (![self isStudentAuthenticationRequesting]) {
         return;
     }
-    NSString *requestID = [[NSUserDefaults standardUserDefaults] objectForKey:kHALStudentAuthenticationRequestIDSettingKey];
+    NSUserDefaults *setting = [NSUserDefaults standardUserDefaults];
+    NSString *requestID = [setting objectForKey:kHALStudentAuthenticationRequestIDSettingKey];
     PFQuery *query = [PFQuery queryWithClassName:kHALStudentRequestClassName];
     [query getObjectInBackgroundWithId:requestID block:^(PFObject *object, NSError *error){
         [object deleteInBackground];
     }];
+    [setting removeObjectForKey:kHALStudentAuthenticationRequestIDSettingKey];
+    [setting synchronize];
 }
 
 @end
