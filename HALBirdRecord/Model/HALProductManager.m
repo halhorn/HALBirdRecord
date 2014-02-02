@@ -42,6 +42,7 @@
 #endif
         [self loadProductList];
         [self addProductObservers];
+        [self checkStudentExpire];
     }
     return self;
 }
@@ -119,6 +120,20 @@
     [self.rawProductList addObject:[HALProduct productWithProductID:kHALProductIDStudentAccount]];
     [self saveProductList];
     [[NSNotificationCenter defaultCenter] postDataUpdateNotification];
+}
+
+- (void)checkStudentExpire
+{
+    HALProduct *studentAccountProduct = nil;
+    for (HALProduct *product in self.rawProductList) {
+        if ([product.productID isEqualToString:kHALProductIDStudentAccount]) {
+            studentAccountProduct = product;
+        }
+    }
+    if (studentAccountProduct && [self.studentAuthenticator isExpired]) {
+        [self.rawProductList removeObject:studentAccountProduct];
+        [self saveProductList];
+    }
 }
 
 @end

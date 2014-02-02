@@ -54,6 +54,9 @@
 {
     NSUserDefaults *setting = [NSUserDefaults standardUserDefaults];
     NSDate *expireDate = [setting objectForKey:kHALStudentExpireSettingKey];
+    if (!expireDate) {
+        return NO;
+    }
     BOOL expired = [expireDate compare:[NSDate date]] == NSOrderedAscending;
     return expired;
 }
