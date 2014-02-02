@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *activityCountLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *donationMemberIcon;
 @property (weak, nonatomic) IBOutlet UIImageView *proAccountIcon;
+@property (weak, nonatomic) IBOutlet UIImageView *studentAccountIcon;
 
 @property(nonatomic, copy) void(^tapPurchaseBlock)(void);
 
@@ -68,6 +69,8 @@
         self.donationMemberIcon.hidden = NO;
     } else if ([myAccount isProAccount]) {
         self.proAccountIcon.hidden = NO;
+    } else if([myAccount isStudentAccount]) {
+        self.studentAccountIcon.hidden = NO;
     } else {
         HALActivityManager *activityManager = [HALActivityManager sharedManager];
         self.purchaseView.hidden = NO;

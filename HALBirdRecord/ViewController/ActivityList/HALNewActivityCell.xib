@@ -57,6 +57,10 @@
                         <rect key="frame" x="256" y="7" width="52" height="27"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_student.png" id="FpI-ki-QW1">
+                        <rect key="frame" x="262" y="8" width="46" height="23"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
                 </subviews>
             </tableViewCellContentView>
             <connections>
@@ -65,6 +69,7 @@
                 <outlet property="donationMemberIcon" destination="16H-Xh-oK5" id="5IG-d6-yiU"/>
                 <outlet property="proAccountIcon" destination="QEX-YQ-IJP" id="Tfg-xq-1eT"/>
                 <outlet property="purchaseView" destination="YEi-vn-3uJ" id="pNi-GN-LmZ"/>
+                <outlet property="studentAccountIcon" destination="FpI-ki-QW1" id="f5E-ps-F8g"/>
             </connections>
         </tableViewCell>
     </objects>
@@ -72,5 +77,6 @@
         <image name="30_vector_icons_df_0004_Shape-29.png" width="24" height="21"/>
         <image name="icon_donation.png" width="52" height="27"/>
         <image name="icon_pro.png" width="46" height="27"/>
+        <image name="icon_student.png" width="46" height="23"/>
     </resources>
 </document>
