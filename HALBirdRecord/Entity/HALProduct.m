@@ -68,7 +68,7 @@
             _value = 0;
             _title = @"学割アカウント";
             _comment = @"保存できるアクティビティの数が無制限になります。学生限定。";
-            _image = [UIImage imageNamed:@"purchase_activity5.png"];
+            _image = [UIImage imageNamed:@"purchase_student.png"];
             _price = 0;
         } else {
             NSAssert(0, @"Unknown Product");
