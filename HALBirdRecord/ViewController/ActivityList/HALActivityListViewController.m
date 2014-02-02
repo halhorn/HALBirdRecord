@@ -16,6 +16,7 @@
 #import "HALStatisticsViewCell.h"
 #import "HALNewActivityCell.h"
 #import "HALAccount.h"
+#import "NSNotificationCenter+HALDataUpdateNotification.h"
 
 #define kHALDataOffset 2
 
@@ -59,14 +60,7 @@
     [infoButton addTarget:self action:@selector(onTapInfoButton:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:infoButton];
 
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(reloadViews)
-                                                 name:[HALActivityManager updateActivityNotificationName]
-                                               object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(reloadViews)
-                                                 name:[HALBirdRecord updateBirdRecordNotificationName]
-                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addDataUpdateObserver:self selector:@selector(reloadViews)];
 }
 
 - (void)viewWillAppear:(BOOL)animated

@@ -11,8 +11,7 @@
 #import "HALLocationManager.h"
 #import "HALDB.h"
 #import "CLGeocoder+HALCoordinateGeocoder.h"
-
-#define kHALUpdateBirdRecordNotificationName @"HALBirdRecordManagerUpdateActivity"
+#import "NSNotificationCenter+HALDataUpdateNotification.h"
 
 @interface HALBirdRecord()
 
@@ -36,11 +35,6 @@
 }
 
 #pragma mark initializer
-
-+ (NSString *)updateBirdRecordNotificationName
-{
-    return kHALUpdateBirdRecordNotificationName;
-}
 
 + (id)birdRecordWithBirdID:(int)birdID
 {
@@ -117,7 +111,7 @@
 - (void)updateDB
 {
     [self.db updateBirdRecord:self];
-    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kHALUpdateBirdRecordNotificationName object:nil]];
+    [[NSNotificationCenter defaultCenter] postDataUpdateNotification];
 }
 
 - (NSString *)description

@@ -13,6 +13,7 @@
 #import "HALFamilyBirdKindList.h"
 #import "UIDevice+HALOSVersion.h"
 #import "HALSecretSettings.h"
+#import "HALStudentAuthenticator.h"
 #import <Parse/Parse.h>
 
 @implementation HALAppDelegate
@@ -64,6 +65,18 @@
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     [HALGAManager sendState];
+    
+    // 学割アカウント申請中なら、申請が通ったか確認しにいく
+    HALStudentAuthenticator *authenticator = [HALStudentAuthenticator sharedAuthenticator];
+    if ([authenticator isStudentAuthenticationRequesting]) {
+        [authenticator checkIsStudentWithCompletion:^(HALStudentAuthenticationRequestState state){
+            if (state == HALStudentAuthenticationRequestStateAccepted) {
+                [UIAlertView showAlertViewWithTitle:@"学割アカウント" message:@"鳥ログのご使用ありがとうございます。学生認証申請が通りました。" cancelButtonTitle:@"OK" otherButtonTitles:@[] handler:nil];
+            } else if (state == HALStudentAuthenticationRequestStateDenied) {
+                [UIAlertView showAlertViewWithTitle:@"学割アカウント" message:@"鳥ログのご使用ありがとうございます。残念ながら学生認証申請は通りませんでした。学割アカウントを使用できるのは学生のみとなっております。" cancelButtonTitle:@"OK" otherButtonTitles:@[] handler:nil];
+            }
+        }];
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

@@ -11,7 +11,6 @@
 #import <Parse/Parse.h>
 
 #define kHALStudentAuthenticationRequestIDSettingKey @"StudentAuthenticationRequestID"
-#define kHALStudentIDSettingKey @"StudentID"
 #define kHALStudentExpireSettingKey @"StudentExpire"
 #define kHALStudentRequestClassName @"StudentRequest"
 #define kHALStudentAuthenticatedNotificationName @"StudentAuthenticatedNotification"
@@ -51,13 +50,6 @@
     return ![NSString isNullOrEmpty:requestID];
 }
 
-- (BOOL)isStudent
-{
-    NSUserDefaults *setting = [NSUserDefaults standardUserDefaults];
-    NSString *studentID = [setting objectForKey:kHALStudentIDSettingKey];
-    return ![NSString isNullOrEmpty:studentID] && ![self isExpired];
-}
-
 - (BOOL)isExpired
 {
     NSUserDefaults *setting = [NSUserDefaults standardUserDefaults];
@@ -71,9 +63,7 @@
     NSString *requestID = [[NSUserDefaults standardUserDefaults] objectForKey:kHALStudentAuthenticationRequestIDSettingKey];
     if ([NSString isNullOrEmpty:requestID]) {
         completion(HALStudentAuthenticationRequestStateError);
-        return;
-    } else if ([self isStudent]) {
-        completion(HALStudentAuthenticationRequestStateAccepted);
+        [HALGAManager sendAction:@"Student Authentication Error" label:@"requestID is nil" value:0];
         return;
     }
     PFQuery *query = [PFQuery queryWithClassName:kHALStudentRequestClassName];
@@ -81,7 +71,6 @@
         HALStudentAuthenticationRequestState state = [object[kHALPropertyRequestState] intValue];
         NSUserDefaults *setting = [NSUserDefaults standardUserDefaults];
         if (state == HALStudentAuthenticationRequestStateAccepted) {
-            [setting setObject:requestID forKey:kHALStudentIDSettingKey];
             [setting setObject:object[kHALPropertyExpire] forKey:kHALStudentExpireSettingKey];
             [setting removeObjectForKey:kHALStudentAuthenticationRequestIDSettingKey];
             [setting synchronize];
@@ -120,9 +109,7 @@
 
 - (void)cancelStudentAuthenticationRequest
 {
-    if ([self isStudent]) {
-        return;
-    } if (![self isStudentAuthenticationRequesting]) {
+    if (![self isStudentAuthenticationRequesting]) {
         return;
     }
     NSString *requestID = [[NSUserDefaults standardUserDefaults] objectForKey:kHALStudentAuthenticationRequestIDSettingKey];

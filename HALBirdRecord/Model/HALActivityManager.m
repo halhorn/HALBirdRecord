@@ -10,9 +10,9 @@
 #import "HALProductManager.h"
 #import "HALDB.h"
 #import "HALProductManager.h"
+#import "NSNotificationCenter+HALDataUpdateNotification.h"
 
 #define kHALDefaultActivityCapacity 20
-#define kHALUpdateActivityNotificationName @"HALActivityManagerUpdateActivity"
 
 @interface HALActivityManager()
 
@@ -22,11 +22,6 @@
 @end
 
 @implementation HALActivityManager
-
-+ (NSString *)updateActivityNotificationName
-{
-    return kHALUpdateActivityNotificationName;
-}
 
 + (instancetype)sharedManager
 {
@@ -132,7 +127,7 @@
 
 - (void)notifyActivityUpdate
 {
-    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kHALUpdateActivityNotificationName object:nil]];
+    [[NSNotificationCenter defaultCenter] postDataUpdateNotification];
 }
 
 #pragma mark - private method

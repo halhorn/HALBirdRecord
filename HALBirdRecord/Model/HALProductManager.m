@@ -8,6 +8,7 @@
 
 #import "HALProductManager.h"
 #import "HALStudentAuthenticator.h"
+#import "NSNotificationCenter+HALDataUpdateNotification.h"
 #import <Parse/Parse.h>
 
 #define kHALProductSettingKey @"HALPurchasedProductSetting"
@@ -101,6 +102,7 @@
         [PFPurchase addObserverForProduct:productID block:^(SKPaymentTransaction *transaction) {
             [weakSelf.rawProductList addObject:[HALProduct productWithProductID:productID]];
             [weakSelf saveProductList];
+            [[NSNotificationCenter defaultCenter] postDataUpdateNotification];
             NSLog(@"purchase %@", productID);
         }];
     }
@@ -114,8 +116,9 @@
 
 - (void)registerAsStudent
 {
-    [self.rawProductList addObject:kHALProductIDStudentAccount];
+    [self.rawProductList addObject:[HALProduct productWithProductID:kHALProductIDStudentAccount]];
     [self saveProductList];
+    [[NSNotificationCenter defaultCenter] postDataUpdateNotification];
 }
 
 @end

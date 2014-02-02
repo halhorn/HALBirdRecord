@@ -842,6 +842,7 @@
 		29B9A8AB189DEE2300B0AD14 /* purchase_activity50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B9A8A5189DEE2300B0AD14 /* purchase_activity50@2x.png */; };
 		29B9A8AC189DEE2300B0AD14 /* purchase_student.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B9A8A6189DEE2300B0AD14 /* purchase_student.png */; };
 		29B9A8AD189DEE2300B0AD14 /* purchase_student@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B9A8A7189DEE2300B0AD14 /* purchase_student@2x.png */; };
+		29B9A8B0189E00C200B0AD14 /* NSNotificationCenter+HALDataUpdateNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B9A8AF189E00C200B0AD14 /* NSNotificationCenter+HALDataUpdateNotification.m */; };
 		29D0C6C51893F1450040EB1A /* HALNewActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D0C6C41893F1450040EB1A /* HALNewActivityCell.m */; };
 		29D0C6C71893F15D0040EB1A /* HALNewActivityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6C61893F15D0040EB1A /* HALNewActivityCell.xib */; };
 		29D0C6CA189495EC0040EB1A /* 30_vector_icons_df_0004_Shape-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6C8189495EC0040EB1A /* 30_vector_icons_df_0004_Shape-29.png */; };
@@ -1753,6 +1754,8 @@
 		29B9A8A5189DEE2300B0AD14 /* purchase_activity50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "purchase_activity50@2x.png"; sourceTree = "<group>"; };
 		29B9A8A6189DEE2300B0AD14 /* purchase_student.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purchase_student.png; sourceTree = "<group>"; };
 		29B9A8A7189DEE2300B0AD14 /* purchase_student@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "purchase_student@2x.png"; sourceTree = "<group>"; };
+		29B9A8AE189E00C200B0AD14 /* NSNotificationCenter+HALDataUpdateNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+HALDataUpdateNotification.h"; sourceTree = "<group>"; };
+		29B9A8AF189E00C200B0AD14 /* NSNotificationCenter+HALDataUpdateNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNotificationCenter+HALDataUpdateNotification.m"; sourceTree = "<group>"; };
 		29D0C6C31893F1450040EB1A /* HALNewActivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALNewActivityCell.h; sourceTree = "<group>"; };
 		29D0C6C41893F1450040EB1A /* HALNewActivityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALNewActivityCell.m; sourceTree = "<group>"; };
 		29D0C6C61893F15D0040EB1A /* HALNewActivityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALNewActivityCell.xib; sourceTree = "<group>"; };
@@ -2037,6 +2040,8 @@
 				29DB75BE188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.m */,
 				29B9A89F189DCBC800B0AD14 /* NSDate+HALDateComponents.h */,
 				29B9A8A0189DCBC800B0AD14 /* NSDate+HALDateComponents.m */,
+				29B9A8AE189E00C200B0AD14 /* NSNotificationCenter+HALDataUpdateNotification.h */,
+				29B9A8AF189E00C200B0AD14 /* NSNotificationCenter+HALDataUpdateNotification.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -3872,6 +3877,7 @@
 				292594C01873E58000FA2EED /* HALBirdKindLoader.m in Sources */,
 				295E90D018560789000BA5FE /* HALActivity.m in Sources */,
 				29B9A89D189C728E00B0AD14 /* HALStudentAuthenticationViewController.m in Sources */,
+				29B9A8B0189E00C200B0AD14 /* NSNotificationCenter+HALDataUpdateNotification.m in Sources */,
 				2925A0731878E45400FA2EED /* HALLicenseViewController.m in Sources */,
 				292594AA18728B0800FA2EED /* HALActivityListViewCell.m in Sources */,
 				295E90C118546328000BA5FE /* HALBirdRecord.m in Sources */,
