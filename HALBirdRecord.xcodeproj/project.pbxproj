@@ -837,6 +837,7 @@
 		29B9A899189B268E00B0AD14 /* NSString+HALIsNullOrEmpty.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B9A898189B268E00B0AD14 /* NSString+HALIsNullOrEmpty.m */; };
 		29B9A89D189C728E00B0AD14 /* HALStudentAuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B9A89B189C728E00B0AD14 /* HALStudentAuthenticationViewController.m */; };
 		29B9A89E189C728E00B0AD14 /* HALStudentAuthenticationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29B9A89C189C728E00B0AD14 /* HALStudentAuthenticationViewController.xib */; };
+		29B9A8A1189DCBC800B0AD14 /* NSDate+HALDateComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B9A8A0189DCBC800B0AD14 /* NSDate+HALDateComponents.m */; };
 		29D0C6C51893F1450040EB1A /* HALNewActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D0C6C41893F1450040EB1A /* HALNewActivityCell.m */; };
 		29D0C6C71893F15D0040EB1A /* HALNewActivityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6C61893F15D0040EB1A /* HALNewActivityCell.xib */; };
 		29D0C6CA189495EC0040EB1A /* 30_vector_icons_df_0004_Shape-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6C8189495EC0040EB1A /* 30_vector_icons_df_0004_Shape-29.png */; };
@@ -1742,6 +1743,8 @@
 		29B9A89A189C728E00B0AD14 /* HALStudentAuthenticationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALStudentAuthenticationViewController.h; sourceTree = "<group>"; };
 		29B9A89B189C728E00B0AD14 /* HALStudentAuthenticationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALStudentAuthenticationViewController.m; sourceTree = "<group>"; };
 		29B9A89C189C728E00B0AD14 /* HALStudentAuthenticationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALStudentAuthenticationViewController.xib; sourceTree = "<group>"; };
+		29B9A89F189DCBC800B0AD14 /* NSDate+HALDateComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+HALDateComponents.h"; sourceTree = "<group>"; };
+		29B9A8A0189DCBC800B0AD14 /* NSDate+HALDateComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+HALDateComponents.m"; sourceTree = "<group>"; };
 		29D0C6C31893F1450040EB1A /* HALNewActivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALNewActivityCell.h; sourceTree = "<group>"; };
 		29D0C6C41893F1450040EB1A /* HALNewActivityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALNewActivityCell.m; sourceTree = "<group>"; };
 		29D0C6C61893F15D0040EB1A /* HALNewActivityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALNewActivityCell.xib; sourceTree = "<group>"; };
@@ -2020,6 +2023,8 @@
 				2925A65C187AFC3F00FA2EED /* NSString+HALURLEncode.m */,
 				29DB75BD188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.h */,
 				29DB75BE188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.m */,
+				29B9A89F189DCBC800B0AD14 /* NSDate+HALDateComponents.h */,
+				29B9A8A0189DCBC800B0AD14 /* NSDate+HALDateComponents.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -3871,6 +3876,7 @@
 				295E90B41854111D000BA5FE /* HALBirdKindListBase.m in Sources */,
 				29501ED01858C8B6004AF7F9 /* HALActivityManager.m in Sources */,
 				2925A06B1878229500FA2EED /* HALGAManager.m in Sources */,
+				29B9A8A1189DCBC800B0AD14 /* NSDate+HALDateComponents.m in Sources */,
 				295E90AF185410C5000BA5FE /* HALFlatBirdKindListTableViewController.m in Sources */,
 				29DB75C51890132E0009B82B /* HALProduct.m in Sources */,
 				295E90CD1855488C000BA5FE /* NSURL+HALLocalFileURL.m in Sources */,
