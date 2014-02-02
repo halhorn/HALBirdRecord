@@ -9,6 +9,7 @@
 #import "HALStudentAuthenticationViewController.h"
 #import "HALStudentAuthenticator.h"
 #import "NSDate+HALDateComponents.h"
+#import "NSNotificationCenter+HALDataUpdateNotification.h"
 
 #define kHALPickerHeight 200
 #define kHALPickerAnmationDuration 0.2
@@ -68,11 +69,9 @@
     self.datePicker.date = date;
     self.expireDate = date;
     [self.graduationDateButton setTitle:[self.dateFormatter stringFromDate:date] forState:UIControlStateNormal];
+    [self setupRequestingView];
     
-    if ([self.authenticator isStudentAuthenticationRequesting]) {
-        [self.view addSubview:self.requestingView];
-    }
-    
+    [[NSNotificationCenter defaultCenter] addDataUpdateObserver:self selector:@selector(setupRequestingView)];
     [self setupColor];
 }
 
@@ -138,6 +137,15 @@
     image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return image;
+}
+
+- (void)setupRequestingView
+{
+    if ([self.authenticator isStudentAuthenticationRequesting]) {
+        [self.view addSubview:self.requestingView];
+    } else {
+        [self.requestingView removeFromSuperview];
+    }
 }
 
 #pragma mark - event handler
