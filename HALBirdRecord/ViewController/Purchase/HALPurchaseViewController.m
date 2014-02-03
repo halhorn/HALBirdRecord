@@ -41,7 +41,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    self.title = @"機能拡張";
+    self.title = @"ショップ";
     [self.tableView registerNib:[HALPurchaseViewCell nib]
          forCellReuseIdentifier:[HALPurchaseViewCell cellIdentifier]];
     [self setupHeaderView];

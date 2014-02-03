@@ -43,16 +43,16 @@
 
     self.title = @"Info";
     
-    self.sectionNames = @[@"機能拡張", @"アプリについて", @"その他"];
+    self.sectionNames = @[@"アプリについて", @"ショップ", @"その他"];
     self.views =
     @[
-      @[
-          @{@"title": @"機能拡張", @"view": [HALPurchaseViewController viewControllerFromNib]},
-        ],
       @[
           @{@"title": @"ヘルプ／使い方", @"view": [HALHelpListViewController viewControllerFromNib]},
           @{@"title": @"お問い合わせ", @"selector": @"openContactUsMail"},
         ],
+      @[
+          @{@"title": @"ショップ", @"view": [HALPurchaseViewController viewControllerFromNib]},
+          ],
       @[
           @{@"title": @"ライセンス", @"view": [HALLicenseViewController viewControllerFromNib]},
           ],
