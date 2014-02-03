@@ -13,5 +13,6 @@
 + (NSString *)cellIdentifier;
 + (UINib *)nib;
 - (void)loadWithTapPurchaseBlock:(void(^)(void))tapPurchaseBlock;
+- (void)load;
 
 @end

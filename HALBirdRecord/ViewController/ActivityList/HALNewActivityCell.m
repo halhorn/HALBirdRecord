@@ -59,7 +59,11 @@
 - (void)loadWithTapPurchaseBlock:(void (^)(void))tapPurchaseBlock
 {
     self.tapPurchaseBlock = tapPurchaseBlock;
-    
+    [self load];
+}
+
+- (void)load
+{
     self.donationMemberIcon.hidden = YES;
     self.proAccountIcon.hidden = YES;
     self.purchaseView.hidden = YES;
@@ -75,6 +79,11 @@
         HALActivityManager *activityManager = [HALActivityManager sharedManager];
         self.purchaseView.hidden = NO;
         self.activityCountLabel.text = [NSString stringWithFormat:@"(%d/%d)", activityManager.activityCount, activityManager.activityCapacity];
+        if (activityManager.activityCapacity - activityManager.activityCount <= 1) {
+            self.activityCountLabel.textColor = [UIColor redColor];
+        } else {
+            self.activityCountLabel.textColor = kHALTextColor;
+        }
     }
 }
 

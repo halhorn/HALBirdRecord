@@ -27,6 +27,7 @@
 @property(nonatomic) HALActivityManager *activityManager;
 @property(nonatomic) BOOL reloadViewFlag;
 @property(nonatomic) HALStatisticsViewCell *statisticsViewCell;
+@property(nonatomic) HALNewActivityCell *createActivityViewCell;
 @end
 
 @implementation HALActivityListViewController
@@ -152,12 +153,12 @@
     }
     if (indexPath.row == 1) {
         // 新規アクティビティ
-        HALNewActivityCell *cell = [tableView dequeueReusableCellWithIdentifier:[HALNewActivityCell cellIdentifier]];
+        self.createActivityViewCell = [tableView dequeueReusableCellWithIdentifier:[HALNewActivityCell cellIdentifier]];
         WeakSelf weakSelf = self;
-        [cell loadWithTapPurchaseBlock:^{
+        [self.createActivityViewCell loadWithTapPurchaseBlock:^{
             [weakSelf goToShop];
         }];
-        return cell;
+        return self.createActivityViewCell;
     } else {
         HALActivityListViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[HALActivityListViewCell cellIdentifier]];
         
@@ -190,6 +191,7 @@
         
         [self setupExplainView];
         [self.statisticsViewCell load];
+        [self.createActivityViewCell load];
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
