@@ -1,0 +1,11 @@
+{
+    "applications": {
+        "HALBirdRecord": {
+            "applicationId": "g8pprqzvshEZF6St0ADEO5KrfdWOnutypSJvOkUn", 
+            "masterKey": "D3bVmNeAwA4dY7QyIf6MOFTItTW3PrFwsOOL97Os"
+        }, 
+        "_default": {
+            "link": "HALBirdRecord"
+        }
+    }
+}
