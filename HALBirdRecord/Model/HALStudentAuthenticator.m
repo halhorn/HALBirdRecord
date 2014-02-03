@@ -99,14 +99,24 @@
     requestObject[kHALPropertyImage] = imageFile;
     requestObject[kHALPropertyExpire] = expire;
     requestObject[kHALPropertyRequestState] = @(HALStudentAuthenticationRequestStateRequesting);
+    WeakSelf weakSelf = self;
     [requestObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
         if (succeeded) {
             [setting setObject:requestObject.objectId
                         forKey:kHALStudentAuthenticationRequestIDSettingKey];
             [setting synchronize];
         }
+        [weakSelf notifyRequestToAdmin];
         completion(succeeded);
     }];
+}
+
+- (void)notifyRequestToAdmin
+{
+    // Parse の Cloud Code を使ってアプリ管理者にメールを出す
+    [PFCloud callFunctionInBackground:@"notify_student_authentication_request"
+                       withParameters:@{}
+                                block:nil];
 }
 
 - (void)cancelStudentAuthenticationRequest
