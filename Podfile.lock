@@ -1,6 +1,7 @@
 PODS:
   - BlocksKit (1.8.3):
     - libffi
+  - Facebook-iOS-SDK (3.11.1)
   - FMDB (2.1):
     - FMDB/standard
   - FMDB/common (2.1)
@@ -16,6 +17,8 @@ PODS:
     - Kiwi/NonARC
   - libffi (3.0.13)
   - MSSimpleGauge (0.5)
+  - Parse (1.2.18):
+    - Facebook-iOS-SDK (~> 3.11)
   - SVProgressHUD (1.0)
   - SZTextView (1.1.0)
 
@@ -25,16 +28,19 @@ DEPENDENCIES:
   - GoogleAnalytics-iOS-SDK (~> 3.0)
   - Kiwi (>= 2.2.1)
   - MSSimpleGauge (~> 0.5)
+  - Parse
   - SVProgressHUD
   - SZTextView (~> 1.1.0)
 
 SPEC CHECKSUMS:
   BlocksKit: 27257f9cbbec0ea98c80ba83cc2ea7111ae62eb2
+  Facebook-iOS-SDK: 42a1de39170b858d675c2453d8aace55c51be2bb
   FMDB: 3fd5aaf632ca4ed39e3f101e0398504e6d5b0918
   GoogleAnalytics-iOS-SDK: 86393b99f7328ae8d8e975fcaa8632a39dafafe8
   Kiwi: 04c51e880831d291748ec702d42c4101f7eb95c9
   libffi: 64ef39353e747bb2b25e1026afd96a157bf9231c
   MSSimpleGauge: 0a25dabc2f9c736bf6354f19733cf9cc53ef8c61
+  Parse: 6dd57f2af9f89dc6facc755cec4e96f8b739b1fb
   SVProgressHUD: 5e10939a296debf5fe5a5895eda9539b8b2114f1
   SZTextView: 88634fd7a12de1f6870a63bf85d62e7ca016042f
 

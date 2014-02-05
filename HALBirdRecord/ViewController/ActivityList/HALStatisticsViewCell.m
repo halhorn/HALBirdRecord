@@ -89,8 +89,8 @@
     self.cityCountLabel.adjustsFontSizeToFitWidth = YES;
     self.cityCountLabel.minimumScaleFactor = 0.5;
     self.cityCountTitleLabel.textColor = kHALSubTextColor;
-    self.lineView1.backgroundColor = kHALActivityListStatisticsLineColor;
-    self.lineLabel2.backgroundColor = kHALActivityListStatisticsLineColor;
+    self.lineView1.backgroundColor = kHALLineColor;
+    self.lineLabel2.backgroundColor = kHALLineColor;
 }
 
 - (void)load

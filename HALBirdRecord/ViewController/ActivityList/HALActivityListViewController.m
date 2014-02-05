@@ -9,13 +9,16 @@
 #import "HALActivityListViewController.h"
 #import "HALActivityViewController.h"
 #import "HALApplicationInfoViewController.h"
+#import "HALPurchaseViewController.h"
 #import "HALActivityManager.h"
 #import "HALActivityListViewCell.h"
 #import "UIViewController+HALViewControllerFromNib.h"
 #import "HALStatisticsViewCell.h"
+#import "HALNewActivityCell.h"
+#import "HALAccount.h"
+#import "NSNotificationCenter+HALDataUpdateNotification.h"
 
 #define kHALDataOffset 2
-#define kHALMaxActivityNum 20
 
 @interface HALActivityListViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -24,6 +27,7 @@
 @property(nonatomic) HALActivityManager *activityManager;
 @property(nonatomic) BOOL reloadViewFlag;
 @property(nonatomic) HALStatisticsViewCell *statisticsViewCell;
+@property(nonatomic) HALNewActivityCell *createActivityViewCell;
 @end
 
 @implementation HALActivityListViewController
@@ -48,6 +52,8 @@
          forCellReuseIdentifier:[HALActivityListViewCell cellIdentifier]];
     [self.tableView registerNib:[HALStatisticsViewCell nib]
          forCellReuseIdentifier:[HALStatisticsViewCell cellIdentifier]];
+    [self.tableView registerNib:[HALNewActivityCell nib]
+         forCellReuseIdentifier:[HALNewActivityCell cellIdentifier]];
     
     [self setupExplainView];
     
@@ -55,14 +61,7 @@
     [infoButton addTarget:self action:@selector(onTapInfoButton:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:infoButton];
 
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(reloadViews)
-                                                 name:[HALActivityManager updateActivityNotificationName]
-                                               object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(reloadViews)
-                                                 name:[HALBirdRecord updateBirdRecordNotificationName]
-                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addDataUpdateObserver:self selector:@selector(reloadViews)];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -78,8 +77,14 @@
 
 - (void)showNewActivity
 {
-    if (self.activityManager.activityCount >= kHALMaxActivityNum) {
-        [UIAlertView showAlertViewWithTitle:nil message:@"アクティビティ数が上限に達しました。新しいアクティビティを追加するには、古いアクティビティを削除してください。（アクティビティを右から左にスワイプすると削除できます。）" cancelButtonTitle:@"OK" otherButtonTitles:@[] handler:nil];
+    // アクティビティ数チェック
+    if (![[HALAccount myAccount] isUnlimitedAccount] && self.activityManager.activityCount >= [self.activityManager activityCapacity]) {
+        WeakSelf weakSelf = self;
+        [UIAlertView showAlertViewWithTitle:@"アクティビティが満杯です" message:@"ショップで保存できるアクティビティの数を増やして下さい。" cancelButtonTitle:@"キャンセル" otherButtonTitles:@[@"ショップ"] handler:^(UIAlertView *alertView, NSInteger buttonIndex){
+            if (buttonIndex != alertView.cancelButtonIndex) {
+                [weakSelf goToShop];
+            }
+        }];
         return;
     }
     
@@ -88,6 +93,12 @@
     
     HALActivityViewController *viewController = [[HALActivityViewController alloc] initWithActivity:activity shouldShowRegister:YES];
     [self.navigationController pushViewController:viewController animated:YES];
+}
+
+- (void)goToShop
+{
+    [self.navigationController pushViewController:[HALPurchaseViewController viewControllerFromNib]
+                                         animated:YES];
 }
 
 - (void)setupExplainView
@@ -142,10 +153,12 @@
     }
     if (indexPath.row == 1) {
         // 新規アクティビティ
-        UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"DefaultCell"];
-        cell.textLabel.textColor = kHALTextColor;
-        cell.textLabel.text = @"＋新しいアクティビティ";
-        return cell;
+        self.createActivityViewCell = [tableView dequeueReusableCellWithIdentifier:[HALNewActivityCell cellIdentifier]];
+        WeakSelf weakSelf = self;
+        [self.createActivityViewCell loadWithTapPurchaseBlock:^{
+            [weakSelf goToShop];
+        }];
+        return self.createActivityViewCell;
     } else {
         HALActivityListViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[HALActivityListViewCell cellIdentifier]];
         
@@ -178,6 +191,7 @@
         
         [self setupExplainView];
         [self.statisticsViewCell load];
+        [self.createActivityViewCell load];
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view

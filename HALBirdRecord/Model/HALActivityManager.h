@@ -11,14 +11,15 @@
 
 @interface HALActivityManager : NSObject
 
-+ (NSString *)updateActivityNotificationName;
 + (instancetype)sharedManager;
 - (int)activityCount;
+- (int)activityCapacity;
 - (int)totalBirdKindCount;
 - (int)totalPrefectureCount;
 - (int)totalCityCount;
 - (HALActivity *)activityWithIndex:(int)index;
 - (void)saveActivity:(HALActivity *)activity;
 - (void)deleteActivity:(HALActivity *)activity;
+- (void)notifyActivityUpdate;
 
 @end

@@ -7,9 +7,12 @@
 //
 
 #import "HALActivityManager.h"
+#import "HALProductManager.h"
 #import "HALDB.h"
+#import "HALProductManager.h"
+#import "NSNotificationCenter+HALDataUpdateNotification.h"
 
-#define kHALUpdateActivityNotificationName @"HALActivityManagerUpdateActivity"
+#define kHALDefaultActivityCapacity 20
 
 @interface HALActivityManager()
 
@@ -19,11 +22,6 @@
 @end
 
 @implementation HALActivityManager
-
-+ (NSString *)updateActivityNotificationName
-{
-    return kHALUpdateActivityNotificationName;
-}
 
 + (instancetype)sharedManager
 {
@@ -51,6 +49,19 @@
     }
     return self.activityList.count;
 }
+
+- (int)activityCapacity
+{
+    int capacity = kHALDefaultActivityCapacity;
+    HALProductManager *productManager = [HALProductManager sharedManager];
+    for (HALProduct *product in [productManager productList]) {
+        if (product.productType == HALProductTypeExpandActivity) {
+            capacity += product.value;
+        }
+    }
+    return capacity;
+}
+
 
 - (HALActivity *)activityWithIndex:(int)index
 {
@@ -94,7 +105,7 @@
     activity.dbID = [self.db selectLastIdOfActivityTable];
     [self.db insertBirdRecordList:activity.birdRecordList activityID:activity.dbID];
     [self loadActivityList];
-    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kHALUpdateActivityNotificationName object:nil]];
+    [self notifyActivityUpdate];
 }
 
 - (void)updateExistingActivity:(HALActivity *)activity
@@ -103,7 +114,7 @@
     [self.db insertBirdRecordList:activity.birdRecordList activityID:activity.dbID];
     [self.db updateActivity:activity];
     [self loadActivityList];
-    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kHALUpdateActivityNotificationName object:nil]];
+    [self notifyActivityUpdate];
 }
 
 - (void)deleteActivity:(HALActivity *)activity
@@ -111,7 +122,12 @@
     [self.db deleteBirdRecordsInActivity:activity];
     [self.db deleteActivity:activity];
     [self loadActivityList];
-    [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kHALUpdateActivityNotificationName object:nil]];
+    [self notifyActivityUpdate];
+}
+
+- (void)notifyActivityUpdate
+{
+    [[NSNotificationCenter defaultCenter] postDataUpdateNotification];
 }
 
 #pragma mark - private method

@@ -820,7 +820,44 @@
 		29AA88ED1888B16E0088F049 /* button_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29AA88E91888B16E0088F049 /* button_normal@2x.png */; };
 		29AA88EE1888B16E0088F049 /* button_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 29AA88EA1888B16E0088F049 /* button_red.png */; };
 		29AA88EF1888B16E0088F049 /* button_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29AA88EB1888B16E0088F049 /* button_red@2x.png */; };
+		29B9A88418955D7A00B0AD14 /* purchase_activity5.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B9A87718955D7A00B0AD14 /* purchase_activity5.png */; };
+		29B9A88518955D7A00B0AD14 /* purchase_activity5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B9A87818955D7A00B0AD14 /* purchase_activity5@2x.png */; };
+		29B9A88618955D7A00B0AD14 /* purchase_activity15.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B9A87918955D7A00B0AD14 /* purchase_activity15.png */; };
+		29B9A88718955D7A00B0AD14 /* purchase_activity15@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B9A87A18955D7A00B0AD14 /* purchase_activity15@2x.png */; };
+		29B9A88B18955D7A00B0AD14 /* purchase_activity100.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B9A87E18955D7A00B0AD14 /* purchase_activity100.png */; };
+		29B9A88C18955D7A00B0AD14 /* purchase_activity100@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B9A87F18955D7A00B0AD14 /* purchase_activity100@2x.png */; };
+		29B9A88D18955D7A00B0AD14 /* purchase_donation.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B9A88018955D7A00B0AD14 /* purchase_donation.png */; };
+		29B9A88E18955D7A00B0AD14 /* purchase_donation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B9A88118955D7A00B0AD14 /* purchase_donation@2x.png */; };
+		29B9A88F18955D7A00B0AD14 /* purchase_pro.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B9A88218955D7A00B0AD14 /* purchase_pro.png */; };
+		29B9A89018955D7A00B0AD14 /* purchase_pro@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B9A88318955D7A00B0AD14 /* purchase_pro@2x.png */; };
+		29B9A8931895E1DF00B0AD14 /* HALAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B9A8921895E1DF00B0AD14 /* HALAccount.m */; };
+		29B9A8961899D24F00B0AD14 /* HALStudentAuthenticator.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B9A8951899D24F00B0AD14 /* HALStudentAuthenticator.m */; };
+		29B9A899189B268E00B0AD14 /* NSString+HALIsNullOrEmpty.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B9A898189B268E00B0AD14 /* NSString+HALIsNullOrEmpty.m */; };
+		29B9A89D189C728E00B0AD14 /* HALStudentAuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B9A89B189C728E00B0AD14 /* HALStudentAuthenticationViewController.m */; };
+		29B9A89E189C728E00B0AD14 /* HALStudentAuthenticationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29B9A89C189C728E00B0AD14 /* HALStudentAuthenticationViewController.xib */; };
+		29B9A8A1189DCBC800B0AD14 /* NSDate+HALDateComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B9A8A0189DCBC800B0AD14 /* NSDate+HALDateComponents.m */; };
+		29B9A8A8189DEE2300B0AD14 /* icon_student.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B9A8A2189DEE2300B0AD14 /* icon_student.png */; };
+		29B9A8A9189DEE2300B0AD14 /* icon_student@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B9A8A3189DEE2300B0AD14 /* icon_student@2x.png */; };
+		29B9A8AA189DEE2300B0AD14 /* purchase_activity50.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B9A8A4189DEE2300B0AD14 /* purchase_activity50.png */; };
+		29B9A8AB189DEE2300B0AD14 /* purchase_activity50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B9A8A5189DEE2300B0AD14 /* purchase_activity50@2x.png */; };
+		29B9A8AC189DEE2300B0AD14 /* purchase_student.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B9A8A6189DEE2300B0AD14 /* purchase_student.png */; };
+		29B9A8AD189DEE2300B0AD14 /* purchase_student@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B9A8A7189DEE2300B0AD14 /* purchase_student@2x.png */; };
+		29B9A8B0189E00C200B0AD14 /* NSNotificationCenter+HALDataUpdateNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B9A8AF189E00C200B0AD14 /* NSNotificationCenter+HALDataUpdateNotification.m */; };
+		29D0C6C51893F1450040EB1A /* HALNewActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D0C6C41893F1450040EB1A /* HALNewActivityCell.m */; };
+		29D0C6C71893F15D0040EB1A /* HALNewActivityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6C61893F15D0040EB1A /* HALNewActivityCell.xib */; };
+		29D0C6CA189495EC0040EB1A /* 30_vector_icons_df_0004_Shape-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6C8189495EC0040EB1A /* 30_vector_icons_df_0004_Shape-29.png */; };
+		29D0C6CB189495EC0040EB1A /* 30_vector_icons_df_0004_Shape-29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6C9189495EC0040EB1A /* 30_vector_icons_df_0004_Shape-29@2x.png */; };
+		29D0C6D41894A2430040EB1A /* HALPurchaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D0C6D21894A2430040EB1A /* HALPurchaseViewController.m */; };
+		29D0C6D51894A2430040EB1A /* HALPurchaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6D31894A2430040EB1A /* HALPurchaseViewController.xib */; };
+		29D0C6E2189505270040EB1A /* HALPurchaseViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D0C6E1189505270040EB1A /* HALPurchaseViewCell.m */; };
+		29D0C6E4189505500040EB1A /* HALPurchaseViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6E3189505500040EB1A /* HALPurchaseViewCell.xib */; };
+		29D0C6EB1895273A0040EB1A /* icon_pro.png in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6E71895273A0040EB1A /* icon_pro.png */; };
+		29D0C6EC1895273A0040EB1A /* icon_pro@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6E81895273A0040EB1A /* icon_pro@2x.png */; };
+		29D0C6F3189538290040EB1A /* icon_donation.png in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6F1189538290040EB1A /* icon_donation.png */; };
+		29D0C6F4189538290040EB1A /* icon_donation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6F2189538290040EB1A /* icon_donation@2x.png */; };
 		29DB75BF188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 29DB75BE188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.m */; };
+		29DB75C2188DF5940009B82B /* HALProductManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 29DB75C1188DF5940009B82B /* HALProductManager.m */; };
+		29DB75C51890132E0009B82B /* HALProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 29DB75C41890132E0009B82B /* HALProduct.m */; };
 		29FA598A1866A69800928318 /* HALFamilyBirdKindList.m in Sources */ = {isa = PBXBuildFile; fileRef = 29FA59891866A69800928318 /* HALFamilyBirdKindList.m */; };
 		8CB74CD249324A338FFEA57C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A83F48CF6BC54B5CA5918A6C /* libPods.a */; };
 		A816F01858504F41A6567D35 /* libPods-HALBirdRecordTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C62F65DBDAAF458D961E9430 /* libPods-HALBirdRecordTests.a */; };
@@ -1690,8 +1727,57 @@
 		29AA88E91888B16E0088F049 /* button_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_normal@2x.png"; sourceTree = "<group>"; };
 		29AA88EA1888B16E0088F049 /* button_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_red.png; sourceTree = "<group>"; };
 		29AA88EB1888B16E0088F049 /* button_red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_red@2x.png"; sourceTree = "<group>"; };
+		29B9A87718955D7A00B0AD14 /* purchase_activity5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purchase_activity5.png; sourceTree = "<group>"; };
+		29B9A87818955D7A00B0AD14 /* purchase_activity5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "purchase_activity5@2x.png"; sourceTree = "<group>"; };
+		29B9A87918955D7A00B0AD14 /* purchase_activity15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purchase_activity15.png; sourceTree = "<group>"; };
+		29B9A87A18955D7A00B0AD14 /* purchase_activity15@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "purchase_activity15@2x.png"; sourceTree = "<group>"; };
+		29B9A87E18955D7A00B0AD14 /* purchase_activity100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purchase_activity100.png; sourceTree = "<group>"; };
+		29B9A87F18955D7A00B0AD14 /* purchase_activity100@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "purchase_activity100@2x.png"; sourceTree = "<group>"; };
+		29B9A88018955D7A00B0AD14 /* purchase_donation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purchase_donation.png; sourceTree = "<group>"; };
+		29B9A88118955D7A00B0AD14 /* purchase_donation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "purchase_donation@2x.png"; sourceTree = "<group>"; };
+		29B9A88218955D7A00B0AD14 /* purchase_pro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purchase_pro.png; sourceTree = "<group>"; };
+		29B9A88318955D7A00B0AD14 /* purchase_pro@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "purchase_pro@2x.png"; sourceTree = "<group>"; };
+		29B9A8911895E1DF00B0AD14 /* HALAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALAccount.h; sourceTree = "<group>"; };
+		29B9A8921895E1DF00B0AD14 /* HALAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALAccount.m; sourceTree = "<group>"; };
+		29B9A8941899D24F00B0AD14 /* HALStudentAuthenticator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALStudentAuthenticator.h; sourceTree = "<group>"; };
+		29B9A8951899D24F00B0AD14 /* HALStudentAuthenticator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALStudentAuthenticator.m; sourceTree = "<group>"; };
+		29B9A897189B268D00B0AD14 /* NSString+HALIsNullOrEmpty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HALIsNullOrEmpty.h"; sourceTree = "<group>"; };
+		29B9A898189B268E00B0AD14 /* NSString+HALIsNullOrEmpty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HALIsNullOrEmpty.m"; sourceTree = "<group>"; };
+		29B9A89A189C728E00B0AD14 /* HALStudentAuthenticationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALStudentAuthenticationViewController.h; sourceTree = "<group>"; };
+		29B9A89B189C728E00B0AD14 /* HALStudentAuthenticationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALStudentAuthenticationViewController.m; sourceTree = "<group>"; };
+		29B9A89C189C728E00B0AD14 /* HALStudentAuthenticationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALStudentAuthenticationViewController.xib; sourceTree = "<group>"; };
+		29B9A89F189DCBC800B0AD14 /* NSDate+HALDateComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+HALDateComponents.h"; sourceTree = "<group>"; };
+		29B9A8A0189DCBC800B0AD14 /* NSDate+HALDateComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+HALDateComponents.m"; sourceTree = "<group>"; };
+		29B9A8A2189DEE2300B0AD14 /* icon_student.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_student.png; sourceTree = "<group>"; };
+		29B9A8A3189DEE2300B0AD14 /* icon_student@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_student@2x.png"; sourceTree = "<group>"; };
+		29B9A8A4189DEE2300B0AD14 /* purchase_activity50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purchase_activity50.png; sourceTree = "<group>"; };
+		29B9A8A5189DEE2300B0AD14 /* purchase_activity50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "purchase_activity50@2x.png"; sourceTree = "<group>"; };
+		29B9A8A6189DEE2300B0AD14 /* purchase_student.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purchase_student.png; sourceTree = "<group>"; };
+		29B9A8A7189DEE2300B0AD14 /* purchase_student@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "purchase_student@2x.png"; sourceTree = "<group>"; };
+		29B9A8AE189E00C200B0AD14 /* NSNotificationCenter+HALDataUpdateNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNotificationCenter+HALDataUpdateNotification.h"; sourceTree = "<group>"; };
+		29B9A8AF189E00C200B0AD14 /* NSNotificationCenter+HALDataUpdateNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNotificationCenter+HALDataUpdateNotification.m"; sourceTree = "<group>"; };
+		29D0C6C31893F1450040EB1A /* HALNewActivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALNewActivityCell.h; sourceTree = "<group>"; };
+		29D0C6C41893F1450040EB1A /* HALNewActivityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALNewActivityCell.m; sourceTree = "<group>"; };
+		29D0C6C61893F15D0040EB1A /* HALNewActivityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALNewActivityCell.xib; sourceTree = "<group>"; };
+		29D0C6C8189495EC0040EB1A /* 30_vector_icons_df_0004_Shape-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "30_vector_icons_df_0004_Shape-29.png"; sourceTree = "<group>"; };
+		29D0C6C9189495EC0040EB1A /* 30_vector_icons_df_0004_Shape-29@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "30_vector_icons_df_0004_Shape-29@2x.png"; sourceTree = "<group>"; };
+		29D0C6D11894A2430040EB1A /* HALPurchaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALPurchaseViewController.h; sourceTree = "<group>"; };
+		29D0C6D21894A2430040EB1A /* HALPurchaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALPurchaseViewController.m; sourceTree = "<group>"; };
+		29D0C6D31894A2430040EB1A /* HALPurchaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALPurchaseViewController.xib; sourceTree = "<group>"; };
+		29D0C6E0189505270040EB1A /* HALPurchaseViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALPurchaseViewCell.h; sourceTree = "<group>"; };
+		29D0C6E1189505270040EB1A /* HALPurchaseViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALPurchaseViewCell.m; sourceTree = "<group>"; };
+		29D0C6E3189505500040EB1A /* HALPurchaseViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALPurchaseViewCell.xib; sourceTree = "<group>"; };
+		29D0C6E71895273A0040EB1A /* icon_pro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_pro.png; sourceTree = "<group>"; };
+		29D0C6E81895273A0040EB1A /* icon_pro@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_pro@2x.png"; sourceTree = "<group>"; };
+		29D0C6F1189538290040EB1A /* icon_donation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_donation.png; sourceTree = "<group>"; };
+		29D0C6F2189538290040EB1A /* icon_donation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_donation@2x.png"; sourceTree = "<group>"; };
 		29DB75BD188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLGeocoder+HALCoordinateGeocoder.h"; sourceTree = "<group>"; };
 		29DB75BE188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLGeocoder+HALCoordinateGeocoder.m"; sourceTree = "<group>"; };
+		29DB75C0188DF5940009B82B /* HALProductManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = HALProductManager.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		29DB75C1188DF5940009B82B /* HALProductManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = HALProductManager.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		29DB75C31890132E0009B82B /* HALProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = HALProduct.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		29DB75C41890132E0009B82B /* HALProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = HALProduct.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		29DB75C8189360190009B82B /* HALSecretSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALSecretSettings.h; sourceTree = "<group>"; };
 		29FA59881866A69800928318 /* HALFamilyBirdKindList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALFamilyBirdKindList.h; sourceTree = "<group>"; };
 		29FA59891866A69800928318 /* HALFamilyBirdKindList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALFamilyBirdKindList.m; sourceTree = "<group>"; };
 		2E26AEA3F8A241B2901F84F9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -1742,12 +1828,34 @@
 		2925A0501875422500FA2EED /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				29D0C6C8189495EC0040EB1A /* 30_vector_icons_df_0004_Shape-29.png */,
+				29D0C6C9189495EC0040EB1A /* 30_vector_icons_df_0004_Shape-29@2x.png */,
 				2925A0511875430F00FA2EED /* bird_count_background.png */,
 				2925A0521875430F00FA2EED /* bird_count_background@2x.png */,
 				29AA88E81888B16D0088F049 /* button_normal.png */,
 				29AA88E91888B16E0088F049 /* button_normal@2x.png */,
 				29AA88EA1888B16E0088F049 /* button_red.png */,
 				29AA88EB1888B16E0088F049 /* button_red@2x.png */,
+				29D0C6F1189538290040EB1A /* icon_donation.png */,
+				29D0C6F2189538290040EB1A /* icon_donation@2x.png */,
+				29D0C6E71895273A0040EB1A /* icon_pro.png */,
+				29D0C6E81895273A0040EB1A /* icon_pro@2x.png */,
+				29B9A8A2189DEE2300B0AD14 /* icon_student.png */,
+				29B9A8A3189DEE2300B0AD14 /* icon_student@2x.png */,
+				29B9A87718955D7A00B0AD14 /* purchase_activity5.png */,
+				29B9A87818955D7A00B0AD14 /* purchase_activity5@2x.png */,
+				29B9A87918955D7A00B0AD14 /* purchase_activity15.png */,
+				29B9A87A18955D7A00B0AD14 /* purchase_activity15@2x.png */,
+				29B9A8A4189DEE2300B0AD14 /* purchase_activity50.png */,
+				29B9A8A5189DEE2300B0AD14 /* purchase_activity50@2x.png */,
+				29B9A87E18955D7A00B0AD14 /* purchase_activity100.png */,
+				29B9A87F18955D7A00B0AD14 /* purchase_activity100@2x.png */,
+				29B9A88018955D7A00B0AD14 /* purchase_donation.png */,
+				29B9A88118955D7A00B0AD14 /* purchase_donation@2x.png */,
+				29B9A8A6189DEE2300B0AD14 /* purchase_student.png */,
+				29B9A8A7189DEE2300B0AD14 /* purchase_student@2x.png */,
+				29B9A88218955D7A00B0AD14 /* purchase_pro.png */,
+				29B9A88318955D7A00B0AD14 /* purchase_pro@2x.png */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -1860,6 +1968,7 @@
 				295E90681853FE3E000BA5FE /* main.m */,
 				295E906A1853FE3E000BA5FE /* HALBirdRecord-Prefix.pch */,
 				2925A07F1878F57500FA2EED /* Pods-acknowledgements.plist */,
+				29DB75C8189360190009B82B /* HALSecretSettings.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1890,6 +1999,7 @@
 				295E909218540836000BA5FE /* BirdSelector */,
 				2925949A1870686C00FA2EED /* Common */,
 				2925A06C1878E3C000FA2EED /* Info */,
+				29D0C6BF1893EF500040EB1A /* Purchase */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1922,10 +2032,16 @@
 				295E909A18540994000BA5FE /* UIViewController+HALViewControllerFromNib.m */,
 				2925A04D187528FB00FA2EED /* UIDevice+HALOSVersion.h */,
 				2925A04E187528FB00FA2EED /* UIDevice+HALOSVersion.m */,
+				29B9A897189B268D00B0AD14 /* NSString+HALIsNullOrEmpty.h */,
+				29B9A898189B268E00B0AD14 /* NSString+HALIsNullOrEmpty.m */,
 				2925A65B187AFC3F00FA2EED /* NSString+HALURLEncode.h */,
 				2925A65C187AFC3F00FA2EED /* NSString+HALURLEncode.m */,
 				29DB75BD188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.h */,
 				29DB75BE188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.m */,
+				29B9A89F189DCBC800B0AD14 /* NSDate+HALDateComponents.h */,
+				29B9A8A0189DCBC800B0AD14 /* NSDate+HALDateComponents.m */,
+				29B9A8AE189E00C200B0AD14 /* NSNotificationCenter+HALDataUpdateNotification.h */,
+				29B9A8AF189E00C200B0AD14 /* NSNotificationCenter+HALDataUpdateNotification.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1958,6 +2074,10 @@
 				292594B11872B86200FA2EED /* HALMapManager.m */,
 				2925A05E18770D1E00FA2EED /* HALThread.h */,
 				2925A05F18770D1E00FA2EED /* HALThread.m */,
+				29DB75C0188DF5940009B82B /* HALProductManager.h */,
+				29DB75C1188DF5940009B82B /* HALProductManager.m */,
+				29B9A8941899D24F00B0AD14 /* HALStudentAuthenticator.h */,
+				29B9A8951899D24F00B0AD14 /* HALStudentAuthenticator.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1975,6 +2095,10 @@
 				29501EEC185C7711004AF7F9 /* HALBirdPointAnnotation.m */,
 				2925A650187A30AC00FA2EED /* HALHelp.h */,
 				2925A651187A30AC00FA2EED /* HALHelp.m */,
+				29DB75C31890132E0009B82B /* HALProduct.h */,
+				29DB75C41890132E0009B82B /* HALProduct.m */,
+				29B9A8911895E1DF00B0AD14 /* HALAccount.h */,
+				29B9A8921895E1DF00B0AD14 /* HALAccount.m */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -1991,8 +2115,27 @@
 				2925A058187564ED00FA2EED /* HALStatisticsViewCell.h */,
 				2925A059187564ED00FA2EED /* HALStatisticsViewCell.m */,
 				2925A05B1875651600FA2EED /* HALStatisticsViewCell.xib */,
+				29D0C6C31893F1450040EB1A /* HALNewActivityCell.h */,
+				29D0C6C41893F1450040EB1A /* HALNewActivityCell.m */,
+				29D0C6C61893F15D0040EB1A /* HALNewActivityCell.xib */,
 			);
 			path = ActivityList;
+			sourceTree = "<group>";
+		};
+		29D0C6BF1893EF500040EB1A /* Purchase */ = {
+			isa = PBXGroup;
+			children = (
+				29D0C6D11894A2430040EB1A /* HALPurchaseViewController.h */,
+				29D0C6D21894A2430040EB1A /* HALPurchaseViewController.m */,
+				29D0C6D31894A2430040EB1A /* HALPurchaseViewController.xib */,
+				29D0C6E0189505270040EB1A /* HALPurchaseViewCell.h */,
+				29D0C6E1189505270040EB1A /* HALPurchaseViewCell.m */,
+				29D0C6E3189505500040EB1A /* HALPurchaseViewCell.xib */,
+				29B9A89A189C728E00B0AD14 /* HALStudentAuthenticationViewController.h */,
+				29B9A89B189C728E00B0AD14 /* HALStudentAuthenticationViewController.m */,
+				29B9A89C189C728E00B0AD14 /* HALStudentAuthenticationViewController.xib */,
+			);
+			path = Purchase;
 			sourceTree = "<group>";
 		};
 		29FA598718668CA900928318 /* BirdKindList */ = {
@@ -2874,6 +3017,7 @@
 				2925A6241879282E00FA2EED /* 791.png in Resources */,
 				2925A5F31879282E00FA2EED /* 740.png in Resources */,
 				2925A53A1879282E00FA2EED /* 514.png in Resources */,
+				29B9A89018955D7A00B0AD14 /* purchase_pro@2x.png in Resources */,
 				2925A40A1879282E00FA2EED /* 180.png in Resources */,
 				2925A4AC1879282E00FA2EED /* 359.png in Resources */,
 				2925A3B21879282E00FA2EED /* 082.png in Resources */,
@@ -2902,6 +3046,7 @@
 				2925A3EF1879282E00FA2EED /* 153.png in Resources */,
 				2925A5221879282E00FA2EED /* 486.png in Resources */,
 				2925A4311879282E00FA2EED /* 227.png in Resources */,
+				29D0C6C71893F15D0040EB1A /* HALNewActivityCell.xib in Resources */,
 				2925A5F81879282E00FA2EED /* 746.png in Resources */,
 				2925A3BC1879282E00FA2EED /* 094.png in Resources */,
 				2925A5B21879282E00FA2EED /* 659.png in Resources */,
@@ -2911,6 +3056,7 @@
 				2925A4C11879282E00FA2EED /* 381.png in Resources */,
 				2925A56A1879282E00FA2EED /* 565.png in Resources */,
 				2925A3A11879282E00FA2EED /* 064.png in Resources */,
+				29B9A89E189C728E00B0AD14 /* HALStudentAuthenticationViewController.xib in Resources */,
 				2925A36F1879282E00FA2EED /* 013.png in Resources */,
 				2925A3EA1879282E00FA2EED /* 146.png in Resources */,
 				2925A3661879282E00FA2EED /* 004.png in Resources */,
@@ -2979,6 +3125,7 @@
 				2925A59B1879282E00FA2EED /* 634.png in Resources */,
 				2925A61A1879282E00FA2EED /* 781.png in Resources */,
 				2925A5121879282E00FA2EED /* 468.png in Resources */,
+				29B9A8AD189DEE2300B0AD14 /* purchase_student@2x.png in Resources */,
 				2925A4221879282E00FA2EED /* 211.png in Resources */,
 				2925A3FE1879282E00FA2EED /* 168.png in Resources */,
 				2925A4A51879282E00FA2EED /* 351.png in Resources */,
@@ -3026,6 +3173,7 @@
 				2925A49C1879282E00FA2EED /* 342.png in Resources */,
 				2925A5271879282E00FA2EED /* 494.png in Resources */,
 				2925A4B41879282E00FA2EED /* 368.png in Resources */,
+				29B9A8AC189DEE2300B0AD14 /* purchase_student.png in Resources */,
 				2925A5551879282E00FA2EED /* 542.png in Resources */,
 				2925A4641879282E00FA2EED /* 279.png in Resources */,
 				2925A4F51879282E00FA2EED /* 438.png in Resources */,
@@ -3053,6 +3201,7 @@
 				2925A39F1879282E00FA2EED /* 062.png in Resources */,
 				2925A62A1879282E00FA2EED /* 797.png in Resources */,
 				29501EF2185C8032004AF7F9 /* HALBirdMapViewController.xib in Resources */,
+				29B9A88D18955D7A00B0AD14 /* purchase_donation.png in Resources */,
 				2925A57A1879282E00FA2EED /* 590.png in Resources */,
 				2925A4D21879282E00FA2EED /* 399.png in Resources */,
 				2925A4181879282E00FA2EED /* 195.png in Resources */,
@@ -3064,6 +3213,7 @@
 				2925A41A1879282E00FA2EED /* 197.png in Resources */,
 				2925A5991879282E00FA2EED /* 631.png in Resources */,
 				2925A3E11879282E00FA2EED /* 136.png in Resources */,
+				29D0C6E4189505500040EB1A /* HALPurchaseViewCell.xib in Resources */,
 				2925A3921879282E00FA2EED /* 049.png in Resources */,
 				2925A3811879282E00FA2EED /* 032.png in Resources */,
 				2925A5141879282E00FA2EED /* 470.png in Resources */,
@@ -3128,6 +3278,7 @@
 				2925A4721879282E00FA2EED /* 295.png in Resources */,
 				2925A61E1879282E00FA2EED /* 785.png in Resources */,
 				2925A59D1879282E00FA2EED /* 636.png in Resources */,
+				29B9A88418955D7A00B0AD14 /* purchase_activity5.png in Resources */,
 				295E909E18540C44000BA5FE /* BirdKind.plist in Resources */,
 				2925A4A61879282E00FA2EED /* 352.png in Resources */,
 				2925A3B81879282E00FA2EED /* 089.png in Resources */,
@@ -3142,6 +3293,7 @@
 				2925A4671879282E00FA2EED /* 282.png in Resources */,
 				2925A4C31879282E00FA2EED /* 383.png in Resources */,
 				2925A5681879282E00FA2EED /* 563.png in Resources */,
+				29B9A8A8189DEE2300B0AD14 /* icon_student.png in Resources */,
 				2925A61D1879282E00FA2EED /* 784.png in Resources */,
 				2925A4151879282E00FA2EED /* 191.png in Resources */,
 				2925A5CB1879282E00FA2EED /* 689.png in Resources */,
@@ -3161,6 +3313,7 @@
 				2925A5981879282E00FA2EED /* 630.png in Resources */,
 				2925A4DC1879282E00FA2EED /* 411.png in Resources */,
 				2925A4121879282E00FA2EED /* 188.png in Resources */,
+				29D0C6CA189495EC0040EB1A /* 30_vector_icons_df_0004_Shape-29.png in Resources */,
 				2925A4F71879282E00FA2EED /* 440.png in Resources */,
 				2925A3F71879282E00FA2EED /* 161.png in Resources */,
 				2925A5DB1879282E00FA2EED /* 712.png in Resources */,
@@ -3210,6 +3363,7 @@
 				2925A41B1879282E00FA2EED /* 198.png in Resources */,
 				2925A3CC1879282E00FA2EED /* 112.png in Resources */,
 				2925A60D1879282E00FA2EED /* 767.png in Resources */,
+				29B9A88E18955D7A00B0AD14 /* purchase_donation@2x.png in Resources */,
 				2925A4B01879282E00FA2EED /* 363.png in Resources */,
 				2925A4431879282E00FA2EED /* 246.png in Resources */,
 				2925A42D1879282E00FA2EED /* 223.png in Resources */,
@@ -3218,6 +3372,7 @@
 				2925A6111879282E00FA2EED /* 771.png in Resources */,
 				2925A5731879282E00FA2EED /* 575.png in Resources */,
 				2925A4251879282E00FA2EED /* 215.png in Resources */,
+				29D0C6F3189538290040EB1A /* icon_donation.png in Resources */,
 				2925A6041879282E00FA2EED /* 758.png in Resources */,
 				2925A49F1879282E00FA2EED /* 345.png in Resources */,
 				2925A4131879282E00FA2EED /* 189.png in Resources */,
@@ -3233,6 +3388,7 @@
 				2925A4A11879282E00FA2EED /* 347.png in Resources */,
 				2925A5DE1879282E00FA2EED /* 716.png in Resources */,
 				2925A44F1879282E00FA2EED /* 258.png in Resources */,
+				29B9A8AA189DEE2300B0AD14 /* purchase_activity50.png in Resources */,
 				2925A63D1879282E00FA2EED /* 818.png in Resources */,
 				2925A4111879282E00FA2EED /* 187.png in Resources */,
 				2925A44E1879282E00FA2EED /* 257.png in Resources */,
@@ -3294,6 +3450,7 @@
 				2925A64F187A2F8D00FA2EED /* HALHelpViewController.xib in Resources */,
 				2925A4611879282E00FA2EED /* 276.png in Resources */,
 				2925A5261879282E00FA2EED /* 493.png in Resources */,
+				29D0C6EC1895273A0040EB1A /* icon_pro@2x.png in Resources */,
 				2925A44B1879282E00FA2EED /* 254.png in Resources */,
 				2925A4691879282E00FA2EED /* 285.png in Resources */,
 				2925A3901879282E00FA2EED /* 047.png in Resources */,
@@ -3395,6 +3552,7 @@
 				2925A6071879282E00FA2EED /* 761.png in Resources */,
 				2925A3851879282E00FA2EED /* 036.png in Resources */,
 				2925A45C1879282E00FA2EED /* 271.png in Resources */,
+				29B9A8A9189DEE2300B0AD14 /* icon_student@2x.png in Resources */,
 				2925A3991879282E00FA2EED /* 056.png in Resources */,
 				2925A4A41879282E00FA2EED /* 350.png in Resources */,
 				29AA88EF1888B16E0088F049 /* button_red@2x.png in Resources */,
@@ -3403,8 +3561,11 @@
 				2925A5B51879282E00FA2EED /* 662.png in Resources */,
 				2925A39A1879282E00FA2EED /* 057.png in Resources */,
 				2925A4401879282E00FA2EED /* 243.png in Resources */,
+				29B9A88F18955D7A00B0AD14 /* purchase_pro.png in Resources */,
 				2925A4521879282E00FA2EED /* 261.png in Resources */,
 				2925A4C71879282E00FA2EED /* 387.png in Resources */,
+				29B9A88B18955D7A00B0AD14 /* purchase_activity100.png in Resources */,
+				29B9A8AB189DEE2300B0AD14 /* purchase_activity50@2x.png in Resources */,
 				2925A4AA1879282E00FA2EED /* 357.png in Resources */,
 				2925A40F1879282E00FA2EED /* 185.png in Resources */,
 				2925A4E71879282E00FA2EED /* 422.png in Resources */,
@@ -3438,8 +3599,10 @@
 				2925A50D1879282E00FA2EED /* 463.png in Resources */,
 				2925A4EB1879282E00FA2EED /* 426.png in Resources */,
 				2925A59A1879282E00FA2EED /* 632.png in Resources */,
+				29B9A88618955D7A00B0AD14 /* purchase_activity15.png in Resources */,
 				2925A43A1879282E00FA2EED /* 237.png in Resources */,
 				2925A4E21879282E00FA2EED /* 417.png in Resources */,
+				29D0C6D51894A2430040EB1A /* HALPurchaseViewController.xib in Resources */,
 				2925A6371879282E00FA2EED /* 810.png in Resources */,
 				2925A44C1879282E00FA2EED /* 255.png in Resources */,
 				2925A5EA1879282E00FA2EED /* 730.png in Resources */,
@@ -3474,6 +3637,7 @@
 				2925A5941879282E00FA2EED /* 625.png in Resources */,
 				2925A3AF1879282E00FA2EED /* 079.png in Resources */,
 				2925A6151879282E00FA2EED /* 775.png in Resources */,
+				29D0C6CB189495EC0040EB1A /* 30_vector_icons_df_0004_Shape-29@2x.png in Resources */,
 				2925A4D91879282E00FA2EED /* 407.png in Resources */,
 				2925A5A61879282E00FA2EED /* 646.png in Resources */,
 				2925A4561879282E00FA2EED /* 265.png in Resources */,
@@ -3535,13 +3699,16 @@
 				2925A3FA1879282E00FA2EED /* 164.png in Resources */,
 				2925A4911879282E00FA2EED /* 329.png in Resources */,
 				2925A4441879282E00FA2EED /* 247.png in Resources */,
+				29B9A88718955D7A00B0AD14 /* purchase_activity15@2x.png in Resources */,
 				2925A49E1879282E00FA2EED /* 344.png in Resources */,
 				2925A3BA1879282E00FA2EED /* 092.png in Resources */,
+				29B9A88C18955D7A00B0AD14 /* purchase_activity100@2x.png in Resources */,
 				29501EE0185A8AB5004AF7F9 /* HALActivityViewController.xib in Resources */,
 				2925A3AE1879282E00FA2EED /* 078.png in Resources */,
 				2925A4FF1879282E00FA2EED /* 449.png in Resources */,
 				2925A3E31879282E00FA2EED /* 138.png in Resources */,
 				2925A58D1879282E00FA2EED /* 618.png in Resources */,
+				29D0C6EB1895273A0040EB1A /* icon_pro.png in Resources */,
 				2925A4B81879282E00FA2EED /* 372.png in Resources */,
 				2925A4481879282E00FA2EED /* 251.png in Resources */,
 				2925A4C81879282E00FA2EED /* 388.png in Resources */,
@@ -3550,6 +3717,7 @@
 				2925A4EC1879282E00FA2EED /* 427.png in Resources */,
 				2925A4F21879282E00FA2EED /* 434.png in Resources */,
 				2925A3881879282E00FA2EED /* 039.png in Resources */,
+				29B9A88518955D7A00B0AD14 /* purchase_activity5@2x.png in Resources */,
 				2925A37D1879282E00FA2EED /* 028.png in Resources */,
 				2925A4351879282E00FA2EED /* 231.png in Resources */,
 				2925A5711879282E00FA2EED /* 573.png in Resources */,
@@ -3577,6 +3745,7 @@
 				2925A4771879282E00FA2EED /* 300.png in Resources */,
 				2925A3651879282E00FA2EED /* 003.png in Resources */,
 				2925A5541879282E00FA2EED /* 541.png in Resources */,
+				29D0C6F4189538290040EB1A /* icon_donation@2x.png in Resources */,
 				2925A5B81879282E00FA2EED /* 665.png in Resources */,
 				2925A5FD1879282E00FA2EED /* 751.png in Resources */,
 				2925A3C01879282E00FA2EED /* 098.png in Resources */,
@@ -3687,6 +3856,7 @@
 				29501EEA185BF76F004AF7F9 /* HALLocationManager.m in Sources */,
 				295E906D1853FE3E000BA5FE /* HALAppDelegate.m in Sources */,
 				29501EED185C7711004AF7F9 /* HALBirdPointAnnotation.m in Sources */,
+				29B9A8931895E1DF00B0AD14 /* HALAccount.m in Sources */,
 				2925A06018770D1E00FA2EED /* HALThread.m in Sources */,
 				29501EDF185A8AB5004AF7F9 /* HALActivityViewController.m in Sources */,
 				295E90DB1857ECC6000BA5FE /* UIViewController+HALSetCancelButton.m in Sources */,
@@ -3702,25 +3872,35 @@
 				295E90E018587EEC000BA5FE /* HALActivityListViewController.m in Sources */,
 				2925949E1870689900FA2EED /* HALWebViewController.m in Sources */,
 				295E90D818576E84000BA5FE /* NSDate+HALDateString.m in Sources */,
+				29B9A899189B268E00B0AD14 /* NSString+HALIsNullOrEmpty.m in Sources */,
 				29DB75BF188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.m in Sources */,
 				292594C01873E58000FA2EED /* HALBirdKindLoader.m in Sources */,
 				295E90D018560789000BA5FE /* HALActivity.m in Sources */,
+				29B9A89D189C728E00B0AD14 /* HALStudentAuthenticationViewController.m in Sources */,
+				29B9A8B0189E00C200B0AD14 /* NSNotificationCenter+HALDataUpdateNotification.m in Sources */,
 				2925A0731878E45400FA2EED /* HALLicenseViewController.m in Sources */,
 				292594AA18728B0800FA2EED /* HALActivityListViewCell.m in Sources */,
 				295E90C118546328000BA5FE /* HALBirdRecord.m in Sources */,
 				2925A07D1878EB4900FA2EED /* HALApplicationInfoViewController.m in Sources */,
+				29D0C6C51893F1450040EB1A /* HALNewActivityCell.m in Sources */,
 				29FA598A1866A69800928318 /* HALFamilyBirdKindList.m in Sources */,
 				29AA88E6188822390088F049 /* HALEditBirdRecordViewController.m in Sources */,
 				29501EF1185C8032004AF7F9 /* HALBirdMapViewController.m in Sources */,
+				29B9A8961899D24F00B0AD14 /* HALStudentAuthenticator.m in Sources */,
 				292594A41871B63300FA2EED /* HALSearchedBirdKindList.m in Sources */,
 				295E90CA18554739000BA5FE /* HALDB.m in Sources */,
 				2925A64E187A2F8D00FA2EED /* HALHelpViewController.m in Sources */,
+				29D0C6E2189505270040EB1A /* HALPurchaseViewCell.m in Sources */,
 				2925A652187A30AC00FA2EED /* HALHelp.m in Sources */,
+				29DB75C2188DF5940009B82B /* HALProductManager.m in Sources */,
 				292594B21872B86200FA2EED /* HALMapManager.m in Sources */,
+				29D0C6D41894A2430040EB1A /* HALPurchaseViewController.m in Sources */,
 				295E90B41854111D000BA5FE /* HALBirdKindListBase.m in Sources */,
 				29501ED01858C8B6004AF7F9 /* HALActivityManager.m in Sources */,
 				2925A06B1878229500FA2EED /* HALGAManager.m in Sources */,
+				29B9A8A1189DCBC800B0AD14 /* NSDate+HALDateComponents.m in Sources */,
 				295E90AF185410C5000BA5FE /* HALFlatBirdKindListTableViewController.m in Sources */,
+				29DB75C51890132E0009B82B /* HALProduct.m in Sources */,
 				295E90CD1855488C000BA5FE /* NSURL+HALLocalFileURL.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

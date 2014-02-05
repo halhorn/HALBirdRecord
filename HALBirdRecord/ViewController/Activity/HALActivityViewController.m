@@ -16,6 +16,7 @@
 #import "HALWebViewController.h"
 #import "HALEditBirdRecordViewController.h"
 #import "UIViewController+HALCloseTextFieldKeyboard.h"
+#import "NSNotificationCenter+HALDataUpdateNotification.h"
 #import <MapKit/MapKit.h>
 #import <SZTextView/SZTextView.h>
 
@@ -76,14 +77,8 @@
     [self.birdRecordTableView registerNib:[HALBirdRecordTableViewCell nib]
                    forCellReuseIdentifier:[HALBirdRecordTableViewCell cellIdentifier]];
 
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(reloadViews)
-                                                 name:[HALActivityManager updateActivityNotificationName]
-                                               object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(reloadViews)
-                                                 name:[HALBirdRecord updateBirdRecordNotificationName]
-                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addDataUpdateObserver:self selector:@selector(reloadViews)];
+
     // 新規アクティビティの場合
     if (self.shouldShowRegister) {
         WeakSelf weakSelf = self;

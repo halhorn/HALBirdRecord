@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HALActivityListViewController">
@@ -64,7 +64,7 @@
                                         <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                     </attributes>
                                 </fragment>
-                                <fragment content="をタップすると、野鳥リストが表示されます。見つけた鳥の名前を入力して、アクティビティに追加していってください。 ・時間と場所は自動で記録されます。 ・詳しくは左上のinfoボタンからヘルプを見てください。">
+                                <fragment content="をタップすると、野鳥リストが表示されます。見つけた鳥の名前を入力して、アクティビティに追加していってください。 ・時間と場所は自動で記録されます。">
                                     <attributes>
                                         <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <font key="NSFont" size="14" name="HiraKakuProN-W3"/>
