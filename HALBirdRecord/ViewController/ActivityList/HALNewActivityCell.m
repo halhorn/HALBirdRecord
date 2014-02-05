@@ -80,7 +80,7 @@
         self.purchaseView.hidden = NO;
         self.activityCountLabel.text = [NSString stringWithFormat:@"(%d/%d)", activityManager.activityCount, activityManager.activityCapacity];
         if (activityManager.activityCapacity - activityManager.activityCount <= 1) {
-            self.activityCountLabel.textColor = [UIColor redColor];
+            self.activityCountLabel.textColor = kHALCautionTextColor;
         } else {
             self.activityCountLabel.textColor = kHALTextColor;
         }

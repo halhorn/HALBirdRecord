@@ -198,8 +198,14 @@
 }
 
 - (IBAction)onTapCancelRequest:(id)sender {
-    [self.authenticator cancelStudentAuthenticationRequest];
-    [self.requestingView removeFromSuperview];
+    WeakSelf weakSelf = self;
+    [UIAlertView showAlertViewWithTitle:@"申請取消" message:@"学生認証の申請を取り消しますか？" cancelButtonTitle:@"Cancel" otherButtonTitles:@[@"OK"] handler:^(UIAlertView *alertView, NSInteger buttonIndex){
+        if (buttonIndex == alertView.cancelButtonIndex) {
+            return;
+        }
+        [weakSelf.authenticator cancelStudentAuthenticationRequest];
+        [weakSelf.requestingView removeFromSuperview];
+    }];
 }
 
 #pragma mark - UIImagePickerControllerDelegate

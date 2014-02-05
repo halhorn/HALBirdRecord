@@ -12,11 +12,17 @@
 #import "HALPurchaseViewCell.h"
 #import "HALStudentAuthenticationViewController.h"
 #import "UIViewController+HALViewControllerFromNib.h"
+#import "HALAccount.h"
 
 @interface HALPurchaseViewController ()
 
 @property (weak, nonatomic) IBOutlet UIView *headerView;
+@property (weak, nonatomic) IBOutlet UILabel *activityCountDescriptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *activityCountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityCapacityDescriptionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *activityCapacityLabel;
+@property (weak, nonatomic) IBOutlet UIView *lineView1;
+@property (weak, nonatomic) IBOutlet UIView *lineView2;
 
 @end
 
@@ -49,13 +55,22 @@
 
 - (void)setupHeaderView
 {
-    self.headerView.backgroundColor = kHALPurchaseHeaderBackgroundColor;
     HALActivityManager *activityManager = [HALActivityManager sharedManager];
-    int capacity = [activityManager activityCapacity];
-    if (capacity == 0) {
-        self.activityCountLabel.text = [NSString stringWithFormat:@"(%d/∞)", activityManager.activityCount];
+    HALAccount *myAccount = [HALAccount myAccount];
+    BOOL capacityAlert = activityManager.activityCapacity - activityManager.activityCount <= 1;
+    self.headerView.backgroundColor = kHALPurchaseHeaderBackgroundColor;
+    self.activityCountDescriptionLabel.textColor = kHALSubTextColor;
+    self.activityCountLabel.textColor = capacityAlert ? kHALCautionTextColor : kHALTextColor;
+    self.activityCapacityDescriptionLabel.textColor = kHALSubTextColor;
+    self.activityCapacityLabel.textColor = capacityAlert ? kHALCautionTextColor : kHALTextColor;
+    self.lineView1.backgroundColor = kHALLineColor;
+    self.lineView2.backgroundColor = kHALLineColor;
+    
+    self.activityCountLabel.text = [NSString stringWithFormat:@"%d", activityManager.activityCount];
+    if ([myAccount isUnlimitedAccount]) {
+        self.activityCapacityLabel.text = [NSString stringWithFormat:@"∞"];
     } else {
-        self.activityCountLabel.text = [NSString stringWithFormat:@"(%d/%d)", activityManager.activityCount, activityManager.activityCapacity];
+        self.activityCapacityLabel.text = [NSString stringWithFormat:@"%d", activityManager.activityCapacity];
     }
     self.tableView.tableHeaderView = self.headerView;
 }
