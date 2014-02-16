@@ -822,6 +822,7 @@
 		29AA88EF1888B16E0088F049 /* button_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29AA88EB1888B16E0088F049 /* button_red@2x.png */; };
 		29B64FB418AF82AF006D4E12 /* HALStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B64FB218AF82AF006D4E12 /* HALStatisticsViewController.m */; };
 		29B64FB518AF82AF006D4E12 /* HALStatisticsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29B64FB318AF82AF006D4E12 /* HALStatisticsViewController.xib */; };
+		29B64FBE18B05C28006D4E12 /* HALStatistics.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B64FBD18B05C28006D4E12 /* HALStatistics.m */; };
 		29B9A88418955D7A00B0AD14 /* purchase_activity5.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B9A87718955D7A00B0AD14 /* purchase_activity5.png */; };
 		29B9A88518955D7A00B0AD14 /* purchase_activity5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B9A87818955D7A00B0AD14 /* purchase_activity5@2x.png */; };
 		29B9A88618955D7A00B0AD14 /* purchase_activity15.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B9A87918955D7A00B0AD14 /* purchase_activity15.png */; };
@@ -1732,6 +1733,8 @@
 		29B64FB118AF82AF006D4E12 /* HALStatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALStatisticsViewController.h; sourceTree = "<group>"; };
 		29B64FB218AF82AF006D4E12 /* HALStatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALStatisticsViewController.m; sourceTree = "<group>"; };
 		29B64FB318AF82AF006D4E12 /* HALStatisticsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALStatisticsViewController.xib; sourceTree = "<group>"; };
+		29B64FBC18B05C28006D4E12 /* HALStatistics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALStatistics.h; sourceTree = "<group>"; };
+		29B64FBD18B05C28006D4E12 /* HALStatistics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALStatistics.m; sourceTree = "<group>"; };
 		29B9A87718955D7A00B0AD14 /* purchase_activity5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purchase_activity5.png; sourceTree = "<group>"; };
 		29B9A87818955D7A00B0AD14 /* purchase_activity5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "purchase_activity5@2x.png"; sourceTree = "<group>"; };
 		29B9A87918955D7A00B0AD14 /* purchase_activity15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purchase_activity15.png; sourceTree = "<group>"; };
@@ -2026,28 +2029,28 @@
 		295E909818540910000BA5FE /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				29DB75BD188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.h */,
+				29DB75BE188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.m */,
+				29B9A89F189DCBC800B0AD14 /* NSDate+HALDateComponents.h */,
+				29B9A8A0189DCBC800B0AD14 /* NSDate+HALDateComponents.m */,
 				295E90D618576E84000BA5FE /* NSDate+HALDateString.h */,
 				295E90D718576E84000BA5FE /* NSDate+HALDateString.m */,
+				29B9A8AE189E00C200B0AD14 /* NSNotificationCenter+HALDataUpdateNotification.h */,
+				29B9A8AF189E00C200B0AD14 /* NSNotificationCenter+HALDataUpdateNotification.m */,
+				29B9A897189B268D00B0AD14 /* NSString+HALIsNullOrEmpty.h */,
+				29B9A898189B268E00B0AD14 /* NSString+HALIsNullOrEmpty.m */,
+				2925A65B187AFC3F00FA2EED /* NSString+HALURLEncode.h */,
+				2925A65C187AFC3F00FA2EED /* NSString+HALURLEncode.m */,
 				295E90CB1855488C000BA5FE /* NSURL+HALLocalFileURL.h */,
 				295E90CC1855488C000BA5FE /* NSURL+HALLocalFileURL.m */,
+				2925A04D187528FB00FA2EED /* UIDevice+HALOSVersion.h */,
+				2925A04E187528FB00FA2EED /* UIDevice+HALOSVersion.m */,
 				292594A51871C29F00FA2EED /* UIViewController+HALCloseTextFieldKeyboard.h */,
 				292594A61871C29F00FA2EED /* UIViewController+HALCloseTextFieldKeyboard.m */,
 				295E90D91857ECC5000BA5FE /* UIViewController+HALSetCancelButton.h */,
 				295E90DA1857ECC5000BA5FE /* UIViewController+HALSetCancelButton.m */,
 				295E909918540994000BA5FE /* UIViewController+HALViewControllerFromNib.h */,
 				295E909A18540994000BA5FE /* UIViewController+HALViewControllerFromNib.m */,
-				2925A04D187528FB00FA2EED /* UIDevice+HALOSVersion.h */,
-				2925A04E187528FB00FA2EED /* UIDevice+HALOSVersion.m */,
-				29B9A897189B268D00B0AD14 /* NSString+HALIsNullOrEmpty.h */,
-				29B9A898189B268E00B0AD14 /* NSString+HALIsNullOrEmpty.m */,
-				2925A65B187AFC3F00FA2EED /* NSString+HALURLEncode.h */,
-				2925A65C187AFC3F00FA2EED /* NSString+HALURLEncode.m */,
-				29DB75BD188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.h */,
-				29DB75BE188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.m */,
-				29B9A89F189DCBC800B0AD14 /* NSDate+HALDateComponents.h */,
-				29B9A8A0189DCBC800B0AD14 /* NSDate+HALDateComponents.m */,
-				29B9A8AE189E00C200B0AD14 /* NSNotificationCenter+HALDataUpdateNotification.h */,
-				29B9A8AF189E00C200B0AD14 /* NSNotificationCenter+HALDataUpdateNotification.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -2080,6 +2083,8 @@
 				292594B11872B86200FA2EED /* HALMapManager.m */,
 				29DB75C0188DF5940009B82B /* HALProductManager.h */,
 				29DB75C1188DF5940009B82B /* HALProductManager.m */,
+				29B64FBC18B05C28006D4E12 /* HALStatistics.h */,
+				29B64FBD18B05C28006D4E12 /* HALStatistics.m */,
 				29B9A8941899D24F00B0AD14 /* HALStudentAuthenticator.h */,
 				29B9A8951899D24F00B0AD14 /* HALStudentAuthenticator.m */,
 				2925A05E18770D1E00FA2EED /* HALThread.h */,
@@ -3902,6 +3907,7 @@
 				29D0C6C51893F1450040EB1A /* HALNewActivityCell.m in Sources */,
 				29FA598A1866A69800928318 /* HALFamilyBirdKindList.m in Sources */,
 				29AA88E6188822390088F049 /* HALEditBirdRecordViewController.m in Sources */,
+				29B64FBE18B05C28006D4E12 /* HALStatistics.m in Sources */,
 				29501EF1185C8032004AF7F9 /* HALBirdMapViewController.m in Sources */,
 				29B64FB418AF82AF006D4E12 /* HALStatisticsViewController.m in Sources */,
 				29B9A8961899D24F00B0AD14 /* HALStudentAuthenticator.m in Sources */,
