@@ -2078,12 +2078,12 @@
 				29501EE9185BF76F004AF7F9 /* HALLocationManager.m */,
 				292594B01872B86200FA2EED /* HALMapManager.h */,
 				292594B11872B86200FA2EED /* HALMapManager.m */,
-				2925A05E18770D1E00FA2EED /* HALThread.h */,
-				2925A05F18770D1E00FA2EED /* HALThread.m */,
 				29DB75C0188DF5940009B82B /* HALProductManager.h */,
 				29DB75C1188DF5940009B82B /* HALProductManager.m */,
 				29B9A8941899D24F00B0AD14 /* HALStudentAuthenticator.h */,
 				29B9A8951899D24F00B0AD14 /* HALStudentAuthenticator.m */,
+				2925A05E18770D1E00FA2EED /* HALThread.h */,
+				2925A05F18770D1E00FA2EED /* HALThread.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";

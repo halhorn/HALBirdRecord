@@ -301,6 +301,7 @@
     [self.fmDB close];
 }
 
+#pragma mark - DB Updater
 /////////////////////////////////////////////////////////////////
 // DB Updater
 - (void)updateDB
@@ -351,6 +352,28 @@
     }
     NSLog(@"DBのアップデートに失敗(ver.%d)", ver);
     return 0;
+}
+
+#pragma mark - Statistics Methdos
+/////////////////////////////////////////////////////////////////
+// Statistics Methods
+
+- (NSArray *)selectTotalBirdKind
+{
+    NSString *sqlFormat = [NSString stringWithFormat:@"select distinct birdID from %@", kHALBirdRecordTable];
+    return [self selectWithSQL:sqlFormat args:nil];
+}
+
+- (NSArray *)selectTotalPrefecture
+{
+    NSString *sqlFormat = [NSString stringWithFormat:@"select distinct prefecture from %@ where prefecture not like ''", kHALBirdRecordTable];
+    return [self selectWithSQL:sqlFormat args:nil];
+}
+
+- (NSArray *)selectTotalCity
+{
+    NSString *sqlFormat = [NSString stringWithFormat:@"select count(distinct city) as count from %@ where city not like ''", kHALBirdRecordTable];
+    return [self selectWithSQL:sqlFormat args:nil];
 }
 
 
