@@ -65,6 +65,9 @@
     HALMapManager *mapManager = [HALMapManager managerWithActivity:self.activity];
     self.mapView.region = [mapManager region];
     [self.mapView addAnnotation:[[HALBirdPointAnnotation alloc] initWithBirdRecord:self.birdRecord]];
+    UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self
+                                                                                                   action:@selector(onLongPressMap:)];
+    [self.mapView addGestureRecognizer:longPressGesture];
     [self setGestureForClosingKeyBoardToView:self.view];
     [self setKeyBoardNotification];
 }
@@ -90,6 +93,20 @@
     self.birdRecord.datetime = self.datetimePicker.date;
     [self.birdRecord updateDB];
     [HALGAManager sendAction:@"Update BirdRecord Datetime" label:@"" value:0];
+}
+
+- (void)onLongPressMap:(UILongPressGestureRecognizer *)gesture
+{
+    if (gesture.state == UIGestureRecognizerStateBegan) {  // 長押し検出開始時のみ動作
+        CGPoint touchedPoint = [gesture locationInView:self.mapView];
+        self.birdRecord.coordinate = [self.mapView convertPoint:touchedPoint toCoordinateFromView:self.mapView];
+        [self.birdRecord updateDB];
+        [self.birdRecord updatePlacemarkAndDBAsync];
+        [HALGAManager sendAction:@"Update BirdRecord Location" label:@"LongPress" value:0];
+
+        [self.mapView removeAnnotations:self.mapView.annotations];
+        [self.mapView addAnnotation:[[HALBirdPointAnnotation alloc] initWithBirdRecord:self.birdRecord]];
+    }
 }
 
 - (void)setKeyBoardNotification
@@ -133,6 +150,7 @@
         pinAnnotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:PinIdentifier];
     }
     pinAnnotationView.draggable = YES;
+    pinAnnotationView.animatesDrop = YES;
     return pinAnnotationView;
 }
 
@@ -146,7 +164,7 @@ didChangeDragState:(MKAnnotationViewDragState)newState
         self.birdRecord.coordinate = annotation.coordinate;
         [self.birdRecord updateDB];
         [self.birdRecord updatePlacemarkAndDBAsync];
-        [HALGAManager sendAction:@"Update BirdRecord Location" label:@"" value:0];
+        [HALGAManager sendAction:@"Update BirdRecord Location" label:@"Drag" value:0];
     }
 }
 
