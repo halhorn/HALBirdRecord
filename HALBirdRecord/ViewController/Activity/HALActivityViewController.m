@@ -82,7 +82,7 @@
     // 新規アクティビティの場合
     if (self.shouldShowRegister) {
         WeakSelf weakSelf = self;
-        [self performBlock:^(id sender){
+        [self bk_performBlock:^(id sender){
             [HALGAManager sendAction:@"Open Bird Selector" label:@"New Activity" value:0];
             [weakSelf showBirdSelectorView];
         } afterDelay:0.1];

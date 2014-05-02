@@ -80,7 +80,7 @@
     // アクティビティ数チェック
     if (![[HALAccount myAccount] isUnlimitedAccount] && self.activityManager.activityCount >= [self.activityManager activityCapacity]) {
         WeakSelf weakSelf = self;
-        [UIAlertView showAlertViewWithTitle:@"アクティビティが満杯です" message:@"ショップで保存できるアクティビティの数を増やして下さい。" cancelButtonTitle:@"キャンセル" otherButtonTitles:@[@"ショップ"] handler:^(UIAlertView *alertView, NSInteger buttonIndex){
+        [UIAlertView bk_showAlertViewWithTitle:@"アクティビティが満杯です" message:@"ショップで保存できるアクティビティの数を増やして下さい。" cancelButtonTitle:@"キャンセル" otherButtonTitles:@[@"ショップ"] handler:^(UIAlertView *alertView, NSInteger buttonIndex){
             if (buttonIndex != alertView.cancelButtonIndex) {
                 [weakSelf goToShop];
             }

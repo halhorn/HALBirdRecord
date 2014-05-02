@@ -71,9 +71,9 @@
     if ([authenticator isStudentAuthenticationRequesting]) {
         [authenticator checkIsStudentWithCompletion:^(HALStudentAuthenticationRequestState state){
             if (state == HALStudentAuthenticationRequestStateAccepted) {
-                [UIAlertView showAlertViewWithTitle:@"学割アカウント" message:@"鳥ログのご使用ありがとうございます。学生認証申請が通りました。" cancelButtonTitle:@"OK" otherButtonTitles:@[] handler:nil];
+                [UIAlertView bk_showAlertViewWithTitle:@"学割アカウント" message:@"鳥ログのご使用ありがとうございます。学生認証申請が通りました。" cancelButtonTitle:@"OK" otherButtonTitles:@[] handler:nil];
             } else if (state == HALStudentAuthenticationRequestStateDenied) {
-                [UIAlertView showAlertViewWithTitle:@"学割アカウント" message:@"鳥ログのご使用ありがとうございます。残念ながら学生認証申請は通りませんでした。学割アカウントを使用できるのは学生のみとなっております。" cancelButtonTitle:@"OK" otherButtonTitles:@[] handler:nil];
+                [UIAlertView bk_showAlertViewWithTitle:@"学割アカウント" message:@"鳥ログのご使用ありがとうございます。残念ながら学生認証申請は通りませんでした。学割アカウントを使用できるのは学生のみとなっております。" cancelButtonTitle:@"OK" otherButtonTitles:@[] handler:nil];
             }
         }];
     }

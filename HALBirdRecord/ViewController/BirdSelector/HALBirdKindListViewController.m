@@ -70,12 +70,12 @@
     [self.searchTextField becomeFirstResponder];
 
     WeakSelf weakSelf = self;
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"キャンセル" style:UIBarButtonItemStyleBordered handler:^(id sender){
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] bk_initWithTitle:@"キャンセル" style:UIBarButtonItemStyleBordered handler:^(id sender){
         if (![self.birdListViewController sendBirdList].count) {
             [weakSelf dismissViewControllerAnimated:YES completion:nil];
             return;
         }
-        [UIAlertView showAlertViewWithTitle:nil message:@"追加中のデータは破棄されます。よろしいですか？" cancelButtonTitle:@"いいえ" otherButtonTitles:@[@"はい"] handler:^(UIAlertView *alertView, NSInteger buttonIndex){
+        [UIAlertView bk_showAlertViewWithTitle:nil message:@"追加中のデータは破棄されます。よろしいですか？" cancelButtonTitle:@"いいえ" otherButtonTitles:@[@"はい"] handler:^(UIAlertView *alertView, NSInteger buttonIndex){
             if (buttonIndex == alertView.cancelButtonIndex) {
                 return;
             }

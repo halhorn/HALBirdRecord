@@ -166,7 +166,7 @@
 	}
 	else
 	{
-		[UIAlertView showAlertViewWithTitle:nil message:@"カメラが起動できませんでした" cancelButtonTitle:@"OK" otherButtonTitles:@[] handler:nil];
+		[UIAlertView bk_showAlertViewWithTitle:nil message:@"カメラが起動できませんでした" cancelButtonTitle:@"OK" otherButtonTitles:@[] handler:nil];
 	}
 }
 
@@ -176,11 +176,11 @@
     [self.authenticator requestStudentAuthenticationWithImage:self.photo expire:self.expireDate completion:^(BOOL succeeded){
         if (!succeeded) {
             [SVProgressHUD showErrorWithStatus:@"失敗しました"];
-            [UIAlertView showAlertViewWithTitle:@"認証に失敗しました" message:@"ネットワーク環境の良い場所でもう一度OKボタンを押して下さい。" cancelButtonTitle:@"OK" otherButtonTitles:@[] handler:nil];
+            [UIAlertView bk_showAlertViewWithTitle:@"認証に失敗しました" message:@"ネットワーク環境の良い場所でもう一度OKボタンを押して下さい。" cancelButtonTitle:@"OK" otherButtonTitles:@[] handler:nil];
             return;
         }
         [SVProgressHUD showSuccessWithStatus:@"OK"];
-        [UIAlertView showAlertViewWithTitle:@"学生認証を申請しました" message:@"学生の認証には一週間程度かかります。しばらくお待ち下さい。" cancelButtonTitle:@"OK" otherButtonTitles:@[] handler:^(UIAlertView *alertView, NSInteger buttonIndex){
+        [UIAlertView bk_showAlertViewWithTitle:@"学生認証を申請しました" message:@"学生の認証には一週間程度かかります。しばらくお待ち下さい。" cancelButtonTitle:@"OK" otherButtonTitles:@[] handler:^(UIAlertView *alertView, NSInteger buttonIndex){
             [weakSelf.navigationController popViewControllerAnimated:YES];
         }];
     }];
@@ -199,7 +199,7 @@
 
 - (IBAction)onTapCancelRequest:(id)sender {
     WeakSelf weakSelf = self;
-    [UIAlertView showAlertViewWithTitle:@"申請取消" message:@"学生認証の申請を取り消しますか？" cancelButtonTitle:@"Cancel" otherButtonTitles:@[@"OK"] handler:^(UIAlertView *alertView, NSInteger buttonIndex){
+    [UIAlertView bk_showAlertViewWithTitle:@"申請取消" message:@"学生認証の申請を取り消しますか？" cancelButtonTitle:@"Cancel" otherButtonTitles:@[@"OK"] handler:^(UIAlertView *alertView, NSInteger buttonIndex){
         if (buttonIndex == alertView.cancelButtonIndex) {
             return;
         }

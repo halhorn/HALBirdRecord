@@ -13,7 +13,8 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
-    #import <BlocksKit/BlocksKit.h>
+    #import <BlocksKit.h>
+    #import <BlocksKit+UIKit.h>
     #import <SVProgressHUD/SVProgressHUD.h>
     #import "UIViewController+HALSetCancelButton.h"
     #import "HALGAManager.h"

@@ -216,7 +216,7 @@
     } else {
         WeakSelf weakSelf = self;
         NSString *message = [NSString stringWithFormat:@"%@を追加リストから削除しますか？", birdKind.name];
-        [UIAlertView showAlertViewWithTitle:@"取り消し" message:message cancelButtonTitle:@"いいえ" otherButtonTitles:@[@"はい"] handler:^(UIAlertView *alertView, NSInteger buttonIndex){
+        [UIAlertView bk_showAlertViewWithTitle:@"取り消し" message:message cancelButtonTitle:@"いいえ" otherButtonTitles:@[@"はい"] handler:^(UIAlertView *alertView, NSInteger buttonIndex){
             if (buttonIndex != alertView.cancelButtonIndex) {
                 [weakSelf.birdRecordList removeObject:record];
                 [self.birdKindListViewController onTapBirdRow];

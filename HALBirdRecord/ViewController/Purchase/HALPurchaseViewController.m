@@ -183,7 +183,7 @@
                 [SVProgressHUD showSuccessWithStatus:@"購入しました。"];
                 [[HALActivityManager sharedManager] notifyActivityUpdate];
                 [weakSelf setupHeaderView];
-                [weakSelf performBlock:^(id sender){
+                [weakSelf bk_performBlock:^(id sender){
                     [weakSelf.navigationController popViewControllerAnimated:YES];
                 } afterDelay:1];
             } else {

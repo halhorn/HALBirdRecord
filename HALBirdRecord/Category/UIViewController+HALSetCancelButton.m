@@ -13,7 +13,7 @@
 - (void)setCancelButton
 {
     WeakSelf weakSelf = self;
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"キャンセル" style:UIBarButtonItemStyleBordered handler:^(id sender){
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] bk_initWithTitle:@"キャンセル" style:UIBarButtonItemStyleBordered handler:^(id sender){
         [weakSelf dismissViewControllerAnimated:YES completion:nil];
     }];
 }
