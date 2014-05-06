@@ -35,6 +35,11 @@
     [self setupTableViewHeader];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [HALGAManager sendView:@"Statistics"];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -59,9 +64,11 @@
     switch (index) {
         case 0:
             type = HALStatisticsTypeBirdKind;
+            [HALGAManager sendAction:@"Switch Statistics" label:@"BirdKind" value:0];
             break;
         case 1:
             type = HALStatisticsTypeCity;
+            [HALGAManager sendAction:@"Switch Statistics" label:@"City" value:0];
             break;
             
         default:
