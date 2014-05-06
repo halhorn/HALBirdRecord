@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HALStatisticsViewCell : UITableViewCell
+@interface HALStatisticsDigestViewCell : UITableViewCell
 
 + (NSString *)cellIdentifier;
 + (UINib *)nib;

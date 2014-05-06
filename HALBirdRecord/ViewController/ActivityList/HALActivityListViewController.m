@@ -8,12 +8,13 @@
 
 #import "HALActivityListViewController.h"
 #import "HALActivityViewController.h"
+#import "HALStatisticsViewController.h"
 #import "HALApplicationInfoViewController.h"
 #import "HALPurchaseViewController.h"
 #import "HALActivityManager.h"
 #import "HALActivityListViewCell.h"
 #import "UIViewController+HALViewControllerFromNib.h"
-#import "HALStatisticsViewCell.h"
+#import "HALStatisticsDigestViewCell.h"
 #import "HALNewActivityCell.h"
 #import "HALAccount.h"
 #import "NSNotificationCenter+HALDataUpdateNotification.h"
@@ -26,7 +27,7 @@
 
 @property(nonatomic) HALActivityManager *activityManager;
 @property(nonatomic) BOOL reloadViewFlag;
-@property(nonatomic) HALStatisticsViewCell *statisticsViewCell;
+@property(nonatomic) HALStatisticsDigestViewCell *statisticsViewCell;
 @property(nonatomic) HALNewActivityCell *createActivityViewCell;
 @end
 
@@ -50,8 +51,8 @@
     // Do any additional setup after loading the view from its nib.
     [self.tableView registerNib:[HALActivityListViewCell nib]
          forCellReuseIdentifier:[HALActivityListViewCell cellIdentifier]];
-    [self.tableView registerNib:[HALStatisticsViewCell nib]
-         forCellReuseIdentifier:[HALStatisticsViewCell cellIdentifier]];
+    [self.tableView registerNib:[HALStatisticsDigestViewCell nib]
+         forCellReuseIdentifier:[HALStatisticsDigestViewCell cellIdentifier]];
     [self.tableView registerNib:[HALNewActivityCell nib]
          forCellReuseIdentifier:[HALNewActivityCell cellIdentifier]];
     
@@ -147,7 +148,7 @@
     // Configure the cell...
     if (indexPath.row == 0) {
         // 統計
-        self.statisticsViewCell = [tableView dequeueReusableCellWithIdentifier:[HALStatisticsViewCell cellIdentifier]];
+        self.statisticsViewCell = [tableView dequeueReusableCellWithIdentifier:[HALStatisticsDigestViewCell cellIdentifier]];
         [self.statisticsViewCell load];
         return self.statisticsViewCell;
     }
@@ -228,20 +229,13 @@
 
 #pragma mark - Table view delegate
 
-- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.row == 0) {
-        // row:0 統計情報ページを作るまでは選択不可に
-        return nil;
-    }
-    return indexPath;
-}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row == 0) {
-        
+        // 統計
+        HALStatisticsViewController *viewController = [HALStatisticsViewController viewControllerFromNib];
+        [self.navigationController pushViewController:viewController animated:YES];
         return;
     } else if (indexPath.row == 1) {
         [self showNewActivity];
