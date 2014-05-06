@@ -13,7 +13,6 @@
 + (instancetype)sharedModel;
 
 - (NSArray *)totalBirdKind;
-- (NSArray *)totalPrefecture;
-- (NSArray *)totalCity;
+- (NSArray *)totalPrefectureAndCity;
 
 @end

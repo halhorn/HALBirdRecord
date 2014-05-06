@@ -35,9 +35,6 @@ typedef NS_ENUM(NSUInteger, HALBirdRecordOrder) {
 
 // Statistics Methods ///////////////////////////////////////////////////
 - (NSArray *)selectTotalBirdKind;
-- (NSArray *)selectTotalPrefecture;
-- (NSArray *)selectTotalCity;
-
-
+- (NSArray *)selectTotalPrefectureAndCity;
 
 @end

@@ -364,15 +364,9 @@
     return [self selectWithSQL:sqlFormat args:nil];
 }
 
-- (NSArray *)selectTotalPrefecture
+- (NSArray *)selectTotalPrefectureAndCity
 {
-    NSString *sqlFormat = [NSString stringWithFormat:@"select distinct prefecture from %@ where prefecture not like ''", kHALBirdRecordTable];
-    return [self selectWithSQL:sqlFormat args:nil];
-}
-
-- (NSArray *)selectTotalCity
-{
-    NSString *sqlFormat = [NSString stringWithFormat:@"select count(distinct city) as count from %@ where city not like ''", kHALBirdRecordTable];
+    NSString *sqlFormat = [NSString stringWithFormat:@"select distinct prefecture, city from %@ where prefecture not like ''", kHALBirdRecordTable];
     return [self selectWithSQL:sqlFormat args:nil];
 }
 

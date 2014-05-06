@@ -48,20 +48,9 @@
     }];
 }
 
-- (NSArray *)totalPrefecture
+- (NSArray *)totalPrefectureAndCity
 {
-    NSArray *dictArray = [self.db selectTotalPrefecture];
-    return [self mapWithDictArray:dictArray key:@"prefecture" block:^id(id obj){
-        return obj;
-    }];
-}
-
-- (NSArray *)totalCity
-{
-    NSArray *dictArray = [self.db selectTotalCity];
-    return [self mapWithDictArray:dictArray key:@"city" block:^id(id obj){
-        return obj;
-    }];
+    return [self.db selectTotalPrefectureAndCity];
 }
 
 - (NSArray *)mapWithDictArray:(NSArray *)array key:(NSString *)key block:(id(^)(id))block
