@@ -14,6 +14,7 @@
 #import "MessageUI/MFMailComposeViewController.h"
 #import <BlocksKit+MessageUI.h>
 #import "HALDataExporter.h"
+#import "HALActivityManager.h"
 
 // views
 #import "HALLicenseViewController.h"
@@ -111,6 +112,8 @@
         [controller bk_setCompletionBlock:^(MFMailComposeViewController *controller, MFMailComposeResult result, NSError *error){
             if (result == MFMailComposeResultSent) {
                 [SVProgressHUD showSuccessWithStatus:@"送信しました"];
+                int activityCount = [[HALActivityManager sharedManager] activityCount];
+                [HALGAManager sendAction:@"Send Data CSV (Activity Count)" label:[NSString stringWithFormat:@"%d", activityCount] value:activityCount];
             }
         }];
         [weakSelf.navigationController presentViewController:controller animated:YES completion:^{
