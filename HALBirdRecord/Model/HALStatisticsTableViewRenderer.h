@@ -8,6 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
+
+typedef NS_ENUM(NSUInteger, HALStatisticsType) {
+    HALStatisticsTypeBirdKind,
+    HALStatisticsTypeCity,
+};
+
 @interface HALStatisticsTableViewRenderer : NSObject
+
+@property (nonatomic) HALStatisticsType statisticsType;
+
+- (NSUInteger)sectionCount;
+- (NSUInteger)rowCountInSection:(NSInteger)section;
+- (NSString *)headerForSection:(NSInteger)section;
+- (NSDictionary *)rowDataAtIndexPath:(NSIndexPath *)indexPath;
 
 @end

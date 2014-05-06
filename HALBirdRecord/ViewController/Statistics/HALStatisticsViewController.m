@@ -7,9 +7,12 @@
 //
 
 #import "HALStatisticsViewController.h"
+#import "HALStatisticsTableViewRenderer.h"
 
 @interface HALStatisticsViewController ()
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
+@property (nonatomic) HALStatisticsTableViewRenderer *renderer;
 @end
 
 @implementation HALStatisticsViewController
@@ -27,11 +30,9 @@
 {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.renderer = [[HALStatisticsTableViewRenderer alloc] init];
+    self.title = @"これまでの記録";
+    [self setupTableViewHeader];
 }
 
 - (void)didReceiveMemoryWarning
@@ -40,20 +41,47 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (void)setupTableViewHeader
+{
+    NSArray *types = @[@"発見した鳥種", @"発見場所"];
+    UISegmentedControl *segments = [[UISegmentedControl alloc] initWithItems:types];
+    segments.segmentedControlStyle = UISegmentedControlStyleBar;
+    segments.selectedSegmentIndex = 0;
+    [segments addTarget:self action:@selector(onStatisticsTypeChanged:) forControlEvents:UIControlEventValueChanged];
+    self.tableView.tableHeaderView = segments;
+}
+
+- (void)onStatisticsTypeChanged:(UISegmentedControl *)segmentControl
+{
+    int index = segmentControl.selectedSegmentIndex;
+    HALStatisticsType type;
+    switch (index) {
+        case 0:
+            type = HALStatisticsTypeBirdKind;
+            break;
+        case 1:
+            type = HALStatisticsTypeCity;
+            break;
+            
+        default:
+            NSAssert(NO, @"Invalid Statistics Type");
+            return;
+    }
+    self.renderer.statisticsType = type;
+    [self.tableView reloadData];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return [self.renderer sectionCount];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return [self.renderer rowCountInSection:section];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -64,9 +92,16 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    // Configure the cell...
+    NSDictionary *data = [self.renderer rowDataAtIndexPath:indexPath];
+    cell.textLabel.text = data[@"title"];
+    cell.imageView.image = data[@"image"];
     
     return cell;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [self.renderer headerForSection:section];
 }
 
 /*
@@ -108,22 +143,12 @@
 }
 */
 
-/*
 #pragma mark - Table view delegate
 
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here, for example:
-    // Create the next view controller.
-    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-
-    // Pass the selected object to the new view controller.
-    
-    // Push the view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
- 
- */
 
 @end
