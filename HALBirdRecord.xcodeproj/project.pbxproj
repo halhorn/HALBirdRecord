@@ -776,6 +776,8 @@
 		2925A657187AE26C00FA2EED /* HelpList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2925A656187AE26C00FA2EED /* HelpList.plist */; };
 		2925A65D187AFC3F00FA2EED /* NSString+HALURLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2925A65C187AFC3F00FA2EED /* NSString+HALURLEncode.m */; };
 		2941186E19190B55002E3C4E /* HALStatisticsTableViewRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2941186D19190B55002E3C4E /* HALStatisticsTableViewRenderer.m */; };
+		2941187019192A21002E3C4E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2941186F19192A21002E3C4E /* MessageUI.framework */; };
+		2941187319192BB1002E3C4E /* HALDataExporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2941187219192BB1002E3C4E /* HALDataExporter.m */; };
 		29501ED01858C8B6004AF7F9 /* HALActivityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 29501ECF1858C8B6004AF7F9 /* HALActivityManager.m */; };
 		29501EDF185A8AB5004AF7F9 /* HALActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29501EDD185A8AB5004AF7F9 /* HALActivityViewController.m */; };
 		29501EE0185A8AB5004AF7F9 /* HALActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29501EDE185A8AB5004AF7F9 /* HALActivityViewController.xib */; };
@@ -1665,6 +1667,9 @@
 		2925A65C187AFC3F00FA2EED /* NSString+HALURLEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HALURLEncode.m"; sourceTree = "<group>"; };
 		2941186C19190B55002E3C4E /* HALStatisticsTableViewRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALStatisticsTableViewRenderer.h; sourceTree = "<group>"; };
 		2941186D19190B55002E3C4E /* HALStatisticsTableViewRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALStatisticsTableViewRenderer.m; sourceTree = "<group>"; };
+		2941186F19192A21002E3C4E /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		2941187119192BB1002E3C4E /* HALDataExporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALDataExporter.h; sourceTree = "<group>"; };
+		2941187219192BB1002E3C4E /* HALDataExporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALDataExporter.m; sourceTree = "<group>"; };
 		29501ECE1858C8B6004AF7F9 /* HALActivityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALActivityManager.h; sourceTree = "<group>"; };
 		29501ECF1858C8B6004AF7F9 /* HALActivityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALActivityManager.m; sourceTree = "<group>"; };
 		29501EDC185A8AB5004AF7F9 /* HALActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALActivityViewController.h; sourceTree = "<group>"; };
@@ -1802,6 +1807,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2941187019192A21002E3C4E /* MessageUI.framework in Frameworks */,
 				2925A0621877CC4D00FA2EED /* SystemConfiguration.framework in Frameworks */,
 				29501EE7185BEE04004AF7F9 /* MapKit.framework in Frameworks */,
 				295E90C3185466F4000BA5FE /* CoreLocation.framework in Frameworks */,
@@ -1941,6 +1947,7 @@
 		295E905B1853FE3D000BA5FE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2941186F19192A21002E3C4E /* MessageUI.framework */,
 				2925A0611877CC4D00FA2EED /* SystemConfiguration.framework */,
 				29501EE6185BEE04004AF7F9 /* MapKit.framework */,
 				295E90C2185466F4000BA5FE /* CoreLocation.framework */,
@@ -2074,6 +2081,8 @@
 				29FA598718668CA900928318 /* BirdKindList */,
 				29501ECE1858C8B6004AF7F9 /* HALActivityManager.h */,
 				29501ECF1858C8B6004AF7F9 /* HALActivityManager.m */,
+				2941187119192BB1002E3C4E /* HALDataExporter.h */,
+				2941187219192BB1002E3C4E /* HALDataExporter.m */,
 				295E90C818554739000BA5FE /* HALDB.h */,
 				295E90C918554739000BA5FE /* HALDB.m */,
 				2925A0691878229500FA2EED /* HALGAManager.h */,
@@ -3907,6 +3916,7 @@
 				29B9A89D189C728E00B0AD14 /* HALStudentAuthenticationViewController.m in Sources */,
 				29B9A8B0189E00C200B0AD14 /* NSNotificationCenter+HALDataUpdateNotification.m in Sources */,
 				2925A0731878E45400FA2EED /* HALLicenseViewController.m in Sources */,
+				2941187319192BB1002E3C4E /* HALDataExporter.m in Sources */,
 				292594AA18728B0800FA2EED /* HALActivityListViewCell.m in Sources */,
 				295E90C118546328000BA5FE /* HALBirdRecord.m in Sources */,
 				2925A07D1878EB4900FA2EED /* HALApplicationInfoViewController.m in Sources */,

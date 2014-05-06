@@ -10,6 +10,10 @@
 #import "UIViewController+HALViewControllerFromNib.h"
 #import "UIViewController+HALSetCancelButton.h"
 #import "NSString+HALURLEncode.h"
+#import "MessageUI/MessageUI.h"
+#import "MessageUI/MFMailComposeViewController.h"
+#import <BlocksKit+MessageUI.h>
+#import "HALDataExporter.h"
 
 // views
 #import "HALLicenseViewController.h"
@@ -54,6 +58,7 @@
           @{@"title": @"ショップ", @"view": [HALPurchaseViewController viewControllerFromNib]},
           ],
       @[
+          @{@"title": @"CSVデータをメールでエクスポート", @"selector": @"openExportDataMail"},
           @{@"title": @"ライセンス", @"view": [HALLicenseViewController viewControllerFromNib]},
           ],
       ];
@@ -89,6 +94,30 @@
     [[UIApplication sharedApplication] openURL:url];
 }
 
+- (void)openExportDataMail
+{
+    // メールを利用できるかチェック
+    if (![MFMailComposeViewController canSendMail]) {
+        [UIAlertView bk_showAlertViewWithTitle:nil message:@"メールを起動できませんでした。" cancelButtonTitle:@"OK" otherButtonTitles:@[] handler:nil];
+        return;
+    }
+    [SVProgressHUD show];
+    WeakSelf weakSelf = self;
+    [HALDataExporter exportAllDataToCSVWithCompletion:^(NSString *csv){
+        MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
+        [controller setSubject:@"鳥ログデータエクスポート"];
+        NSData *data = [csv dataUsingEncoding:NSShiftJISStringEncoding];
+        [controller addAttachmentData:data mimeType:@"text/csv" fileName:@"export.csv"];
+        [controller bk_setCompletionBlock:^(MFMailComposeViewController *controller, MFMailComposeResult result, NSError *error){
+            if (result == MFMailComposeResultSent) {
+                [SVProgressHUD showSuccessWithStatus:@"送信しました"];
+            }
+        }];
+        [weakSelf.navigationController presentViewController:controller animated:YES completion:^{
+            [SVProgressHUD dismiss];
+        }];
+    }];
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
