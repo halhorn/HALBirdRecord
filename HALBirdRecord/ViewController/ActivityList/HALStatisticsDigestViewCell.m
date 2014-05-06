@@ -6,12 +6,12 @@
 //  Copyright (c) 2014年 halhorn. All rights reserved.
 //
 
-#import "HALStatisticsViewCell.h"
+#import "HALStatisticsDigestViewCell.h"
 #import "HALActivityManager.h"
 #import "HALBirdKindLoader.h"
 #import <MSSimpleGauge/MSSimpleGauge.h>
 
-@interface HALStatisticsViewCell()
+@interface HALStatisticsDigestViewCell()
 
 @property(nonatomic) HALActivityManager *activityManager;
 @property(nonatomic) MSSimpleGauge *birdKindCountGauge;
@@ -27,7 +27,7 @@
 
 @end
 
-@implementation HALStatisticsViewCell
+@implementation HALStatisticsDigestViewCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -47,12 +47,12 @@
 
 + (NSString *)cellIdentifier
 {
-    return @"HALStatisticsViewCell";
+    return @"HALStatisticsDigestViewCell";
 }
 
 + (UINib *)nib
 {
-    return [UINib nibWithNibName:@"HALStatisticsViewCell" bundle:nil];
+    return [UINib nibWithNibName:@"HALStatisticsDigestViewCell" bundle:nil];
 }
 
 - (void)awakeFromNib
