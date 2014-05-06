@@ -20,6 +20,7 @@
 #import "NSNotificationCenter+HALDataUpdateNotification.h"
 
 #define kHALDataOffset 2
+#define kHALChannelSurveyKey @"HALChannelSurveyKey"
 
 @interface HALActivityListViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -68,6 +69,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [HALGAManager sendView:@"Activity List"];
+    [self showChannelSurvey];
 }
 
 - (void)didReceiveMemoryWarning
@@ -94,6 +96,35 @@
     
     HALActivityViewController *viewController = [[HALActivityViewController alloc] initWithActivity:activity shouldShowRegister:YES];
     [self.navigationController pushViewController:viewController animated:YES];
+}
+
+- (void)showChannelSurvey
+{
+    NSNumber *hasShownSurvey = [[NSUserDefaults standardUserDefaults] objectForKey:kHALChannelSurveyKey];
+
+    if (hasShownSurvey) {
+        return;
+    }
+    [[NSUserDefaults standardUserDefaults] setObject:@(true) forKey:kHALChannelSurveyKey];
+    NSArray *questions = @[
+                           @"探鳥会等で",
+                           @"知人から",
+                           @"AppStoreで検索",
+                           @"WEBで検索",
+                           @"SNSで",
+                           @"その他",
+                           ];
+    [UIAlertView bk_showAlertViewWithTitle:@"アンケート"
+                                   message:@"鳥ログをご利用頂きありがとうございます。よろしければ鳥ログを知ったきっかけを教えて下さい。"
+                         cancelButtonTitle:@"答えない"
+                         otherButtonTitles:questions
+                                   handler:^(UIAlertView *alertView, NSInteger buttonIndex){
+                                       if (buttonIndex != alertView.cancelButtonIndex) {
+                                           [HALGAManager sendAction:@"Channel Survey" label:questions[buttonIndex-1] value:0];
+                                       } else {
+                                           [HALGAManager sendAction:@"Channel Survey" label:@"No Answer" value:0];
+                                       }
+                                   }];
 }
 
 - (void)goToShop
