@@ -25,6 +25,6 @@ typedef NS_ENUM(NSInteger, HALStudentAuthenticationRequestState) {
 - (void)checkIsStudentWithCompletion:(void(^)(HALStudentAuthenticationRequestState))completion;
 - (void)requestStudentAuthenticationWithImage:(UIImage *)image
                                        expire:(NSDate *)expire
-                                   completion:(void(^)(BOOL))completion;
+                                   completion:(void(^)(BOOL, NSError *))completion;
 - (void)cancelStudentAuthenticationRequest;
 @end

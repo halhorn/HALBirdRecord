@@ -75,6 +75,11 @@
     [self setupColor];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [HALGAManager sendView:@"Student Authentication"];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -173,12 +178,14 @@
 - (IBAction)onTapOK:(id)sender {
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
     WeakSelf weakSelf = self;
-    [self.authenticator requestStudentAuthenticationWithImage:self.photo expire:self.expireDate completion:^(BOOL succeeded){
+    [self.authenticator requestStudentAuthenticationWithImage:self.photo expire:self.expireDate completion:^(BOOL succeeded, NSError *error){
         if (!succeeded) {
             [SVProgressHUD showErrorWithStatus:@"失敗しました"];
             [UIAlertView bk_showAlertViewWithTitle:@"認証に失敗しました" message:@"ネットワーク環境の良い場所でもう一度OKボタンを押して下さい。" cancelButtonTitle:@"OK" otherButtonTitles:@[] handler:nil];
+            [HALGAManager sendAction:@"Fail Student Authentication" label:[NSString stringWithFormat:@"%@", error.userInfo] value:0];
             return;
         }
+        [HALGAManager sendAction:@"Request Student Authentication" label:@"" value:0];
         [SVProgressHUD showSuccessWithStatus:@"OK"];
         [UIAlertView bk_showAlertViewWithTitle:@"学生認証を申請しました" message:@"学生の認証には一週間程度かかります。しばらくお待ち下さい。" cancelButtonTitle:@"OK" otherButtonTitles:@[] handler:^(UIAlertView *alertView, NSInteger buttonIndex){
             [weakSelf.navigationController popViewControllerAnimated:YES];
@@ -203,6 +210,7 @@
         if (buttonIndex == alertView.cancelButtonIndex) {
             return;
         }
+        [HALGAManager sendAction:@"Cancel Student Authentication" label:@"" value:0];
         [weakSelf.authenticator cancelStudentAuthenticationRequest];
         [weakSelf.requestingView removeFromSuperview];
     }];

@@ -88,7 +88,7 @@
 
 - (void)requestStudentAuthenticationWithImage:(UIImage *)image
                                        expire:(NSDate *)expire
-                                   completion:(void(^)(BOOL))completion;
+                                   completion:(void(^)(BOOL, NSError *))completion;
 {
     NSUserDefaults *setting = [NSUserDefaults standardUserDefaults];
     if ([self isStudentAuthenticationRequesting]) {
@@ -107,7 +107,7 @@
             [setting synchronize];
         }
         [weakSelf notifyRequestToAdmin];
-        completion(succeeded);
+        completion(succeeded, error);
     }];
 }
 
