@@ -26,6 +26,8 @@
 {
     HALActivityManager *activityManager = [HALActivityManager sharedManager];
     HALBirdKindLoader *birdKindLoader = [HALBirdKindLoader sharedLoader];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"yyyy/MM/dd HH:mm";
     
     NSMutableString *str = [[NSMutableString alloc] init];
     [str appendString:@"アクティビティ名,アクティビティコメント,鳥グループ,鳥名,日時,県,町,緯度,軽度,コメント\n"];
@@ -39,7 +41,7 @@
                              activity.comment,
                              kind.groupName,
                              kind.name,
-                             record.datetime,
+                             [dateFormatter stringFromDate:record.datetime],
                              record.prefecture,
                              record.city,
                              record.coordinate.latitude,
