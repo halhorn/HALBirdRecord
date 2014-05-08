@@ -53,6 +53,11 @@
     [self setupHeaderView];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [HALGAManager sendView:@"Purchase"];
+}
+
 - (void)setupHeaderView
 {
     HALActivityManager *activityManager = [HALActivityManager sharedManager];
@@ -181,6 +186,9 @@
         [[HALProductManager sharedManager] purchaseProduct:productID withCompletion:^(BOOL success){
             if (success) {
                 [SVProgressHUD showSuccessWithStatus:@"購入しました。"];
+                HALActivityManager *activityManager = [HALActivityManager sharedManager];
+                [HALGAManager sendAction:@"Purchase Detail" label:[NSString stringWithFormat:@"id:%@ currentActivity:%d max:%d list:%@", productID, activityManager.activityCount, activityManager.activityCapacity, [self productListString]] value:0];
+
                 [[HALActivityManager sharedManager] notifyActivityUpdate];
                 [weakSelf setupHeaderView];
                 [weakSelf bk_performBlock:^(id sender){
@@ -191,6 +199,15 @@
             }
         }];
     }
+}
+
+- (NSString *)productListString
+{
+    NSMutableArray *productNameList = [[NSMutableArray alloc] init];
+    for (HALProduct *product in [HALProductManager sharedManager].productList) {
+        [productNameList addObject:product.title];
+    }
+    return [productNameList componentsJoinedByString:@","];
 }
 
 @end
