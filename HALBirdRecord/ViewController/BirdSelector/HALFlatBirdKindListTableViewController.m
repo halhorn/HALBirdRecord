@@ -219,7 +219,7 @@
         [UIAlertView bk_showAlertViewWithTitle:@"取り消し" message:message cancelButtonTitle:@"いいえ" otherButtonTitles:@[@"はい"] handler:^(UIAlertView *alertView, NSInteger buttonIndex){
             if (buttonIndex != alertView.cancelButtonIndex) {
                 [weakSelf.birdRecordList removeObject:record];
-                [self.birdKindListViewController onTapBirdRow];
+                [weakSelf.birdKindListViewController onTapBirdRow];
                 [tableView reloadData];
             }
         }];

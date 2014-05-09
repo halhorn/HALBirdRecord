@@ -71,7 +71,7 @@
 
     WeakSelf weakSelf = self;
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] bk_initWithTitle:@"キャンセル" style:UIBarButtonItemStyleBordered handler:^(id sender){
-        if (![self.birdListViewController sendBirdList].count) {
+        if (![weakSelf.birdListViewController sendBirdList].count) {
             [weakSelf dismissViewControllerAnimated:YES completion:nil];
             return;
         }
@@ -103,13 +103,15 @@
 }
 
 // 指定時間ごとにテキストの変更が無いかをチェックし、変更があればテキストの候補を表示する。
-- (void)startTextFieldWatcherBlock:(void(^)(NSString *))block{
+- (void)startTextFieldWatcherBlock:(void(^)(NSString *))block
+{
     UITextField *targetTextField = self.searchTextField;
     
     __block NSString *text = targetTextField.text;
+    WeakSelf weakSelf = self;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         // 100ms毎にテキスト入力欄に変更が無いかをチェック
-        while (self.searchTextField.isEditing) {
+        while (weakSelf.searchTextField.isEditing) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (![targetTextField.text isEqualToString:text]){
                     // 変更があった場合。
@@ -166,8 +168,9 @@
 #pragma mark - UITextFieldDelegate
 - (void)textFieldDidBeginEditing:(UITextField *)textField
 {
+    WeakSelf weakSelf = self;
     [self startTextFieldWatcherBlock:^(NSString *newText){
-        [self.birdListViewController setSearchWord:newText];
+        [weakSelf.birdListViewController setSearchWord:newText];
     }];
 }
 

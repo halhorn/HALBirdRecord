@@ -187,7 +187,7 @@
             if (success) {
                 [SVProgressHUD showSuccessWithStatus:@"購入しました。"];
                 HALActivityManager *activityManager = [HALActivityManager sharedManager];
-                [HALGAManager sendAction:@"Purchase Detail" label:[NSString stringWithFormat:@"id:%@ currentActivity:%d max:%d list:%@", productID, activityManager.activityCount, activityManager.activityCapacity, [self productListString]] value:0];
+                [HALGAManager sendAction:@"Purchase Detail" label:[NSString stringWithFormat:@"id:%@ currentActivity:%d max:%d list:%@", productID, activityManager.activityCount, activityManager.activityCapacity, [weakSelf productListString]] value:0];
 
                 [[HALActivityManager sharedManager] notifyActivityUpdate];
                 [weakSelf setupHeaderView];
