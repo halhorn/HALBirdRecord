@@ -778,6 +778,10 @@
 		2941186E19190B55002E3C4E /* HALStatisticsTableViewRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2941186D19190B55002E3C4E /* HALStatisticsTableViewRenderer.m */; };
 		2941187019192A21002E3C4E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2941186F19192A21002E3C4E /* MessageUI.framework */; };
 		2941187319192BB1002E3C4E /* HALDataExporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2941187219192BB1002E3C4E /* HALDataExporter.m */; };
+		2941187A19219334002E3C4E /* HALAuthorInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2941187819219334002E3C4E /* HALAuthorInfoViewController.m */; };
+		2941187B19219334002E3C4E /* HALAuthorInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2941187919219334002E3C4E /* HALAuthorInfoViewController.xib */; };
+		2941187E1921993E002E3C4E /* app_icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2941187C1921993E002E3C4E /* app_icon.jpg */; };
+		2941187F1921993E002E3C4E /* app_icon@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2941187D1921993E002E3C4E /* app_icon@2x.jpg */; };
 		29501ED01858C8B6004AF7F9 /* HALActivityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 29501ECF1858C8B6004AF7F9 /* HALActivityManager.m */; };
 		29501EDF185A8AB5004AF7F9 /* HALActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29501EDD185A8AB5004AF7F9 /* HALActivityViewController.m */; };
 		29501EE0185A8AB5004AF7F9 /* HALActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29501EDE185A8AB5004AF7F9 /* HALActivityViewController.xib */; };
@@ -1670,6 +1674,11 @@
 		2941186F19192A21002E3C4E /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		2941187119192BB1002E3C4E /* HALDataExporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALDataExporter.h; sourceTree = "<group>"; };
 		2941187219192BB1002E3C4E /* HALDataExporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALDataExporter.m; sourceTree = "<group>"; };
+		2941187719219334002E3C4E /* HALAuthorInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALAuthorInfoViewController.h; sourceTree = "<group>"; };
+		2941187819219334002E3C4E /* HALAuthorInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALAuthorInfoViewController.m; sourceTree = "<group>"; };
+		2941187919219334002E3C4E /* HALAuthorInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALAuthorInfoViewController.xib; sourceTree = "<group>"; };
+		2941187C1921993E002E3C4E /* app_icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = app_icon.jpg; sourceTree = "<group>"; };
+		2941187D1921993E002E3C4E /* app_icon@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "app_icon@2x.jpg"; sourceTree = "<group>"; };
 		29501ECE1858C8B6004AF7F9 /* HALActivityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALActivityManager.h; sourceTree = "<group>"; };
 		29501ECF1858C8B6004AF7F9 /* HALActivityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALActivityManager.m; sourceTree = "<group>"; };
 		29501EDC185A8AB5004AF7F9 /* HALActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALActivityViewController.h; sourceTree = "<group>"; };
@@ -1847,6 +1856,8 @@
 			children = (
 				29D0C6C8189495EC0040EB1A /* 30_vector_icons_df_0004_Shape-29.png */,
 				29D0C6C9189495EC0040EB1A /* 30_vector_icons_df_0004_Shape-29@2x.png */,
+				2941187C1921993E002E3C4E /* app_icon.jpg */,
+				2941187D1921993E002E3C4E /* app_icon@2x.jpg */,
 				2925A0511875430F00FA2EED /* bird_count_background.png */,
 				2925A0521875430F00FA2EED /* bird_count_background@2x.png */,
 				29AA88E81888B16D0088F049 /* button_normal.png */,
@@ -1859,20 +1870,20 @@
 				29D0C6E81895273A0040EB1A /* icon_pro@2x.png */,
 				29B9A8A2189DEE2300B0AD14 /* icon_student.png */,
 				29B9A8A3189DEE2300B0AD14 /* icon_student@2x.png */,
-				29B9A87718955D7A00B0AD14 /* purchase_activity5.png */,
-				29B9A87818955D7A00B0AD14 /* purchase_activity5@2x.png */,
-				29B9A87918955D7A00B0AD14 /* purchase_activity15.png */,
-				29B9A87A18955D7A00B0AD14 /* purchase_activity15@2x.png */,
-				29B9A8A4189DEE2300B0AD14 /* purchase_activity50.png */,
-				29B9A8A5189DEE2300B0AD14 /* purchase_activity50@2x.png */,
 				29B9A87E18955D7A00B0AD14 /* purchase_activity100.png */,
 				29B9A87F18955D7A00B0AD14 /* purchase_activity100@2x.png */,
+				29B9A87918955D7A00B0AD14 /* purchase_activity15.png */,
+				29B9A87A18955D7A00B0AD14 /* purchase_activity15@2x.png */,
+				29B9A87718955D7A00B0AD14 /* purchase_activity5.png */,
+				29B9A8A4189DEE2300B0AD14 /* purchase_activity50.png */,
+				29B9A8A5189DEE2300B0AD14 /* purchase_activity50@2x.png */,
+				29B9A87818955D7A00B0AD14 /* purchase_activity5@2x.png */,
 				29B9A88018955D7A00B0AD14 /* purchase_donation.png */,
 				29B9A88118955D7A00B0AD14 /* purchase_donation@2x.png */,
-				29B9A8A6189DEE2300B0AD14 /* purchase_student.png */,
-				29B9A8A7189DEE2300B0AD14 /* purchase_student@2x.png */,
 				29B9A88218955D7A00B0AD14 /* purchase_pro.png */,
 				29B9A88318955D7A00B0AD14 /* purchase_pro@2x.png */,
+				29B9A8A6189DEE2300B0AD14 /* purchase_student.png */,
+				29B9A8A7189DEE2300B0AD14 /* purchase_student@2x.png */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -1887,6 +1898,9 @@
 				2925A0701878E45400FA2EED /* HALLicenseViewController.h */,
 				2925A0711878E45400FA2EED /* HALLicenseViewController.m */,
 				2925A0721878E45400FA2EED /* HALLicenseViewController.xib */,
+				2941187719219334002E3C4E /* HALAuthorInfoViewController.h */,
+				2941187819219334002E3C4E /* HALAuthorInfoViewController.m */,
+				2941187919219334002E3C4E /* HALAuthorInfoViewController.xib */,
 			);
 			path = Info;
 			sourceTree = "<group>";
@@ -3100,6 +3114,7 @@
 				2925A6321879282E00FA2EED /* 805.png in Resources */,
 				2925A45A1879282E00FA2EED /* 269.png in Resources */,
 				2925A5D71879282E00FA2EED /* 707.png in Resources */,
+				2941187E1921993E002E3C4E /* app_icon.jpg in Resources */,
 				2925A4391879282E00FA2EED /* 236.png in Resources */,
 				2925A5C21879282E00FA2EED /* 676.png in Resources */,
 				2925A5751879282E00FA2EED /* 577.png in Resources */,
@@ -3541,6 +3556,7 @@
 				2925A5011879282E00FA2EED /* 451.png in Resources */,
 				2925A5171879282E00FA2EED /* 473.png in Resources */,
 				2925A4371879282E00FA2EED /* 234.png in Resources */,
+				2941187F1921993E002E3C4E /* app_icon@2x.jpg in Resources */,
 				2925A4CA1879282E00FA2EED /* 390.png in Resources */,
 				2925A39B1879282E00FA2EED /* 058.png in Resources */,
 				2925A5471879282E00FA2EED /* 527.png in Resources */,
@@ -3554,6 +3570,7 @@
 				2925A43B1879282E00FA2EED /* 238.png in Resources */,
 				2925A41D1879282E00FA2EED /* 200.png in Resources */,
 				2925A5AF1879282E00FA2EED /* 656.png in Resources */,
+				2941187B19219334002E3C4E /* HALAuthorInfoViewController.xib in Resources */,
 				2925A3F21879282E00FA2EED /* 156.png in Resources */,
 				2925A4AE1879282E00FA2EED /* 361.png in Resources */,
 				2925A38A1879282E00FA2EED /* 041.png in Resources */,
@@ -3898,6 +3915,7 @@
 				29501EDF185A8AB5004AF7F9 /* HALActivityViewController.m in Sources */,
 				295E90DB1857ECC6000BA5FE /* UIViewController+HALSetCancelButton.m in Sources */,
 				295E90AA18541087000BA5FE /* HALBirdKindListViewController.m in Sources */,
+				2941187A19219334002E3C4E /* HALAuthorInfoViewController.m in Sources */,
 				29AA88E0188598280088F049 /* HALBirdRecordTableViewCell.m in Sources */,
 				2925A65D187AFC3F00FA2EED /* NSString+HALURLEncode.m in Sources */,
 				295E90691853FE3E000BA5FE /* main.m in Sources */,

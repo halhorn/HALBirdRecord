@@ -20,6 +20,7 @@
 #import "HALLicenseViewController.h"
 #import "HALHelpListViewController.h"
 #import "HALPurchaseViewController.h"
+#import "HALAuthorInfoViewController.h"
 
 #define kHALContactUsMail @"halhorn@halmidi.com"
 #define kHALInfoSectionNo 0
@@ -61,6 +62,7 @@
       @[
           @{@"title": @"CSVデータをメールでエクスポート", @"selector": @"openExportDataMail"},
           @{@"title": @"ライセンス", @"view": [HALLicenseViewController viewControllerFromNib]},
+          @{@"title": @"作者・協力者", @"view": [HALAuthorInfoViewController viewControllerFromNib]}
           ],
       ];
 
