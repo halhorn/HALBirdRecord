@@ -9,12 +9,12 @@
 #import <Foundation/Foundation.h>
 
 // PurchaseProduct
-#define kHALProductIDProAccount @"ProAccount"
-#define kHALProductIDDonationMember @"DonationMember"
-#define kHALProductIDExpand5Activities @"Expand5Activities"
-#define kHALProductIDExpand15Activities @"Expand15Activities"
-#define kHALProductIDExpand50Activities @"Expand50Activities"
-#define kHALProductIDExpand100Activities @"Expand100Activities"
+#define kHALProductIDProAccount @"Pro"
+#define kHALProductIDDonationMember @"Donation"
+#define kHALProductIDExpand5Activities @"5Activities"
+#define kHALProductIDExpand15Activities @"15Activities"
+#define kHALProductIDExpand50Activities @"50Activities"
+#define kHALProductIDExpand100Activities @"100Activities"
 
 // FreeProduct
 #define kHALProductIDStudentAccount @"StudentAccount"
