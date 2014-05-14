@@ -16,7 +16,7 @@
 
 @interface HALMapManager()
 
-@property(nonatomic) HALActivity *activity;
+@property(nonatomic) NSArray *birdRecordList;
 
 @end
 
@@ -31,7 +31,21 @@
 {
     self = [super init];
     if (self) {
-        self.activity = activity;
+        self.birdRecordList = activity.birdRecordList;
+    }
+    return self;
+}
+
++ (instancetype)managerWithBirdRecordList:(NSArray *)birdRecordList
+{
+    return [[self alloc] initWithBirdRecordList:birdRecordList];
+}
+
+- (id)initWithBirdRecordList:(NSArray *)birdRecordList
+{
+    self = [super init];
+    if (self) {
+        self.birdRecordList = birdRecordList;
     }
     return self;
 }
@@ -39,7 +53,7 @@
 - (NSArray *)annotationList
 {
     NSMutableArray *annotationList = [[NSMutableArray alloc] init];
-    for (HALBirdRecord *birdRecord in self.activity.birdRecordList) {
+    for (HALBirdRecord *birdRecord in self.birdRecordList) {
         if (birdRecord.coordinate.latitude == 0 && birdRecord.coordinate.longitude == 0) {
             continue;
         }
@@ -50,13 +64,13 @@
 
 - (NSArray *)averagePointAnnotation
 {
-    if (!self.activity.birdRecordList.count) {
+    if (!self.birdRecordList.count) {
         return @[];
     }
     CGFloat latitude = 0;
     CGFloat longitude = 0;
     int count = 0;
-    for (HALBirdRecord *birdRecord in self.activity.birdRecordList) {
+    for (HALBirdRecord *birdRecord in self.birdRecordList) {
         if (birdRecord.coordinate.latitude == 0 && birdRecord.coordinate.longitude == 0) {
             continue;
         }
@@ -85,7 +99,7 @@
     double maxLatitude = -360;
     double maxLongitude = -360;
     int count = 0;
-    for (HALBirdRecord *birdRecord in self.activity.birdRecordList) {
+    for (HALBirdRecord *birdRecord in self.birdRecordList) {
         CLLocationCoordinate2D coord = birdRecord.coordinate;
         if (coord.latitude == 0 && coord.longitude == 0) {
             continue;

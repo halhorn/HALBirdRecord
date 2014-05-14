@@ -24,7 +24,7 @@
     if (self) {
         _birdRecord = birdRecord;
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        dateFormatter.dateFormat = @"HH:mm:ss";
+        dateFormatter.dateFormat = @"YYYY/MM/dd HH:mm:ss";
         self.coordinate = birdRecord.coordinate;
         self.title = birdRecord.kind.name;
         self.subtitle = [dateFormatter stringFromDate:birdRecord.datetime];
