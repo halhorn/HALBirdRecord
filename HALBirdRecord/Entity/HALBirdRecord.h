@@ -24,6 +24,8 @@
 
 + (id)birdRecordWithBirdID:(int)birdID;
 - (id)initWithBirdID:(int)birdID;
++ (id)birdRecordWithDBRow:(NSDictionary *)row;
+- (id)initWithDBRow:(NSDictionary *)row;
 - (void)setCurrentLocationAndPlacemarkAndUpdateDBAsync;
 - (void)updatePlacemarkAndDBAsync;
 - (BOOL)isProcessing;
