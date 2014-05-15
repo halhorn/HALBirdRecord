@@ -109,12 +109,14 @@
             return @{
                      @"title" : kind.name,
                      @"image" : kind.image,
+                     @"data"  : kind,
                      };
         }
         case HALStatisticsTypeCity:{
             NSDictionary *dict = self.cities[self.prefectures[indexPath.section]][indexPath.row];
             return @{
                      @"title" : dict[@"city"],
+                     @"data"  : dict,
                      };
         }
             

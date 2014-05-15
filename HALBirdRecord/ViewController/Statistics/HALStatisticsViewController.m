@@ -8,6 +8,8 @@
 
 #import "HALStatisticsViewController.h"
 #import "HALStatisticsTableViewRenderer.h"
+#import "HALBirdKind.h"
+#import "HALBirdKindStatisticsViewController.h"
 
 @interface HALStatisticsViewController ()
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -156,6 +158,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (self.renderer.statisticsType == HALStatisticsTypeBirdKind) {
+        HALBirdKind *kind = [self.renderer rowDataAtIndexPath:indexPath][@"data"];
+        HALBirdKindStatisticsViewController *viewController = [[HALBirdKindStatisticsViewController alloc] initWithBirdKind:kind];
+        [self.navigationController pushViewController:viewController animated:YES];
+    }
 }
 
 @end
