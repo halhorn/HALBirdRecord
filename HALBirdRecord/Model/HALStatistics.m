@@ -53,6 +53,15 @@
     return [self.db selectTotalPrefectureAndCity];
 }
 
+- (NSArray *)birdRecordWithBirdID:(int)birdID
+{
+    NSMutableArray *arr = [NSMutableArray array];
+    for (NSDictionary *row in [self.db selectBirdRecordListWithBirdID:birdID]) {
+        [arr addObject:[HALBirdRecord birdRecordWithDBRow:row]];
+    }
+    return arr;
+}
+
 - (NSArray *)mapWithDictArray:(NSArray *)array key:(NSString *)key block:(id(^)(id))block
 {
     NSMutableArray *arr = [NSMutableArray array];

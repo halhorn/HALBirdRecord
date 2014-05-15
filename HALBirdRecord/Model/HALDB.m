@@ -370,5 +370,10 @@
     return [self selectWithSQL:sqlFormat args:nil];
 }
 
+- (NSArray *)selectBirdRecordListWithBirdID:(int)birdID
+{
+    NSString *sqlFormat = [NSString stringWithFormat:@"select * from %@ where birdID = ?", kHALBirdRecordTable];
+    return [self selectWithSQL:sqlFormat args:@[@(birdID)]];
+}
 
 @end
