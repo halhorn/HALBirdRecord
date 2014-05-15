@@ -14,7 +14,10 @@ PODS:
   - BlocksKit/UIKit (2.2.2):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
-  - Facebook-iOS-SDK (3.13.1)
+  - Bolts (1.1.0)
+  - CorePlot (1.5.1)
+  - Facebook-iOS-SDK (3.14.1):
+    - Bolts
   - FMDB (2.2):
     - FMDB/standard
   - FMDB/common (2.2)
@@ -36,6 +39,7 @@ PODS:
 
 DEPENDENCIES:
   - BlocksKit
+  - CorePlot (~> 1.4)
   - FMDB
   - GoogleAnalytics-iOS-SDK (~> 3.0)
   - Kiwi (>= 2.2.1)
@@ -46,7 +50,9 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   BlocksKit: 125e4e69a62e3b85bacc5175737dae000b00b9fb
-  Facebook-iOS-SDK: 47ae9e54684c84f93d75d4e6ab47cd031abdf406
+  Bolts: dc620a31cf67c29bce3e3d14a07a12e797a1a154
+  CorePlot: 7b55ddfce42eb93051c0f9edba927fd246831f6d
+  Facebook-iOS-SDK: 97e68fb37468bee2d90201fd0c9e4dccce5683d9
   FMDB: e0dd09464b4e1a1cd7fa51ea835ae821b5656865
   GoogleAnalytics-iOS-SDK: 16dfcc0c4491148bf372edc85a8470cc405ffb72
   Kiwi: d60d7498b640a16f58b01925fc3c8d7c4d809f66
