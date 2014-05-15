@@ -27,6 +27,7 @@
     if (self) {
         self.birdKind = birdKind;
         self.birdRecordList = [[HALStatistics sharedModel] birdRecordWithBirdID:birdKind.birdID];
+        self.title = birdKind.name;
     }
     return self;
 }
