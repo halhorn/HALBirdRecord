@@ -61,6 +61,12 @@
     self.monthLabel.textColor = kHALTextColor;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [HALGAManager sendView:@"BirdKindStatistics"];
+    [super viewWillAppear:animated];
+}
+
 - (void)loadMapView
 {
     HALMapManager *mapManager = [HALMapManager managerWithBirdRecordList:self.birdRecordList];
