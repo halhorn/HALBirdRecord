@@ -61,6 +61,39 @@
     return self;
 }
 
++ (id)birdRecordWithDBRow:(NSDictionary *)row
+{
+    return [[self alloc] initWithDBRow:row];
+}
+
+- (id)initWithDBRow:(NSDictionary *)birdRow
+{
+    self = [super init];
+    if (self) {
+        NSNumber *birdID = [self removeNSNull:birdRow[@"birdID"]];
+        NSNumber *count = [self removeNSNull:birdRow[@"count"]];
+        NSNumber *latitude = [self removeNSNull:birdRow[@"latitude"]];
+        NSNumber *longitude = [self removeNSNull:birdRow[@"longitude"]];
+        NSString *prefecture = [self removeNSNull:birdRow[@"prefecture"]];
+        NSString *city = [self removeNSNull:birdRow[@"city"]];
+        NSString *comment = [self removeNSNull:birdRow[@"comment"]];
+        NSNumber *birdUnixtime = [self removeNSNull:birdRow[@"datetime"]];
+        NSNumber *birdDBID = birdRow[@"id"];
+        
+        self.db = [HALDB sharedDB];
+        self.locationManager = [[HALLocationManager alloc] init];
+        _birdID = [birdID intValue];
+        _dbID = [birdDBID intValue];
+        _count = [count intValue];
+        _coordinate = CLLocationCoordinate2DMake([latitude doubleValue], [longitude doubleValue]);
+        _datetime = [NSDate dateWithTimeIntervalSince1970:[birdUnixtime doubleValue]];
+        _prefecture = prefecture;
+        _city = city;
+        _comment = comment;
+    }
+    return self;
+}
+
 - (HALBirdKind *)kind
 {
     if (!_kind) {
@@ -118,4 +151,10 @@
 {
     return [NSString stringWithFormat:@"HALBirdRecord dbID:%d birdID:%d count:%d datetime:%@ coordinate:(%f,%f)[%@/%@] comment:%@", self.dbID, self.birdID, self.count, self.datetime, self.coordinate.latitude, self.coordinate.longitude, self.prefecture, self.city, self.comment];
 }
+
+- (id)removeNSNull:(id)var
+{
+    return [var isEqual:[NSNull null]] ? nil : var;
+}
+
 @end

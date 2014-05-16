@@ -360,7 +360,7 @@
 
 - (NSArray *)selectTotalBirdKind
 {
-    NSString *sqlFormat = [NSString stringWithFormat:@"select distinct birdID from %@", kHALBirdRecordTable];
+    NSString *sqlFormat = [NSString stringWithFormat:@"select distinct birdID from %@ order by birdID", kHALBirdRecordTable];
     return [self selectWithSQL:sqlFormat args:nil];
 }
 
@@ -370,5 +370,10 @@
     return [self selectWithSQL:sqlFormat args:nil];
 }
 
+- (NSArray *)selectBirdRecordListWithBirdID:(int)birdID
+{
+    NSString *sqlFormat = [NSString stringWithFormat:@"select * from %@ where birdID = ? order by  datetime", kHALBirdRecordTable];
+    return [self selectWithSQL:sqlFormat args:@[@(birdID)]];
+}
 
 @end

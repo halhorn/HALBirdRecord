@@ -10,6 +10,7 @@
 #import "HALActivity.h"
 #import "HALBirdRecord.h"
 #import "HALBirdKindLoader.h"
+#import "NSDate+HALDateComponents.h"
 
 @interface HALStatistics()
 
@@ -51,6 +52,27 @@
 - (NSArray *)totalPrefectureAndCity
 {
     return [self.db selectTotalPrefectureAndCity];
+}
+
+- (NSArray *)birdRecordWithBirdID:(int)birdID
+{
+    NSMutableArray *arr = [NSMutableArray array];
+    for (NSDictionary *row in [self.db selectBirdRecordListWithBirdID:birdID]) {
+        [arr addObject:[HALBirdRecord birdRecordWithDBRow:row]];
+    }
+    return arr;
+}
+
+- (NSArray *)birdCountInMonthWithBirdRecords:(NSArray *)birdRecords
+{
+    NSMutableArray *countList = [@[@0, @0, @0, @0, @0, @0, @0, @0, @0, @0, @0, @0] mutableCopy];
+    
+    for (HALBirdRecord *record in birdRecords) {
+        NSInteger month = [NSDate dateComponentsWithDate:record.datetime].month;
+        NSNumber *count = countList[month - 1];
+        countList[month - 1] = @([count intValue] + 1);
+    }
+    return countList;
 }
 
 - (NSArray *)mapWithDictArray:(NSArray *)array key:(NSString *)key block:(id(^)(id))block

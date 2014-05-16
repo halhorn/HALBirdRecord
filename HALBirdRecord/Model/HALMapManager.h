@@ -13,6 +13,8 @@
 
 + (instancetype)managerWithActivity:(HALActivity *)activity;
 - (id)initWithActivity:(HALActivity *)activity;
++ (instancetype)managerWithBirdRecordList:(NSArray *)birdRecordList;
+- (id)initWithBirdRecordList:(NSArray *)birdRecordList;
 - (NSArray *)annotationList;
 - (NSArray *)averagePointAnnotation;
 - (MKCoordinateRegion)region;

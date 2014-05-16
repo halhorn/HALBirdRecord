@@ -6,6 +6,7 @@ pod 'BlocksKit'
 pod 'SVProgressHUD'
 pod 'SZTextView', '~> 1.1.0'
 pod 'MSSimpleGauge', '~> 0.5'
+pod 'CorePlot', '~> 1.4'
 pod 'Parse'
 
 target :HALBirdRecordTests, :exclusive => true do

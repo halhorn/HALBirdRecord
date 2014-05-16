@@ -14,5 +14,7 @@
 
 - (NSArray *)totalBirdKind;
 - (NSArray *)totalPrefectureAndCity;
+- (NSArray *)birdRecordWithBirdID:(int)birdID;
+- (NSArray *)birdCountInMonthWithBirdRecords:(NSArray *)birdRecords;
 
 @end
