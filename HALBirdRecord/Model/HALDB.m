@@ -372,7 +372,7 @@
 
 - (NSArray *)selectBirdRecordListWithBirdID:(int)birdID
 {
-    NSString *sqlFormat = [NSString stringWithFormat:@"select * from %@ where birdID = ?", kHALBirdRecordTable];
+    NSString *sqlFormat = [NSString stringWithFormat:@"select * from %@ where birdID = ? order by  datetime", kHALBirdRecordTable];
     return [self selectWithSQL:sqlFormat args:@[@(birdID)]];
 }
 
