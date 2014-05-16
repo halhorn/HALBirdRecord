@@ -202,7 +202,6 @@
     barPlot.lineStyle = lineStyle;                      // ラインスタイルを設定
     barPlot.baseValue  = CPTDecimalFromString(@"0");    // グラフのベースの値を設定
     barPlot.dataSource = self;                          // データソースを設定
-    barPlot.delegate = self;
     barPlot.barWidth = CPTDecimalFromFloat(0.5f);       // 各棒の幅を設定
     barPlot.barOffset  = CPTDecimalFromFloat(0.5f);     // 各棒の横軸からのオフセット値を設定
     [self.monthGraph addPlot:barPlot toPlotSpace:plotSpace];      // グラフに棒グラフを追加
