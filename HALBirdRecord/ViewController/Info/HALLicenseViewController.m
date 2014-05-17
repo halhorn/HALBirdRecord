@@ -44,6 +44,12 @@
     self.licenseTextView.attributedText = licenseString;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [HALGAManager sendView:@"license"];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

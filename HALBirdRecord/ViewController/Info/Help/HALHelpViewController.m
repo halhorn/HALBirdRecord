@@ -52,6 +52,12 @@
     self.answerView.backgroundColor = kHALHelpAnswerBackgroundColor;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [HALGAManager sendView:@"HelpQA"];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

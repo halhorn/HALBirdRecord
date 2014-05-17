@@ -68,6 +68,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     [HALGAManager sendView:@"Activity List"];
     [self showChannelSurvey];
 }
