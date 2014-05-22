@@ -9,6 +9,7 @@
 #import "HALProductManager.h"
 #import "HALStudentAuthenticator.h"
 #import "NSNotificationCenter+HALDataUpdateNotification.h"
+#import "LUKeychainAccess.h"
 #import <Parse/Parse.h>
 
 #define kHALProductSettingKey @"HALPurchasedProductSetting"
@@ -84,6 +85,20 @@
     }
 }
 
+- (void)restoreProductList
+{
+    self.rawProductList = [[NSMutableArray alloc] init];
+    NSArray *purchasedList = [[LUKeychainAccess standardKeychainAccess] objectForKey:kHALProductSettingKey];
+    if (!purchasedList) {
+        purchasedList = @[];
+    }
+    for (NSString *productID in purchasedList) {
+        HALProduct *product = [HALProduct productWithProductID:productID];
+        [self.rawProductList addObject:product];
+    }
+    [self saveProductList];
+}
+
 - (void)saveProductList
 {
     NSMutableArray *purchasedIDList = [[NSMutableArray alloc] init];
@@ -92,6 +107,7 @@
     }
     [[NSUserDefaults standardUserDefaults] setObject:purchasedIDList forKey:kHALProductSettingKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    [[LUKeychainAccess standardKeychainAccess] setObject:purchasedIDList forKey:kHALProductSettingKey];
 }
 
 - (void)addProductObservers
