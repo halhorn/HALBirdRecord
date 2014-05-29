@@ -13,6 +13,7 @@
 #import "HALStudentAuthenticationViewController.h"
 #import "UIViewController+HALViewControllerFromNib.h"
 #import "HALAccount.h"
+#import "NSNotificationCenter+HALDataUpdateNotification.h"
 
 @interface HALPurchaseViewController ()
 
@@ -51,12 +52,14 @@
     [self.tableView registerNib:[HALPurchaseViewCell nib]
          forCellReuseIdentifier:[HALPurchaseViewCell cellIdentifier]];
     [self setupHeaderView];
+    [[NSNotificationCenter defaultCenter] addDataUpdateObserver:self selector:@selector(setupHeaderView)];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [HALGAManager sendView:@"Purchase"];
+    [self showRestoreAlert];
 }
 
 - (void)setupHeaderView
@@ -85,6 +88,20 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)showRestoreAlert
+{
+    HALProductManager *productManager = [HALProductManager sharedManager];
+    if ([productManager hasRestorableProduct] && productManager.productList.count == 0) {
+        [UIAlertView bk_showAlertViewWithTitle:@"購入情報のリストア" message:@"過去に購入した購入情報をリストアしますか？リストアせず購入を行った場合過去の購入情報は消去されます。" cancelButtonTitle:@"キャンセル" otherButtonTitles:@[@"リストア"] handler:^(UIAlertView *alertView, NSInteger buttonIndex){
+            if (buttonIndex != alertView.cancelButtonIndex) {
+                [productManager restoreProductList];
+                [[HALActivityManager sharedManager] notifyActivityUpdate];
+                [SVProgressHUD showSuccessWithStatus:@"リストアしました。"];
+            }
+        }];
+    }
 }
 
 #pragma mark - Table view data source
