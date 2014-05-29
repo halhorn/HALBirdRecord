@@ -99,6 +99,13 @@
     [self saveProductList];
 }
 
+- (BOOL)hasRestorableProduct
+{
+    NSArray *purchasedList = [[LUKeychainAccess standardKeychainAccess] objectForKey:kHALProductSettingKey];
+    return purchasedList && [purchasedList count] > 0;
+}
+
+
 - (void)saveProductList
 {
     NSMutableArray *purchasedIDList = [[NSMutableArray alloc] init];
