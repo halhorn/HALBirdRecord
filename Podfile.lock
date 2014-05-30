@@ -31,6 +31,7 @@ PODS:
   - Kiwi/SenTestingKit (2.2.4):
     - Kiwi/ARC
     - Kiwi/NonARC
+  - LUKeychainAccess (1.2.0)
   - MSSimpleGauge (0.5)
   - Parse (1.2.19):
     - Facebook-iOS-SDK (~> 3.11)
@@ -43,22 +44,24 @@ DEPENDENCIES:
   - FMDB
   - GoogleAnalytics-iOS-SDK (~> 3.0)
   - Kiwi (>= 2.2.1)
+  - LUKeychainAccess
   - MSSimpleGauge (~> 0.5)
   - Parse
   - SVProgressHUD
   - SZTextView (~> 1.1.0)
 
 SPEC CHECKSUMS:
-  BlocksKit: 125e4e69a62e3b85bacc5175737dae000b00b9fb
-  Bolts: dc620a31cf67c29bce3e3d14a07a12e797a1a154
-  CorePlot: 7b55ddfce42eb93051c0f9edba927fd246831f6d
-  Facebook-iOS-SDK: 97e68fb37468bee2d90201fd0c9e4dccce5683d9
-  FMDB: e0dd09464b4e1a1cd7fa51ea835ae821b5656865
-  GoogleAnalytics-iOS-SDK: 16dfcc0c4491148bf372edc85a8470cc405ffb72
-  Kiwi: d60d7498b640a16f58b01925fc3c8d7c4d809f66
-  MSSimpleGauge: 0a25dabc2f9c736bf6354f19733cf9cc53ef8c61
-  Parse: 3739f0b211c49115bad96d6b0969b804d4da2f24
-  SVProgressHUD: 5e10939a296debf5fe5a5895eda9539b8b2114f1
-  SZTextView: 5d72dffb33c464b1cd1a42991535498175306dad
+  BlocksKit: 49fda17cbd628f3d6683f62de57edeaa315b386c
+  Bolts: 91c2af8eae1d44e1dd75946a5b0ae04a43ea43e4
+  CorePlot: 4abaf1be82ff7d1220f4aed16996a93970ea5a0e
+  Facebook-iOS-SDK: e9b3d5ac54ee3e5e693f4eef470b97911b3d076d
+  FMDB: f6f4511ad1e9ace38e9b6f4d83c2cddaabf98ea6
+  GoogleAnalytics-iOS-SDK: 4577fb25381a71c5beac455b18ebb288fc4f44e9
+  Kiwi: c73667f2b84cbf36f1a3830267c5a4ae8dcbd8ba
+  LUKeychainAccess: 3559d5939dee13858809c2405164db901330d343
+  MSSimpleGauge: 2639e8ee6f9b998dddd03b54f4a7b5a23eb473f5
+  Parse: ffebaecaddd32cb52671010f81567c298ff93d04
+  SVProgressHUD: 5034c6e22b8c2ca3e09402e48d41ed0340aa1c50
+  SZTextView: 28d06dc4c19e1372a174ec48fba2324d6796b1d6
 
 COCOAPODS: 0.32.1

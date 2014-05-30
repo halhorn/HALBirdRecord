@@ -16,5 +16,7 @@
 + (instancetype)sharedManager;
 
 - (void)purchaseProduct:(NSString *)productID withCompletion:(void(^)(BOOL))completion;
+- (void)restoreProductList;
+- (BOOL)hasRestorableProduct;
 
 @end

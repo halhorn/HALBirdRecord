@@ -15,6 +15,7 @@
 #import <BlocksKit+MessageUI.h>
 #import "HALDataExporter.h"
 #import "HALActivityManager.h"
+#import "HALProductManager.h"
 
 // views
 #import "HALLicenseViewController.h"
@@ -58,6 +59,7 @@
         ],
       @[
           @{@"title": @"ショップ", @"view": [HALPurchaseViewController viewControllerFromNib]},
+          @{@"title": @"購入情報のリストア", @"selector": @"restoreProducts"},
           ],
       @[
           @{@"title": @"CSVデータをメールでエクスポート", @"selector": @"openExportDataMail"},
@@ -101,6 +103,19 @@
                            [appInfo urlEncodedString]];
     NSURL *url = [NSURL URLWithString:urlString];
     [[UIApplication sharedApplication] openURL:url];
+}
+
+- (void)restoreProducts
+{
+    [UIAlertView bk_showAlertViewWithTitle:@"リストア" message:@"購入情報をリストアしますか？" cancelButtonTitle:@"キャンセル" otherButtonTitles:@[@"OK"] handler:^(UIAlertView *alertView, NSInteger buttonIndex){
+        if (buttonIndex != alertView.cancelButtonIndex) {
+            HALProductManager *productManager = [HALProductManager sharedManager];
+            [productManager restoreProductList];
+            [[HALActivityManager sharedManager] notifyActivityUpdate];
+            [SVProgressHUD showSuccessWithStatus:@"リストアしました"];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+    }];
 }
 
 - (void)openExportDataMail
