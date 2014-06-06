@@ -42,10 +42,13 @@
     _searchWord = searchWord;
     NSMutableArray *list = [[NSMutableArray alloc] init];
     NSString *kanaSearchWord = [self convertKana:searchWord];
-    NSPredicate *namePredicate = [NSPredicate predicateWithFormat:@"name contains %@", kanaSearchWord];
+    NSPredicate *nameBeginPredicate = [NSPredicate predicateWithFormat:@"name beginsWith %@", kanaSearchWord];
+    NSPredicate *nameContainPredicate = [NSPredicate predicateWithFormat:@"name contains %@ && !(name beginswith %@)", kanaSearchWord, kanaSearchWord];
     NSString *groupName = [NSString stringWithFormat:@"%@%@", kanaSearchWord, kHALGroupSuffix];
     NSPredicate *groupPredicate = [NSPredicate predicateWithFormat:@"groupName like %@", groupName];
-    [list addObject:[self.sortedBirdKind filteredArrayUsingPredicate:namePredicate]];
+    NSArray *nameBeginArray = [self.sortedBirdKind filteredArrayUsingPredicate:nameBeginPredicate];
+    NSArray *nameContainArray = [self.sortedBirdKind filteredArrayUsingPredicate:nameContainPredicate];
+    [list addObject:[nameBeginArray arrayByAddingObjectsFromArray:nameContainArray]];
     NSArray *groupSearchedList = [self.sortedBirdKind filteredArrayUsingPredicate:groupPredicate];
     if (groupSearchedList.count) {
         [list addObject:groupSearchedList];
