@@ -52,7 +52,7 @@
     
     self.sectionNames = @[@"アプリについて", @"ショップ", @"その他",
 #ifdef DEBUG
-                          @"開発"
+                          @"開発",
 #endif
                           ];
     self.views =
