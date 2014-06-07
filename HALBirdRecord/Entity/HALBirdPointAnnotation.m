@@ -23,7 +23,12 @@
     self = [super init];
     if (self) {
         _birdRecord = birdRecord;
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        static dispatch_once_t onceToken;
+        static NSDateFormatter *dateFormatter;
+        dispatch_once(&onceToken, ^{
+            dateFormatter = [[NSDateFormatter alloc] init];
+        });
+        
         dateFormatter.dateFormat = @"YYYY/MM/dd HH:mm:ss";
         self.coordinate = birdRecord.coordinate;
         self.title = birdRecord.kind.name;

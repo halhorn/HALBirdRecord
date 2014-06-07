@@ -50,7 +50,11 @@
 
     self.title = @"Info";
     
-    self.sectionNames = @[@"アプリについて", @"ショップ", @"その他"];
+    self.sectionNames = @[@"アプリについて", @"ショップ", @"その他",
+#ifdef DEBUG
+                          @"開発",
+#endif
+                          ];
     self.views =
     @[
       @[
@@ -66,6 +70,12 @@
           @{@"title": @"ライセンス", @"view": [HALLicenseViewController viewControllerFromNib]},
           @{@"title": @"作者・協力者", @"view": [HALAuthorInfoViewController viewControllerFromNib]}
           ],
+#ifdef DEBUG
+      @[
+          @{@"title": @"ダミーデータを作成", @"selector": @"makeDummyData"},
+          @{@"title": @"ダミーデータを削除", @"selector": @"removeDummyData"},
+          ],
+#endif
       ];
 
     [self setCancelButton];
@@ -144,6 +154,20 @@
         }];
     }];
 }
+
+#pragma mark - development
+- (void)makeDummyData
+{
+    [[HALActivityManager sharedManager] makeDummyDataWithActivityCount:200 birdRecordCount:200];
+    [SVProgressHUD showSuccessWithStatus:@"追加しました"];
+}
+
+- (void)removeDummyData
+{
+    [[HALActivityManager sharedManager] removeDummyData];
+    [SVProgressHUD showSuccessWithStatus:@"削除しました"];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

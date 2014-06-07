@@ -20,6 +20,8 @@
 - (HALActivity *)activityWithIndex:(int)index;
 - (void)saveActivity:(HALActivity *)activity;
 - (void)deleteActivity:(HALActivity *)activity;
+- (void)makeDummyDataWithActivityCount:(NSInteger)activityCount birdRecordCount:(NSInteger)birdRecordCount;
+- (void)removeDummyData;
 - (void)notifyActivityUpdate;
 
 @end

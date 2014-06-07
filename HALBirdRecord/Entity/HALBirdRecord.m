@@ -34,6 +34,14 @@
     _dbID = dbID;
 }
 
+- (HALLocationManager *)locationManager
+{
+    if (!_locationManager) {
+        _locationManager = [[HALLocationManager alloc] init];
+    }
+    return _locationManager;
+}
+
 #pragma mark initializer
 
 + (id)birdRecordWithBirdID:(int)birdID
@@ -46,7 +54,6 @@
     self = [super init];
     if (self) {
         self.db = [HALDB sharedDB];
-        self.locationManager = [[HALLocationManager alloc] init];
         _dbID = 0;
         _birdID = birdID;
         _datetime = [NSDate date];
@@ -81,7 +88,6 @@
         NSNumber *birdDBID = birdRow[@"id"];
         
         self.db = [HALDB sharedDB];
-        self.locationManager = [[HALLocationManager alloc] init];
         _birdID = [birdID intValue];
         _dbID = [birdDBID intValue];
         _count = [count intValue];
