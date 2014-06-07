@@ -10,9 +10,11 @@
 #import "HALProductManager.h"
 #import "HALDB.h"
 #import "HALProductManager.h"
+#import "HALBirdKindLoader.h"
 #import "NSNotificationCenter+HALDataUpdateNotification.h"
 
 #define kHALDefaultActivityCapacity 20
+#define kHALDummyActivityName @"__DummyActivity__"
 
 @interface HALActivityManager()
 
@@ -128,6 +130,38 @@
 - (void)notifyActivityUpdate
 {
     [[NSNotificationCenter defaultCenter] postDataUpdateNotification];
+}
+
+#pragma mark - dummy data maker
+- (void)makeDummyDataWithActivityCount:(NSInteger)activityCount birdRecordCount:(NSInteger)birdRecordCount
+{
+    for (int i=0; i < activityCount; i++) {
+        HALActivity *activity = [[HALActivity alloc] init];
+        activity.title = kHALDummyActivityName;
+        for (int j=0; j < birdRecordCount; j++) {
+            NSInteger birdID = arc4random() % 800;
+            HALBirdRecord *record = [HALBirdRecord birdRecordWithBirdID:birdID];
+            int lat = (arc4random() % 25) + 20;
+            int lng = (arc4random() % 30) + 122;
+            record.coordinate = CLLocationCoordinate2DMake(lat, lng);
+            [activity addBirdRecord:record];
+            NSLog(@"activity:%d",i);
+        }
+        [self registNewActivity:activity];
+        for (int j=0; j < birdRecordCount; j++) {
+            HALBirdRecord *record = activity.birdRecordList[j];
+            [record updatePlacemarkAndDBAsync];
+        }
+    }
+}
+
+- (void)removeDummyData
+{
+    for (HALActivity *activity in self.activityList) {
+        if ([activity.title isEqualToString:kHALDummyActivityName]) {
+            [self deleteActivity:activity];
+        }
+    }
 }
 
 #pragma mark - private method
