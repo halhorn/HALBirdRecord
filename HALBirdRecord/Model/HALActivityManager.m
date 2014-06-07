@@ -145,14 +145,14 @@
             int lng = (arc4random() % 30) + 122;
             record.coordinate = CLLocationCoordinate2DMake(lat, lng);
             [activity addBirdRecord:record];
-            NSLog(@"activity:%d",i);
         }
-        [self registNewActivity:activity];
-        for (int j=0; j < birdRecordCount; j++) {
-            HALBirdRecord *record = activity.birdRecordList[j];
-            [record updatePlacemarkAndDBAsync];
-        }
+        [self.db insertActivityRecord:activity];
+        activity.dbID = [self.db selectLastIdOfActivityTable];
+        [self.db insertBirdRecordList:activity.birdRecordList activityID:activity.dbID];
+        NSLog(@"activity:%d",i);
     }
+    [self loadActivityList];
+    [self notifyActivityUpdate];
 }
 
 - (void)removeDummyData

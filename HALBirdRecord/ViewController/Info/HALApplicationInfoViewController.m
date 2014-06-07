@@ -158,7 +158,7 @@
 #pragma mark - development
 - (void)makeDummyData
 {
-    [[HALActivityManager sharedManager] makeDummyDataWithActivityCount:20 birdRecordCount:100];
+    [[HALActivityManager sharedManager] makeDummyDataWithActivityCount:200 birdRecordCount:200];
     [SVProgressHUD showSuccessWithStatus:@"追加しました"];
 }
 
