@@ -3012,6 +3012,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = halhorn;
 				TargetAttributes = {
+					295E90581853FE3D000BA5FE = {
+						DevelopmentTeam = SG4SMG75H6;
+					};
 					295E90791853FE3E000BA5FE = {
 						TestTargetID = 295E90581853FE3D000BA5FE;
 					};
@@ -4091,11 +4094,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HALBirdRecord/HALBirdRecord-Prefix.pch";
 				INFOPLIST_FILE = "HALBirdRecord/HALBirdRecord-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "78D43BFE-F789-4E9B-926D-4EEF751CD2E0";
+				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
@@ -4107,12 +4112,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Harumitsu Nobuta (SG4SMG75H6)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HALBirdRecord/HALBirdRecord-Prefix.pch";
 				INFOPLIST_FILE = "HALBirdRecord/HALBirdRecord-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "BE9F2537-41AE-4D7F-A62E-FF81B65F5232";
+				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "arm64 armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
