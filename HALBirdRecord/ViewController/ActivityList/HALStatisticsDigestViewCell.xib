@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -51,7 +50,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SdT-VO-5B0">
-                        <rect key="frame" x="248" y="11" width="39" height="22"/>
+                        <rect key="frame" x="249" y="11" width="39" height="22"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="39" id="c65-M5-xfG"/>
                             <constraint firstAttribute="height" constant="22" id="y9d-pE-dyf"/>
@@ -80,7 +79,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ib-VV-bzW">
-                        <rect key="frame" x="172" y="34" width="115" height="1"/>
+                        <rect key="frame" x="173" y="34" width="115" height="1"/>
                         <color key="backgroundColor" red="0.54528382072230375" green="0.85561131386861311" blue="0.48203239206616638" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="115" id="CpS-MC-D51"/>
@@ -88,7 +87,7 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="463-1H-USi">
-                        <rect key="frame" x="172" y="64" width="115" height="1"/>
+                        <rect key="frame" x="173" y="64" width="115" height="1"/>
                         <color key="backgroundColor" red="0.54528382070000003" green="0.8556113139" blue="0.48203239209999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="esL-6G-fxN"/>
@@ -96,7 +95,7 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="SdT-VO-5B0" firstAttribute="top" secondItem="LVo-43-a7E" secondAttribute="topMargin" constant="3" id="0fj-jb-HrQ"/>
+                    <constraint firstItem="SdT-VO-5B0" firstAttribute="top" secondItem="LVo-43-a7E" secondAttribute="top" constant="11" id="0fj-jb-HrQ"/>
                     <constraint firstItem="463-1H-USi" firstAttribute="top" secondItem="lCO-Vo-Bj1" secondAttribute="bottom" id="3Zx-Ew-rwP"/>
                     <constraint firstItem="i7B-1c-zVr" firstAttribute="leading" secondItem="LVo-43-a7E" secondAttribute="leading" constant="27" id="4Fh-TH-7Pf"/>
                     <constraint firstItem="2Ib-VV-bzW" firstAttribute="trailing" secondItem="SdT-VO-5B0" secondAttribute="trailing" id="5i2-YD-lXc"/>
@@ -110,14 +109,14 @@
                     <constraint firstItem="lCO-Vo-Bj1" firstAttribute="top" secondItem="2Ib-VV-bzW" secondAttribute="bottom" constant="7" id="Otz-ts-99c"/>
                     <constraint firstAttribute="bottom" secondItem="RQf-FH-pro" secondAttribute="bottom" id="W8O-Yx-w39"/>
                     <constraint firstItem="2Ib-VV-bzW" firstAttribute="trailing" secondItem="463-1H-USi" secondAttribute="trailing" id="WNr-Lj-5c3"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="lCO-Vo-Bj1" secondAttribute="trailing" constant="26" id="b6L-hT-uwd"/>
+                    <constraint firstAttribute="trailing" secondItem="lCO-Vo-Bj1" secondAttribute="trailing" constant="34" id="b6L-hT-uwd"/>
                     <constraint firstItem="463-1H-USi" firstAttribute="bottom" secondItem="nYD-qh-xtK" secondAttribute="bottom" id="gMx-yl-8Zp"/>
                     <constraint firstItem="i7B-1c-zVr" firstAttribute="centerX" secondItem="GZc-Hh-jsn" secondAttribute="centerX" id="hOQ-0Y-0Gz"/>
                     <constraint firstItem="2Ib-VV-bzW" firstAttribute="leading" secondItem="463-1H-USi" secondAttribute="leading" id="hhZ-6U-o1r"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="dcY-fL-786" secondAttribute="trailing" constant="65" id="hyq-hG-ayf"/>
+                    <constraint firstAttribute="trailing" secondItem="dcY-fL-786" secondAttribute="trailing" constant="73" id="hyq-hG-ayf"/>
                     <constraint firstItem="i7B-1c-zVr" firstAttribute="top" secondItem="LVo-43-a7E" secondAttribute="top" constant="2" id="jwB-pv-pfr"/>
                     <constraint firstAttribute="bottom" secondItem="GZc-Hh-jsn" secondAttribute="bottom" constant="25" id="q0j-71-VLU"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="SdT-VO-5B0" secondAttribute="trailing" constant="25" id="sKr-KS-ERp"/>
+                    <constraint firstAttribute="trailing" secondItem="SdT-VO-5B0" secondAttribute="trailing" constant="32" id="sKr-KS-ERp"/>
                     <constraint firstItem="GZc-Hh-jsn" firstAttribute="centerX" secondItem="RQf-FH-pro" secondAttribute="centerX" id="tMl-Ro-ziy"/>
                 </constraints>
             </tableViewCellContentView>
