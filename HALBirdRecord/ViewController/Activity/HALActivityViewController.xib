@@ -82,9 +82,6 @@
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ljM-CL-sEy">
                     <rect key="frame" x="0.0" y="94" width="320" height="410"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="410" id="tii-gA-RhG"/>
-                    </constraints>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="Ymi-Lq-dOv"/>
                         <outlet property="delegate" destination="-1" id="PVq-dr-IRB"/>
@@ -95,10 +92,10 @@
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="ljM-CL-sEy" secondAttribute="bottom" id="31f-fO-fH1"/>
                 <constraint firstItem="ohX-SB-D4o" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="9Uo-9E-mvO"/>
+                <constraint firstItem="ljM-CL-sEy" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="KAT-Xp-Zkx"/>
                 <constraint firstAttribute="trailing" secondItem="ljM-CL-sEy" secondAttribute="trailing" id="Zcz-BT-CB8"/>
                 <constraint firstItem="ljM-CL-sEy" firstAttribute="top" secondItem="ohX-SB-D4o" secondAttribute="bottom" id="c11-za-vbh"/>
-                <constraint firstItem="ljM-CL-sEy" firstAttribute="leading" secondItem="ohX-SB-D4o" secondAttribute="leading" id="nqI-Ej-SNh"/>
-                <constraint firstItem="ljM-CL-sEy" firstAttribute="trailing" secondItem="ohX-SB-D4o" secondAttribute="trailing" id="sVV-G5-86N"/>
+                <constraint firstAttribute="trailing" secondItem="ohX-SB-D4o" secondAttribute="trailing" id="cmW-pj-IaY"/>
                 <constraint firstItem="ohX-SB-D4o" firstAttribute="top" secondItem="1" secondAttribute="top" id="sm4-RV-ztm"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
