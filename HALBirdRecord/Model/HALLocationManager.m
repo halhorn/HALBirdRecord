@@ -44,6 +44,9 @@
 - (void)setupManager
 {
     self.manager = [[CLLocationManager alloc] init];
+    if ([self.manager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+        [self.manager requestWhenInUseAuthorization];
+    }
     self.manager.delegate = self;
     self.manager.desiredAccuracy = kCLLocationAccuracyBest;
 }
