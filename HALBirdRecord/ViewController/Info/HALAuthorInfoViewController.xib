@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HALAuthorInfoViewController">
@@ -15,9 +15,8 @@
             <rect key="frame" x="0.0" y="64" width="320" height="504"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRc-Wv-zQi">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRc-Wv-zQi">
                     <rect key="frame" x="20" y="136" width="280" height="368"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <attributedString key="attributedText">
                         <fragment content="Special Thanks">
@@ -73,18 +72,32 @@ Cg
                     </attributedString>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="app_icon.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="wJx-uC-fYH">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_icon.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="wJx-uC-fYH">
                     <rect key="frame" x="96" y="0.0" width="128" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="128" id="79d-Re-yga"/>
+                        <constraint firstAttribute="width" constant="128" id="C41-Jb-2X2"/>
+                    </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="mRc-Wv-zQi" secondAttribute="trailing" constant="20" id="0pa-zX-XCY"/>
+                <constraint firstItem="wJx-uC-fYH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="KKJ-Ut-wc7"/>
+                <constraint firstItem="mRc-Wv-zQi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="OgE-P3-wCa"/>
+                <constraint firstAttribute="centerX" secondItem="wJx-uC-fYH" secondAttribute="centerX" id="foc-bW-h42"/>
+                <constraint firstAttribute="bottom" secondItem="mRc-Wv-zQi" secondAttribute="bottom" id="vEv-tw-2TG"/>
+                <constraint firstItem="mRc-Wv-zQi" firstAttribute="top" secondItem="wJx-uC-fYH" secondAttribute="bottom" constant="8" symbolic="YES" id="wxu-hE-aLC"/>
+            </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
     <resources>
         <image name="app_icon.jpg" width="512" height="512"/>
     </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>
