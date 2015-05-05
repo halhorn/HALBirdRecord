@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -78,17 +77,17 @@
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="AxR-GJ-RyZ" firstAttribute="top" secondItem="bxh-Hm-ew0" secondAttribute="topMargin" constant="1" id="06v-74-0yM"/>
+                    <constraint firstItem="AxR-GJ-RyZ" firstAttribute="top" secondItem="bxh-Hm-ew0" secondAttribute="top" constant="9" id="06v-74-0yM"/>
                     <constraint firstItem="YEi-vn-3uJ" firstAttribute="top" secondItem="bxh-Hm-ew0" secondAttribute="top" id="1qm-mV-Xgn"/>
                     <constraint firstAttribute="bottom" secondItem="YEi-vn-3uJ" secondAttribute="bottom" id="HhA-dT-sKj"/>
                     <constraint firstItem="YEi-vn-3uJ" firstAttribute="centerY" secondItem="FpI-ki-QW1" secondAttribute="centerY" id="fB6-hB-qQ1"/>
                     <constraint firstItem="16H-Xh-oK5" firstAttribute="top" secondItem="QEX-YQ-IJP" secondAttribute="top" id="k5O-pU-0wp"/>
                     <constraint firstItem="FpI-ki-QW1" firstAttribute="leading" secondItem="QEX-YQ-IJP" secondAttribute="leading" id="kKS-so-Jq7"/>
                     <constraint firstItem="AxR-GJ-RyZ" firstAttribute="centerY" secondItem="FpI-ki-QW1" secondAttribute="centerY" id="mKC-3T-tQa"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="FpI-ki-QW1" secondAttribute="trailing" constant="4" id="oK9-EJ-bqc"/>
-                    <constraint firstItem="AxR-GJ-RyZ" firstAttribute="leading" secondItem="bxh-Hm-ew0" secondAttribute="leadingMargin" constant="4" id="pZB-ZW-01n"/>
+                    <constraint firstAttribute="trailing" secondItem="FpI-ki-QW1" secondAttribute="trailing" constant="12" id="oK9-EJ-bqc"/>
+                    <constraint firstItem="AxR-GJ-RyZ" firstAttribute="leading" secondItem="bxh-Hm-ew0" secondAttribute="leading" constant="12" id="pZB-ZW-01n"/>
                     <constraint firstAttribute="trailing" secondItem="YEi-vn-3uJ" secondAttribute="trailing" id="qdw-G1-duw"/>
-                    <constraint firstItem="16H-Xh-oK5" firstAttribute="top" secondItem="bxh-Hm-ew0" secondAttribute="topMargin" constant="-1" id="r8r-Rm-ScO"/>
+                    <constraint firstItem="16H-Xh-oK5" firstAttribute="top" secondItem="bxh-Hm-ew0" secondAttribute="top" constant="7" id="r8r-Rm-ScO"/>
                     <constraint firstItem="16H-Xh-oK5" firstAttribute="trailing" secondItem="FpI-ki-QW1" secondAttribute="trailing" id="svB-H0-zBr"/>
                     <constraint firstItem="QEX-YQ-IJP" firstAttribute="trailing" secondItem="16H-Xh-oK5" secondAttribute="trailing" id="xrX-pL-xlj"/>
                 </constraints>
