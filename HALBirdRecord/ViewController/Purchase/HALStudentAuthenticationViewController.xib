@@ -250,8 +250,8 @@
                         <constraint firstAttribute="trailing" secondItem="NLo-tv-9sz" secondAttribute="trailing" constant="18" id="6d6-Mg-9NW"/>
                         <constraint firstAttribute="height" constant="39" id="KBb-TQ-R4V"/>
                         <constraint firstItem="J9f-X3-wPh" firstAttribute="leading" secondItem="87R-SQ-LZj" secondAttribute="leading" constant="19" id="QIA-JA-y8c"/>
-                        <constraint firstItem="NLo-tv-9sz" firstAttribute="baseline" secondItem="J9f-X3-wPh" secondAttribute="baseline" id="bSb-6w-lrh"/>
                         <constraint firstAttribute="centerY" secondItem="J9f-X3-wPh" secondAttribute="centerY" id="lcW-Bf-ULz"/>
+                        <constraint firstAttribute="centerY" secondItem="NLo-tv-9sz" secondAttribute="centerY" id="o9K-Nb-Tcs"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="14I-rc-nwN">

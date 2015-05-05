@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -22,12 +21,12 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity+5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="jxW-oM-Ekz">
-                        <rect key="frame" x="81" y="6" width="168" height="23"/>
+                        <rect key="frame" x="81" y="5" width="168" height="23"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥500" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vjD-XH-a5r">
-                        <rect key="frame" x="246" y="7" width="60" height="21"/>
+                        <rect key="frame" x="246" y="7" width="60" height="18"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="8zh-yX-zPH"/>
                         </constraints>
@@ -36,26 +35,26 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="アクティビティの数を5増やすことができます。" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="8" preferredMaxLayoutWidth="225" translatesAutoresizingMaskIntoConstraints="NO" id="Wn5-lH-IjB">
-                        <rect key="frame" x="81" y="30" width="225" height="38"/>
+                        <rect key="frame" x="81" y="29" width="225" height="39"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="vjD-XH-a5r" firstAttribute="top" secondItem="dHe-Ok-8dc" secondAttribute="topMargin" constant="-1" id="0zd-un-d2h"/>
+                    <constraint firstItem="vjD-XH-a5r" firstAttribute="top" secondItem="dHe-Ok-8dc" secondAttribute="top" constant="7" id="0zd-un-d2h"/>
                     <constraint firstItem="Wn5-lH-IjB" firstAttribute="leading" secondItem="jxW-oM-Ekz" secondAttribute="leading" id="3Sg-F6-HZC"/>
                     <constraint firstItem="Wn5-lH-IjB" firstAttribute="trailing" secondItem="vjD-XH-a5r" secondAttribute="trailing" id="C5V-Ts-dZX"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="vjD-XH-a5r" secondAttribute="trailing" constant="6" id="DR3-ix-N8i"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="jxW-oM-Ekz" secondAttribute="trailing" constant="63" id="GYT-7C-FXv"/>
+                    <constraint firstAttribute="trailing" secondItem="vjD-XH-a5r" secondAttribute="trailing" constant="14" id="DR3-ix-N8i"/>
+                    <constraint firstAttribute="trailing" secondItem="jxW-oM-Ekz" secondAttribute="trailing" constant="71" id="GYT-7C-FXv"/>
                     <constraint firstItem="4Mn-5S-FsG" firstAttribute="top" secondItem="dHe-Ok-8dc" secondAttribute="top" id="JIx-vL-TqR"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="Wn5-lH-IjB" secondAttribute="bottom" constant="-3" id="SoH-AY-7fk"/>
+                    <constraint firstAttribute="bottom" secondItem="Wn5-lH-IjB" secondAttribute="bottom" constant="5" id="SoH-AY-7fk"/>
                     <constraint firstAttribute="bottom" secondItem="4Mn-5S-FsG" secondAttribute="bottom" id="Ted-eY-GF2"/>
                     <constraint firstItem="vjD-XH-a5r" firstAttribute="centerY" secondItem="jxW-oM-Ekz" secondAttribute="centerY" id="UJM-cX-7Ex"/>
                     <constraint firstItem="jxW-oM-Ekz" firstAttribute="leading" secondItem="4Mn-5S-FsG" secondAttribute="trailing" constant="8" symbolic="YES" id="c4c-wm-d4a"/>
-                    <constraint firstItem="jxW-oM-Ekz" firstAttribute="baseline" secondItem="vjD-XH-a5r" secondAttribute="baseline" id="gQe-pt-cV3"/>
                     <constraint firstItem="Wn5-lH-IjB" firstAttribute="top" secondItem="jxW-oM-Ekz" secondAttribute="bottom" constant="1" id="lVW-Je-Qw5"/>
                     <constraint firstItem="4Mn-5S-FsG" firstAttribute="leading" secondItem="dHe-Ok-8dc" secondAttribute="leading" id="mQ9-wv-cMg"/>
+                    <constraint firstItem="jxW-oM-Ekz" firstAttribute="centerY" secondItem="vjD-XH-a5r" secondAttribute="centerY" id="xm8-5k-epX"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
