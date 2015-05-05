@@ -19,13 +19,6 @@
             <rect key="frame" x="0.0" y="64" width="320" height="504"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Uvj-Gr-IaU">
-                    <rect key="frame" x="0.0" y="41" width="320" height="336"/>
-                    <constraints>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="5KH-Zn-aek"/>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="Cye-zp-KZM"/>
-                    </constraints>
-                </mapView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="この鳥を見つけた場所" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OcU-gx-PmI">
                     <rect key="frame" x="20" y="12" width="280" height="21"/>
                     <constraints>
@@ -34,6 +27,9 @@
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Uvj-Gr-IaU">
+                    <rect key="frame" x="0.0" y="41" width="320" height="336"/>
+                </mapView>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="この鳥を見つけた時期" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mei-VR-mwR">
                     <rect key="frame" x="20" y="385" width="280" height="21"/>
                     <constraints>
