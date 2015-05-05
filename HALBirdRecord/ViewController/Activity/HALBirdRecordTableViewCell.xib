@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -37,7 +36,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tYm-UG-Iap">
-                        <rect key="frame" x="51" y="21" width="261" height="21"/>
+                        <rect key="frame" x="51" y="18" width="261" height="24"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -48,15 +47,15 @@
                     <constraint firstItem="p05-r5-acs" firstAttribute="bottom" secondItem="cqg-Tz-5bc" secondAttribute="bottom" id="Ap8-ZP-s2F"/>
                     <constraint firstItem="cqg-Tz-5bc" firstAttribute="leading" secondItem="JuQ-ZU-wwz" secondAttribute="trailing" constant="8" symbolic="YES" id="Enz-Tm-Eph"/>
                     <constraint firstItem="cqg-Tz-5bc" firstAttribute="leading" secondItem="tYm-UG-Iap" secondAttribute="leading" id="FEM-MY-uOz"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="cqg-Tz-5bc" secondAttribute="bottom" constant="12" id="L8R-E1-qQm"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="cqg-Tz-5bc" secondAttribute="trailing" constant="93" id="NNd-eg-Cgr"/>
+                    <constraint firstAttribute="bottom" secondItem="cqg-Tz-5bc" secondAttribute="bottom" constant="20" id="L8R-E1-qQm"/>
+                    <constraint firstAttribute="trailing" secondItem="cqg-Tz-5bc" secondAttribute="trailing" constant="101" id="NNd-eg-Cgr"/>
                     <constraint firstItem="JuQ-ZU-wwz" firstAttribute="top" secondItem="Xxi-jB-3sR" secondAttribute="top" id="OIt-V9-QAq"/>
                     <constraint firstAttribute="bottom" secondItem="JuQ-ZU-wwz" secondAttribute="bottom" id="Off-et-Eqp"/>
-                    <constraint firstItem="tYm-UG-Iap" firstAttribute="top" secondItem="Xxi-jB-3sR" secondAttribute="topMargin" constant="13" id="QHN-IB-pDl"/>
+                    <constraint firstItem="tYm-UG-Iap" firstAttribute="top" secondItem="Xxi-jB-3sR" secondAttribute="top" constant="18" id="QHN-IB-pDl"/>
                     <constraint firstAttribute="trailing" secondItem="p05-r5-acs" secondAttribute="trailing" constant="8" id="RMI-0s-l3i"/>
-                    <constraint firstItem="cqg-Tz-5bc" firstAttribute="top" secondItem="Xxi-jB-3sR" secondAttribute="topMargin" constant="-6" id="mPK-GK-Aok"/>
+                    <constraint firstItem="cqg-Tz-5bc" firstAttribute="top" secondItem="Xxi-jB-3sR" secondAttribute="top" constant="2" id="mPK-GK-Aok"/>
                     <constraint firstItem="p05-r5-acs" firstAttribute="trailing" secondItem="tYm-UG-Iap" secondAttribute="trailing" id="t5Q-fR-ntg"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="tYm-UG-Iap" secondAttribute="bottom" constant="-7" id="wiC-ki-4Jo"/>
+                    <constraint firstAttribute="bottom" secondItem="tYm-UG-Iap" secondAttribute="bottom" constant="1" id="wiC-ki-4Jo"/>
                     <constraint firstItem="JuQ-ZU-wwz" firstAttribute="leading" secondItem="Xxi-jB-3sR" secondAttribute="leading" id="xGX-Zg-diB"/>
                 </constraints>
             </tableViewCellContentView>

@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HALActivityListViewController">
@@ -27,10 +26,10 @@
                     </connections>
                 </tableView>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aHp-uR-Ul4">
-                    <rect key="frame" x="18" y="162" width="284" height="219"/>
+                    <rect key="frame" x="16" y="162" width="288" height="219"/>
                     <subviews>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使い方" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="afv-Mh-wS0">
-                            <rect key="frame" x="114" y="15" width="57" height="23"/>
+                            <rect key="frame" x="116" y="15" width="57" height="23"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="23" id="Y6r-AN-oe7"/>
                             </constraints>
@@ -38,7 +37,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="14" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTW-iN-KrK">
-                            <rect key="frame" x="15" y="48" width="254" height="161"/>
+                            <rect key="frame" x="15" y="48" width="258" height="161"/>
                             <attributedString key="attributedText">
                                 <fragment content="アクティビティ">
                                     <attributes>
@@ -99,8 +98,8 @@
                 <constraint firstItem="wAc-Sq-D2d" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="Jnz-zx-nlH"/>
                 <constraint firstItem="wAc-Sq-D2d" firstAttribute="top" secondItem="1" secondAttribute="top" id="UAh-Uh-bhe"/>
                 <constraint firstAttribute="trailing" secondItem="wAc-Sq-D2d" secondAttribute="trailing" id="Uu5-Vt-eNZ"/>
-                <constraint firstItem="aHp-uR-Ul4" firstAttribute="leading" secondItem="1" secondAttribute="leadingMargin" constant="10" id="aO6-5E-tZR"/>
-                <constraint firstAttribute="trailingMargin" secondItem="aHp-uR-Ul4" secondAttribute="trailing" constant="10" id="edc-gs-2l0"/>
+                <constraint firstItem="aHp-uR-Ul4" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="16" id="aO6-5E-tZR"/>
+                <constraint firstAttribute="trailing" secondItem="aHp-uR-Ul4" secondAttribute="trailing" constant="16" id="edc-gs-2l0"/>
                 <constraint firstAttribute="bottom" secondItem="wAc-Sq-D2d" secondAttribute="bottom" id="ekX-rx-Jxv"/>
                 <constraint firstAttribute="bottom" secondItem="aHp-uR-Ul4" secondAttribute="bottom" constant="35" id="jko-CI-7ac"/>
             </constraints>
