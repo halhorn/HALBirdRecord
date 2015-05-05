@@ -868,6 +868,7 @@
 		29D0C6EC1895273A0040EB1A /* icon_pro@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6E81895273A0040EB1A /* icon_pro@2x.png */; };
 		29D0C6F3189538290040EB1A /* icon_donation.png in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6F1189538290040EB1A /* icon_donation.png */; };
 		29D0C6F4189538290040EB1A /* icon_donation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6F2189538290040EB1A /* icon_donation@2x.png */; };
+		29DA86191AF8DC1B00B421F1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29DA86181AF8DC1B00B421F1 /* StoreKit.framework */; };
 		29DB75BF188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 29DB75BE188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.m */; };
 		29DB75C2188DF5940009B82B /* HALProductManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 29DB75C1188DF5940009B82B /* HALProductManager.m */; };
 		29DB75C51890132E0009B82B /* HALProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 29DB75C41890132E0009B82B /* HALProduct.m */; };
@@ -1803,6 +1804,7 @@
 		29D0C6E81895273A0040EB1A /* icon_pro@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_pro@2x.png"; sourceTree = "<group>"; };
 		29D0C6F1189538290040EB1A /* icon_donation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_donation.png; sourceTree = "<group>"; };
 		29D0C6F2189538290040EB1A /* icon_donation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_donation@2x.png"; sourceTree = "<group>"; };
+		29DA86181AF8DC1B00B421F1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		29DB75BD188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLGeocoder+HALCoordinateGeocoder.h"; sourceTree = "<group>"; };
 		29DB75BE188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLGeocoder+HALCoordinateGeocoder.m"; sourceTree = "<group>"; };
 		29DB75C0188DF5940009B82B /* HALProductManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = HALProductManager.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -1830,6 +1832,7 @@
 				295E90C3185466F4000BA5FE /* CoreLocation.framework in Frameworks */,
 				295E905F1853FE3D000BA5FE /* CoreGraphics.framework in Frameworks */,
 				295E90611853FE3E000BA5FE /* UIKit.framework in Frameworks */,
+				29DA86191AF8DC1B00B421F1 /* StoreKit.framework in Frameworks */,
 				295E905D1853FE3D000BA5FE /* Foundation.framework in Frameworks */,
 				8CB74CD249324A338FFEA57C /* libPods.a in Frameworks */,
 			);
@@ -1969,6 +1972,7 @@
 		295E905B1853FE3D000BA5FE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				29DA86181AF8DC1B00B421F1 /* StoreKit.framework */,
 				29411885192E21F2002E3C4E /* Security.framework */,
 				2941186F19192A21002E3C4E /* MessageUI.framework */,
 				2925A0611877CC4D00FA2EED /* SystemConfiguration.framework */,
@@ -3014,6 +3018,11 @@
 				TargetAttributes = {
 					295E90581853FE3D000BA5FE = {
 						DevelopmentTeam = SG4SMG75H6;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 					295E90791853FE3E000BA5FE = {
 						TestTargetID = 295E90581853FE3D000BA5FE;
