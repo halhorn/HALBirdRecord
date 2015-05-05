@@ -4,7 +4,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -75,7 +74,7 @@
                     <constraint firstAttribute="bottom" secondItem="wFm-kd-nA2" secondAttribute="bottom" id="Ei6-GP-ApK"/>
                     <constraint firstItem="TOM-N3-9y8" firstAttribute="leading" secondItem="Xae-6I-xy2" secondAttribute="leading" id="FEF-EZ-L58"/>
                     <constraint firstItem="dht-RN-7UB" firstAttribute="top" secondItem="IfZ-Y2-2jq" secondAttribute="bottom" id="IPv-L6-Rp4"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="IfZ-Y2-2jq" secondAttribute="trailing" constant="17" id="N8x-Qe-zOi"/>
+                    <constraint firstAttribute="trailing" secondItem="IfZ-Y2-2jq" secondAttribute="trailing" constant="25" id="N8x-Qe-zOi"/>
                     <constraint firstItem="IfZ-Y2-2jq" firstAttribute="leading" secondItem="TOM-N3-9y8" secondAttribute="trailing" constant="5" id="NVn-CG-1mM"/>
                     <constraint firstAttribute="trailing" secondItem="y5e-KZ-jea" secondAttribute="trailing" id="Oh3-08-k2b"/>
                     <constraint firstItem="IfZ-Y2-2jq" firstAttribute="top" secondItem="Xae-6I-xy2" secondAttribute="top" constant="5" id="Qy2-mg-Suw"/>

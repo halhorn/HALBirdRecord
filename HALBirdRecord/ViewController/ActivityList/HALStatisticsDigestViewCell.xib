@@ -3,8 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -108,11 +106,10 @@
                     <constraint firstItem="nYD-qh-xtK" firstAttribute="top" secondItem="2Ib-VV-bzW" secondAttribute="bottom" constant="8" symbolic="YES" id="AiJ-ui-TsO"/>
                     <constraint firstItem="nYD-qh-xtK" firstAttribute="top" secondItem="dcY-fL-786" secondAttribute="bottom" constant="8" id="Cgd-2e-aJs"/>
                     <constraint firstItem="2Ib-VV-bzW" firstAttribute="top" secondItem="SdT-VO-5B0" secondAttribute="bottom" constant="1" id="EsG-8J-NA4"/>
-                    <constraint firstItem="dcY-fL-786" firstAttribute="top" secondItem="LVo-43-a7E" secondAttribute="topMargin" constant="5" id="GSn-sb-iao"/>
+                    <constraint firstItem="dcY-fL-786" firstAttribute="top" secondItem="LVo-43-a7E" secondAttribute="top" constant="13" id="GSn-sb-iao"/>
                     <constraint firstItem="lCO-Vo-Bj1" firstAttribute="top" secondItem="2Ib-VV-bzW" secondAttribute="bottom" constant="7" id="Otz-ts-99c"/>
                     <constraint firstAttribute="bottom" secondItem="RQf-FH-pro" secondAttribute="bottom" id="W8O-Yx-w39"/>
                     <constraint firstItem="2Ib-VV-bzW" firstAttribute="trailing" secondItem="463-1H-USi" secondAttribute="trailing" id="WNr-Lj-5c3"/>
-                    <constraint firstItem="nYD-qh-xtK" firstAttribute="baseline" secondItem="lCO-Vo-Bj1" secondAttribute="firstBaseline" id="ajO-tq-qey"/>
                     <constraint firstAttribute="trailingMargin" secondItem="lCO-Vo-Bj1" secondAttribute="trailing" constant="26" id="b6L-hT-uwd"/>
                     <constraint firstItem="463-1H-USi" firstAttribute="bottom" secondItem="nYD-qh-xtK" secondAttribute="bottom" id="gMx-yl-8Zp"/>
                     <constraint firstItem="i7B-1c-zVr" firstAttribute="centerX" secondItem="GZc-Hh-jsn" secondAttribute="centerX" id="hOQ-0Y-0Gz"/>
