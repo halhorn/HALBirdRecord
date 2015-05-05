@@ -148,7 +148,18 @@
 - (void)setupRequestingView
 {
     if ([self.authenticator isStudentAuthenticationRequesting]) {
+        self.requestingView.translatesAutoresizingMaskIntoConstraints = NO;
         [self.view addSubview:self.requestingView];
+        NSDictionary *views = @{@"request" : self.requestingView};
+        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[request]-0-|"
+                                                                          options:0
+                                                                          metrics:nil
+                                                                            views:views]];
+        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[request]-0-|"
+                                                                          options:0
+                                                                          metrics:nil
+                                                                            views:views]];
+        [self.view layoutIfNeeded];
     } else {
         [self.requestingView removeFromSuperview];
     }

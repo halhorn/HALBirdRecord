@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HALStudentAuthenticationViewController">
@@ -33,13 +33,15 @@
             <rect key="frame" x="0.0" y="64" width="320" height="504"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" id="5qw-d1-TyN">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5qw-d1-TyN">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="73"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="isR-v2-DtA">
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="isR-v2-DtA">
                             <rect key="frame" x="26" y="10" width="268" height="53"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="268" id="62H-ef-j0w"/>
+                                <constraint firstAttribute="height" constant="53" id="hfC-qd-lvG"/>
+                            </constraints>
                             <string key="text">学割アカウントを使うには
 学生認証が必要です</string>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -48,21 +50,125 @@
                         </label>
                     </subviews>
                     <color key="backgroundColor" red="0.93601733580000002" green="0.97302691610000003" blue="0.94927577549999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="isR-v2-DtA" firstAttribute="centerX" secondItem="5qw-d1-TyN" secondAttribute="centerX" id="OUf-lI-bP9"/>
+                        <constraint firstItem="isR-v2-DtA" firstAttribute="centerY" secondItem="5qw-d1-TyN" secondAttribute="centerY" id="g28-un-j7A"/>
+                        <constraint firstAttribute="height" constant="73" id="qQg-oC-zkl"/>
+                    </constraints>
                 </view>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="以下の情報を入力して下さい。" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qT9-fK-0L9">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="以下の情報を入力して下さい。" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qT9-fK-0L9">
                     <rect key="frame" x="20" y="81" width="280" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="280" id="a6U-IE-tNH"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" id="CMD-6k-6FC">
-                    <rect key="frame" x="0.0" y="431" width="320" height="73"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BuR-tw-8kg">
+                    <rect key="frame" x="0.0" y="139" width="320" height="79"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="TPZ-Yk-02W">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wsu-yL-clA">
+                            <rect key="frame" x="72" y="32" width="176" height="39"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="39" id="5y0-H0-2oV"/>
+                                <constraint firstAttribute="width" constant="176" id="Qhr-vi-BY7"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                            <state key="normal" title="2011/03/31--" backgroundImage="button_normal.png">
+                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="onTapGraduationDate:" destination="-1" eventType="touchUpInside" id="pzD-Ok-bEY"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="学校を卒業する日" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qpa-pf-B9t">
+                            <rect key="frame" x="50" y="6" width="221" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="221" id="LkC-0L-xFE"/>
+                                <constraint firstAttribute="height" constant="21" id="fbB-zI-Yze"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="79" id="LSR-4y-zvn"/>
+                        <constraint firstItem="Qpa-pf-B9t" firstAttribute="centerX" secondItem="BuR-tw-8kg" secondAttribute="centerX" id="Nbe-ln-ERr"/>
+                        <constraint firstItem="wsu-yL-clA" firstAttribute="top" secondItem="Qpa-pf-B9t" secondAttribute="bottom" constant="5" id="Nnf-KC-buU"/>
+                        <constraint firstItem="Qpa-pf-B9t" firstAttribute="top" secondItem="BuR-tw-8kg" secondAttribute="top" constant="6" id="QF7-DE-C0c"/>
+                        <constraint firstItem="wsu-yL-clA" firstAttribute="centerX" secondItem="Qpa-pf-B9t" secondAttribute="centerX" id="UlA-h7-gxU"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lrz-bJ-3Sc">
+                    <rect key="frame" x="0.0" y="264" width="320" height="145"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aua-Cn-1UH">
+                            <rect key="frame" x="72" y="56" width="176" height="39"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="176" id="Q5N-zA-6da"/>
+                                <constraint firstAttribute="height" constant="39" id="drB-qH-3zm"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                            <state key="normal" title="学生証を撮る" backgroundImage="button_normal.png">
+                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="onTapTakePhoto:" destination="-1" eventType="touchUpInside" id="vOR-b1-vcu"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="学生であることを確認するために学生証が必要です。" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8wi-kP-zZa">
+                            <rect key="frame" x="29" y="0.0" width="263" height="41"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="263" id="lIS-m3-6YJ"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A93-0r-3H4">
+                            <rect key="frame" x="36" y="103" width="249" height="37"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="37" id="JzH-iN-NGN"/>
+                                <constraint firstAttribute="width" constant="249" id="Yt4-EJ-0Rd"/>
+                            </constraints>
+                            <string key="text">※入学年が見えるようして下さい
+※その他個人情報は隠して大丈夫です</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i6J-Wn-ihO">
+                            <rect key="frame" x="256" y="47" width="57" height="57"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="57" id="4MP-97-6Vc"/>
+                                <constraint firstAttribute="width" constant="57" id="KOU-av-Muw"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="aua-Cn-1UH" firstAttribute="top" secondItem="8wi-kP-zZa" secondAttribute="bottom" constant="15" id="2u3-wQ-5it"/>
+                        <constraint firstAttribute="height" constant="145" id="BNM-iV-tjY"/>
+                        <constraint firstItem="i6J-Wn-ihO" firstAttribute="centerY" secondItem="aua-Cn-1UH" secondAttribute="centerY" id="BiA-yJ-cRJ"/>
+                        <constraint firstItem="A93-0r-3H4" firstAttribute="centerX" secondItem="Lrz-bJ-3Sc" secondAttribute="centerX" id="G7v-Lj-ZsD"/>
+                        <constraint firstAttribute="centerX" secondItem="aua-Cn-1UH" secondAttribute="centerX" id="QSn-MS-Dp6"/>
+                        <constraint firstItem="8wi-kP-zZa" firstAttribute="top" secondItem="Lrz-bJ-3Sc" secondAttribute="top" id="Rr1-oc-eKg"/>
+                        <constraint firstItem="i6J-Wn-ihO" firstAttribute="leading" secondItem="aua-Cn-1UH" secondAttribute="trailing" constant="8" symbolic="YES" id="TIv-ca-1vL"/>
+                        <constraint firstItem="A93-0r-3H4" firstAttribute="top" secondItem="aua-Cn-1UH" secondAttribute="bottom" constant="8" id="UaV-k3-tfK"/>
+                        <constraint firstAttribute="centerX" secondItem="8wi-kP-zZa" secondAttribute="centerX" id="akX-sq-0Jg"/>
+                        <constraint firstAttribute="centerX" secondItem="A93-0r-3H4" secondAttribute="centerX" id="atB-V2-guF"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CMD-6k-6FC">
+                    <rect key="frame" x="0.0" y="431" width="320" height="73"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TPZ-Yk-02W">
                             <rect key="frame" x="72" y="17" width="176" height="39"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="39" id="23X-4E-48t"/>
+                                <constraint firstAttribute="width" constant="176" id="HE8-B1-pa0"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="21"/>
                             <state key="normal" title="OK" backgroundImage="button_normal.png">
                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -74,87 +180,44 @@
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.93601733580000002" green="0.97302691610000003" blue="0.94927577549999997" alpha="1" colorSpace="calibratedRGB"/>
-                </view>
-                <view contentMode="scaleToFill" id="Lrz-bJ-3Sc">
-                    <rect key="frame" x="0.0" y="264" width="320" height="145"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="aua-Cn-1UH">
-                            <rect key="frame" x="72" y="56" width="176" height="39"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                            <state key="normal" title="学生証を撮る" backgroundImage="button_normal.png">
-                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="onTapTakePhoto:" destination="-1" eventType="touchUpInside" id="vOR-b1-vcu"/>
-                            </connections>
-                        </button>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8wi-kP-zZa">
-                            <rect key="frame" x="29" y="0.0" width="263" height="51"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <string key="text">学生であることを確認するために学生証が必要です。
-</string>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="A93-0r-3H4">
-                            <rect key="frame" x="36" y="99" width="249" height="37"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <string key="text">※入学年が見えるようして下さい
-※その他個人情報は隠して大丈夫です</string>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="i6J-Wn-ihO">
-                            <rect key="frame" x="256" y="44" width="57" height="57"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                    </subviews>
-                </view>
-                <view contentMode="scaleToFill" id="BuR-tw-8kg">
-                    <rect key="frame" x="0.0" y="139" width="320" height="79"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="wsu-yL-clA">
-                            <rect key="frame" x="72" y="32" width="176" height="39"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                            <state key="normal" title="2011/03/31--" backgroundImage="button_normal.png">
-                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="onTapGraduationDate:" destination="-1" eventType="touchUpInside" id="pzD-Ok-bEY"/>
-                            </connections>
-                        </button>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="学校を卒業する日" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qpa-pf-B9t">
-                            <rect key="frame" x="50" y="6" width="221" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
+                    <constraints>
+                        <constraint firstItem="TPZ-Yk-02W" firstAttribute="centerY" secondItem="CMD-6k-6FC" secondAttribute="centerY" id="OoX-cm-laX"/>
+                        <constraint firstAttribute="height" constant="73" id="jjB-8l-YjP"/>
+                        <constraint firstItem="TPZ-Yk-02W" firstAttribute="centerX" secondItem="CMD-6k-6FC" secondAttribute="centerX" id="wcG-QM-YbM"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <constraints>
+                <constraint firstItem="CMD-6k-6FC" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="7cY-yG-NNE"/>
+                <constraint firstItem="Lrz-bJ-3Sc" firstAttribute="top" secondItem="BuR-tw-8kg" secondAttribute="bottom" constant="46" id="8rb-c4-MKh"/>
+                <constraint firstItem="BuR-tw-8kg" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="AiQ-td-mrJ"/>
+                <constraint firstAttribute="bottom" secondItem="CMD-6k-6FC" secondAttribute="bottom" id="IE9-jR-ZFN"/>
+                <constraint firstItem="qT9-fK-0L9" firstAttribute="top" secondItem="5qw-d1-TyN" secondAttribute="bottom" constant="8" symbolic="YES" id="K11-ai-gHY"/>
+                <constraint firstAttribute="centerX" secondItem="qT9-fK-0L9" secondAttribute="centerX" id="UC8-wO-ymu"/>
+                <constraint firstAttribute="trailing" secondItem="BuR-tw-8kg" secondAttribute="trailing" id="Vob-Bz-lE4"/>
+                <constraint firstItem="5qw-d1-TyN" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="ZOq-Th-4TH"/>
+                <constraint firstAttribute="trailing" secondItem="CMD-6k-6FC" secondAttribute="trailing" id="Zf5-Mm-JY0"/>
+                <constraint firstItem="Lrz-bJ-3Sc" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="cKK-7f-tI6"/>
+                <constraint firstItem="5qw-d1-TyN" firstAttribute="top" secondItem="1" secondAttribute="top" id="ejf-jR-54W"/>
+                <constraint firstAttribute="trailing" secondItem="Lrz-bJ-3Sc" secondAttribute="trailing" id="pUU-VR-0mK"/>
+                <constraint firstItem="BuR-tw-8kg" firstAttribute="top" secondItem="qT9-fK-0L9" secondAttribute="bottom" constant="37" id="rsu-ga-GEz"/>
+                <constraint firstAttribute="trailing" secondItem="5qw-d1-TyN" secondAttribute="trailing" id="uzP-jy-yPD"/>
+            </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
         <view contentMode="scaleToFill" id="VQL-P8-NZL">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" id="87R-SQ-LZj">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="87R-SQ-LZj">
                     <rect key="frame" x="0.0" y="368" width="320" height="39"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="NLo-tv-9sz">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NLo-tv-9sz">
                             <rect key="frame" x="256" y="5" width="46" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="46" id="avP-UH-1a7"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <state key="normal" title="OK">
                                 <color key="titleColor" red="0.1427349453" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -164,9 +227,11 @@
                                 <action selector="onTapOKPicker:" destination="-1" eventType="touchUpInside" id="uh2-b5-q5k"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="J9f-X3-wPh">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9f-X3-wPh">
                             <rect key="frame" x="19" y="5" width="59" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="59" id="38m-aj-xI7"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <state key="normal" title="Cancel">
                                 <color key="titleColor" red="0.14273494525547445" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -178,65 +243,68 @@
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.93601733580000002" green="0.97302691610000003" blue="0.94927577549999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="NLo-tv-9sz" secondAttribute="trailing" constant="18" id="6d6-Mg-9NW"/>
+                        <constraint firstAttribute="height" constant="39" id="KBb-TQ-R4V"/>
+                        <constraint firstItem="J9f-X3-wPh" firstAttribute="leading" secondItem="87R-SQ-LZj" secondAttribute="leading" constant="19" id="QIA-JA-y8c"/>
+                        <constraint firstItem="NLo-tv-9sz" firstAttribute="baseline" secondItem="J9f-X3-wPh" secondAttribute="baseline" id="bSb-6w-lrh"/>
+                        <constraint firstAttribute="centerY" secondItem="J9f-X3-wPh" secondAttribute="centerY" id="lcW-Bf-ULz"/>
+                    </constraints>
                 </view>
-                <view contentMode="scaleToFill" id="14I-rc-nwN">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="14I-rc-nwN">
                     <rect key="frame" x="0.0" y="406" width="320" height="162"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
-                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" id="b18-XH-ffg">
+                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="b18-XH-ffg">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="162"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             <date key="date" timeIntervalSinceReferenceDate="412906517.060597">
                                 <!--2014-02-01 00:15:17 +0000-->
                             </date>
-                            <timeZone key="timeZone" name="America/Los_Angeles">
-                                <data key="data">
-VFppZgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAC5AAAABAAAABCepkign7sVkKCGKqChmveQ
-y4kaoNIj9HDSYSYQ1v50INiArZDa/tGg28CQENzes6DdqayQ3r6VoN+JjpDgnneg4WlwkOJ+WaDjSVKQ
-5F47oOUpNJDmR1gg5xJREOgnOiDo8jMQ6gccIOrSFRDr5v4g7LH3EO3G4CDukdkQ76/8oPBxuxDxj96g
-8n/BkPNvwKD0X6OQ9U+ioPY/hZD3L4Sg+CiiEPkPZqD6CIQQ+viDIPvoZhD82GUg/chIEP64RyD/qCoQ
-AJgpIAGIDBACeAsgA3EokARhJ6AFUQqQBkEJoAcw7JAHjUOgCRDOkAmtvyAK8LCQC+CvoAzZzRANwJGg
-DrmvEA+priAQmZEQEYmQIBJ5cxATaXIgFFlVEBVJVCAWOTcQFyk2IBgiU5AZCRggGgI1kBryNKAb4heQ
-HNIWoB3B+ZAesfigH6HbkCB2KyAhgb2QIlYNICNq2hAkNe8gJUq8ECYV0SAnKp4QJ/7toCkKgBAp3s+g
-KupiECu+saAs036QLZ6ToC6zYJAvfnWgMJNCkDFnkiAycySQM0d0IDRTBpA1J1YgNjLokDcHOCA4HAUQ
-OOcaIDn75xA6xvwgO9vJEDywGKA9u6sQPo/6oD+bjRBAb9ygQYSpkEJPvqBDZIuQRC+goEVEbZBF89Mg
-Ry2KEEfTtSBJDWwQSbOXIErtThBLnLOgTNZqkE18laBOtkyQT1x3oFCWLpBRPFmgUnYQkFMcO6BUVfKQ
-VPwdoFY11JBW5TogWB7xEFjFHCBZ/tMQWqT+IFvetRBchOAgXb6XEF5kwiBfnnkQYE3eoGGHlZBiLcCg
-Y2d3kGQNoqBlR1mQZe2EoGcnO5BnzWagaQcdkGmtSKBq5v+Qa5ZlIGzQHBBtdkcgbq/+EG9WKSBwj+AQ
-cTYLIHJvwhBzFe0gdE+kEHT/CaB2OMCQdt7roHgYopB4vs2gefiEkHqer6B72GaQfH6RoH24SJB+XnOg
-f5gqkAABAAECAwEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
-AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
-AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
-AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
-</data>
-                            </timeZone>
                         </datePicker>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="162" id="31q-td-mRJ"/>
+                        <constraint firstAttribute="trailing" secondItem="b18-XH-ffg" secondAttribute="trailing" id="5Vc-sb-5ht"/>
+                        <constraint firstAttribute="bottom" secondItem="b18-XH-ffg" secondAttribute="bottom" id="WqR-EM-qfT"/>
+                        <constraint firstItem="b18-XH-ffg" firstAttribute="leading" secondItem="14I-rc-nwN" secondAttribute="leading" id="ecR-ed-Xw9"/>
+                        <constraint firstItem="b18-XH-ffg" firstAttribute="top" secondItem="14I-rc-nwN" secondAttribute="top" id="udE-Zw-ev7"/>
+                    </constraints>
                 </view>
             </subviews>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="87R-SQ-LZj" secondAttribute="trailing" id="1di-jP-zMV"/>
+                <constraint firstAttribute="bottom" secondItem="87R-SQ-LZj" secondAttribute="bottom" constant="161" id="2Bs-KK-hS9"/>
+                <constraint firstItem="87R-SQ-LZj" firstAttribute="leading" secondItem="VQL-P8-NZL" secondAttribute="leading" id="8Zo-lv-Sjg"/>
+                <constraint firstAttribute="bottom" secondItem="14I-rc-nwN" secondAttribute="bottom" id="H5q-HT-alX"/>
+                <constraint firstItem="14I-rc-nwN" firstAttribute="leading" secondItem="VQL-P8-NZL" secondAttribute="leading" id="PJB-ZE-JmI"/>
+                <constraint firstAttribute="trailing" secondItem="14I-rc-nwN" secondAttribute="trailing" id="msI-cy-QTm"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
         </view>
         <view contentMode="scaleToFill" id="QmU-P2-0wx">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" id="wE1-a6-PLV">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wE1-a6-PLV">
                     <rect key="frame" x="0.0" y="104" width="320" height="184"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9dd-L2-s9K">
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9dd-L2-s9K">
                             <rect key="frame" x="20" y="20" width="281" height="63"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="281" id="Sdn-Ll-FYd"/>
+                            </constraints>
                             <string key="text">学生認証を申請中です。
 認証には１周間程度かかります。</string>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Y6W-a3-4Bj">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y6W-a3-4Bj">
                             <rect key="frame" x="89" y="123" width="143" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="7oW-69-c09"/>
+                                <constraint firstAttribute="width" constant="143" id="L94-8W-kL2"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <state key="normal" title="申請を取り消す" backgroundImage="button_red.png">
                                 <color key="titleColor" red="0.53062271900000002" green="0.22824475359999999" blue="0.041999315689999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -248,14 +316,32 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="9dd-L2-s9K" firstAttribute="centerX" secondItem="Y6W-a3-4Bj" secondAttribute="centerX" id="2aZ-ct-Kfl"/>
+                        <constraint firstAttribute="bottom" secondItem="Y6W-a3-4Bj" secondAttribute="bottom" constant="31" id="AQp-tI-839"/>
+                        <constraint firstItem="9dd-L2-s9K" firstAttribute="centerX" secondItem="wE1-a6-PLV" secondAttribute="centerX" id="VMQ-9V-C52"/>
+                        <constraint firstItem="9dd-L2-s9K" firstAttribute="top" secondItem="wE1-a6-PLV" secondAttribute="top" constant="20" id="dLV-IY-nQu"/>
+                        <constraint firstItem="Y6W-a3-4Bj" firstAttribute="top" secondItem="9dd-L2-s9K" secondAttribute="bottom" constant="40" id="teZ-2u-JZw"/>
+                        <constraint firstAttribute="height" constant="184" id="yII-Vf-VVy"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.19" colorSpace="calibratedWhite"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="wE1-a6-PLV" secondAttribute="trailing" id="CeD-D5-jez"/>
+                <constraint firstItem="wE1-a6-PLV" firstAttribute="top" secondItem="QmU-P2-0wx" secondAttribute="top" constant="104" id="gL7-n9-4Y9"/>
+                <constraint firstItem="wE1-a6-PLV" firstAttribute="leading" secondItem="QmU-P2-0wx" secondAttribute="leading" id="xTI-f9-irE"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
         </view>
     </objects>
     <resources>
         <image name="button_normal.png" width="178" height="39"/>
         <image name="button_red.png" width="178" height="39"/>
     </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>
