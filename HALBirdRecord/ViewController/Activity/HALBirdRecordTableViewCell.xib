@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,32 +15,50 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="JuQ-ZU-wwz">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JuQ-ZU-wwz">
                         <rect key="frame" x="0.0" y="0.0" width="43" height="43"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="43" id="txG-Fk-6Ds"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BirdKind" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="cqg-Tz-5bc">
-                        <rect key="frame" x="51" y="2" width="176" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BirdKind" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="cqg-Tz-5bc">
+                        <rect key="frame" x="51" y="2" width="168" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12/12 05:34:33" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="p05-r5-acs">
-                        <rect key="frame" x="226" y="2" width="94" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12/12 05:34:33" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p05-r5-acs">
+                        <rect key="frame" x="218" y="2" width="94" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="94" id="b5Q-8B-EZZ"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tYm-UG-Iap">
-                        <rect key="frame" x="51" y="21" width="269" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tYm-UG-Iap">
+                        <rect key="frame" x="51" y="21" width="261" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="cqg-Tz-5bc" firstAttribute="top" secondItem="p05-r5-acs" secondAttribute="top" id="3oN-8L-dQ4"/>
+                    <constraint firstItem="p05-r5-acs" firstAttribute="bottom" secondItem="cqg-Tz-5bc" secondAttribute="bottom" id="Ap8-ZP-s2F"/>
+                    <constraint firstItem="cqg-Tz-5bc" firstAttribute="leading" secondItem="JuQ-ZU-wwz" secondAttribute="trailing" constant="8" symbolic="YES" id="Enz-Tm-Eph"/>
+                    <constraint firstItem="cqg-Tz-5bc" firstAttribute="leading" secondItem="tYm-UG-Iap" secondAttribute="leading" id="FEM-MY-uOz"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="cqg-Tz-5bc" secondAttribute="bottom" constant="12" id="L8R-E1-qQm"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="cqg-Tz-5bc" secondAttribute="trailing" constant="93" id="NNd-eg-Cgr"/>
+                    <constraint firstItem="JuQ-ZU-wwz" firstAttribute="top" secondItem="Xxi-jB-3sR" secondAttribute="top" id="OIt-V9-QAq"/>
+                    <constraint firstAttribute="bottom" secondItem="JuQ-ZU-wwz" secondAttribute="bottom" id="Off-et-Eqp"/>
+                    <constraint firstItem="tYm-UG-Iap" firstAttribute="top" secondItem="Xxi-jB-3sR" secondAttribute="topMargin" constant="13" id="QHN-IB-pDl"/>
+                    <constraint firstAttribute="trailing" secondItem="p05-r5-acs" secondAttribute="trailing" constant="8" id="RMI-0s-l3i"/>
+                    <constraint firstItem="cqg-Tz-5bc" firstAttribute="top" secondItem="Xxi-jB-3sR" secondAttribute="topMargin" constant="-6" id="mPK-GK-Aok"/>
+                    <constraint firstItem="p05-r5-acs" firstAttribute="trailing" secondItem="tYm-UG-Iap" secondAttribute="trailing" id="t5Q-fR-ntg"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="tYm-UG-Iap" secondAttribute="bottom" constant="-7" id="wiC-ki-4Jo"/>
+                    <constraint firstItem="JuQ-ZU-wwz" firstAttribute="leading" secondItem="Xxi-jB-3sR" secondAttribute="leading" id="xGX-Zg-diB"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="birdImageView" destination="JuQ-ZU-wwz" id="oiN-3V-g9e"/>
@@ -49,4 +68,9 @@
             </connections>
         </tableViewCell>
     </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>
