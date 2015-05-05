@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HALEditBirdRecordViewController">
@@ -12,7 +12,6 @@
                 <outlet property="commentTextField" destination="Cx7-jI-mi4" id="yVk-mw-zGC"/>
                 <outlet property="datetimePicker" destination="176-Z6-Adj" id="gNd-Iu-E4n"/>
                 <outlet property="mapView" destination="Na8-Mp-B5t" id="bYZ-pw-aek"/>
-                <outlet property="scrollView" destination="pQ9-Aa-iCD" id="hYB-Dw-YIv"/>
                 <outlet property="titleBackgroundView" destination="Efz-bx-8ed" id="Nmt-3A-Tbs"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
@@ -22,82 +21,87 @@
             <rect key="frame" x="0.0" y="64" width="320" height="504"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="pQ9-Aa-iCD">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Efz-bx-8ed">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
                     <subviews>
-                        <view contentMode="scaleToFill" id="Efz-bx-8ed">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ワタリガラス" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="uRD-FN-YUg">
-                                    <rect key="frame" x="20" y="22" width="222" height="29"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="oCn-kc-fh1">
-                                    <rect key="frame" x="246" y="0.0" width="74" height="74"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                </imageView>
-                            </subviews>
-                            <color key="backgroundColor" red="0.90500217679999995" green="0.98600506779999997" blue="0.99981087449999995" alpha="1" colorSpace="calibratedRGB"/>
-                        </view>
-                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="Na8-Mp-B5t">
-                            <rect key="frame" x="0.0" y="103" width="320" height="240"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
-                            <connections>
-                                <outlet property="delegate" destination="-1" id="MUf-q7-z3P"/>
-                            </connections>
-                        </mapView>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="コメント" minimumFontSize="17" clearButtonMode="whileEditing" id="Cx7-jI-mi4">
-                            <rect key="frame" x="8" y="75" width="304" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                            <connections>
-                                <action selector="onCommentEditEnd:" destination="-1" eventType="editingDidEnd" id="CaE-hi-7Od"/>
-                                <outlet property="delegate" destination="-1" id="agQ-gD-OeO"/>
-                            </connections>
-                        </textField>
-                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" id="176-Z6-Adj">
-                            <rect key="frame" x="0.0" y="342" width="320" height="162"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                            <date key="date" timeIntervalSinceReferenceDate="411699450.31025499">
-                                <!--2014-01-18 00:57:30 +0000-->
-                            </date>
-                            <timeZone key="timeZone" name="America/Los_Angeles">
-                                <mutableData key="data">
-VFppZgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAC5AAAABAAAABCepkign7sVkKCGKqChmveQ
-y4kaoNIj9HDSYSYQ1v50INiArZDa/tGg28CQENzes6DdqayQ3r6VoN+JjpDgnneg4WlwkOJ+WaDjSVKQ
-5F47oOUpNJDmR1gg5xJREOgnOiDo8jMQ6gccIOrSFRDr5v4g7LH3EO3G4CDukdkQ76/8oPBxuxDxj96g
-8n/BkPNvwKD0X6OQ9U+ioPY/hZD3L4Sg+CiiEPkPZqD6CIQQ+viDIPvoZhD82GUg/chIEP64RyD/qCoQ
-AJgpIAGIDBACeAsgA3EokARhJ6AFUQqQBkEJoAcw7JAHjUOgCRDOkAmtvyAK8LCQC+CvoAzZzRANwJGg
-DrmvEA+priAQmZEQEYmQIBJ5cxATaXIgFFlVEBVJVCAWOTcQFyk2IBgiU5AZCRggGgI1kBryNKAb4heQ
-HNIWoB3B+ZAesfigH6HbkCB2KyAhgb2QIlYNICNq2hAkNe8gJUq8ECYV0SAnKp4QJ/7toCkKgBAp3s+g
-KupiECu+saAs036QLZ6ToC6zYJAvfnWgMJNCkDFnkiAycySQM0d0IDRTBpA1J1YgNjLokDcHOCA4HAUQ
-OOcaIDn75xA6xvwgO9vJEDywGKA9u6sQPo/6oD+bjRBAb9ygQYSpkEJPvqBDZIuQRC+goEVEbZBF89Mg
-Ry2KEEfTtSBJDWwQSbOXIErtThBLnLOgTNZqkE18laBOtkyQT1x3oFCWLpBRPFmgUnYQkFMcO6BUVfKQ
-VPwdoFY11JBW5TogWB7xEFjFHCBZ/tMQWqT+IFvetRBchOAgXb6XEF5kwiBfnnkQYE3eoGGHlZBiLcCg
-Y2d3kGQNoqBlR1mQZe2EoGcnO5BnzWagaQcdkGmtSKBq5v+Qa5ZlIGzQHBBtdkcgbq/+EG9WKSBwj+AQ
-cTYLIHJvwhBzFe0gdE+kEHT/CaB2OMCQdt7roHgYopB4vs2gefiEkHqer6B72GaQfH6RoH24SJB+XnOg
-f5gqkAABAAECAwEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
-AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
-AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
-AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
-</mutableData>
-                            </timeZone>
-                            <connections>
-                                <action selector="onDatetimeChanged:" destination="-1" eventType="valueChanged" id="8Q1-SQ-iPQ"/>
-                            </connections>
-                        </datePicker>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ワタリガラス" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="uRD-FN-YUg">
+                            <rect key="frame" x="20" y="22" width="222" height="29"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="29" id="b0S-Hg-cvQ"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oCn-kc-fh1">
+                            <rect key="frame" x="246" y="0.0" width="74" height="74"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="74" id="VU0-sm-a9L"/>
+                            </constraints>
+                        </imageView>
                     </subviews>
-                </scrollView>
+                    <color key="backgroundColor" red="0.90500217679999995" green="0.98600506779999997" blue="0.99981087449999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="centerY" secondItem="uRD-FN-YUg" secondAttribute="centerY" id="5yV-Yf-UTo"/>
+                        <constraint firstItem="oCn-kc-fh1" firstAttribute="leading" secondItem="uRD-FN-YUg" secondAttribute="trailing" constant="4" id="G6D-Mj-BMB"/>
+                        <constraint firstAttribute="height" constant="74" id="IEi-KM-Fyz"/>
+                        <constraint firstItem="oCn-kc-fh1" firstAttribute="top" secondItem="Efz-bx-8ed" secondAttribute="top" id="LMg-Mc-4K8"/>
+                        <constraint firstAttribute="bottom" secondItem="oCn-kc-fh1" secondAttribute="bottom" id="PmQ-jZ-kZv"/>
+                        <constraint firstItem="uRD-FN-YUg" firstAttribute="leading" secondItem="Efz-bx-8ed" secondAttribute="leading" constant="20" id="V2a-aX-8Rk"/>
+                        <constraint firstAttribute="trailing" secondItem="oCn-kc-fh1" secondAttribute="trailing" id="v2h-ht-eDa"/>
+                    </constraints>
+                </view>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Na8-Mp-B5t">
+                    <rect key="frame" x="0.0" y="104" width="320" height="238"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="MUf-q7-z3P"/>
+                    </connections>
+                </mapView>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="コメント" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Cx7-jI-mi4">
+                    <rect key="frame" x="0.0" y="74" width="320" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="3r0-Vb-M1C"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <action selector="onCommentEditEnd:" destination="-1" eventType="editingDidEnd" id="CaE-hi-7Od"/>
+                        <outlet property="delegate" destination="-1" id="agQ-gD-OeO"/>
+                    </connections>
+                </textField>
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="176-Z6-Adj">
+                    <rect key="frame" x="0.0" y="342" width="320" height="162"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="162" id="dDN-9E-QGU"/>
+                    </constraints>
+                    <date key="date" timeIntervalSinceReferenceDate="411699450.31025499">
+                        <!--2014-01-18 00:57:30 +0000-->
+                    </date>
+                    <connections>
+                        <action selector="onDatetimeChanged:" destination="-1" eventType="valueChanged" id="8Q1-SQ-iPQ"/>
+                    </connections>
+                </datePicker>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="176-Z6-Adj" secondAttribute="trailing" id="40P-v7-b0k"/>
+                <constraint firstAttribute="bottom" secondItem="176-Z6-Adj" secondAttribute="bottom" id="ABO-xb-lKE"/>
+                <constraint firstAttribute="trailing" secondItem="Cx7-jI-mi4" secondAttribute="trailing" id="HZO-6Y-n74"/>
+                <constraint firstAttribute="trailing" secondItem="Efz-bx-8ed" secondAttribute="trailing" id="LOB-oo-47h"/>
+                <constraint firstItem="Cx7-jI-mi4" firstAttribute="top" secondItem="1" secondAttribute="top" constant="74" id="QcS-W7-fp2"/>
+                <constraint firstItem="Efz-bx-8ed" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="RuK-Eg-RCX"/>
+                <constraint firstItem="Cx7-jI-mi4" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="WQ0-w9-gEY"/>
+                <constraint firstAttribute="bottom" secondItem="Na8-Mp-B5t" secondAttribute="bottom" constant="162" id="aaj-YJ-FgP"/>
+                <constraint firstItem="Efz-bx-8ed" firstAttribute="top" secondItem="1" secondAttribute="top" id="cn5-IV-8hR"/>
+                <constraint firstItem="Na8-Mp-B5t" firstAttribute="top" secondItem="1" secondAttribute="top" constant="104" id="eoN-hD-dIY"/>
+                <constraint firstAttribute="trailing" secondItem="Na8-Mp-B5t" secondAttribute="trailing" id="xq9-SR-8ST"/>
+                <constraint firstItem="Na8-Mp-B5t" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="znC-Mb-9O6"/>
+            </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>

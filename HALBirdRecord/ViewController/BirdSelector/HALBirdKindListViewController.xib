@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HALBirdKindListViewController">
@@ -17,22 +17,36 @@
             <rect key="frame" x="0.0" y="64" width="320" height="416"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" id="uaO-zf-QNJ">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uaO-zf-QNJ">
                     <rect key="frame" x="0.0" y="34" width="320" height="382"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="鳥の名前を入力してください" minimumFontSize="17" clearButtonMode="always" id="2WQ-vt-4v1">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="鳥の名前を入力してください" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="2WQ-vt-4v1">
                     <rect key="frame" x="10" y="0.0" width="300" height="34"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="34" id="YBj-L8-m8U"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <textInputTraits key="textInputTraits" returnKeyType="search"/>
                 </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+            <constraints>
+                <constraint firstItem="2WQ-vt-4v1" firstAttribute="top" secondItem="1" secondAttribute="top" id="5t5-jZ-e0T"/>
+                <constraint firstAttribute="trailing" secondItem="uaO-zf-QNJ" secondAttribute="trailing" id="Axn-iM-1TA"/>
+                <constraint firstAttribute="trailing" secondItem="2WQ-vt-4v1" secondAttribute="trailing" constant="10" id="BEU-aT-GqW"/>
+                <constraint firstItem="uaO-zf-QNJ" firstAttribute="top" secondItem="2WQ-vt-4v1" secondAttribute="bottom" id="CvI-1D-Oi0"/>
+                <constraint firstItem="uaO-zf-QNJ" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="LVc-W3-ccl"/>
+                <constraint firstItem="2WQ-vt-4v1" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="10" id="UuH-eV-Lrm"/>
+                <constraint firstAttribute="bottom" secondItem="uaO-zf-QNJ" secondAttribute="bottom" id="uFf-v7-IMg"/>
+            </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>

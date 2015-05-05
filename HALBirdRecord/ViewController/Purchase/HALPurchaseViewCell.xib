@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,31 +15,48 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="73"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Mn-5S-FsG">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Mn-5S-FsG">
                         <rect key="frame" x="0.0" y="0.0" width="73" height="73"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="73" id="10z-jS-f8F"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Activity+5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="jxW-oM-Ekz">
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity+5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="jxW-oM-Ekz">
                         <rect key="frame" x="81" y="6" width="168" height="23"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="￥500" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vjD-XH-a5r">
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥500" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vjD-XH-a5r">
                         <rect key="frame" x="246" y="7" width="60" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="8zh-yX-zPH"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="アクティビティの数を5増やすことができます。" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="8" preferredMaxLayoutWidth="225" translatesAutoresizingMaskIntoConstraints="NO" id="Wn5-lH-IjB">
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="アクティビティの数を5増やすことができます。" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="8" preferredMaxLayoutWidth="225" translatesAutoresizingMaskIntoConstraints="NO" id="Wn5-lH-IjB">
                         <rect key="frame" x="81" y="30" width="225" height="38"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="vjD-XH-a5r" firstAttribute="top" secondItem="dHe-Ok-8dc" secondAttribute="topMargin" constant="-1" id="0zd-un-d2h"/>
+                    <constraint firstItem="Wn5-lH-IjB" firstAttribute="leading" secondItem="jxW-oM-Ekz" secondAttribute="leading" id="3Sg-F6-HZC"/>
+                    <constraint firstItem="Wn5-lH-IjB" firstAttribute="trailing" secondItem="vjD-XH-a5r" secondAttribute="trailing" id="C5V-Ts-dZX"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="vjD-XH-a5r" secondAttribute="trailing" constant="6" id="DR3-ix-N8i"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="jxW-oM-Ekz" secondAttribute="trailing" constant="63" id="GYT-7C-FXv"/>
+                    <constraint firstItem="4Mn-5S-FsG" firstAttribute="top" secondItem="dHe-Ok-8dc" secondAttribute="top" id="JIx-vL-TqR"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Wn5-lH-IjB" secondAttribute="bottom" constant="-3" id="SoH-AY-7fk"/>
+                    <constraint firstAttribute="bottom" secondItem="4Mn-5S-FsG" secondAttribute="bottom" id="Ted-eY-GF2"/>
+                    <constraint firstItem="vjD-XH-a5r" firstAttribute="centerY" secondItem="jxW-oM-Ekz" secondAttribute="centerY" id="UJM-cX-7Ex"/>
+                    <constraint firstItem="jxW-oM-Ekz" firstAttribute="leading" secondItem="4Mn-5S-FsG" secondAttribute="trailing" constant="8" symbolic="YES" id="c4c-wm-d4a"/>
+                    <constraint firstItem="jxW-oM-Ekz" firstAttribute="baseline" secondItem="vjD-XH-a5r" secondAttribute="baseline" id="gQe-pt-cV3"/>
+                    <constraint firstItem="Wn5-lH-IjB" firstAttribute="top" secondItem="jxW-oM-Ekz" secondAttribute="bottom" constant="1" id="lVW-Je-Qw5"/>
+                    <constraint firstItem="4Mn-5S-FsG" firstAttribute="leading" secondItem="dHe-Ok-8dc" secondAttribute="leading" id="mQ9-wv-cMg"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="iconView" destination="4Mn-5S-FsG" id="MdA-JP-FDk"/>
@@ -48,4 +66,9 @@
             </connections>
         </tableViewCell>
     </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>
