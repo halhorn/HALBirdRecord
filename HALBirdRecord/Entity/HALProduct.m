@@ -13,6 +13,7 @@
 {
     self = [super init];
     if (self) {
+        int basePrice = 120;
         _productID = productID;
         if ([productID isEqualToString:kHALProductIDProAccount]) {
             _productType = HALProductTypePremiumAccount;
@@ -21,7 +22,7 @@
             _title = @"Pro";
             _comment = @"保存できるアクティビティの数が無制限になります。";
             _image = [UIImage imageNamed:@"purchase_pro.png"];
-            _price = 800;
+            _price = basePrice * 8;
         } else if ([productID isEqualToString:kHALProductIDDonationMember]) {
             _productType = HALProductTypePremiumAccount;
             _productSource = HALProductSourcePurchased;
@@ -29,7 +30,7 @@
             _title = @"Pro* (開発賛助)";
             _comment = @"開発賛助をしてくださる方はご購入お願いします。機能はProと同等です。";
             _image = [UIImage imageNamed:@"purchase_donation.png"];
-            _price = 2000;
+            _price = basePrice * 20;
         } else if ([productID isEqualToString:kHALProductIDExpand5Activities]) {
             _productType = HALProductTypeExpandActivity;
             _productSource = HALProductSourcePurchased;
@@ -37,7 +38,7 @@
             _title = [NSString stringWithFormat:@"Activity+%d", _value];
             _comment = [NSString stringWithFormat:@"保存できるアクティビティの数を%d個増やすことができます。", _value];
             _image = [UIImage imageNamed:@"purchase_activity5.png"];
-            _price = 100;
+            _price = basePrice * 1;
         } else if ([productID isEqualToString:kHALProductIDExpand15Activities]) {
             _productType = HALProductTypeExpandActivity;
             _productSource = HALProductSourcePurchased;
@@ -45,7 +46,7 @@
             _title = [NSString stringWithFormat:@"Activity+%d", _value];
             _comment = [NSString stringWithFormat:@"保存できるアクティビティの数を%d個増やすことができます。", _value];
             _image = [UIImage imageNamed:@"purchase_activity15.png"];
-            _price = 200;
+            _price = basePrice * 2;
         } else if ([productID isEqualToString:kHALProductIDExpand50Activities]) {
             _productType = HALProductTypeExpandActivity;
             _productSource = HALProductSourcePurchased;
@@ -53,7 +54,7 @@
             _title = [NSString stringWithFormat:@"Activity+%d", _value];
             _comment = [NSString stringWithFormat:@"保存できるアクティビティの数を%d個増やすことができます。", _value];
             _image = [UIImage imageNamed:@"purchase_activity50.png"];
-            _price = 400;
+            _price = basePrice * 4;
         } else if ([productID isEqualToString:kHALProductIDExpand100Activities]) {
             _productType = HALProductTypeExpandActivity;
             _productSource = HALProductSourcePurchased;
@@ -61,7 +62,7 @@
             _title = [NSString stringWithFormat:@"Activity+%d", _value];
             _comment = [NSString stringWithFormat:@"保存できるアクティビティの数を%d個増やすことができます。", _value];
             _image = [UIImage imageNamed:@"purchase_activity100.png"];
-            _price = 600;
+            _price = basePrice * 6;
         } else if ([productID isEqualToString:kHALProductIDStudentAccount]) {
             _productType = HALProductTypePremiumAccount;
             _productSource = HALProductSourceStudentAuthentication;
