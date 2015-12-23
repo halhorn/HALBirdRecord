@@ -11,5 +11,8 @@
 @interface HALDataExporter : NSObject
 
 + (void)exportAllDataToCSVWithCompletion:(void(^)(NSString *))completion;
++ (void)exportAllDataToParseWithCompletion:(void(^)(BOOL, NSString *))completion;
++ (void)importDataFromParseWithKey:(NSString *)objectId
+                        completion:(void(^)(BOOL, NSString *))completion;
 
 @end
