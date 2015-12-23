@@ -18,6 +18,8 @@
 @property(nonatomic) NSString *comment;
 @property(nonatomic, readonly) NSMutableArray *birdRecordList;
 
++ (instancetype)activityWithDictionary:(NSDictionary *)dictionary;
+- (id)initWithDictionary:(NSDictionary *)dictionary;
 - (void)addBirdRecord:(HALBirdRecord *)birdRecord;
 - (void)addBirdRecordList:(NSArray *)birdRecordList;
 - (void)loadBirdRecordListByOrder:(HALBirdRecordOrder)order;
