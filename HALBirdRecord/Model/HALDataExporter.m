@@ -63,11 +63,6 @@
         HALActivity *activity = [activityManager activityWithIndex:activityNo];
         
         [activity loadBirdRecordListByOrder:HALBirdRecordOrderDateTime];
-        NSDictionary *activityDict = @{
-                                       @"id"      : @(activity.dbID),
-                                       @"title"   : activity.title,
-                                       @"comment" : activity.comment,
-                                       };
         NSMutableArray *recordArray = [NSMutableArray array];
         for (HALBirdRecord *record in [activity birdRecordList]) {
             [recordArray addObject:@{
@@ -79,12 +74,12 @@
                                      @"city"       : record.city,
                                      @"comment"    : record.comment,
                                      @"datetime"   : @([record.datetime timeIntervalSince1970]),
-                                     @"id"         : @(record.dbID),
                                      }];
         }
         [activityArray addObject:@{
-                                   @"activity"   : activityDict,
-                                   @"recordList" : recordArray,
+                                   @"title"          : activity.title,
+                                   @"comment"        : activity.comment,
+                                   @"birdRecordList" : recordArray,
                                    }];
     }
     NSData *data = [NSJSONSerialization dataWithJSONObject:activityArray options:NSJSONWritingPrettyPrinted error:nil];
