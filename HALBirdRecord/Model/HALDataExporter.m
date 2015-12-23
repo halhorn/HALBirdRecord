@@ -86,4 +86,16 @@
     return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 }
 
++ (void)inportDataFromJSONSync:(NSString *)jsonString
+{
+    HALActivityManager *activityManager = [HALActivityManager sharedManager];
+
+    NSData *data = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    NSArray *activityArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    for (NSDictionary *activityDict in activityArray) {
+        HALActivity *activity = [HALActivity activityWithDictionary:activityDict];
+        [activityManager saveActivity:activity];
+    }
+}
+
 @end
