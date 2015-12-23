@@ -54,6 +54,27 @@
     return str;
 }
 
++ (void)exportAllDataToJSONWithCompletion:(void(^)(NSString *))completion
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSString *json = [HALDataExporter exportAllDataToJSONSync];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completion(json);
+        });
+    });
+}
+
++ (void)importDataFromJSON:(NSString *)jsonString
+               withCompletion:(void(^)(void))completion
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [HALDataExporter importDataFromJSONSync:jsonString];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completion();
+        });
+    });
+}
+
 + (NSString *)exportAllDataToJSONSync
 {
     HALActivityManager *activityManager = [HALActivityManager sharedManager];
@@ -86,7 +107,7 @@
     return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 }
 
-+ (void)inportDataFromJSONSync:(NSString *)jsonString
++ (void)importDataFromJSONSync:(NSString *)jsonString
 {
     HALActivityManager *activityManager = [HALActivityManager sharedManager];
 
