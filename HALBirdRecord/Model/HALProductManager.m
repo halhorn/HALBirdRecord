@@ -38,8 +38,8 @@
     self = [super init];
     if (self) {
 #ifdef DEBUG
-        [[NSUserDefaults standardUserDefaults] setObject:@[] forKey:kHALProductSettingKey];
-        [[NSUserDefaults standardUserDefaults] synchronize];
+//        [[NSUserDefaults standardUserDefaults] setObject:@[] forKey:kHALProductSettingKey];
+//        [[NSUserDefaults standardUserDefaults] synchronize];
 #endif
         [self loadProductList];
         [self addProductObservers];
