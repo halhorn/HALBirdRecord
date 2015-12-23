@@ -9,6 +9,10 @@
 #import "HALDataExporter.h"
 #import "HALActivityManager.h"
 #import "HALBirdKindLoader.h"
+#import <Parse/Parse.h>
+
+#define kHALDataExportClassName @"DataExport"
+#define kHALParseDataExportVersion @"1.0"
 
 @implementation HALDataExporter
 
@@ -54,25 +58,43 @@
     return str;
 }
 
-+ (void)exportAllDataToJSONWithCompletion:(void(^)(NSString *))completion
++ (void)exportAllDataToParseWithCompletion:(void(^)(BOOL, NSString *))completion
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSString *json = [HALDataExporter exportAllDataToJSONSync];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            completion(json);
-        });
+        PFObject *pfObject = [PFObject objectWithClassName:kHALDataExportClassName];
+        pfObject[@"data"] = json;
+        pfObject[@"version"] = kHALParseDataExportVersion;
+        [pfObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion(succeeded, pfObject.objectId);
+            });
+        }];
     });
 }
 
-+ (void)importDataFromJSON:(NSString *)jsonString
-               withCompletion:(void(^)(void))completion
++ (void)importDataFromParseWithKey:(NSString *)objectId
+                        completion:(void(^)(BOOL, NSString *))completion
 {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [HALDataExporter importDataFromJSONSync:jsonString];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            completion();
+    PFQuery *query = [PFQuery queryWithClassName:kHALDataExportClassName];
+    [query getObjectInBackgroundWithId:objectId block:^(PFObject *object, NSError *error){
+        if (error) {
+            completion(false, error.localizedDescription);
+            return;
+        }
+        if (![object[@"version"] isEqualToString:kHALParseDataExportVersion]) {
+            completion(false, @"データの送信元と送信先両方に最新版のアプリをインストールしてください");
+            return;
+        }
+        NSString *jsonString = object[@"data"];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [HALDataExporter importDataFromJSONSync:jsonString];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion(true, nil);
+            });
         });
-    });
+    }];
+    
 }
 
 + (NSString *)exportAllDataToJSONSync
