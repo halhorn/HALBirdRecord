@@ -54,4 +54,41 @@
     return str;
 }
 
++ (NSString *)exportAllDataToJSONSync
+{
+    HALActivityManager *activityManager = [HALActivityManager sharedManager];
+
+    NSMutableArray *activityArray = [NSMutableArray array];
+    for (int activityNo = 0; activityNo < [activityManager activityCount]; activityNo++) {
+        HALActivity *activity = [activityManager activityWithIndex:activityNo];
+        
+        [activity loadBirdRecordListByOrder:HALBirdRecordOrderDateTime];
+        NSDictionary *activityDict = @{
+                                       @"id"      : @(activity.dbID),
+                                       @"title"   : activity.title,
+                                       @"comment" : activity.comment,
+                                       };
+        NSMutableArray *recordArray = [NSMutableArray array];
+        for (HALBirdRecord *record in [activity birdRecordList]) {
+            [recordArray addObject:@{
+                                     @"birdID"     : @(record.birdID),
+                                     @"count"      : @(record.count),
+                                     @"latitude"   : @(record.coordinate.latitude),
+                                     @"longitude"  : @(record.coordinate.longitude),
+                                     @"prefecture" : record.prefecture,
+                                     @"city"       : record.city,
+                                     @"comment"    : record.comment,
+                                     @"datetime"   : @([record.datetime timeIntervalSince1970]),
+                                     @"id"         : @(record.dbID),
+                                     }];
+        }
+        [activityArray addObject:@{
+                                   @"activity"   : activityDict,
+                                   @"recordList" : recordArray,
+                                   }];
+    }
+    NSData *data = [NSJSONSerialization dataWithJSONObject:activityArray options:NSJSONWritingPrettyPrinted error:nil];
+    return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+}
+
 @end
