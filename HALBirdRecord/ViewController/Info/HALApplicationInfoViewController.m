@@ -121,13 +121,14 @@
 
 - (void)restoreProducts
 {
+    WeakSelf weakSelf = self;
     [UIAlertView bk_showAlertViewWithTitle:@"リストア" message:@"購入情報をリストアしますか？" cancelButtonTitle:@"キャンセル" otherButtonTitles:@[@"OK"] handler:^(UIAlertView *alertView, NSInteger buttonIndex){
         if (buttonIndex != alertView.cancelButtonIndex) {
             HALProductManager *productManager = [HALProductManager sharedManager];
             [productManager restoreProductList];
             [[HALActivityManager sharedManager] notifyActivityUpdate];
             [SVProgressHUD showSuccessWithStatus:@"リストアしました"];
-            [self dismissViewControllerAnimated:YES completion:nil];
+            [weakSelf dismissViewControllerAnimated:YES completion:nil];
         }
     }];
 }
@@ -162,6 +163,7 @@
 - (void)exportAllData
 {
     [SVProgressHUD show];
+    WeakSelf weakSelf = self;
     [HALDataExporter exportAllDataToParseWithCompletion:^(BOOL success, NSString *objectId){
         [SVProgressHUD dismiss];
         if (success) {
@@ -175,13 +177,17 @@
                                            message:message
                                  cancelButtonTitle:@"OK"
                                  otherButtonTitles:@[]
-                                           handler:nil];
+                                           handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                                               [weakSelf dismissViewControllerAnimated:YES completion:nil];
+                                           }];
         } else {
             [UIAlertView bk_showAlertViewWithTitle:@"失敗"
                                            message:@"データの送信に失敗しました。"
                                  cancelButtonTitle:@"OK"
                                  otherButtonTitles:@[]
-                                           handler:nil];
+                                           handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                                               [weakSelf dismissViewControllerAnimated:YES completion:nil];
+                                           }];
         }
     }];
 }
@@ -189,6 +195,7 @@
 - (void)importData
 {
     UIAlertView *alert = [UIAlertView bk_alertViewWithTitle:@"IDを入力してください" message:@"送信元の鳥ログでデータを送信時に表示されるIDを入力してください。"];
+    WeakSelf weakSelf = self;
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
     [alert textFieldAtIndex:0].placeholder = @"ID";
     [alert textFieldAtIndex:0].clearButtonMode = UITextFieldViewModeWhileEditing;
@@ -202,9 +209,15 @@
                                                message:@"データを取り込みました。"
                                      cancelButtonTitle:@"OK"
                                      otherButtonTitles:@[]
-                                               handler:nil];
+                                               handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                                                   [weakSelf dismissViewControllerAnimated:YES completion:nil];
+                                               }];
             } else {
-                [UIAlertView bk_showAlertViewWithTitle:@"失敗" message:errorMessage cancelButtonTitle:@"OK" otherButtonTitles:@[] handler:nil];
+                [UIAlertView bk_showAlertViewWithTitle:@"失敗"
+                                               message:errorMessage
+                                     cancelButtonTitle:@"OK"
+                                     otherButtonTitles:@[]
+                                               handler:nil];
             }
         }];
     }];
