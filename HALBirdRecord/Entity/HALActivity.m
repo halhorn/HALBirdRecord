@@ -16,6 +16,11 @@
 
 @implementation HALActivity
 
++ (instancetype)activityWithDictionary:(NSDictionary *)dictionary
+{
+    return [[HALActivity alloc] initWithDictionary:dictionary];
+}
+
 - (id)init
 {
     self = [super init];
@@ -24,6 +29,23 @@
         self.title = @"";
         self.comment = @"";
         _birdRecordList = [[NSMutableArray alloc] init];
+        self.db = [HALDB sharedDB];
+    }
+    return self;
+}
+
+- (id)initWithDictionary:(NSDictionary *)dictionary
+{
+    self = [super init];
+    if (self) {
+        self.dbID = [dictionary[@"id"] intValue] || 0;
+        self.title = [self removeNSNull:dictionary[@"title"]];
+        self.comment = [self removeNSNull:dictionary[@"comment"]];
+        _birdRecordList = [[NSMutableArray alloc] init];
+        NSArray *birdRecordDictList = [self removeNSNull:dictionary[@"birdRecordList"]];
+        for (NSDictionary *recordDict in birdRecordDictList) {
+            [self.birdRecordList addObject:[HALBirdRecord birdRecordWithDBRow:recordDict]];
+        }
         self.db = [HALDB sharedDB];
     }
     return self;
@@ -53,6 +75,11 @@
 - (NSString *)description
 {
     return [NSString stringWithFormat:@"Activity: dbID:%d title:%@ comment:%@ birds:%@", self.dbID, self.title, self.comment, self.birdRecordList];
+}
+
+- (id)removeNSNull:(id)var
+{
+    return [var isEqual:[NSNull null]] ? nil : var;
 }
 
 @end

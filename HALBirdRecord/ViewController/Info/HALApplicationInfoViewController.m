@@ -50,7 +50,7 @@
 
     self.title = @"Info";
     
-    self.sectionNames = @[@"アプリについて", @"ショップ", @"その他",
+    self.sectionNames = @[@"アプリについて", @"ショップ", @"データの移動", @"その他",
 #ifdef DEBUG
                           @"開発",
 #endif
@@ -66,7 +66,11 @@
           @{@"title": @"購入情報のリストア", @"selector": @"restoreProducts"},
           ],
       @[
-          @{@"title": @"CSVデータをメールでエクスポート", @"selector": @"openExportDataMail"},
+          @{@"title": @"全てのデータをCSV形式でPCに送る(メール)", @"selector": @"openExportDataMail"},
+          @{@"title": @"全てのデータを他のiPhoneに送る", @"selector": @"exportAllData"},
+          @{@"title": @"データを他のiPhoneから受け取る", @"selector": @"importData"},
+          ],
+      @[
           @{@"title": @"ライセンス", @"view": [HALLicenseViewController viewControllerFromNib]},
           @{@"title": @"作者・協力者", @"view": [HALAuthorInfoViewController viewControllerFromNib]}
           ],
@@ -117,13 +121,14 @@
 
 - (void)restoreProducts
 {
+    WeakSelf weakSelf = self;
     [UIAlertView bk_showAlertViewWithTitle:@"リストア" message:@"購入情報をリストアしますか？" cancelButtonTitle:@"キャンセル" otherButtonTitles:@[@"OK"] handler:^(UIAlertView *alertView, NSInteger buttonIndex){
         if (buttonIndex != alertView.cancelButtonIndex) {
             HALProductManager *productManager = [HALProductManager sharedManager];
             [productManager restoreProductList];
             [[HALActivityManager sharedManager] notifyActivityUpdate];
             [SVProgressHUD showSuccessWithStatus:@"リストアしました"];
-            [self dismissViewControllerAnimated:YES completion:nil];
+            [weakSelf dismissViewControllerAnimated:YES completion:nil];
         }
     }];
 }
@@ -153,6 +158,70 @@
             [SVProgressHUD dismiss];
         }];
     }];
+}
+
+- (void)exportAllData
+{
+    [SVProgressHUD show];
+    WeakSelf weakSelf = self;
+    [HALDataExporter exportAllDataToParseWithCompletion:^(BOOL success, NSString *objectId){
+        [SVProgressHUD dismiss];
+        if (success) {
+            NSString *message = [NSString stringWithFormat:
+                                 @"%@\n\n"
+                                 "1. 上の文字列（ID）をメモしてください。\n"
+                                 "2. 送り先のiPhoneで「データを他のiPhoneから受け取る」を選択してください。\n"
+                                 "3. 上でメモしたIDを入力してください。\n"
+                                 "（データはそのうち消えます。早めに受け取ってください。）", objectId];
+            [UIAlertView bk_showAlertViewWithTitle:@"完了"
+                                           message:message
+                                 cancelButtonTitle:@"OK"
+                                 otherButtonTitles:@[]
+                                           handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                                               [weakSelf dismissViewControllerAnimated:YES completion:nil];
+                                           }];
+        } else {
+            [UIAlertView bk_showAlertViewWithTitle:@"失敗"
+                                           message:@"データの送信に失敗しました。"
+                                 cancelButtonTitle:@"OK"
+                                 otherButtonTitles:@[]
+                                           handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                                               [weakSelf dismissViewControllerAnimated:YES completion:nil];
+                                           }];
+        }
+    }];
+}
+
+- (void)importData
+{
+    UIAlertView *alert = [UIAlertView bk_alertViewWithTitle:@"IDを入力してください" message:@"送信元の鳥ログでデータを送信時に表示されるIDを入力してください。"];
+    WeakSelf weakSelf = self;
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [alert textFieldAtIndex:0].placeholder = @"ID";
+    [alert textFieldAtIndex:0].clearButtonMode = UITextFieldViewModeWhileEditing;
+    [alert bk_addButtonWithTitle:@"OK" handler:^{
+        [SVProgressHUD show];
+        NSString *objectId = [alert textFieldAtIndex:0].text;
+        [HALDataExporter importDataFromParseWithKey:objectId completion:^(BOOL success, NSString *errorMessage){
+            [SVProgressHUD dismiss];
+            if (success) {
+                [UIAlertView bk_showAlertViewWithTitle:@"完了"
+                                               message:@"データを取り込みました。"
+                                     cancelButtonTitle:@"OK"
+                                     otherButtonTitles:@[]
+                                               handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                                                   [weakSelf dismissViewControllerAnimated:YES completion:nil];
+                                               }];
+            } else {
+                [UIAlertView bk_showAlertViewWithTitle:@"失敗"
+                                               message:errorMessage
+                                     cancelButtonTitle:@"OK"
+                                     otherButtonTitles:@[]
+                                               handler:nil];
+            }
+        }];
+    }];
+    [alert show];
 }
 
 #pragma mark - development
