@@ -79,11 +79,19 @@
     PFQuery *query = [PFQuery queryWithClassName:kHALDataExportClassName];
     [query getObjectInBackgroundWithId:objectId block:^(PFObject *object, NSError *error){
         if (error) {
-            completion(false, error.localizedDescription);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (error.code == 101) {
+                    completion(false, @"指定されたIDのデータが見つかりませんでした。");
+                } else {
+                    completion(false, error.localizedDescription);
+                }
+            });
             return;
         }
         if (![object[@"version"] isEqualToString:kHALParseDataExportVersion]) {
-            completion(false, @"データの送信元と送信先両方に最新版のアプリをインストールしてください");
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion(false, @"データの送信元と送信先両方に最新版のアプリをインストールしてください");
+            });
             return;
         }
         NSString *jsonString = object[@"data"];
