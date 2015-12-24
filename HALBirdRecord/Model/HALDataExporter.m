@@ -12,7 +12,7 @@
 #import <Parse/Parse.h>
 
 #define kHALDataExportClassName @"DataExport"
-#define kHALParseDataExportVersion @"1.1"
+#define kHALParseDataExportVersion @"1.2"
 
 @implementation HALDataExporter
 
