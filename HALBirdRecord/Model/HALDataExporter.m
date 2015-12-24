@@ -111,7 +111,7 @@
     HALActivityManager *activityManager = [HALActivityManager sharedManager];
 
     NSMutableArray *activityArray = [NSMutableArray array];
-    for (int activityNo = 0; activityNo < [activityManager activityCount]; activityNo++) {
+    for (int activityNo = [activityManager activityCount] - 1; activityNo >= 0 ; activityNo--) {
         HALActivity *activity = [activityManager activityWithIndex:activityNo];
         
         [activity loadBirdRecordListByOrder:HALBirdRecordOrderDateTime];
