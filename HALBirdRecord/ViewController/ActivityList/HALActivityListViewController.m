@@ -57,8 +57,6 @@
     [self.tableView registerNib:[HALNewActivityCell nib]
          forCellReuseIdentifier:[HALNewActivityCell cellIdentifier]];
     
-    [self setupExplainView];
-    
     UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
     [infoButton addTarget:self action:@selector(onTapInfoButton:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:infoButton];
@@ -70,6 +68,7 @@
 {
     [super viewWillAppear:animated];
     [HALGAManager sendView:@"Activity List"];
+    [self setupExplainView];
     [self showChannelSurvey];
 }
 
