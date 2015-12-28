@@ -12,7 +12,7 @@
 #import <Parse/Parse.h>
 
 #define kHALDataExportClassName @"DataExport"
-#define kHALParseDataExportVersion @"1.2"
+#define kHALParseDataExportVersion @"1.3"
 
 @implementation HALDataExporter
 
@@ -62,22 +62,25 @@
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         PFFile *jsonFile = [PFFile fileWithName:@"activities.json" data:[HALDataExporter exportAllDataToJSONSync]];
+        NSString *key = [NSString stringWithFormat:@"%06d", (int)arc4random_uniform(1000000)];
         PFObject *pfObject = [PFObject objectWithClassName:kHALDataExportClassName];
         pfObject[@"file"] = jsonFile;
+        pfObject[@"key"] = key;
         pfObject[@"version"] = kHALParseDataExportVersion;
         [pfObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
             dispatch_async(dispatch_get_main_queue(), ^{
-                completion(succeeded, pfObject.objectId);
+                completion(succeeded, key);
             });
         }];
     });
 }
 
-+ (void)importDataFromParseWithKey:(NSString *)objectId
++ (void)importDataFromParseWithKey:(NSString *)key
                         completion:(void(^)(BOOL, NSString *))completion
 {
     PFQuery *query = [PFQuery queryWithClassName:kHALDataExportClassName];
-    [query getObjectInBackgroundWithId:objectId block:^(PFObject *object, NSError *error){
+    [query whereKey:@"key" equalTo:key];
+    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error){
         if (error) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (error.code == 101) {
