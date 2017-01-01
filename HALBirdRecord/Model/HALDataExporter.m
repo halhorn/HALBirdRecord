@@ -9,7 +9,6 @@
 #import "HALDataExporter.h"
 #import "HALActivityManager.h"
 #import "HALBirdKindLoader.h"
-#import <Parse/Parse.h>
 
 #define kHALDataExportClassName @"DataExport"
 #define kHALParseDataExportVersion @"1.3"
@@ -56,99 +55,6 @@
         }
     }
     return str;
-}
-
-+ (void)exportAllDataToParseWithCompletion:(void(^)(BOOL, NSString *))completion
-{
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        PFFile *jsonFile = [PFFile fileWithName:@"activities.json" data:[HALDataExporter exportAllDataToJSONSync]];
-        NSString *key = [NSString stringWithFormat:@"%06d", (int)arc4random_uniform(1000000)];
-        PFObject *pfObject = [PFObject objectWithClassName:kHALDataExportClassName];
-        pfObject[@"file"] = jsonFile;
-        pfObject[@"key"] = key;
-        pfObject[@"version"] = kHALParseDataExportVersion;
-        [pfObject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
-            dispatch_async(dispatch_get_main_queue(), ^{
-                completion(succeeded, key);
-            });
-        }];
-    });
-}
-
-+ (void)importDataFromParseWithKey:(NSString *)key
-                        completion:(void(^)(BOOL, NSString *))completion
-{
-    PFQuery *query = [PFQuery queryWithClassName:kHALDataExportClassName];
-    [query whereKey:@"key" equalTo:key];
-    [query getFirstObjectInBackgroundWithBlock:^(PFObject *object, NSError *error){
-        if (error) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                if (error.code == 101) {
-                    completion(false, @"指定されたIDのデータが見つかりませんでした。");
-                } else {
-                    completion(false, error.localizedDescription);
-                }
-            });
-            return;
-        }
-        if (![object[@"version"] isEqualToString:kHALParseDataExportVersion]) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                completion(false, @"データの送信元と送信先両方に最新版のアプリをインストールしてください");
-            });
-            return;
-        }
-        PFFile *jsonFile = object[@"file"];
-        NSData *jsonData = [jsonFile getData];
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            [HALDataExporter importDataFromJSONSync:jsonData];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                completion(true, nil);
-            });
-        });
-    }];
-    
-}
-
-+ (NSData *)exportAllDataToJSONSync
-{
-    HALActivityManager *activityManager = [HALActivityManager sharedManager];
-
-    NSMutableArray *activityArray = [NSMutableArray array];
-    for (int activityNo = [activityManager activityCount] - 1; activityNo >= 0 ; activityNo--) {
-        HALActivity *activity = [activityManager activityWithIndex:activityNo];
-        
-        [activity loadBirdRecordListByOrder:HALBirdRecordOrderDateTime];
-        NSMutableArray *recordArray = [NSMutableArray array];
-        for (HALBirdRecord *record in [activity birdRecordList]) {
-            [recordArray addObject:@{
-                                     @"birdID"     : @(record.birdID),
-                                     @"count"      : @(record.count),
-                                     @"latitude"   : @(record.coordinate.latitude),
-                                     @"longitude"  : @(record.coordinate.longitude),
-                                     @"prefecture" : record.prefecture,
-                                     @"city"       : record.city,
-                                     @"comment"    : record.comment,
-                                     @"datetime"   : @([record.datetime timeIntervalSince1970]),
-                                     }];
-        }
-        [activityArray addObject:@{
-                                   @"title"          : activity.title,
-                                   @"comment"        : activity.comment,
-                                   @"birdRecordList" : recordArray,
-                                   }];
-    }
-    return [NSJSONSerialization dataWithJSONObject:activityArray options:NSJSONWritingPrettyPrinted error:nil];
-}
-
-+ (void)importDataFromJSONSync:(NSData *)jsonData
-{
-    HALActivityManager *activityManager = [HALActivityManager sharedManager];
-
-    NSArray *activityArray = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
-    for (NSDictionary *activityDict in activityArray) {
-        HALActivity *activity = [HALActivity activityWithDictionary:activityDict];
-        [activityManager saveActivity:activity];
-    }
 }
 
 @end

@@ -48,6 +48,7 @@ static NSDateFormatter *dateFormatter;
 
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
     self.titleLabel.textColor = kHALTextColor;
     self.commentLabel.textColor = kHALSubTextColor;
     self.dateLabel.textColor = kHALSubTextColor;
@@ -59,7 +60,7 @@ static NSDateFormatter *dateFormatter;
     self.activity = activity;
     self.titleLabel.text = activity.title;
     self.commentLabel.text = activity.comment;
-    self.birdCountLabel.text = [NSString stringWithFormat:@"%d", activity.birdRecordList.count];
+    self.birdCountLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)activity.birdRecordList.count];
     self.dateLabel.text = [self dateLabelText];
 
     HALMapManager *mapManager = [HALMapManager managerWithActivity:activity];
@@ -74,7 +75,7 @@ static NSDateFormatter *dateFormatter;
         dateFormatter = [[NSDateFormatter alloc] init];
         dateFormatter.dateFormat = @"yyyy/MM/dd";
     }
-    int birdCount = self.activity.birdRecordList.count;
+    int birdCount = (int)self.activity.birdRecordList.count;
     if (!birdCount) {
         return @"";
     }

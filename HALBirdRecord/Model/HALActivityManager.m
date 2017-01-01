@@ -7,9 +7,7 @@
 //
 
 #import "HALActivityManager.h"
-#import "HALProductManager.h"
 #import "HALDB.h"
-#import "HALProductManager.h"
 #import "HALBirdKindLoader.h"
 #import "NSNotificationCenter+HALDataUpdateNotification.h"
 
@@ -49,21 +47,8 @@
     if (!self.activityList) {
         [self loadActivityList];
     }
-    return self.activityList.count;
+    return (int)self.activityList.count;
 }
-
-- (int)activityCapacity
-{
-    int capacity = kHALDefaultActivityCapacity;
-    HALProductManager *productManager = [HALProductManager sharedManager];
-    for (HALProduct *product in [productManager productList]) {
-        if (product.productType == HALProductTypeExpandActivity) {
-            capacity += product.value;
-        }
-    }
-    return capacity;
-}
-
 
 - (HALActivity *)activityWithIndex:(int)index
 {
@@ -140,7 +125,7 @@
         activity.title = kHALDummyActivityName;
         for (int j=0; j < birdRecordCount; j++) {
             NSInteger birdID = arc4random() % 800;
-            HALBirdRecord *record = [HALBirdRecord birdRecordWithBirdID:birdID];
+            HALBirdRecord *record = [HALBirdRecord birdRecordWithBirdID:(int)birdID];
             int lat = (arc4random() % 25) + 20;
             int lng = (arc4random() % 30) + 122;
             record.coordinate = CLLocationCoordinate2DMake(lat, lng);

@@ -1,8 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HALHelpViewController">
@@ -16,19 +20,19 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="1">
-            <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ke3-lC-zVn">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                     <subviews>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげほげ" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UcX-LX-htk">
-                            <rect key="frame" x="20" y="21" width="280" height="79"/>
+                            <rect key="frame" x="20" y="21" width="335" height="79"/>
                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.99747145179999996" green="0.96165138480000001" blue="0.93096905949999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.99747145179999996" green="0.96165138480000001" blue="0.93096905949999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="UcX-LX-htk" firstAttribute="leading" secondItem="ke3-lC-zVn" secondAttribute="leading" constant="20" id="4Vz-gx-Kpb"/>
                         <constraint firstAttribute="trailing" secondItem="UcX-LX-htk" secondAttribute="trailing" constant="20" id="6no-g4-vh0"/>
@@ -38,17 +42,17 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sSl-aS-ogw">
-                    <rect key="frame" x="0.0" y="100" width="320" height="404"/>
+                    <rect key="frame" x="0.0" y="100" width="375" height="503"/>
                     <subviews>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kb4-aT-eNw">
-                            <rect key="frame" x="20" y="20" width="280" height="364"/>
+                            <rect key="frame" x="20" y="20" width="335" height="463"/>
                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             <dataDetectorType key="dataDetectorTypes" link="YES"/>
                         </textView>
                     </subviews>
-                    <color key="backgroundColor" red="0.90500217679999995" green="0.98600506779999997" blue="0.99981087449999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.90500217679999995" green="0.98600506779999997" blue="0.99981087449999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="Kb4-aT-eNw" firstAttribute="leading" secondItem="sSl-aS-ogw" secondAttribute="leading" constant="20" id="FQU-fg-TZn"/>
                         <constraint firstAttribute="trailing" secondItem="Kb4-aT-eNw" secondAttribute="trailing" constant="20" id="NBs-59-mhV"/>
@@ -57,7 +61,7 @@
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="sSl-aS-ogw" firstAttribute="top" secondItem="ke3-lC-zVn" secondAttribute="bottom" id="0BV-rY-fCL"/>
                 <constraint firstAttribute="trailing" secondItem="ke3-lC-zVn" secondAttribute="trailing" id="0HM-my-s7s"/>
@@ -73,6 +77,6 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
     </simulatedMetricsContainer>
 </document>

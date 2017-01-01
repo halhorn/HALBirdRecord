@@ -57,6 +57,7 @@
 
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
     self.activityManager = [HALActivityManager sharedManager];
 
     self.contentView.backgroundColor = kHALActivityListStatisticsBackgroundColor;
@@ -67,7 +68,7 @@
 - (void)setupBirdKindCount
 {
     HALBirdKindLoader *birdKindLoader = [HALBirdKindLoader sharedLoader];
-    int allBirdKindCount = birdKindLoader.birdKindList.count;
+    int allBirdKindCount = (int)birdKindLoader.birdKindList.count;
     
     MSSimpleGauge *gauge = [[MSSimpleGauge alloc] initWithFrame:CGRectMake(0, 0, 100, 75)];
     gauge.backgroundColor = kHALActivityListStatisticsBackgroundColor;

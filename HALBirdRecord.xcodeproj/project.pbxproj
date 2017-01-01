@@ -843,11 +843,7 @@
 		29B9A88E18955D7A00B0AD14 /* purchase_donation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B9A88118955D7A00B0AD14 /* purchase_donation@2x.png */; };
 		29B9A88F18955D7A00B0AD14 /* purchase_pro.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B9A88218955D7A00B0AD14 /* purchase_pro.png */; };
 		29B9A89018955D7A00B0AD14 /* purchase_pro@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B9A88318955D7A00B0AD14 /* purchase_pro@2x.png */; };
-		29B9A8931895E1DF00B0AD14 /* HALAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B9A8921895E1DF00B0AD14 /* HALAccount.m */; };
-		29B9A8961899D24F00B0AD14 /* HALStudentAuthenticator.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B9A8951899D24F00B0AD14 /* HALStudentAuthenticator.m */; };
 		29B9A899189B268E00B0AD14 /* NSString+HALIsNullOrEmpty.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B9A898189B268E00B0AD14 /* NSString+HALIsNullOrEmpty.m */; };
-		29B9A89D189C728E00B0AD14 /* HALStudentAuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B9A89B189C728E00B0AD14 /* HALStudentAuthenticationViewController.m */; };
-		29B9A89E189C728E00B0AD14 /* HALStudentAuthenticationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29B9A89C189C728E00B0AD14 /* HALStudentAuthenticationViewController.xib */; };
 		29B9A8A1189DCBC800B0AD14 /* NSDate+HALDateComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B9A8A0189DCBC800B0AD14 /* NSDate+HALDateComponents.m */; };
 		29B9A8A8189DEE2300B0AD14 /* icon_student.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B9A8A2189DEE2300B0AD14 /* icon_student.png */; };
 		29B9A8A9189DEE2300B0AD14 /* icon_student@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29B9A8A3189DEE2300B0AD14 /* icon_student@2x.png */; };
@@ -860,21 +856,14 @@
 		29D0C6C71893F15D0040EB1A /* HALNewActivityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6C61893F15D0040EB1A /* HALNewActivityCell.xib */; };
 		29D0C6CA189495EC0040EB1A /* 30_vector_icons_df_0004_Shape-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6C8189495EC0040EB1A /* 30_vector_icons_df_0004_Shape-29.png */; };
 		29D0C6CB189495EC0040EB1A /* 30_vector_icons_df_0004_Shape-29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6C9189495EC0040EB1A /* 30_vector_icons_df_0004_Shape-29@2x.png */; };
-		29D0C6D41894A2430040EB1A /* HALPurchaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D0C6D21894A2430040EB1A /* HALPurchaseViewController.m */; };
-		29D0C6D51894A2430040EB1A /* HALPurchaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6D31894A2430040EB1A /* HALPurchaseViewController.xib */; };
-		29D0C6E2189505270040EB1A /* HALPurchaseViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29D0C6E1189505270040EB1A /* HALPurchaseViewCell.m */; };
-		29D0C6E4189505500040EB1A /* HALPurchaseViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6E3189505500040EB1A /* HALPurchaseViewCell.xib */; };
 		29D0C6EB1895273A0040EB1A /* icon_pro.png in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6E71895273A0040EB1A /* icon_pro.png */; };
 		29D0C6EC1895273A0040EB1A /* icon_pro@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6E81895273A0040EB1A /* icon_pro@2x.png */; };
 		29D0C6F3189538290040EB1A /* icon_donation.png in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6F1189538290040EB1A /* icon_donation.png */; };
 		29D0C6F4189538290040EB1A /* icon_donation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6F2189538290040EB1A /* icon_donation@2x.png */; };
 		29DA86191AF8DC1B00B421F1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29DA86181AF8DC1B00B421F1 /* StoreKit.framework */; };
 		29DB75BF188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 29DB75BE188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.m */; };
-		29DB75C2188DF5940009B82B /* HALProductManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 29DB75C1188DF5940009B82B /* HALProductManager.m */; };
-		29DB75C51890132E0009B82B /* HALProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 29DB75C41890132E0009B82B /* HALProduct.m */; };
 		29FA598A1866A69800928318 /* HALFamilyBirdKindList.m in Sources */ = {isa = PBXBuildFile; fileRef = 29FA59891866A69800928318 /* HALFamilyBirdKindList.m */; };
-		8CB74CD249324A338FFEA57C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A83F48CF6BC54B5CA5918A6C /* libPods.a */; };
-		A816F01858504F41A6567D35 /* libPods-HALBirdRecordTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C62F65DBDAAF458D961E9430 /* libPods-HALBirdRecordTests.a */; };
+		BF4CD7386D4D6203292F8BAC /* libPods-HALBirdRecord.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B7DA7D36AACD350A49969702 /* libPods-HALBirdRecord.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -888,6 +877,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2166B3059789E753634E6317 /* Pods-HALBirdRecord.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HALBirdRecord.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HALBirdRecord/Pods-HALBirdRecord.debug.xcconfig"; sourceTree = "<group>"; };
 		2925949B1870689900FA2EED /* HALWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALWebViewController.h; sourceTree = "<group>"; };
 		2925949C1870689900FA2EED /* HALWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALWebViewController.m; sourceTree = "<group>"; };
 		292594A01871546200FA2EED /* HALWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALWebViewController.xib; sourceTree = "<group>"; };
@@ -1770,15 +1760,8 @@
 		29B9A88118955D7A00B0AD14 /* purchase_donation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "purchase_donation@2x.png"; sourceTree = "<group>"; };
 		29B9A88218955D7A00B0AD14 /* purchase_pro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = purchase_pro.png; sourceTree = "<group>"; };
 		29B9A88318955D7A00B0AD14 /* purchase_pro@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "purchase_pro@2x.png"; sourceTree = "<group>"; };
-		29B9A8911895E1DF00B0AD14 /* HALAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALAccount.h; sourceTree = "<group>"; };
-		29B9A8921895E1DF00B0AD14 /* HALAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALAccount.m; sourceTree = "<group>"; };
-		29B9A8941899D24F00B0AD14 /* HALStudentAuthenticator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALStudentAuthenticator.h; sourceTree = "<group>"; };
-		29B9A8951899D24F00B0AD14 /* HALStudentAuthenticator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALStudentAuthenticator.m; sourceTree = "<group>"; };
 		29B9A897189B268D00B0AD14 /* NSString+HALIsNullOrEmpty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HALIsNullOrEmpty.h"; sourceTree = "<group>"; };
 		29B9A898189B268E00B0AD14 /* NSString+HALIsNullOrEmpty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HALIsNullOrEmpty.m"; sourceTree = "<group>"; };
-		29B9A89A189C728E00B0AD14 /* HALStudentAuthenticationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALStudentAuthenticationViewController.h; sourceTree = "<group>"; };
-		29B9A89B189C728E00B0AD14 /* HALStudentAuthenticationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALStudentAuthenticationViewController.m; sourceTree = "<group>"; };
-		29B9A89C189C728E00B0AD14 /* HALStudentAuthenticationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALStudentAuthenticationViewController.xib; sourceTree = "<group>"; };
 		29B9A89F189DCBC800B0AD14 /* NSDate+HALDateComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+HALDateComponents.h"; sourceTree = "<group>"; };
 		29B9A8A0189DCBC800B0AD14 /* NSDate+HALDateComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+HALDateComponents.m"; sourceTree = "<group>"; };
 		29B9A8A2189DEE2300B0AD14 /* icon_student.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_student.png; sourceTree = "<group>"; };
@@ -1794,12 +1777,6 @@
 		29D0C6C61893F15D0040EB1A /* HALNewActivityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALNewActivityCell.xib; sourceTree = "<group>"; };
 		29D0C6C8189495EC0040EB1A /* 30_vector_icons_df_0004_Shape-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "30_vector_icons_df_0004_Shape-29.png"; sourceTree = "<group>"; };
 		29D0C6C9189495EC0040EB1A /* 30_vector_icons_df_0004_Shape-29@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "30_vector_icons_df_0004_Shape-29@2x.png"; sourceTree = "<group>"; };
-		29D0C6D11894A2430040EB1A /* HALPurchaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALPurchaseViewController.h; sourceTree = "<group>"; };
-		29D0C6D21894A2430040EB1A /* HALPurchaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALPurchaseViewController.m; sourceTree = "<group>"; };
-		29D0C6D31894A2430040EB1A /* HALPurchaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALPurchaseViewController.xib; sourceTree = "<group>"; };
-		29D0C6E0189505270040EB1A /* HALPurchaseViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALPurchaseViewCell.h; sourceTree = "<group>"; };
-		29D0C6E1189505270040EB1A /* HALPurchaseViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALPurchaseViewCell.m; sourceTree = "<group>"; };
-		29D0C6E3189505500040EB1A /* HALPurchaseViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HALPurchaseViewCell.xib; sourceTree = "<group>"; };
 		29D0C6E71895273A0040EB1A /* icon_pro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_pro.png; sourceTree = "<group>"; };
 		29D0C6E81895273A0040EB1A /* icon_pro@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_pro@2x.png"; sourceTree = "<group>"; };
 		29D0C6F1189538290040EB1A /* icon_donation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_donation.png; sourceTree = "<group>"; };
@@ -1807,17 +1784,11 @@
 		29DA86181AF8DC1B00B421F1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		29DB75BD188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLGeocoder+HALCoordinateGeocoder.h"; sourceTree = "<group>"; };
 		29DB75BE188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLGeocoder+HALCoordinateGeocoder.m"; sourceTree = "<group>"; };
-		29DB75C0188DF5940009B82B /* HALProductManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = HALProductManager.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		29DB75C1188DF5940009B82B /* HALProductManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = HALProductManager.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		29DB75C31890132E0009B82B /* HALProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = HALProduct.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		29DB75C41890132E0009B82B /* HALProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = HALProduct.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		29DB75C8189360190009B82B /* HALSecretSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALSecretSettings.h; sourceTree = "<group>"; };
 		29FA59881866A69800928318 /* HALFamilyBirdKindList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALFamilyBirdKindList.h; sourceTree = "<group>"; };
 		29FA59891866A69800928318 /* HALFamilyBirdKindList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HALFamilyBirdKindList.m; sourceTree = "<group>"; };
-		2E26AEA3F8A241B2901F84F9 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		453973F184E84C35930BA507 /* Pods-HALBirdRecordTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HALBirdRecordTests.xcconfig"; path = "Pods/Pods-HALBirdRecordTests.xcconfig"; sourceTree = "<group>"; };
-		A83F48CF6BC54B5CA5918A6C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		C62F65DBDAAF458D961E9430 /* libPods-HALBirdRecordTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HALBirdRecordTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7DA7D36AACD350A49969702 /* libPods-HALBirdRecord.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HALBirdRecord.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4DC9B9F30F4A0F9D16EFCB6 /* Pods-HALBirdRecord.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HALBirdRecord.release.xcconfig"; path = "Pods/Target Support Files/Pods-HALBirdRecord/Pods-HALBirdRecord.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1834,7 +1805,7 @@
 				295E90611853FE3E000BA5FE /* UIKit.framework in Frameworks */,
 				29DA86191AF8DC1B00B421F1 /* StoreKit.framework in Frameworks */,
 				295E905D1853FE3D000BA5FE /* Foundation.framework in Frameworks */,
-				8CB74CD249324A338FFEA57C /* libPods.a in Frameworks */,
+				BF4CD7386D4D6203292F8BAC /* libPods-HALBirdRecord.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1845,7 +1816,6 @@
 				295E907C1853FE3E000BA5FE /* XCTest.framework in Frameworks */,
 				295E907E1853FE3E000BA5FE /* UIKit.framework in Frameworks */,
 				295E907D1853FE3E000BA5FE /* Foundation.framework in Frameworks */,
-				A816F01858504F41A6567D35 /* libPods-HALBirdRecordTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1955,8 +1925,7 @@
 				295E90811853FE3E000BA5FE /* HALBirdRecordTests */,
 				295E905B1853FE3D000BA5FE /* Frameworks */,
 				295E905A1853FE3D000BA5FE /* Products */,
-				2E26AEA3F8A241B2901F84F9 /* Pods.xcconfig */,
-				453973F184E84C35930BA507 /* Pods-HALBirdRecordTests.xcconfig */,
+				D7BFB36E0491BDBB4C8DD736 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1982,8 +1951,7 @@
 				295E905E1853FE3D000BA5FE /* CoreGraphics.framework */,
 				295E90601853FE3E000BA5FE /* UIKit.framework */,
 				295E907B1853FE3E000BA5FE /* XCTest.framework */,
-				A83F48CF6BC54B5CA5918A6C /* libPods.a */,
-				C62F65DBDAAF458D961E9430 /* libPods-HALBirdRecordTests.a */,
+				B7DA7D36AACD350A49969702 /* libPods-HALBirdRecord.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2045,7 +2013,6 @@
 				295E909218540836000BA5FE /* BirdSelector */,
 				2925949A1870686C00FA2EED /* Common */,
 				2925A06C1878E3C000FA2EED /* Info */,
-				29D0C6BF1893EF500040EB1A /* Purchase */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -2120,14 +2087,10 @@
 				29501EE9185BF76F004AF7F9 /* HALLocationManager.m */,
 				292594B01872B86200FA2EED /* HALMapManager.h */,
 				292594B11872B86200FA2EED /* HALMapManager.m */,
-				29DB75C0188DF5940009B82B /* HALProductManager.h */,
-				29DB75C1188DF5940009B82B /* HALProductManager.m */,
 				29B64FBC18B05C28006D4E12 /* HALStatistics.h */,
 				29B64FBD18B05C28006D4E12 /* HALStatistics.m */,
 				2941186C19190B55002E3C4E /* HALStatisticsTableViewRenderer.h */,
 				2941186D19190B55002E3C4E /* HALStatisticsTableViewRenderer.m */,
-				29B9A8941899D24F00B0AD14 /* HALStudentAuthenticator.h */,
-				29B9A8951899D24F00B0AD14 /* HALStudentAuthenticator.m */,
 				2925A05E18770D1E00FA2EED /* HALThread.h */,
 				2925A05F18770D1E00FA2EED /* HALThread.m */,
 			);
@@ -2147,10 +2110,6 @@
 				29501EEC185C7711004AF7F9 /* HALBirdPointAnnotation.m */,
 				2925A650187A30AC00FA2EED /* HALHelp.h */,
 				2925A651187A30AC00FA2EED /* HALHelp.m */,
-				29DB75C31890132E0009B82B /* HALProduct.h */,
-				29DB75C41890132E0009B82B /* HALProduct.m */,
-				29B9A8911895E1DF00B0AD14 /* HALAccount.h */,
-				29B9A8921895E1DF00B0AD14 /* HALAccount.m */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -2185,22 +2144,6 @@
 				294118821922EB0E002E3C4E /* HALBirdKindStatisticsViewController.xib */,
 			);
 			path = Statistics;
-			sourceTree = "<group>";
-		};
-		29D0C6BF1893EF500040EB1A /* Purchase */ = {
-			isa = PBXGroup;
-			children = (
-				29D0C6D11894A2430040EB1A /* HALPurchaseViewController.h */,
-				29D0C6D21894A2430040EB1A /* HALPurchaseViewController.m */,
-				29D0C6D31894A2430040EB1A /* HALPurchaseViewController.xib */,
-				29D0C6E0189505270040EB1A /* HALPurchaseViewCell.h */,
-				29D0C6E1189505270040EB1A /* HALPurchaseViewCell.m */,
-				29D0C6E3189505500040EB1A /* HALPurchaseViewCell.xib */,
-				29B9A89A189C728E00B0AD14 /* HALStudentAuthenticationViewController.h */,
-				29B9A89B189C728E00B0AD14 /* HALStudentAuthenticationViewController.m */,
-				29B9A89C189C728E00B0AD14 /* HALStudentAuthenticationViewController.xib */,
-			);
-			path = Purchase;
 			sourceTree = "<group>";
 		};
 		29FA598718668CA900928318 /* BirdKindList */ = {
@@ -2964,6 +2907,15 @@
 			path = BirdPhoto;
 			sourceTree = "<group>";
 		};
+		D7BFB36E0491BDBB4C8DD736 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2166B3059789E753634E6317 /* Pods-HALBirdRecord.debug.xcconfig */,
+				F4DC9B9F30F4A0F9D16EFCB6 /* Pods-HALBirdRecord.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2971,11 +2923,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 295E908B1853FE3E000BA5FE /* Build configuration list for PBXNativeTarget "HALBirdRecord" */;
 			buildPhases = (
-				B3F38DC59B9B48EF9EF358A5 /* Check Pods Manifest.lock */,
+				8EE7888D7C2717085A233A36 /* [CP] Check Pods Manifest.lock */,
 				295E90551853FE3D000BA5FE /* Sources */,
 				295E90561853FE3D000BA5FE /* Frameworks */,
 				295E90571853FE3D000BA5FE /* Resources */,
-				A7D2BDBBC8954FC5A24E97DF /* Copy Pods Resources */,
+				DBA549FF1808B28369E6E94A /* [CP] Embed Pods Frameworks */,
+				723702DA93E6D4A30E508344 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2990,11 +2943,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 295E908E1853FE3E000BA5FE /* Build configuration list for PBXNativeTarget "HALBirdRecordTests" */;
 			buildPhases = (
-				1A44A5E89E5E4BD6B64FE8E6 /* Check Pods Manifest.lock */,
 				295E90761853FE3E000BA5FE /* Sources */,
 				295E90771853FE3E000BA5FE /* Frameworks */,
 				295E90781853FE3E000BA5FE /* Resources */,
-				91AF4ED923154C24A28C86AD /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -3129,7 +3080,6 @@
 				2925A4C11879282E00FA2EED /* 381.png in Resources */,
 				2925A56A1879282E00FA2EED /* 565.png in Resources */,
 				2925A3A11879282E00FA2EED /* 064.png in Resources */,
-				29B9A89E189C728E00B0AD14 /* HALStudentAuthenticationViewController.xib in Resources */,
 				2925A36F1879282E00FA2EED /* 013.png in Resources */,
 				2925A3EA1879282E00FA2EED /* 146.png in Resources */,
 				2925A3661879282E00FA2EED /* 004.png in Resources */,
@@ -3289,7 +3239,6 @@
 				2925A41A1879282E00FA2EED /* 197.png in Resources */,
 				2925A5991879282E00FA2EED /* 631.png in Resources */,
 				2925A3E11879282E00FA2EED /* 136.png in Resources */,
-				29D0C6E4189505500040EB1A /* HALPurchaseViewCell.xib in Resources */,
 				2925A3921879282E00FA2EED /* 049.png in Resources */,
 				2925A3811879282E00FA2EED /* 032.png in Resources */,
 				2925A5141879282E00FA2EED /* 470.png in Resources */,
@@ -3680,7 +3629,6 @@
 				29B9A88618955D7A00B0AD14 /* purchase_activity15.png in Resources */,
 				2925A43A1879282E00FA2EED /* 237.png in Resources */,
 				2925A4E21879282E00FA2EED /* 417.png in Resources */,
-				29D0C6D51894A2430040EB1A /* HALPurchaseViewController.xib in Resources */,
 				2925A6371879282E00FA2EED /* 810.png in Resources */,
 				2925A44C1879282E00FA2EED /* 255.png in Resources */,
 				2925A5EA1879282E00FA2EED /* 730.png in Resources */,
@@ -3862,64 +3810,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1A44A5E89E5E4BD6B64FE8E6 /* Check Pods Manifest.lock */ = {
+		723702DA93E6D4A30E508344 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HALBirdRecord/Pods-HALBirdRecord-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		91AF4ED923154C24A28C86AD /* Copy Pods Resources */ = {
+		8EE7888D7C2717085A233A36 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-HALBirdRecordTests-resources.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		A7D2BDBBC8954FC5A24E97DF /* Copy Pods Resources */ = {
+		DBA549FF1808B28369E6E94A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B3F38DC59B9B48EF9EF358A5 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HALBirdRecord/Pods-HALBirdRecord-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -3935,7 +3868,6 @@
 				29501EEA185BF76F004AF7F9 /* HALLocationManager.m in Sources */,
 				295E906D1853FE3E000BA5FE /* HALAppDelegate.m in Sources */,
 				29501EED185C7711004AF7F9 /* HALBirdPointAnnotation.m in Sources */,
-				29B9A8931895E1DF00B0AD14 /* HALAccount.m in Sources */,
 				2925A06018770D1E00FA2EED /* HALThread.m in Sources */,
 				29501EDF185A8AB5004AF7F9 /* HALActivityViewController.m in Sources */,
 				295E90DB1857ECC6000BA5FE /* UIViewController+HALSetCancelButton.m in Sources */,
@@ -3956,7 +3888,6 @@
 				29DB75BF188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.m in Sources */,
 				292594C01873E58000FA2EED /* HALBirdKindLoader.m in Sources */,
 				295E90D018560789000BA5FE /* HALActivity.m in Sources */,
-				29B9A89D189C728E00B0AD14 /* HALStudentAuthenticationViewController.m in Sources */,
 				29B9A8B0189E00C200B0AD14 /* NSNotificationCenter+HALDataUpdateNotification.m in Sources */,
 				2925A0731878E45400FA2EED /* HALLicenseViewController.m in Sources */,
 				2941187319192BB1002E3C4E /* HALDataExporter.m in Sources */,
@@ -3969,22 +3900,17 @@
 				29B64FBE18B05C28006D4E12 /* HALStatistics.m in Sources */,
 				29501EF1185C8032004AF7F9 /* HALBirdMapViewController.m in Sources */,
 				29B64FB418AF82AF006D4E12 /* HALStatisticsViewController.m in Sources */,
-				29B9A8961899D24F00B0AD14 /* HALStudentAuthenticator.m in Sources */,
 				292594A41871B63300FA2EED /* HALSearchedBirdKindList.m in Sources */,
 				295E90CA18554739000BA5FE /* HALDB.m in Sources */,
 				294118831922EB0E002E3C4E /* HALBirdKindStatisticsViewController.m in Sources */,
 				2925A64E187A2F8D00FA2EED /* HALHelpViewController.m in Sources */,
-				29D0C6E2189505270040EB1A /* HALPurchaseViewCell.m in Sources */,
 				2925A652187A30AC00FA2EED /* HALHelp.m in Sources */,
-				29DB75C2188DF5940009B82B /* HALProductManager.m in Sources */,
 				292594B21872B86200FA2EED /* HALMapManager.m in Sources */,
-				29D0C6D41894A2430040EB1A /* HALPurchaseViewController.m in Sources */,
 				295E90B41854111D000BA5FE /* HALBirdKindListBase.m in Sources */,
 				29501ED01858C8B6004AF7F9 /* HALActivityManager.m in Sources */,
 				2925A06B1878229500FA2EED /* HALGAManager.m in Sources */,
 				29B9A8A1189DCBC800B0AD14 /* NSDate+HALDateComponents.m in Sources */,
 				295E90AF185410C5000BA5FE /* HALFlatBirdKindListTableViewController.m in Sources */,
-				29DB75C51890132E0009B82B /* HALProduct.m in Sources */,
 				295E90CD1855488C000BA5FE /* NSURL+HALLocalFileURL.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -4099,7 +4025,7 @@
 		};
 		295E908C1853FE3E000BA5FE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2E26AEA3F8A241B2901F84F9 /* Pods.xcconfig */;
+			baseConfigurationReference = 2166B3059789E753634E6317 /* Pods-HALBirdRecord.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -4109,6 +4035,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HALBirdRecord/HALBirdRecord-Prefix.pch";
 				INFOPLIST_FILE = "HALBirdRecord/HALBirdRecord-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "arm64 armv7 armv7s";
@@ -4118,7 +4045,7 @@
 		};
 		295E908D1853FE3E000BA5FE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2E26AEA3F8A241B2901F84F9 /* Pods.xcconfig */;
+			baseConfigurationReference = F4DC9B9F30F4A0F9D16EFCB6 /* Pods-HALBirdRecord.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -4128,6 +4055,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HALBirdRecord/HALBirdRecord-Prefix.pch";
 				INFOPLIST_FILE = "HALBirdRecord/HALBirdRecord-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "arm64 armv7 armv7s";
@@ -4137,7 +4065,6 @@
 		};
 		295E908F1853FE3E000BA5FE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 453973F184E84C35930BA507 /* Pods-HALBirdRecordTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HALBirdRecord.app/HALBirdRecord";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4160,7 +4087,6 @@
 		};
 		295E90901853FE3E000BA5FE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 453973F184E84C35930BA507 /* Pods-HALBirdRecordTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HALBirdRecord.app/HALBirdRecord";
 				FRAMEWORK_SEARCH_PATHS = (

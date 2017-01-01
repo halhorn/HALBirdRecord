@@ -29,6 +29,7 @@ static NSDateFormatter *dateFormatter;
 
 - (void)awakeFromNib
 {
+    [super awakeFromNib];
     self.birdImageView.userInteractionEnabled = YES;
     self.birdKindLabel.textColor = kHALTextColor;
     self.datetimeLabel.textColor = kHALSubTextColor;

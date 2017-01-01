@@ -10,13 +10,11 @@
 #import "HALActivityViewController.h"
 #import "HALStatisticsViewController.h"
 #import "HALApplicationInfoViewController.h"
-#import "HALPurchaseViewController.h"
 #import "HALActivityManager.h"
 #import "HALActivityListViewCell.h"
 #import "UIViewController+HALViewControllerFromNib.h"
 #import "HALStatisticsDigestViewCell.h"
 #import "HALNewActivityCell.h"
-#import "HALAccount.h"
 #import "NSNotificationCenter+HALDataUpdateNotification.h"
 
 #define kHALDataOffset 2
@@ -80,17 +78,6 @@
 
 - (void)showNewActivity
 {
-    // アクティビティ数チェック
-    if (![[HALAccount myAccount] isUnlimitedAccount] && self.activityManager.activityCount >= [self.activityManager activityCapacity]) {
-        WeakSelf weakSelf = self;
-        [UIAlertView bk_showAlertViewWithTitle:@"アクティビティが満杯です" message:@"ショップで保存できるアクティビティの数を増やして下さい。" cancelButtonTitle:@"キャンセル" otherButtonTitles:@[@"ショップ"] handler:^(UIAlertView *alertView, NSInteger buttonIndex){
-            if (buttonIndex != alertView.cancelButtonIndex) {
-                [weakSelf goToShop];
-            }
-        }];
-        return;
-    }
-    
     HALActivity *activity = [[HALActivity alloc] init];
     activity.title = @"新規アクティビティ";
     
@@ -125,12 +112,6 @@
                                            [HALGAManager sendAction:@"Channel Survey" label:@"No Answer" value:0];
                                        }
                                    }];
-}
-
-- (void)goToShop
-{
-    [self.navigationController pushViewController:[HALPurchaseViewController viewControllerFromNib]
-                                         animated:YES];
 }
 
 - (void)setupExplainView
@@ -186,15 +167,11 @@
     if (indexPath.row == 1) {
         // 新規アクティビティ
         self.createActivityViewCell = [tableView dequeueReusableCellWithIdentifier:[HALNewActivityCell cellIdentifier]];
-        WeakSelf weakSelf = self;
-        [self.createActivityViewCell loadWithTapPurchaseBlock:^{
-            [weakSelf goToShop];
-        }];
         return self.createActivityViewCell;
     } else {
         HALActivityListViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[HALActivityListViewCell cellIdentifier]];
         
-        HALActivity *activity = [self.activityManager activityWithIndex:indexPath.row - kHALDataOffset];
+        HALActivity *activity = [self.activityManager activityWithIndex:(int)indexPath.row - kHALDataOffset];
         [cell setupUIWithActivity:activity];
         return cell;
     }
@@ -214,7 +191,7 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        HALActivity *activity = [self.activityManager activityWithIndex:indexPath.row - kHALDataOffset];
+        HALActivity *activity = [self.activityManager activityWithIndex:(int)indexPath.row - kHALDataOffset];
         [HALGAManager sendAction:@"Delete Activity" label:activity.title value:activity.birdRecordList.count];
         self.reloadViewFlag = NO;
         [self.activityManager deleteActivity:activity];
@@ -223,7 +200,6 @@
         
         [self setupExplainView];
         [self.statisticsViewCell load];
-        [self.createActivityViewCell load];
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -272,7 +248,7 @@
         [self showNewActivity];
         return;
     }
-    HALActivity *activity = [self.activityManager activityWithIndex:indexPath.row - kHALDataOffset];
+    HALActivity *activity = [self.activityManager activityWithIndex:(int)indexPath.row - kHALDataOffset];
     HALActivityViewController *viewController = [[HALActivityViewController alloc] initWithActivity:activity shouldShowRegister:NO];
     [self.navigationController pushViewController:viewController animated:YES];
 }

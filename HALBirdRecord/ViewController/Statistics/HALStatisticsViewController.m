@@ -62,7 +62,7 @@
 
 - (void)onStatisticsTypeChanged:(UISegmentedControl *)segmentControl
 {
-    int index = segmentControl.selectedSegmentIndex;
+    int index = (int)segmentControl.selectedSegmentIndex;
     HALStatisticsType type;
     switch (index) {
         case 0:

@@ -26,7 +26,7 @@
 
 - (int)numberOfGroups
 {
-    return self.birdKindList.count;
+    return (int)self.birdKindList.count;
 }
 
 - (NSString *)groupNameForGroupIndex:(int)index
