@@ -60,7 +60,7 @@ static NSDateFormatter *dateFormatter;
     self.activity = activity;
     self.titleLabel.text = activity.title;
     self.commentLabel.text = activity.comment;
-    self.birdCountLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)activity.birdRecordList.count];
+    self.birdCountLabel.text = [NSString stringWithFormat:@"%d", [activity birdKindCount]];
     self.dateLabel.text = [self dateLabelText];
 
     HALMapManager *mapManager = [HALMapManager managerWithActivity:activity];

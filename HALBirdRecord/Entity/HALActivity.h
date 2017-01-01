@@ -23,5 +23,6 @@
 - (void)addBirdRecord:(HALBirdRecord *)birdRecord;
 - (void)addBirdRecordList:(NSArray *)birdRecordList;
 - (void)loadBirdRecordListByOrder:(HALBirdRecordOrder)order;
+- (int)birdKindCount;
 
 @end

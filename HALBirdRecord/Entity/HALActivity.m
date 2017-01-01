@@ -72,6 +72,15 @@
     }
 }
 
+- (int)birdKindCount
+{
+    NSMutableSet *set = [NSMutableSet set];
+    for (HALBirdRecord *record in self.birdRecordList) {
+        [set addObject:[NSNumber numberWithInt:record.birdID]];
+    }
+    return (int)[set count];
+}
+
 - (NSString *)description
 {
     return [NSString stringWithFormat:@"Activity: dbID:%d title:%@ comment:%@ birds:%@", self.dbID, self.title, self.comment, self.birdRecordList];
