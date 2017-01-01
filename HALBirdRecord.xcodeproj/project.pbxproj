@@ -860,7 +860,6 @@
 		29D0C6EC1895273A0040EB1A /* icon_pro@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6E81895273A0040EB1A /* icon_pro@2x.png */; };
 		29D0C6F3189538290040EB1A /* icon_donation.png in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6F1189538290040EB1A /* icon_donation.png */; };
 		29D0C6F4189538290040EB1A /* icon_donation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29D0C6F2189538290040EB1A /* icon_donation@2x.png */; };
-		29DA86191AF8DC1B00B421F1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29DA86181AF8DC1B00B421F1 /* StoreKit.framework */; };
 		29DB75BF188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 29DB75BE188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.m */; };
 		29FA598A1866A69800928318 /* HALFamilyBirdKindList.m in Sources */ = {isa = PBXBuildFile; fileRef = 29FA59891866A69800928318 /* HALFamilyBirdKindList.m */; };
 		BF4CD7386D4D6203292F8BAC /* libPods-HALBirdRecord.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B7DA7D36AACD350A49969702 /* libPods-HALBirdRecord.a */; };
@@ -1781,7 +1780,6 @@
 		29D0C6E81895273A0040EB1A /* icon_pro@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_pro@2x.png"; sourceTree = "<group>"; };
 		29D0C6F1189538290040EB1A /* icon_donation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_donation.png; sourceTree = "<group>"; };
 		29D0C6F2189538290040EB1A /* icon_donation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_donation@2x.png"; sourceTree = "<group>"; };
-		29DA86181AF8DC1B00B421F1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		29DB75BD188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLGeocoder+HALCoordinateGeocoder.h"; sourceTree = "<group>"; };
 		29DB75BE188C18C20009B82B /* CLGeocoder+HALCoordinateGeocoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLGeocoder+HALCoordinateGeocoder.m"; sourceTree = "<group>"; };
 		29DB75C8189360190009B82B /* HALSecretSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HALSecretSettings.h; sourceTree = "<group>"; };
@@ -1803,7 +1801,6 @@
 				295E90C3185466F4000BA5FE /* CoreLocation.framework in Frameworks */,
 				295E905F1853FE3D000BA5FE /* CoreGraphics.framework in Frameworks */,
 				295E90611853FE3E000BA5FE /* UIKit.framework in Frameworks */,
-				29DA86191AF8DC1B00B421F1 /* StoreKit.framework in Frameworks */,
 				295E905D1853FE3D000BA5FE /* Foundation.framework in Frameworks */,
 				BF4CD7386D4D6203292F8BAC /* libPods-HALBirdRecord.a in Frameworks */,
 			);
@@ -1941,7 +1938,6 @@
 		295E905B1853FE3D000BA5FE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				29DA86181AF8DC1B00B421F1 /* StoreKit.framework */,
 				29411885192E21F2002E3C4E /* Security.framework */,
 				2941186F19192A21002E3C4E /* MessageUI.framework */,
 				2925A0611877CC4D00FA2EED /* SystemConfiguration.framework */,
@@ -2971,7 +2967,7 @@
 						DevelopmentTeam = SG4SMG75H6;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
