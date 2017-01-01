@@ -1,10 +1,6 @@
 PODS:
   - BlocksKit (2.2.5):
-    - BlocksKit/All
-    - BlocksKit/Core
-    - BlocksKit/DynamicDelegate
-    - BlocksKit/MessageUI
-    - BlocksKit/UIKit
+    - BlocksKit/All (= 2.2.5)
   - BlocksKit/All (2.2.5):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
@@ -18,17 +14,17 @@ PODS:
   - BlocksKit/UIKit (2.2.5):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
-  - Bolts (1.5.0):
-    - Bolts/AppLinks
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
-  - Bolts/AppLinks (1.5.0):
-    - Bolts/Tasks
-  - Bolts/Tasks (1.5.0)
-  - CorePlot (1.5.1)
-  - Facebook-iOS-SDK (3.24.0-beta1):
-    - Bolts (~> 1.0)
+  - Bolts/Tasks (1.8.4)
+  - CorePlot (1.6)
+  - Facebook-iOS-SDK (3.24.4):
+    - Bolts (~> 1.2)
   - FMDB (2.2):
-    - FMDB/standard
+    - FMDB/standard (= 2.2)
   - FMDB/common (2.2)
   - FMDB/standard (2.2):
     - FMDB/common
@@ -42,8 +38,8 @@ PODS:
 
 DEPENDENCIES:
   - BlocksKit (>= 2.2.5)
-  - CorePlot (~> 1.4)
-  - Facebook-iOS-SDK (= 3.24.0-beta1)
+  - CorePlot (~> 1.6)
+  - Facebook-iOS-SDK (= 3.24.4)
   - FMDB
   - GoogleAnalytics-iOS-SDK (~> 3.0)
   - LUKeychainAccess
@@ -54,10 +50,10 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
-  Bolts: 722ab9a4f8b50fc4ed1b9998a5a7a2b3f16d80b4
-  CorePlot: 53d823a4de5e4e662311cae4cdcb230e146c5c90
-  Facebook-iOS-SDK: 3ae128f0a05ed8ba563799a9b4d06b9549ff2e9a
-  FMDB: 0678cab3b024ea6a2e6ea5dd91fc8eb9a296bf57
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  CorePlot: 820901f6c147f2d84549ffa1f0902869f980d74d
+  Facebook-iOS-SDK: 5a7c414a084708220b72d5fd016f2cf3eb6deda4
+  FMDB: f6a547829057704797331105a19985f977c1fb62
   GoogleAnalytics-iOS-SDK: c0e1b70cd54e0061c3edf27ddf91948895de73cd
   LUKeychainAccess: b1a831628aa84ca531a71d9309f2cf8e5d194e56
   MSSimpleGauge: e5f7bf2561f1338055fcd321c5469b0d6c689d14
@@ -65,4 +61,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 46088807596a795cbcb4affd92cf3f13b6ab3dda
   SZTextView: 9c0ae45316c4175c699451d12c6d4a8b682032a8
 
-COCOAPODS: 0.32.1
+PODFILE CHECKSUM: 066b557fbd9b2e0483bdbf13047b6ba6050dfb35
+
+COCOAPODS: 1.1.1

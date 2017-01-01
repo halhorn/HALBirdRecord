@@ -9,7 +9,7 @@
 #import "HALBirdKindStatisticsViewController.h"
 #import "HALStatistics.h"
 #import "HALMapManager.h"
-#import "CorePlot-CocoaTouch.h"
+#import <CorePlot/ios/CorePlot.h>
 #import <MapKit/MapKit.h>
 
 @interface HALBirdKindStatisticsViewController ()<CPTPlotDataSource>
