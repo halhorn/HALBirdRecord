@@ -7,9 +7,7 @@
 //
 
 #import "HALActivityManager.h"
-#import "HALProductManager.h"
 #import "HALDB.h"
-#import "HALProductManager.h"
 #import "HALBirdKindLoader.h"
 #import "NSNotificationCenter+HALDataUpdateNotification.h"
 
@@ -51,19 +49,6 @@
     }
     return self.activityList.count;
 }
-
-- (int)activityCapacity
-{
-    int capacity = kHALDefaultActivityCapacity;
-    HALProductManager *productManager = [HALProductManager sharedManager];
-    for (HALProduct *product in [productManager productList]) {
-        if (product.productType == HALProductTypeExpandActivity) {
-            capacity += product.value;
-        }
-    }
-    return capacity;
-}
-
 
 - (HALActivity *)activityWithIndex:(int)index
 {

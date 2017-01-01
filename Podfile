@@ -8,7 +8,5 @@ target 'HALBirdRecord' do
   pod 'SZTextView', '~> 1.1.0'
   pod 'MSSimpleGauge', '~> 0.5'
   pod 'CorePlot', '~> 1.6'
-  pod 'Facebook-iOS-SDK', '3.24.4'
-  pod 'Parse', '1.2.19'
   pod 'LUKeychainAccess'
 end

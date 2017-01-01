@@ -14,15 +14,7 @@ PODS:
   - BlocksKit/UIKit (2.2.5):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
-  - Bolts (1.8.4):
-    - Bolts/AppLinks (= 1.8.4)
-    - Bolts/Tasks (= 1.8.4)
-  - Bolts/AppLinks (1.8.4):
-    - Bolts/Tasks
-  - Bolts/Tasks (1.8.4)
   - CorePlot (1.6)
-  - Facebook-iOS-SDK (3.24.4):
-    - Bolts (~> 1.2)
   - FMDB (2.2):
     - FMDB/standard (= 2.2)
   - FMDB/common (2.2)
@@ -31,36 +23,29 @@ PODS:
   - GoogleAnalytics-iOS-SDK (3.0.6)
   - LUKeychainAccess (1.2.0)
   - MSSimpleGauge (0.5)
-  - Parse (1.2.19):
-    - Facebook-iOS-SDK (~> 3.11)
   - SVProgressHUD (1.0)
   - SZTextView (1.1.1)
 
 DEPENDENCIES:
   - BlocksKit (>= 2.2.5)
   - CorePlot (~> 1.6)
-  - Facebook-iOS-SDK (= 3.24.4)
   - FMDB
   - GoogleAnalytics-iOS-SDK (~> 3.0)
   - LUKeychainAccess
   - MSSimpleGauge (~> 0.5)
-  - Parse (= 1.2.19)
   - SVProgressHUD
   - SZTextView (~> 1.1.0)
 
 SPEC CHECKSUMS:
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
-  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   CorePlot: 820901f6c147f2d84549ffa1f0902869f980d74d
-  Facebook-iOS-SDK: 5a7c414a084708220b72d5fd016f2cf3eb6deda4
   FMDB: f6a547829057704797331105a19985f977c1fb62
   GoogleAnalytics-iOS-SDK: c0e1b70cd54e0061c3edf27ddf91948895de73cd
   LUKeychainAccess: b1a831628aa84ca531a71d9309f2cf8e5d194e56
   MSSimpleGauge: e5f7bf2561f1338055fcd321c5469b0d6c689d14
-  Parse: edcb452d76e52009de584a410d77037fdb404651
   SVProgressHUD: 46088807596a795cbcb4affd92cf3f13b6ab3dda
   SZTextView: 9c0ae45316c4175c699451d12c6d4a8b682032a8
 
-PODFILE CHECKSUM: 066b557fbd9b2e0483bdbf13047b6ba6050dfb35
+PODFILE CHECKSUM: cd1cda001a736c4dea8773d7a47fbcd377cf9ce9
 
 COCOAPODS: 1.1.1

@@ -1,8 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -11,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aXK-D5-L6S" id="bxh-Hm-ew0">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="39"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="39.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="＋新しいアクティビティ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AxR-GJ-RyZ">
@@ -22,95 +26,20 @@
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YEi-vn-3uJ">
-                        <rect key="frame" x="215" y="0.0" width="105" height="39"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(10/250)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="t2P-ud-oBR">
-                                <rect key="frame" x="12" y="9" width="64" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="30_vector_icons_df_0004_Shape-29.png" translatesAutoresizingMaskIntoConstraints="NO" id="9Tg-2K-krv">
-                                <rect key="frame" x="79" y="11" width="19" height="17"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="19" id="35Z-M9-qxr"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1sX-Bn-lMV">
-                                <rect key="frame" x="65" y="0.0" width="40" height="39"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onTapPurchase:" destination="aXK-D5-L6S" eventType="touchUpInside" id="1qm-Ri-QKb"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="9Tg-2K-krv" firstAttribute="top" secondItem="YEi-vn-3uJ" secondAttribute="top" constant="11" id="4jX-7K-CQR"/>
-                            <constraint firstAttribute="bottom" secondItem="1sX-Bn-lMV" secondAttribute="bottom" id="876-4G-rly"/>
-                            <constraint firstItem="1sX-Bn-lMV" firstAttribute="top" secondItem="YEi-vn-3uJ" secondAttribute="top" id="Bfp-gt-LLz"/>
-                            <constraint firstAttribute="width" constant="105" id="NaS-DV-cse"/>
-                            <constraint firstAttribute="trailing" secondItem="9Tg-2K-krv" secondAttribute="trailing" constant="7" id="aOC-dO-Ahq"/>
-                            <constraint firstAttribute="trailing" secondItem="1sX-Bn-lMV" secondAttribute="trailing" id="fH7-8w-Gyj"/>
-                            <constraint firstItem="1sX-Bn-lMV" firstAttribute="centerY" secondItem="9Tg-2K-krv" secondAttribute="centerY" id="ibz-tQ-W9q"/>
-                            <constraint firstItem="9Tg-2K-krv" firstAttribute="leading" secondItem="t2P-ud-oBR" secondAttribute="trailing" constant="3" id="mI7-or-fML"/>
-                            <constraint firstItem="1sX-Bn-lMV" firstAttribute="leading" secondItem="YEi-vn-3uJ" secondAttribute="leading" constant="65" id="n6q-Yd-HdR"/>
-                            <constraint firstItem="9Tg-2K-krv" firstAttribute="centerY" secondItem="t2P-ud-oBR" secondAttribute="centerY" id="vGT-FO-amw"/>
-                            <constraint firstItem="t2P-ud-oBR" firstAttribute="leading" secondItem="YEi-vn-3uJ" secondAttribute="leading" constant="12" id="z2m-n5-Iyf"/>
-                        </constraints>
-                    </view>
-                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_pro.png" translatesAutoresizingMaskIntoConstraints="NO" id="QEX-YQ-IJP">
-                        <rect key="frame" x="262" y="7" width="46" height="27"/>
-                    </imageView>
-                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_donation.png" translatesAutoresizingMaskIntoConstraints="NO" id="16H-Xh-oK5">
-                        <rect key="frame" x="256" y="7" width="52" height="27"/>
-                    </imageView>
-                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_student.png" translatesAutoresizingMaskIntoConstraints="NO" id="FpI-ki-QW1">
-                        <rect key="frame" x="262" y="8" width="46" height="23"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="46" id="Ur7-tz-waU"/>
-                        </constraints>
-                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="AxR-GJ-RyZ" firstAttribute="top" secondItem="bxh-Hm-ew0" secondAttribute="top" constant="9" id="06v-74-0yM"/>
-                    <constraint firstItem="YEi-vn-3uJ" firstAttribute="top" secondItem="bxh-Hm-ew0" secondAttribute="top" id="1qm-mV-Xgn"/>
-                    <constraint firstAttribute="bottom" secondItem="YEi-vn-3uJ" secondAttribute="bottom" id="HhA-dT-sKj"/>
-                    <constraint firstItem="YEi-vn-3uJ" firstAttribute="centerY" secondItem="FpI-ki-QW1" secondAttribute="centerY" id="fB6-hB-qQ1"/>
-                    <constraint firstItem="16H-Xh-oK5" firstAttribute="top" secondItem="QEX-YQ-IJP" secondAttribute="top" id="k5O-pU-0wp"/>
-                    <constraint firstItem="FpI-ki-QW1" firstAttribute="leading" secondItem="QEX-YQ-IJP" secondAttribute="leading" id="kKS-so-Jq7"/>
-                    <constraint firstItem="AxR-GJ-RyZ" firstAttribute="centerY" secondItem="FpI-ki-QW1" secondAttribute="centerY" id="mKC-3T-tQa"/>
-                    <constraint firstAttribute="trailing" secondItem="FpI-ki-QW1" secondAttribute="trailing" constant="12" id="oK9-EJ-bqc"/>
                     <constraint firstItem="AxR-GJ-RyZ" firstAttribute="leading" secondItem="bxh-Hm-ew0" secondAttribute="leading" constant="12" id="pZB-ZW-01n"/>
-                    <constraint firstAttribute="trailing" secondItem="YEi-vn-3uJ" secondAttribute="trailing" id="qdw-G1-duw"/>
-                    <constraint firstItem="16H-Xh-oK5" firstAttribute="top" secondItem="bxh-Hm-ew0" secondAttribute="top" constant="7" id="r8r-Rm-ScO"/>
-                    <constraint firstItem="16H-Xh-oK5" firstAttribute="trailing" secondItem="FpI-ki-QW1" secondAttribute="trailing" id="svB-H0-zBr"/>
-                    <constraint firstItem="QEX-YQ-IJP" firstAttribute="trailing" secondItem="16H-Xh-oK5" secondAttribute="trailing" id="xrX-pL-xlj"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="activityCountLabel" destination="t2P-ud-oBR" id="vad-xD-m9g"/>
                 <outlet property="createActivityLabel" destination="AxR-GJ-RyZ" id="ulA-fC-lQA"/>
-                <outlet property="donationMemberIcon" destination="16H-Xh-oK5" id="5IG-d6-yiU"/>
-                <outlet property="proAccountIcon" destination="QEX-YQ-IJP" id="Tfg-xq-1eT"/>
-                <outlet property="purchaseView" destination="YEi-vn-3uJ" id="pNi-GN-LmZ"/>
-                <outlet property="studentAccountIcon" destination="FpI-ki-QW1" id="f5E-ps-F8g"/>
             </connections>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="30_vector_icons_df_0004_Shape-29.png" width="24" height="21"/>
-        <image name="icon_donation.png" width="52" height="27"/>
-        <image name="icon_pro.png" width="46" height="27"/>
-        <image name="icon_student.png" width="46" height="23"/>
-    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedScreenMetrics key="destination" type="retina4_7.fullscreen"/>
     </simulatedMetricsContainer>
 </document>

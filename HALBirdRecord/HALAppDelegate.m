@@ -8,13 +8,10 @@
 
 #import "HALAppDelegate.h"
 #import "HALActivityListViewController.h"
-#import "HALProductManager.h"
 #import "UIViewController+HALViewControllerFromNib.h"
 #import "HALFamilyBirdKindList.h"
 #import "UIDevice+HALOSVersion.h"
 #import "HALSecretSettings.h"
-#import "HALStudentAuthenticator.h"
-#import <Parse/Parse.h>
 
 @implementation HALAppDelegate
 
@@ -23,14 +20,8 @@
     [HALGAManager setup];
     [HALGAManager sendState];
 
-    // Parseの設定
-    [Parse setApplicationId:kHALSecretParseApplicationID clientKey:kHALSecretParseClientKey];
-    
     // 事前に鳥リストを読み込み
     [HALBirdKindLoader sharedLoader];
-    
-    // 購入処理セットアップ
-    [HALProductManager sharedManager];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
@@ -65,18 +56,6 @@
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     [HALGAManager sendState];
-    
-    // 学割アカウント申請中なら、申請が通ったか確認しにいく
-    HALStudentAuthenticator *authenticator = [HALStudentAuthenticator sharedAuthenticator];
-    if ([authenticator isStudentAuthenticationRequesting]) {
-        [authenticator checkIsStudentWithCompletion:^(HALStudentAuthenticationRequestState state){
-            if (state == HALStudentAuthenticationRequestStateAccepted) {
-                [UIAlertView bk_showAlertViewWithTitle:@"学割アカウント" message:@"鳥ログのご使用ありがとうございます。学生認証申請が通りました。" cancelButtonTitle:@"OK" otherButtonTitles:@[] handler:nil];
-            } else if (state == HALStudentAuthenticationRequestStateDenied) {
-                [UIAlertView bk_showAlertViewWithTitle:@"学割アカウント" message:@"鳥ログのご使用ありがとうございます。残念ながら学生認証申請は通りませんでした。学割アカウントを使用できるのは学生のみとなっております。" cancelButtonTitle:@"OK" otherButtonTitles:@[] handler:nil];
-            }
-        }];
-    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
