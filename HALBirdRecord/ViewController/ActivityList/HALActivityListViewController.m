@@ -171,7 +171,7 @@
     } else {
         HALActivityListViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[HALActivityListViewCell cellIdentifier]];
         
-        HALActivity *activity = [self.activityManager activityWithIndex:indexPath.row - kHALDataOffset];
+        HALActivity *activity = [self.activityManager activityWithIndex:(int)indexPath.row - kHALDataOffset];
         [cell setupUIWithActivity:activity];
         return cell;
     }
@@ -191,7 +191,7 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        HALActivity *activity = [self.activityManager activityWithIndex:indexPath.row - kHALDataOffset];
+        HALActivity *activity = [self.activityManager activityWithIndex:(int)indexPath.row - kHALDataOffset];
         [HALGAManager sendAction:@"Delete Activity" label:activity.title value:activity.birdRecordList.count];
         self.reloadViewFlag = NO;
         [self.activityManager deleteActivity:activity];
@@ -248,7 +248,7 @@
         [self showNewActivity];
         return;
     }
-    HALActivity *activity = [self.activityManager activityWithIndex:indexPath.row - kHALDataOffset];
+    HALActivity *activity = [self.activityManager activityWithIndex:(int)indexPath.row - kHALDataOffset];
     HALActivityViewController *viewController = [[HALActivityViewController alloc] initWithActivity:activity shouldShowRegister:NO];
     [self.navigationController pushViewController:viewController animated:YES];
 }

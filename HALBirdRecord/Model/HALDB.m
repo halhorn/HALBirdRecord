@@ -41,7 +41,7 @@
         NSString *dbPath = [[NSURL urlWithLocalFileName:kHALDBFile] path];
         self.fmDB = [FMDatabase databaseWithPath:dbPath];
         
-        int ver = [[NSUserDefaults standardUserDefaults] integerForKey:kHALDBVersionKey];
+        int ver = (int)[[NSUserDefaults standardUserDefaults] integerForKey:kHALDBVersionKey];
         if (ver == 0) {
             [self createTableIfNotExists];
         }else if (ver < kHALDBVersion) {
@@ -307,7 +307,7 @@
 - (void)updateDB
 {
     NSUserDefaults *settings = [NSUserDefaults standardUserDefaults];
-    int ver = [settings integerForKey:kHALDBVersionKey];
+    int ver = (int)[settings integerForKey:kHALDBVersionKey];
     [HALGAManager sendAction:@"Update DB From" label:[NSString stringWithFormat:@"%d", ver] value:0];
     [self.fmDB open];
     while (ver < kHALDBVersion) {

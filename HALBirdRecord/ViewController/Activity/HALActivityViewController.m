@@ -189,7 +189,7 @@
 
 - (void)onSortModeChanged:(UISegmentedControl *)segmentControl
 {
-    int index = segmentControl.selectedSegmentIndex;
+    int index = (int)segmentControl.selectedSegmentIndex;
     HALBirdRecordOrder order;
     switch (index) {
         case 0:

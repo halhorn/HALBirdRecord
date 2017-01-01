@@ -151,9 +151,9 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     if ([self.searchedBirdKindList isSearchWordSet]) {
-        return [self.searchedBirdKindList sectionNameAtIndex:section];
+        return [self.searchedBirdKindList sectionNameAtIndex:(int)section];
     } else {
-        return [self.birdKindList groupNameForGroupIndex:section];
+        return [self.birdKindList groupNameForGroupIndex:(int)section];
     }
 }
 

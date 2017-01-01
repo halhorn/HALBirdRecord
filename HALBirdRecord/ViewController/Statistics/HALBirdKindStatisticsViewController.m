@@ -129,7 +129,7 @@
     plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromInt(1) length:CPTDecimalFromInt(12)];
 
     // テキストスタイル
-    CPTMutableTextStyle *textStyle = [CPTTextStyle textStyle];
+    CPTMutableTextStyle *textStyle = [CPTMutableTextStyle textStyle];
     textStyle.color                = [CPTColor colorWithComponentRed:0.447f green:0.443f blue:0.443f alpha:1.0f];
     textStyle.fontSize             = 12.0f;
     textStyle.textAlignment        = CPTTextAlignmentCenter;
